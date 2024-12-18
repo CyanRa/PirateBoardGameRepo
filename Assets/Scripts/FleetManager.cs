@@ -41,14 +41,12 @@ public class FleetManager : CommunicationBridge
 
     //Selecting ships
         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
-            Debug.Log(Multiplayer.Me.Name + " IS CLICKING WHEN " + MenuController.GetComponent<MenuBehaviour>().turnOwner + " IS THE TURN OWNER");
 		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
-                    if(true){
                     SelectByClicking(hit.transform.gameObject);                                                
-                    }                                             
+                                                                 
             }else{
              DeselectAll();
             }  
@@ -71,7 +69,7 @@ public class FleetManager : CommunicationBridge
     //Movement enabling also reuglates highlighting and dehighlighting neighbouring terrains
     public void EnableUnitMovement(GameObject unit, bool shouldMove){   
         if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == true){
-            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours();
+            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours(unit.GetComponent<Ship>());
         }
 
         if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == false){
