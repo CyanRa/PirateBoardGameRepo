@@ -33,8 +33,8 @@ public class MapPieceBehaviour : AttributesSync
     private void OnMouseEnter(){
         tempMaterial = GetComponent<MeshRenderer>().material;        
         GetComponent<MeshRenderer>().material = highLightedMaterial;
-       // transform.position += new UnityEngine.Vector3(0,10, 0);
-       // transform.localScale = new UnityEngine.Vector3(1.1f, 1.0f, 1.1f);
+        // transform.position += new UnityEngine.Vector3(0,10, 0);
+        // transform.localScale = new UnityEngine.Vector3(1.1f, 1.0f, 1.1f);
     }
 
     private void OnMouseExit(){
