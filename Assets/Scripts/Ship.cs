@@ -118,10 +118,12 @@ public class Ship : MonoBehaviour
     }
 
     //SELECTING SHIPS FROM FLEET PANEL ICONS
-    public void SelectShipFromItsIcon(GameObject shipToSelect){              
-        myCamera.targetFollow = shipToSelect.transform;        
-        myFleet.SelectByClicking(shipToSelect);
-        shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();       
+    public void SelectShipFromItsIcon(GameObject shipToSelect){
+        if(myFleet.Multiplayer.Me.Name == myFleet.MenuController.GetComponent<MenuBehaviour>().turnOwner){
+            myCamera.targetFollow = shipToSelect.transform;        
+            myFleet.SelectByClicking(shipToSelect);
+            shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();  
+        }                   
     }
 
     public void PlaySelectShipAudioClip(){

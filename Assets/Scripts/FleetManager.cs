@@ -37,11 +37,11 @@ public class FleetManager : CommunicationBridge
     void Update()
     {
     //Checks is the controlling avatar matches the 
-       if(!avatar.IsMe && isMyTurn){return;}
+       if(!avatar.IsMe){return;}
 
     //Selecting ships
         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
-
+            Debug.Log(Multiplayer.Me.Name + " IS CLICKING WHEN " + MenuController.GetComponent<MenuBehaviour>().turnOwner + " IS THE TURN OWNER");
 		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		    RaycastHit hit;
 
@@ -125,8 +125,12 @@ public class FleetManager : CommunicationBridge
 #region GAME_TURNS
     public void EndTurn(){
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
-              MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn();    
+              MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
+              isMyTurn = false;   
         }     
+    }
+    public void StartTurn(){
+        isMyTurn = true;
     }
 
     public void StartGame(){
