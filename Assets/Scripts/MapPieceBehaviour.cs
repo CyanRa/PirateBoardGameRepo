@@ -5,8 +5,9 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Alteruna;
 
-public class MapPieceBehaviour : MonoBehaviour
+public class MapPieceBehaviour : AttributesSync
 {   
     public Ship occupyingShip;
     public Material myMaterial;
