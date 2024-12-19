@@ -65,10 +65,11 @@ public class MapPieceBehaviour : AttributesSync
             if(map.occupyingShip == ""){
                 map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
             }else{
-                if(occupyingFleet != unit.myFleet.name){  
+                Debug.Log(occupyingFleet + "      " + unit.myFleet.name);
+                if(map.occupyingFleet != unit.myFleet.name){  
                     map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
                 }
-                if(occupyingFleet == unit.myFleet.name){
+                if(map.occupyingFleet == unit.myFleet.name){
                     map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
                 }
             }      
@@ -89,7 +90,6 @@ public class MapPieceBehaviour : AttributesSync
         
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
         BroadcastRemoteMethod("SetOccupyingFleet", enteringShip.myFleet.name);
-        Debug.Log(enteringShip.myFleet.name);
     }
     [SynchronizableMethod]
     public void OccupyMapPiece(String enteringShip){ 

@@ -33,7 +33,7 @@ public class Ship : MonoBehaviour
  
     void Update(){
     //Quit the update if using avatar is not the avatar of the fleet
-        if(!fleetsAvatar.IsMe){
+        if(fleetsAvatar == null || !fleetsAvatar.IsMe ){
             return;
         }
     //Allows for a ship to move to any map piece before having one
