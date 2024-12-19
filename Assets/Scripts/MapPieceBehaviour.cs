@@ -6,10 +6,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using Alteruna;
+using System;
 
 public class MapPieceBehaviour : AttributesSync
 {   
-    public Ship occupyingShip;
+    [SynchronizableField]public String occupyingShip = "";
+    [SynchronizableField]public String occupyingFleet = "";
     public Material myMaterial;
     public Material highLightedMaterial;
     [Range (0f,1f)]
@@ -20,11 +22,13 @@ public class MapPieceBehaviour : AttributesSync
     private Transform transform;
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
+    public Material hostileNeighbouringTerrainMaterial;
     public bool areNeighboursHighlited = false;
 
     private System.Numerics.Vector3 verticalVector = new System.Numerics.Vector3(0f, 30f, 0f);
     void Start()
     {
+        occupyingShip = "";
         renderer = GetComponent<Renderer>();
         transform = GetComponent<Transform>();
        // myMaterial.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha);
@@ -47,10 +51,16 @@ public class MapPieceBehaviour : AttributesSync
     //  transform.localScale = new UnityEngine.Vector3(0.9f, 1.0f, 0.9f);
     }
 
-    public void HighlightNeighbours(){
+    public void HighlightNeighbours(Ship unit){
         foreach(MapPieceBehaviour map in neighboringTerrain){
             map.areNeighboursHighlited = true;
-            map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+            if(map.occupyingShip == ""){
+                map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+            }else{
+                if(occupyingFleet != unit.myFleet.name){
+                map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                }
+            }       
         }
     }
 
@@ -60,5 +70,19 @@ public class MapPieceBehaviour : AttributesSync
             map.GetComponent<MeshRenderer>().material = myMaterial;
             map.areNeighboursHighlited = false;
         }       
+    }
+
+    public void BroadcastOccupyingMapPiece(Ship enteringShip){
+        
+        BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
+        BroadcastRemoteMethod("OccupyMapPiece", enteringShip.myFleet.name);
+    }
+    [SynchronizableMethod]
+    public void OccupyMapPiece(String enteringShip){ 
+        occupyingShip = enteringShip;
+    }
+    [SynchronizableMethod]
+    public void SetOccupyingFleet(String enteringFleet){
+        occupyingFleet = enteringFleet;
     }
 }

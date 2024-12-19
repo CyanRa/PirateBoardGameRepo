@@ -35,7 +35,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
     public void SpawnShip(){       
        if(myAvatar.GetComponent<FleetManager>().myShips.Count < 5){
             GameObject spawnedShip = mySpawner.Spawn(0, spawnPoint.position);
-            spawnedShip.name = "Ship" + spawnIndex;
+            spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;
             spawnedShip.transform.SetParent(myAvatar.transform);
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
             spawnIndex++;
@@ -43,7 +43,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
     }
     public void SpawnFlagShip(){
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
-       spawnedShip.name = "FlagShip" + spawnIndex;
+       spawnedShip.name = "FlagShip" + myAvatar.name;
        spawnedShip.transform.SetParent(myAvatar.transform);
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
        spawnIndex++;       

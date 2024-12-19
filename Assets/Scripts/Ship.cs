@@ -46,9 +46,9 @@ public class Ship : MonoBehaviour
 		        if( Physics.Raycast( ray, out hit, 1000, MovementLayer ) ){		            
                     mapPieceAnchor = hit.transform.GetChild(0).transform;
                     occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
-                    occupyingMapPiece.occupyingShip = GetComponent<Ship>();
+                    //OccupyMapPiece(true);
+                    occupyingMapPiece.BroadcastOccupyingMapPiece(GetComponent<Ship>());
                     isMoving = true;
-                    Debug.Log( hit.transform.name );
                 }    
             }     
         }else{
@@ -64,10 +64,10 @@ public class Ship : MonoBehaviour
                         OccupyMapPiece(false);
                         mapPieceAnchor = hit.transform.GetChild(0).transform;
                         occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
-                        OccupyMapPiece(true);
+                        occupyingMapPiece.BroadcastOccupyingMapPiece(GetComponent<Ship>());
+                        Debug.Log(GetComponent<Ship>().name + " IS MOVING TO OCCUPY");
                         isMoving = true;
                         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
-                        Debug.Log( hit.transform.name );
                     }                    
                 }  
         }else{
@@ -111,17 +111,19 @@ public class Ship : MonoBehaviour
     //OCCUPY DE-OCCUPY MAP PIECES
     public void OccupyMapPiece(bool a){
         if(a){
-            occupyingMapPiece.occupyingShip = GetComponent<Ship>();
+            occupyingMapPiece.occupyingShip = transform.name;
         }else{
-            occupyingMapPiece.occupyingShip = null;
+            occupyingMapPiece.occupyingShip = "";
         }
     }
 
     //SELECTING SHIPS FROM FLEET PANEL ICONS
-    public void SelectShipFromItsIcon(GameObject shipToSelect){              
-        myCamera.targetFollow = shipToSelect.transform;        
-        myFleet.SelectByClicking(shipToSelect);
-        shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();       
+    public void SelectShipFromItsIcon(GameObject shipToSelect){
+        if(myFleet.Multiplayer.Me.Name == myFleet.MenuController.GetComponent<MenuBehaviour>().turnOwner){
+            myCamera.targetFollow = shipToSelect.transform;        
+            myFleet.SelectByClicking(shipToSelect);
+            shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();  
+        }                   
     }
 
     public void PlaySelectShipAudioClip(){

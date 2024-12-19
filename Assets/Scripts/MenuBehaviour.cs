@@ -73,7 +73,7 @@ public class MenuBehaviour : AttributesSync
             int turnOwnerIndex = playersList.IndexOf(turnOwner);
             if(playersList.Count-1 != turnOwnerIndex){
                 Debug.Log("player list size is: " + playersList.Count);
-                Debug.Log("turn owner idex is: " + turnOwnerIndex);
+                Debug.Log("turn owner index is: " + turnOwnerIndex);
                 turnOwner = playersList[turnOwnerIndex+1];
             }else{
                 turnOwner = playersList[0];
@@ -100,6 +100,7 @@ public class MenuBehaviour : AttributesSync
         TurnDisplayText.text = turnOwner + "'s Turn";
         Commit();
     }
+
 
     public void AddShipToUI(GameObject spawnedShip, int index){
         GameObject shipIconTemp = Instantiate(ShipDisplayPrefab);

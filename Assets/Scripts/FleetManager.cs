@@ -37,18 +37,16 @@ public class FleetManager : CommunicationBridge
     void Update()
     {
     //Checks is the controlling avatar matches the 
-       if(!avatar.IsMe && isMyTurn){return;}
+       if(!avatar.IsMe){return;}
 
     //Selecting ships
         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
-
 		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
-                    if(true){
                     SelectByClicking(hit.transform.gameObject);                                                
-                    }                                             
+                                                                 
             }else{
              DeselectAll();
             }  
@@ -71,7 +69,7 @@ public class FleetManager : CommunicationBridge
     //Movement enabling also reuglates highlighting and dehighlighting neighbouring terrains
     public void EnableUnitMovement(GameObject unit, bool shouldMove){   
         if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == true){
-            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours();
+            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours(unit.GetComponent<Ship>());
         }
 
         if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == false){
@@ -125,8 +123,12 @@ public class FleetManager : CommunicationBridge
 #region GAME_TURNS
     public void EndTurn(){
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
-              MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn();    
+              MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
+              isMyTurn = false;   
         }     
+    }
+    public void StartTurn(){
+        isMyTurn = true;
     }
 
     public void StartGame(){
