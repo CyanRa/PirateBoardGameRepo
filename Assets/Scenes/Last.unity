@@ -1134,7 +1134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &108294410
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1848,10 +1848,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: af9ef47e-f88b-4bb4-a847-58c769eb58ac
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -1862,6 +1862,7 @@ MonoBehaviour:
   - {fileID: 1409035441}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &112736248
 MeshCollider:
@@ -3307,10 +3308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 99feb651-5b7a-4c7a-9480-5ed99b066a13
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -3320,6 +3321,7 @@ MonoBehaviour:
   - {fileID: 1351386615}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &267787780
 MeshCollider:
@@ -4425,10 +4427,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 69d18a94-dd60-4c6e-ad9e-68ae41c92faa
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -4440,6 +4442,7 @@ MonoBehaviour:
   - {fileID: 1740447919}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &436724411
 MeshCollider:
@@ -6204,10 +6207,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 0130b89f-8203-4732-89f8-21264284d90f
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -6219,6 +6222,7 @@ MonoBehaviour:
   - {fileID: 1740447919}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &632537761
 MeshCollider:
@@ -7788,10 +7792,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: ec060fbf-bb86-4670-9a92-19c880df1414
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -7800,6 +7804,7 @@ MonoBehaviour:
   - {fileID: 939644367}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &769460302
 MeshCollider:
@@ -8603,10 +8608,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 5faa744b-8b4d-461e-a016-0e8ecf5537d7
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -8617,6 +8622,7 @@ MonoBehaviour:
   - {fileID: 1351386615}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &793611212
 MeshCollider:
@@ -9235,10 +9241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: a70c27ac-59c5-4549-aec5-c34240e28321
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -9247,6 +9253,7 @@ MonoBehaviour:
   - {fileID: 1961975266}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &817459188
 MeshCollider:
@@ -10725,10 +10732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: adb2235d-7e10-48dd-b5c9-c5beaf8ceaef
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -10737,6 +10744,7 @@ MonoBehaviour:
   - {fileID: 1259600457}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &939644368
 MeshCollider:
@@ -12499,10 +12507,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: d66a1603-94aa-4d9e-a60b-dfc2f5746f0a
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -12514,6 +12522,7 @@ MonoBehaviour:
   - {fileID: 1140031325}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1081129373
 MeshCollider:
@@ -13306,10 +13315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 06d27754-eda5-401f-b709-d339d3b66c5d
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -13318,6 +13327,7 @@ MonoBehaviour:
   - {fileID: 1178596780}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1124118576
 MeshCollider:
@@ -14318,10 +14328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: c89c1ac5-3ced-4f4c-8224-2478c75462d4
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -14332,6 +14342,7 @@ MonoBehaviour:
   - {fileID: 1081129372}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1140031326
 MeshCollider:
@@ -14774,10 +14785,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 2691c581-27be-4a19-86a6-87c8cd1ec604
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -14790,6 +14801,7 @@ MonoBehaviour:
   - {fileID: 2090929042}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1149097692
 MeshCollider:
@@ -15406,10 +15418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: fe1dce16-8bf2-4509-aed4-197d84896694
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -15420,6 +15432,7 @@ MonoBehaviour:
   - {fileID: 1873401210}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1178596781
 MeshCollider:
@@ -15962,10 +15975,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 65de8e19-1f7b-4c45-a68c-dd7708fb6a94
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -15975,6 +15988,7 @@ MonoBehaviour:
   - {fileID: 2090929042}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1185238223
 MeshCollider:
@@ -17308,10 +17322,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: bcfb5102-d6cb-498b-8289-469ce61f04fd
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -17321,6 +17335,7 @@ MonoBehaviour:
   - {fileID: 267787779}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1239837610
 MeshCollider:
@@ -17810,10 +17825,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 18174c48-fc9e-427f-96e8-25aeeaa6126f
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -17822,6 +17837,7 @@ MonoBehaviour:
   - {fileID: 1351386615}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1259600458
 MeshCollider:
@@ -18673,10 +18689,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 853f2eb3-eeaa-405b-8c39-1e3ff88794f8
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -18688,6 +18704,7 @@ MonoBehaviour:
   - {fileID: 1140031325}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1351386616
 MeshCollider:
@@ -19792,10 +19809,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d9124bcc-c1da-4318-950d-5f898ebe2e14
+  _uidString: d7f46560-39fa-4dd7-8ee3-dce17c3bc438
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -19806,6 +19823,7 @@ MonoBehaviour:
   - {fileID: 793611211}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1409035442
 MeshCollider:
@@ -20360,10 +20378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 27feeede-0182-4afb-9610-d38b8fa231fe
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -20372,6 +20390,7 @@ MonoBehaviour:
   - {fileID: 2127874674}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1412315839
 MeshCollider:
@@ -21404,10 +21423,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 1c2cd0b1-34df-4ba2-89df-7326ecb0cc67
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -21418,6 +21437,7 @@ MonoBehaviour:
   - {fileID: 1185238222}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1502856142
 MeshCollider:
@@ -23341,10 +23361,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 1bee16b9-d9c1-4b94-b808-499a8e5adb00
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -23355,6 +23375,7 @@ MonoBehaviour:
   - {fileID: 1081129372}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1719380817
 MeshCollider:
@@ -24062,10 +24083,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 8e1b0aa6-9d8d-4e0f-93b2-b4863fa16f36
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -24076,6 +24097,7 @@ MonoBehaviour:
   - {fileID: 436724410}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1740447920
 MeshCollider:
@@ -25210,10 +25232,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: f85bb88d-a02e-43fb-b463-fa3634637474
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -25226,6 +25248,7 @@ MonoBehaviour:
   - {fileID: 1149097691}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1873401211
 MeshCollider:
@@ -25712,10 +25735,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 741ed338-ba19-4ebf-9519-e0f0d3c88894
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -25726,6 +25749,7 @@ MonoBehaviour:
   - {fileID: 2090929042}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1909087101
 MeshCollider:
@@ -26509,10 +26533,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 07fec1e9-5d71-4934-ac10-f696c7009c71
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -26523,6 +26547,7 @@ MonoBehaviour:
   - {fileID: 1081129372}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &1961975267
 MeshCollider:
@@ -28197,10 +28222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: ee512519-927f-4ee3-8bf4-815da07e128a
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -28212,6 +28237,7 @@ MonoBehaviour:
   - {fileID: 1909087100}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &2090929043
 MeshCollider:
@@ -29318,10 +29344,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 
+  _uidString: 2c631f2f-5503-4ed9-bcfb-aed08f4cd2f3
   Reliability: 1
   LocalMethodBehavior: 1
-  occupyingShip: {fileID: 0}
+  occupyingShip: 
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -29332,6 +29358,7 @@ MonoBehaviour:
   - {fileID: 1873401210}
   heighlightedHight: {fileID: 0}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
+  hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   areNeighboursHighlited: 0
 --- !u!64 &2127874675
 MeshCollider:
