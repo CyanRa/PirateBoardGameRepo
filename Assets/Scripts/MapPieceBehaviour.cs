@@ -39,7 +39,6 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     private void OnMouseEnter(){
-
         if(allowTerrainHighlight){
             tempMaterial = GetComponent<MeshRenderer>().material;        
             GetComponent<MeshRenderer>().material = highLightedMaterial;
@@ -47,7 +46,6 @@ public class MapPieceBehaviour : AttributesSync
         
        // transform.position += new UnityEngine.Vector3(0,10, 0);
        // transform.localScale = new UnityEngine.Vector3(1.1f, 1.0f, 1.1f);
-
     }
 
     private void OnMouseExit(){
