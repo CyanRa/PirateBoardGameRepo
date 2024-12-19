@@ -212,7 +212,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 495602211}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -341,6 +342,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &495602210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495602211}
+  - component: {fileID: 495602212}
+  m_Layer: 5
+  m_Name: CardSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &495602211
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495602210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 166621327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &495602212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495602210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fc95072b574a54b9819d923020e3cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 4348494174611873798, guid: ae11e64747c55404196ee38f27afe055, type: 3}
+  spawnLocation: {fileID: 495602211}
+  krakenScriptableObject: {fileID: 11400000, guid: de9c6181c715b9140b003340fd005368, type: 2}
+  swingingSwashbucklerScriptableObject: {fileID: 11400000, guid: ecd8bf11b68e15b44a33aa5e9a4fa73b, type: 2}
+  doubleTeamScriptableObject: {fileID: 11400000, guid: 2cfbfebd18cf0f5478a8502ef9802006, type: 2}
+  seaDogScriptableObject: {fileID: 11400000, guid: 224c7a5105754614fb34ea918673ca88, type: 2}
+  plunderBundleScriptableObject: {fileID: 11400000, guid: 0c166547e9d806b47b890efa3907f709, type: 2}
+  fullRaidScriptableObject: {fileID: 11400000, guid: 348ccd99e3ee89144a8cc021af6193a0, type: 2}
+  cardCanvas: {fileID: 166621326}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
