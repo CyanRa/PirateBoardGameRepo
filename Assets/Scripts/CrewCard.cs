@@ -10,6 +10,6 @@ public class CrewCard : ScriptableObject
 {
     public new string name;
     public int power;
-    public int image;
+    public Sprite image;
 
 }
