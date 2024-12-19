@@ -77,6 +77,7 @@ public class FleetManager : CommunicationBridge
         }
 
         unit.GetComponent<Ship>().enabled = shouldMove;
+        Debug.Log("Enabled movement of " + unit.transform.name);
     }
 
 
@@ -93,7 +94,10 @@ public class FleetManager : CommunicationBridge
         }else if(isFlagship){
             myShips.Add(spawnedShip);
             AddFlagShipToPanelUI(spawnedShip);         
-        }       
+        }else{
+            Debug.Log("Ship limit reached for " + avatar.name);
+        }
+        
     }
     private void AddShipToPanelUI(GameObject newShip){
         int index = myShips.Count;
@@ -128,6 +132,7 @@ public class FleetManager : CommunicationBridge
     }
 
     public void StartGame(){
+        Debug.Log("StartGame method in fleet is invoked");
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
         if(isHost){
             isMyTurn = true;

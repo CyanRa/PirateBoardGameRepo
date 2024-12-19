@@ -329,8 +329,6 @@ namespace RTS_Cam
             transform.forward = targetFollow.position - transform.position;
         }
 
-      
-
         /// <summary>
         /// limit camera position
         /// </summary>

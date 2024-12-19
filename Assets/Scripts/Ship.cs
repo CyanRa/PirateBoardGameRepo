@@ -65,6 +65,7 @@ public class Ship : MonoBehaviour
                         mapPieceAnchor = hit.transform.GetChild(0).transform;
                         occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
                         occupyingMapPiece.BroadcastOccupyingMapPiece(GetComponent<Ship>());
+                        Debug.Log(GetComponent<Ship>().name + " IS MOVING TO OCCUPY");
                         isMoving = true;
                         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
                     }                    
@@ -98,6 +99,7 @@ public class Ship : MonoBehaviour
             myCamera.targetFollow = transform;
             
         }else{
+            Debug.Log("stopped moving");
             isMoving = false;
             myFleet.DeselectAll();
             myFleet.EnableUnitMovement(this.gameObject, false);
@@ -118,7 +120,7 @@ public class Ship : MonoBehaviour
     //SELECTING SHIPS FROM FLEET PANEL ICONS
     public void SelectShipFromItsIcon(GameObject shipToSelect){
         if(myFleet.Multiplayer.Me.Name == myFleet.MenuController.GetComponent<MenuBehaviour>().turnOwner){
-           MoveCameraFromIconSelection(shipToSelect);
+            myCamera.targetFollow = shipToSelect.transform;        
             myFleet.SelectByClicking(shipToSelect);
             shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();  
         }                   
@@ -129,11 +131,5 @@ public class Ship : MonoBehaviour
     }
     public void PlayShipBellRingAudioClip(){
         myAudioSource.PlayOneShot(shipBellRingAudioClip);
-    }
-
-    //NEEDS SOME BUFFER 
-    private void MoveCameraFromIconSelection(GameObject shipToSelect){
-        myCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
-        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 600, shipToSelect.transform.position.z);    
-    }
+    } 
 }
