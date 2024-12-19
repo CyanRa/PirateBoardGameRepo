@@ -23,7 +23,11 @@ public class MapPieceBehaviour : AttributesSync
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial;
+    
+    public Material allyNeighbouringTerrainMaterial;
     public bool areNeighboursHighlited = false;
+
+    public bool allowTerrainHighlight = true;
 
     private System.Numerics.Vector3 verticalVector = new System.Numerics.Vector3(0f, 30f, 0f);
     void Start()
@@ -35,8 +39,11 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     private void OnMouseEnter(){
-        tempMaterial = GetComponent<MeshRenderer>().material;        
-        GetComponent<MeshRenderer>().material = highLightedMaterial;
+        if(allowTerrainHighlight){
+            tempMaterial = GetComponent<MeshRenderer>().material;        
+            GetComponent<MeshRenderer>().material = highLightedMaterial;
+        }
+        
        // transform.position += new UnityEngine.Vector3(0,10, 0);
        // transform.localScale = new UnityEngine.Vector3(1.1f, 1.0f, 1.1f);
     }
@@ -44,24 +51,29 @@ public class MapPieceBehaviour : AttributesSync
     private void OnMouseExit(){
         GetComponent<MeshRenderer>().material = tempMaterial;
 
-        if(areNeighboursHighlited == false){
+        if(areNeighboursHighlited == false && allowTerrainHighlight){
             GetComponent<MeshRenderer>().material = myMaterial;           
         }        
     //  transform.position += new UnityEngine.Vector3(0,-10, 0);
     //  transform.localScale = new UnityEngine.Vector3(0.9f, 1.0f, 0.9f);
     }
 
+    //SHOULD BE RESTRUCTURED INTO A SWITCH CHECK AND POSSIBLY THINK OF ALLY SHIPS
     public void HighlightNeighbours(Ship unit){
         foreach(MapPieceBehaviour map in neighboringTerrain){
             map.areNeighboursHighlited = true;
             if(map.occupyingShip == ""){
                 map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
             }else{
-                if(occupyingFleet != unit.myFleet.name){
-                map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                if(occupyingFleet != unit.myFleet.name){  
+                    map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
                 }
-            }       
+                if(occupyingFleet == unit.myFleet.name){
+                    map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
+                }
+            }      
         }
+        allowTerrainHighlight = false;
     }
 
   
@@ -69,13 +81,15 @@ public class MapPieceBehaviour : AttributesSync
         foreach(MapPieceBehaviour map in neighboringTerrain){           
             map.GetComponent<MeshRenderer>().material = myMaterial;
             map.areNeighboursHighlited = false;
-        }       
+        } 
+        allowTerrainHighlight = true;      
     }
 
     public void BroadcastOccupyingMapPiece(Ship enteringShip){
         
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
-        BroadcastRemoteMethod("OccupyMapPiece", enteringShip.myFleet.name);
+        BroadcastRemoteMethod("SetOccupyingFleet", enteringShip.myFleet.name);
+        Debug.Log(enteringShip.myFleet.name);
     }
     [SynchronizableMethod]
     public void OccupyMapPiece(String enteringShip){ 
