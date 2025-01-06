@@ -1,4 +1,4 @@
-using System.Numerics;
+
 using Alteruna;
 using TMPro;
 using Unity.VisualScripting;
@@ -11,6 +11,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
     private Alteruna.Avatar myAvatar;
     public Transform spawnPoint;
     private Multiplayer myMultiplayer;
+    
    
     void Start()
     {
@@ -34,9 +35,11 @@ public class ShipSpawnerBehaviour : MonoBehaviour
    
     public void SpawnShip(){       
        if(myAvatar.GetComponent<FleetManager>().myShips.Count < 5){
+            
             GameObject spawnedShip = mySpawner.Spawn(0, spawnPoint.position);
-            spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;
+            spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;          
             spawnedShip.transform.SetParent(myAvatar.transform);
+            spawnedShip.transform.localScale += new Vector3(1,0,1);
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
             spawnIndex++;
        }      
@@ -45,6 +48,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
        spawnedShip.name = "FlagShip" + myAvatar.name;
        spawnedShip.transform.SetParent(myAvatar.transform);
+       spawnedShip.transform.localScale += new Vector3(1,0,1);
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
        spawnIndex++;       
     }
