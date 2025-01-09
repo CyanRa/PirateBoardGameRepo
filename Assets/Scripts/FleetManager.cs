@@ -6,6 +6,7 @@ using Alteruna;
 using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 public class FleetManager : CommunicationBridge
 {
     public Alteruna.Avatar avatar;
@@ -22,6 +23,7 @@ public class FleetManager : CommunicationBridge
     private bool isHost;
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
+    public int fleetColourID;
     
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
     public void Awake(){
@@ -84,6 +86,7 @@ public class FleetManager : CommunicationBridge
         myShips.RemoveAt(shipIndex);
     }
 
+   
     public void AddShipToFleet(GameObject spawnedShip, bool isFlagship){
         spawnedShip.GetComponent<Ship>().fleetsAvatar = GetComponent<Alteruna.Avatar>();
         spawnedShip.GetComponent<Ship>().myFleet = GetComponent<FleetManager>();
@@ -127,17 +130,29 @@ public class FleetManager : CommunicationBridge
         isMyTurn = true;
     }
 
+    public void GetColourID(){
+        List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
+        fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(myUsers[0].Name); 
+    }
+
     public void StartGame(){
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
         if(isHost){
             isMyTurn = true;
+            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                       
             MainSpawner.SpawnFlagShip();
-            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);      
-        }else{
+                
+        }        
+
+        if(!isHost){
             MainSpawner.SpawnFlagShip();
-        }                        
+        }
+                                          
         //MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(myUsers[0].Name); 
         gameStarted = true;                
     }
+
+   
 #endregion
+
 }

@@ -8,7 +8,7 @@ using RTS_Cam;
 using UnityEngine.UIElements;
 
 
-public class Ship : MonoBehaviour
+public class Ship : AttributesSync
 {
     //Branch change test
     PathCreator myPathCreator;
@@ -135,5 +135,23 @@ public class Ship : MonoBehaviour
     private void MoveCameraFromIconSelection(GameObject shipToSelect){
         myCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
         myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 600, shipToSelect.transform.position.z);    
+    }
+
+    public void BroadcastChangeShipColour(int tempColourID){
+        BroadcastRemoteMethod("ChangeShipColour", tempColourID);       
+    }
+
+    [SynchronizableMethod]
+    public void ChangeShipColour(int tempColourID){
+        Renderer tempRenderer = gameObject.GetComponent<Renderer>();
+        
+         switch(tempColourID)
+            {
+                case 0: tempRenderer.material.SetColor("_BaseColor", Color.red); break;
+                case 1: tempRenderer.material.SetColor("_BaseColor", Color.blue); break;
+                case 2: tempRenderer.material.SetColor("_BaseColor", Color.green); break;
+                case 3: tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
+                default:print("psht"); break;
+            }
     }
 }

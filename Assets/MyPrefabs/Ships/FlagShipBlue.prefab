@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60,13 +60,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fdb230b59a0d7554797e4b37ce52ba90, type: 2}
     - target: {fileID: 919132149155446097, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 919132149155446097, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_Name
-      value: FlagShip
+      value: FlagShipBlue
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_Layer
@@ -106,6 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fe24050d56a7c4e8a86488f8285d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 2d1e06ae-2230-41bf-96f7-d69a724d86dd
+  Reliability: 1
+  LocalMethodBehavior: 1
   isMoving: 0
   Fleet: 
   indexOfShip: 0
@@ -134,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e9beed6e-8b48-4c50-8ace-8d12e13b9077
+  _uidString: d92ce255-3d5c-483d-ad6e-e1274b613df8
   BucketBehaviors:
   - Name: Min
     NetLOD: 0

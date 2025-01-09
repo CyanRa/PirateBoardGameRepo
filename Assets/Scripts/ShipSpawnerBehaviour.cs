@@ -1,4 +1,3 @@
-
 using Alteruna;
 using TMPro;
 using Unity.VisualScripting;
@@ -11,6 +10,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
     private Alteruna.Avatar myAvatar;
     public Transform spawnPoint;
     private Multiplayer myMultiplayer;
+    [SerializeField]private int indexOfLastSpawnedShip = 0;
     
    
     void Start()
@@ -39,15 +39,21 @@ public class ShipSpawnerBehaviour : MonoBehaviour
             spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;          
             spawnedShip.transform.SetParent(myAvatar.transform);
             spawnedShip.transform.localScale += new Vector3(1,1,1);
-            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
+            myAvatar.GetComponent<FleetManager>().GetColourID();
+            int shipColourID = myAvatar.GetComponent<FleetManager>().fleetColourID;           
+            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
             spawnIndex++;
        }      
     }
+
+    
     public void SpawnFlagShip(){
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
        spawnedShip.name = "FlagShip" + myAvatar.name;
        spawnedShip.transform.SetParent(myAvatar.transform);
        spawnedShip.transform.localScale += new Vector3(1,1,1);
+       int shipColourID = myAvatar.GetComponent<FleetManager>().fleetColourID;
+       spawnedShip.GetComponent<Ship>().ChangeShipColour(shipColourID);
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
        spawnIndex++;       
     }

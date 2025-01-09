@@ -154,12 +154,14 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   ShipDisplayPrefab: {fileID: 6506889585794836872, guid: 6f36b1c730288c048882a6db3e468b53, type: 3}
   FlagShipDisplayPrefab: {fileID: 9168387684215942258, guid: c040448c5f3259949a30089808e05454, type: 3}
+  mySpawner: {fileID: 2122727173}
   MultiplayerPanel: {fileID: 1586354013}
   MenuPanel: {fileID: 1695013353}
   FleetPanel: {fileID: 753015339}
   ActionBar: {fileID: 1085394380}
   StopOnMousePlane: {fileID: 497854925}
   MultiplayerSystem: {fileID: 2122727170}
+  colourChangingShip: {fileID: 0}
   StartGameButton: {fileID: 0}
   turnOwner: 
   playersList: []
@@ -28999,6 +29001,9 @@ MonoBehaviour:
   SpawnableObjects:
   - {fileID: 8827019255276885257, guid: 2229275cb37da414789637e94f2023fd, type: 3}
   - {fileID: 6201212206276407101, guid: bdd3f2d9d2cdbf541a2be6bd19dcd251, type: 3}
+  - {fileID: 6201212206276407101, guid: 55a2d915994f108488aee37745cce7d0, type: 3}
+  - {fileID: 6201212206276407101, guid: ca7ffd24b4fa87043bbc6d531f631149, type: 3}
+  - {fileID: 6201212206276407101, guid: 271298aab6a2f3b43ab2825885649ef7, type: 3}
   OnObjectSpawn:
     m_PersistentCalls:
       m_Calls: []
