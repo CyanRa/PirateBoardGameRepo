@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 public class CrewCard : ScriptableObject
 {
     public new string name;
+
     public int power;
     public Sprite image;
 

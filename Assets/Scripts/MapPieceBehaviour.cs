@@ -91,6 +91,7 @@ public class MapPieceBehaviour : AttributesSync
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
         BroadcastRemoteMethod("SetOccupyingFleet", enteringShip.myFleet.name);
     }
+    
     [SynchronizableMethod]
     public void OccupyMapPiece(String enteringShip){ 
         occupyingShip = enteringShip;

@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41cafd9fe37f01449fefc3631c1d8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: de9c6181c715b9140b003340fd005368, type: 2}
+  card: {fileID: 0}
   nameText: {fileID: 8585802788129087168}
   powerText: {fileID: 9072959491731793083}
   cardImage: {fileID: 2055097842066716380}
