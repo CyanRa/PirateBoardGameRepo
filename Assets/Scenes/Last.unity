@@ -155,13 +155,12 @@ MonoBehaviour:
   ShipDisplayPrefab: {fileID: 6506889585794836872, guid: 6f36b1c730288c048882a6db3e468b53, type: 3}
   FlagShipDisplayPrefab: {fileID: 9168387684215942258, guid: c040448c5f3259949a30089808e05454, type: 3}
   mySpawner: {fileID: 2122727173}
-  MultiplayerPanel: {fileID: 1586354013}
+  MultiplayerPanel: {fileID: 0}
   MenuPanel: {fileID: 1695013353}
   FleetPanel: {fileID: 753015339}
-  ActionBar: {fileID: 1085394380}
+  ActionBar: {fileID: 0}
   StopOnMousePlane: {fileID: 497854925}
   MultiplayerSystem: {fileID: 2122727170}
-  colourChangingShip: {fileID: 0}
   StartGameButton: {fileID: 0}
   turnOwner: 
   playersList: []
@@ -1855,6 +1854,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -3318,6 +3318,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -4440,6 +4441,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -4783,7 +4785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8763101912591529871, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00045776367
+      value: -0.00032043457
       objectReference: {fileID: 0}
     - target: {fileID: 8763101912917073179, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6223,6 +6225,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -7811,6 +7814,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -8630,6 +8634,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -9266,6 +9271,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -10760,6 +10766,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -12538,6 +12545,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -13349,6 +13357,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -14365,6 +14374,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -14825,6 +14835,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -15461,6 +15472,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -16021,6 +16033,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -17371,6 +17384,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -17877,6 +17891,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -18744,6 +18759,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -19867,6 +19883,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -20439,6 +20456,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -21487,6 +21505,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -22270,11 +22289,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1586354013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8763101913419821391, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
-  m_PrefabInstance: {fileID: 577089833}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1605615471
 Mesh:
   m_ObjectHideFlags: 0
@@ -23428,6 +23442,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -24153,6 +24168,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -25305,6 +25321,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -25811,6 +25828,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -26612,6 +26630,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -28304,6 +28323,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1
@@ -29432,6 +29452,7 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingShip: 
   occupyingFleet: 
+  defenderShip: {fileID: 0}
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   alpha: 1

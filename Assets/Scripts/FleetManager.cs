@@ -13,7 +13,7 @@ public class FleetManager : CommunicationBridge
     public LayerMask clickable;
     private List<string> listOfPlayers;
     public List<GameObject> myShips;
-    public List<GameObject> selectedShips;
+    public GameObject SelectedShip;
     public ShipSpawnerBehaviour MainSpawner;
     public Button endTurnButton;
     public GameObject shipPrefab;
@@ -24,16 +24,21 @@ public class FleetManager : CommunicationBridge
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
     public int fleetColourID;
+    public Material shipMaterialColour;
     
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
     public void Awake(){
         isHost = Multiplayer.Instance.Me.Index == 0;
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
-        endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
-        endTurnButton.onClick.AddListener(EndTurn);
+        
 
         MainSpawner = GetComponent<ShipSpawnerBehaviour>(); 
+    }
+
+    public void Start(){
+        endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
+        endTurnButton.onClick.AddListener(EndTurn);
     }
  
     void Update()
@@ -47,23 +52,32 @@ public class FleetManager : CommunicationBridge
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
+                if(SelectedShip != null)
+                {
+                    DeselectAll();
+                }
                     SelectByClicking(hit.transform.gameObject);                                                
                                                                  
             }else{
              DeselectAll();
             }  
-        }       
+        }
+             
     }
     
    
 #region SHIPS
-    public void DeselectAll(){                       
-        selectedShips.Clear();
+    public void DeselectAll(){
+        if(SelectedShip != null){
+            SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColourID);                   
+            SelectedShip = null;
+        }       
     }
 
     public void SelectByClicking(GameObject unit){   
-        DeselectAll();
-        selectedShips.Add(unit);
+        SelectedShip = unit;
+        shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
+        SelectedShip.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
         EnableUnitMovement(unit, true);
         unit.GetComponent<Ship>().PlaySelectShipAudioClip();
     }
@@ -106,18 +120,6 @@ public class FleetManager : CommunicationBridge
         MenuController.GetComponent<MenuBehaviour>().AddFlagShipToUI(newShip);        
     }
 
-    /*  //Checks if the passed on ship is in the fleet ship list
-    private bool CheckPosessionOfShip(GameObject ship){    
-        bool isMyShip = false;
-        foreach(GameObject x in myShips){
-            if(ship.transform.name == x.transform.name){
-                isMyShip = true;
-                return isMyShip;
-            }
-        }
-        return isMyShip;
-    }
-    */
 #endregion
 #region GAME_TURNS
     public void EndTurn(){

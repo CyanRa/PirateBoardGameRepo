@@ -9,9 +9,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
     public Spawner mySpawner;
     private Alteruna.Avatar myAvatar;
     public Transform spawnPoint;
-    private Multiplayer myMultiplayer;
-    [SerializeField]private int indexOfLastSpawnedShip = 0;
-    
+  
    
     void Start()
     {
@@ -32,7 +30,7 @@ public class ShipSpawnerBehaviour : MonoBehaviour
             SpawnShip();
         }
     }
-   
+    
     public void SpawnShip(){       
        if(myAvatar.GetComponent<FleetManager>().myShips.Count < 5){           
             GameObject spawnedShip = mySpawner.Spawn(0, spawnPoint.position);
@@ -41,11 +39,10 @@ public class ShipSpawnerBehaviour : MonoBehaviour
             spawnedShip.transform.localScale += new Vector3(1,1,1);
             myAvatar.GetComponent<FleetManager>().GetColourID();
             int shipColourID = myAvatar.GetComponent<FleetManager>().fleetColourID;           
-            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
+            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
             spawnIndex++;
        }      
     }
-
     
     public void SpawnFlagShip(){
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);

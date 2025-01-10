@@ -12,6 +12,7 @@ public class MapPieceBehaviour : AttributesSync
 {   
     [SynchronizableField]public String occupyingShip = "";
     [SynchronizableField]public String occupyingFleet = "";
+    [SerializeField]public Ship defenderShip = null;
     public Material myMaterial;
     public Material highLightedMaterial;
     [Range (0f,1f)]
@@ -35,7 +36,6 @@ public class MapPieceBehaviour : AttributesSync
         occupyingShip = "";
         renderer = GetComponent<Renderer>();
         transform = GetComponent<Transform>();
-       // myMaterial.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha);
     }
 
     private void OnMouseEnter(){
@@ -43,9 +43,6 @@ public class MapPieceBehaviour : AttributesSync
             tempMaterial = GetComponent<MeshRenderer>().material;        
             GetComponent<MeshRenderer>().material = highLightedMaterial;
         }
-        
-       // transform.position += new UnityEngine.Vector3(0,10, 0);
-       // transform.localScale = new UnityEngine.Vector3(1.1f, 1.0f, 1.1f);
     }
 
     private void OnMouseExit(){
@@ -54,8 +51,6 @@ public class MapPieceBehaviour : AttributesSync
         if(areNeighboursHighlited == false && allowTerrainHighlight){
             GetComponent<MeshRenderer>().material = myMaterial;           
         }        
-    //  transform.position += new UnityEngine.Vector3(0,-10, 0);
-    //  transform.localScale = new UnityEngine.Vector3(0.9f, 1.0f, 0.9f);
     }
 
     //SHOULD BE RESTRUCTURED INTO A SWITCH CHECK AND POSSIBLY THINK OF ALLY SHIPS
@@ -76,8 +71,7 @@ public class MapPieceBehaviour : AttributesSync
         }
         allowTerrainHighlight = false;
     }
-
-  
+ 
     public void DeHighlightNeighbours(){       
         foreach(MapPieceBehaviour map in neighboringTerrain){           
             map.GetComponent<MeshRenderer>().material = myMaterial;
@@ -86,18 +80,32 @@ public class MapPieceBehaviour : AttributesSync
         allowTerrainHighlight = true;      
     }
 
-    public void BroadcastOccupyingMapPiece(Ship enteringShip){
-        
+
+    public void EnterMapPiece(Ship enteringShip)
+    {
+        if(occupyingFleet == ""){
+            BroadcastOccupyingMapPiece(enteringShip);
+        }else if(occupyingFleet == enteringShip.myFleet.name){
+            return;
+        }else{
+            ShipsEnterCombat(enteringShip, defenderShip);           
+        }
+    }
+    public void BroadcastOccupyingMapPiece(Ship enteringShip){        
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
         BroadcastRemoteMethod("SetOccupyingFleet", enteringShip.myFleet.name);
     }
     
     [SynchronizableMethod]
     public void OccupyMapPiece(String enteringShip){ 
-        occupyingShip = enteringShip;
+        occupyingShip = enteringShip;      
     }
     [SynchronizableMethod]
     public void SetOccupyingFleet(String enteringFleet){
         occupyingFleet = enteringFleet;
+    }
+
+    public void ShipsEnterCombat(Ship attackerShip, Ship defenderShip){
+        return;
     }
 }

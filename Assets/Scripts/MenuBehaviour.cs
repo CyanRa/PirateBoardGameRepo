@@ -139,7 +139,6 @@ public class MenuBehaviour : AttributesSync
 
 #region GAME_START
     public void BroadCastTriggerStartGame(){
-        Debug.Log("Broadcasting game start");
         BroadcastRemoteMethod("TriggerStartGame");
          
     }

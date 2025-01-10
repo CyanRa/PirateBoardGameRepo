@@ -47,7 +47,7 @@ public class Ship : AttributesSync
                     mapPieceAnchor = hit.transform.GetChild(0).transform;
                     occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
                     //OccupyMapPiece(true);
-                    occupyingMapPiece.BroadcastOccupyingMapPiece(GetComponent<Ship>());
+                    occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
                     isMoving = true;
                 }    
             }     
@@ -64,11 +64,12 @@ public class Ship : AttributesSync
                         OccupyMapPiece(false);
                         mapPieceAnchor = hit.transform.GetChild(0).transform;
                         occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
-                        occupyingMapPiece.BroadcastOccupyingMapPiece(GetComponent<Ship>());
+                        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+                        occupyingMapPiece.defenderShip = GetComponent<Ship>();
                         isMoving = true;
                         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
                     }                    
-                }  
+                } 
         }else{
     //Deselection when left clicking
             if(Input.GetMouseButtonDown(0) && !isMoving){
