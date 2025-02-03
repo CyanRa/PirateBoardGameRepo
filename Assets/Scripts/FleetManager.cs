@@ -78,22 +78,11 @@ public class FleetManager : CommunicationBridge
         SelectedShip = unit;
         shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
         SelectedShip.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
-        EnableUnitMovement(unit, true);
+        unit.GetComponent<Ship>().EnableUnitMovement(unit, true);
         unit.GetComponent<Ship>().PlaySelectShipAudioClip();
     }
 
-    //Movement enabling also reuglates highlighting and dehighlighting neighbouring terrains
-    public void EnableUnitMovement(GameObject unit, bool shouldMove){   
-        if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == true){
-            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours(unit.GetComponent<Ship>());
-        }
-
-        if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == false){
-            unit.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
-        }
-
-        unit.GetComponent<Ship>().enabled = shouldMove;
-    }
+    
 
 
     public void DestroyShip(int shipIndex){

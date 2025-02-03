@@ -79,7 +79,7 @@ public class Ship : AttributesSync
 
                 if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
                     myFleet.DeselectAll();
-                    myFleet.EnableUnitMovement(this.gameObject, false);
+                    EnableUnitMovement(this.gameObject, false);
                 }                
             }            
         }
@@ -101,10 +101,23 @@ public class Ship : AttributesSync
         }else{
             isMoving = false;
             myFleet.DeselectAll();
-            myFleet.EnableUnitMovement(this.gameObject, false);
+            EnableUnitMovement(this.gameObject, false);
             myCamera.ResetTarget();
         }
         
+    }
+
+    //Movement enabling also reuglates highlighting and dehighlighting neighbouring terrains
+    public void EnableUnitMovement(GameObject unit, bool shouldMove){   
+        if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == true){
+            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours(unit.GetComponent<Ship>());
+        }
+
+        if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == false){
+            unit.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
+        }
+
+        unit.GetComponent<Ship>().enabled = shouldMove;
     }
 
     //OCCUPY DE-OCCUPY MAP PIECES
