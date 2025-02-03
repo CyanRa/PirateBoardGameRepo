@@ -53,7 +53,6 @@ public class MapPieceBehaviour : AttributesSync
         }        
     }
 
-    //SHOULD BE RESTRUCTURED INTO A SWITCH CHECK AND POSSIBLY THINK OF ALLY SHIPS
     public void HighlightNeighbours(Ship unit){
         foreach(MapPieceBehaviour map in neighboringTerrain){
             map.areNeighboursHighlited = true;

@@ -33,9 +33,10 @@ public class Ship : AttributesSync
  
     void Update(){
     //Quit the update if using avatar is not the avatar of the fleet
-        if(fleetsAvatar == null || !fleetsAvatar.IsMe ){
+        if(!fleetsAvatar.IsMe ){
             return;
         }
+
     //Allows for a ship to move to any map piece before having one
     //Will be replaced by spawning logic                  
         if(occupyingMapPiece == null){
@@ -51,9 +52,9 @@ public class Ship : AttributesSync
                     isMoving = true;
                 }    
             }     
-        }else{
+        }
     //Movement when unit is selected and is registered to a map piece        
-                if (Input.GetMouseButtonDown(1) && !isMoving ){        	
+            if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null){        	
 		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
@@ -61,18 +62,14 @@ public class Ship : AttributesSync
 		        if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
 		            
                     if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){
-                        OccupyMapPiece(false);
-                        mapPieceAnchor = hit.transform.GetChild(0).transform;
-                        occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
-                        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
-                        occupyingMapPiece.defenderShip = GetComponent<Ship>();
-                        isMoving = true;
-                        gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
+                         MoveFromAMapPieceToAMapPiece(hit);
                     }                    
-                } 
-        }else{
+                }
+            } 
+        
     //Deselection when left clicking
             if(Input.GetMouseButtonDown(0) && !isMoving){
+                
                 Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
@@ -82,12 +79,23 @@ public class Ship : AttributesSync
                     EnableUnitMovement(this.gameObject, false);
                 }                
             }            
-        }
+        
     //Locks in movement until final position           
             if(isMoving){
                 MoveToAnchor(mapPieceAnchor);
             }
-        }
+        
+    }
+
+    public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
+        OccupyMapPiece(false);
+        mapPieceAnchor = _hit.transform.GetChild(0).transform;
+        occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
+        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+        occupyingMapPiece.defenderShip = GetComponent<Ship>();
+        isMoving = true;
+        gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
+                       
     }
 
     //TO BE REPLACED WITH SPLINE MOVEMENT
@@ -119,7 +127,7 @@ public class Ship : AttributesSync
 
         unit.GetComponent<Ship>().enabled = shouldMove;
     }
-
+    
     //OCCUPY DE-OCCUPY MAP PIECES
     public void OccupyMapPiece(bool a){
         if(a){
@@ -137,6 +145,8 @@ public class Ship : AttributesSync
             shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();  
         }                   
     }
+
+    
 
     public void PlaySelectShipAudioClip(){
         myAudioSource.PlayOneShot(selectShipAudioClip);

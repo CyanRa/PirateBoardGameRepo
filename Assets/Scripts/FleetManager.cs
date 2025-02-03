@@ -52,8 +52,30 @@ public class FleetManager : CommunicationBridge
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
+                if(hit.transform.GetComponent<Ship>().myFleet.name == name){
+                      if(SelectedShip != null)
+                {
+                    
+                    DeselectAll();
+                }
+                    SelectByClicking(hit.transform.gameObject);                                                
+                                                                 
+            }else{
+             DeselectAll();
+            }  
+            }else{
+                return;
+            }
+              
+        }
+        if (Input.GetMouseButtonDown(1) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
+		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+		    RaycastHit hit;
+
+		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
                 if(SelectedShip != null)
                 {
+                    SelectedShip.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
                     DeselectAll();
                 }
                     SelectByClicking(hit.transform.gameObject);                                                
