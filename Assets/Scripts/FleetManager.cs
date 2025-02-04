@@ -46,6 +46,11 @@ public class FleetManager : CommunicationBridge
     //Checks is the controlling avatar matches the 
        if(!avatar.IsMe){return;}
 
+
+        if(Input.GetKeyDown(KeyCode.F) && myShips.Count < 5 && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
+           GetComponent<ShipSpawnerBehaviour>().SpawnShip();
+           Debug.Log("SPAWNING CALLED");
+        }
     //Selecting ships
         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
 		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
@@ -144,12 +149,14 @@ public class FleetManager : CommunicationBridge
     }
 
     public void GetColourID(){
-        List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
-        fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(myUsers[0].Name); 
+        Debug.Log("User name requesting color is: " + Multiplayer.GetUser());
+        fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(Multiplayer.GetUser());        
     }
 
     public void StartGame(){
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
+        
+
         if(isHost){
             isMyTurn = true;
             MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                       

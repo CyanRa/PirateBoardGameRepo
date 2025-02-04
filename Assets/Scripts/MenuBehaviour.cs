@@ -124,17 +124,9 @@ public class MenuBehaviour : AttributesSync
     }
 
     
-    public int GetColourID(string user){
-   
-    Debug.Log(user + " is requesting a colour change");   
-        foreach(string player in playersList){         
-            if(player == user){
-                int id = playersList.IndexOf(player);              
-                return id;
-            }
-        }
-        Debug.Log("colour id not fetched");
-        return 0;
+    public int GetColourID(string _requestingUser){            
+        int id = playersList.IndexOf(_requestingUser);              
+        return id;    
     }
 
 #region GAME_START

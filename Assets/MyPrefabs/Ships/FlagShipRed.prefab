@@ -110,6 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fe24050d56a7c4e8a86488f8285d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 36036ad5-1f36-4f93-aa3b-7043de53adc7
+  Reliability: 1
+  LocalMethodBehavior: 1
   isMoving: 0
   Fleet: 
   indexOfShip: 0
