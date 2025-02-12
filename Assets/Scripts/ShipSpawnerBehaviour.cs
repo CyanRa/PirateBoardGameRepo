@@ -16,9 +16,13 @@ public class ShipSpawnerBehaviour : AttributesSync
     void Start()
     {
         spawnIndex = 0;
-        mySpawner = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<Spawner>();
-        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<Transform>();
+        mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
+        
         myAvatar = GetComponent<Alteruna.Avatar>();
+    }
+
+    public void InitSpawnPoint(){
+        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -38,7 +42,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             _tempSpawnedShipName = spawnedShip.name;        
             spawnedShip.transform.SetParent(myAvatar.transform);
             spawnedShip.transform.localScale += new Vector3(1,1,1);
-            int shipColourID = myAvatar.GetComponent<FleetManager>().fleetColourID;           
+            string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;           
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
             
             
@@ -58,9 +62,9 @@ public class ShipSpawnerBehaviour : AttributesSync
                 _ship.name = "Ship" + _avatar.name + _spawnIndex;          
                 _ship.transform.SetParent(_avatar.transform);
                 _ship.transform.localScale += new Vector3(1,1,1);
-                _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColourID);
-                Debug.Log("normal ships colour id is: " + _avatar.GetComponent<FleetManager>().fleetColourID);
-                int shipColourID = _avatar.GetComponent<FleetManager>().fleetColourID; 
+                _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
+                Debug.Log("normal ships colour id is: " + _avatar.GetComponent<FleetManager>().fleetColour);
+                string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
             }             
     }
     
@@ -72,8 +76,8 @@ public class ShipSpawnerBehaviour : AttributesSync
        spawnedShip.transform.SetParent(myAvatar.transform);
        spawnedShip.transform.localScale += new Vector3(1,1,1);
        myAvatar.GetComponent<FleetManager>().GetColourID();
-       int shipColourID = myAvatar.GetComponent<FleetManager>().fleetColourID;      
-       spawnedShip.GetComponent<Ship>().ChangeShipColour(shipColourID);
+       string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;      
+       spawnedShip.GetComponent<Ship>().ChangeShipColour(shipColour);
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
        BroadcastRemoteMethod("SynchSpawnedFlagShip", spawnedShip.GetComponent<Ship>().myFleet.name);
        spawnIndex++;       
@@ -94,7 +98,7 @@ public class ShipSpawnerBehaviour : AttributesSync
                 case 2:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
                 case 3:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
                 case 4:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
-                default: _ship = GameObject.Find("FlagShipRed(Clone)");break;
+                default: _ship = GameObject.Find("FlagShipRed(Clone)"); break;
             }
             
             if(_ship != null){  
@@ -102,8 +106,8 @@ public class ShipSpawnerBehaviour : AttributesSync
                 _ship.transform.SetParent(_avatar.transform);
                 _ship.transform.localScale += new Vector3(1,1,1);
                 _avatar.GetComponent<FleetManager>().GetColourID();
-                _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColourID);
-                int shipColourID = _avatar.GetComponent<FleetManager>().fleetColourID; 
+                _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
+                string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
             }             
     }
 }

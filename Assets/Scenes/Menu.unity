@@ -287,7 +287,7 @@ MonoBehaviour:
     NetLOD: 4
     Users: 
   _maxPlayers: 4
-  AvatarSpawning: 1
+  AvatarSpawning: 2
   AvatarPrefab: {fileID: 6772045645585059290, guid: 44301434f2be4484f904dd6920b4801f, type: 3}
   AvatarSpawnLocation: {fileID: 0}
   SpawnAvatarPerIndex: 0
@@ -639,6 +639,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685942072937564658, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
       propertyPath: SpawnAvatarAfterLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685942073103750094, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685942073103750094, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685942073103750094, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1685942073189666361, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}

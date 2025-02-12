@@ -23,10 +23,13 @@ public class FleetManager : CommunicationBridge
     private bool isHost;
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
-    public int fleetColourID;
+    //public int fleetColourID;
+    public string fleetColour;
     public Material shipMaterialColour;
     
+    [SerializeField]public string Username = "";
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
+
     public void Awake(){
         isHost = Multiplayer.Instance.Me.Index == 0;
         MenuController = GameObject.Find("MenuSystem");
@@ -37,6 +40,10 @@ public class FleetManager : CommunicationBridge
     }
 
     public void Start(){
+        
+    }
+
+    private void InitEndTurnButton(){
         endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
         endTurnButton.onClick.AddListener(EndTurn);
     }
@@ -96,7 +103,7 @@ public class FleetManager : CommunicationBridge
 #region SHIPS
     public void DeselectAll(){
         if(SelectedShip != null){
-            SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColourID);                   
+            SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);                   
             SelectedShip = null;
         }       
     }
@@ -150,11 +157,13 @@ public class FleetManager : CommunicationBridge
 
     public void GetColourID(){
         Debug.Log("User name requesting color is: " + Multiplayer.GetUser());
-        fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(Multiplayer.GetUser());        
+        //fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(Multiplayer.GetUser());        
     }
 
     public void StartGame(){
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
+        MainSpawner.InitSpawnPoint();
+        InitEndTurnButton();
         
 
         if(isHost){

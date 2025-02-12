@@ -15,6 +15,7 @@ public class MenuBehaviour : AttributesSync
 #region GAMEOBJECTS
     public GameObject ShipDisplayPrefab;
     public GameObject FlagShipDisplayPrefab;
+    public GameObject PreGameMenu;
     public Spawner mySpawner;
     public GameObject MultiplayerPanel;
     public GameObject MenuPanel;
@@ -44,6 +45,15 @@ public class MenuBehaviour : AttributesSync
         }    
     }
 
+    public void ChooseColour(Button _button){
+        FleetManager _fleet = Multiplayer.GetAvatar().GetComponent<FleetManager>();
+        if (_fleet.fleetColour==""){
+            _fleet.fleetColour = _button.gameObject.name;
+            Destroy(_button.gameObject);
+        }       
+    }
+    
+
     public void ToggleMultiplayerPanel(){     
         if(MultiplayerPanel.activeInHierarchy){
             MultiplayerPanel.SetActive(false);
@@ -72,6 +82,7 @@ public class MenuBehaviour : AttributesSync
     public void BroadCastPassTurn(bool b){
     }
     
+
     [SynchronizableMethod]
     void PassTurn(){
             int turnOwnerIndex = playersList.IndexOf(turnOwner);
@@ -85,6 +96,7 @@ public class MenuBehaviour : AttributesSync
             TurnDisplayText.text = turnOwner + "'s Turn";           
             Commit();       
     }
+
 
     public void BroadcastDisplayListOfPlayers(List<User> myUsersPar){
         List<string> listOfUsers = new List<string>();
@@ -138,6 +150,7 @@ public class MenuBehaviour : AttributesSync
     public void TriggerStartGame(){
         Alteruna.Avatar myAvatar = Multiplayer.GetAvatar();
         myAvatar.GetComponent<FleetManager>().StartGame();
+        PreGameMenu.SetActive(false);
         Destroy(StartGameButton.gameObject);
     }
 #endregion

@@ -166,15 +166,15 @@ public class Ship : AttributesSync
     }
 
     [SynchronizableMethod]
-    public void ChangeShipColour(int tempColourID){
+    public void ChangeShipColour(string tempColour){
         Renderer tempRenderer = gameObject.GetComponent<Renderer>();
         
-         switch(tempColourID)
+         switch(tempColour)
             {
-                case 0: tempRenderer.material.SetColor("_BaseColor", Color.red); break;
-                case 1: tempRenderer.material.SetColor("_BaseColor", Color.blue); break;
-                case 2: tempRenderer.material.SetColor("_BaseColor", Color.green); break;
-                case 3: tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
+                case "Red": tempRenderer.material.SetColor("_BaseColor", Color.red); break;
+                case "Blue": tempRenderer.material.SetColor("_BaseColor", Color.blue); break;
+                case "Green": tempRenderer.material.SetColor("_BaseColor", Color.green); break;
+                case "Yellow": tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
                 default:print("psht"); break;
             }
     }
