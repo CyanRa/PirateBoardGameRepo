@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0be90c4d583d11a45abd088834868e9a, type: 3}
-  m_Name: FullRaid
+  m_Name: SwingingSwashbuckler
   m_EditorClassIdentifier: 
-  name: Full Raid
-  power: 5
-  image: {fileID: 21300000, guid: cadefc99ead3d6c4a99c96d31bbd07db, type: 3}
+  <crewCardName>k__BackingField: Swinging Swashbuckler
+  <power>k__BackingField: 1
+  <image>k__BackingField: {fileID: 21300000, guid: bb33e231f1e0bd848a2a53a7c6d78a1b, type: 3}
