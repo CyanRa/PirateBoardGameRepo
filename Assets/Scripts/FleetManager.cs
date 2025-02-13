@@ -24,7 +24,7 @@ public class FleetManager : CommunicationBridge
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
     //public int fleetColourID;
-    public string fleetColour;
+    [SerializeField]public string fleetColour;
     public Material shipMaterialColour;
     
     [SerializeField]public string Username = "";
