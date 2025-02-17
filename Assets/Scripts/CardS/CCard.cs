@@ -7,7 +7,8 @@ using System.Collections.Generic;
 /// Defines what a crewcard is, will connect crewcard data and behaviour
 /// </summary>
 
-[RequireComponent(typeof(CardDisplayScript))] // not 100% sure this is refrencing the correct script or if this even makes sense in the context of what im doing
+[RequireComponent(typeof(CardDisplayScript))] //should attach card UI to cards
+[RequireComponent(typeof(CardBehaviorScript))] //should attach card movement script to all cards
 public class CCard : MonoBehaviour
 {
     public CrewCardScriptable CardData;

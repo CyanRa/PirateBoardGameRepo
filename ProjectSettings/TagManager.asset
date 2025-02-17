@@ -7,6 +7,7 @@ TagManager:
   - target
   - NetworkManager
   - SpawnPoint
+  - CCardCanvas
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -5,6 +7,20 @@ using UnityEngine.EventSystems;
 public class CardBehaviorScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 
 {
+    private bool _isBeingDragged;
+    private Canvas _cCardCanvas;
+    private RectTransform _rectTransform;
+    private CCard _card;
+
+    private readonly string CANVAS_TAG = "CCardCanvas";
+
+
+    private void Start()
+    {
+        _cCardCanvas = GameObject.FindGameObjectWithTag(CANVAS_TAG).GetComponent<Canvas>();
+        _rectTransform = GetComponent<RectTransform>();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("BeginDrag");
@@ -21,7 +37,6 @@ public class CardBehaviorScript : MonoBehaviour, IBeginDragHandler, IDragHandler
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("EndDrag");
-
+        Deck.Instance.DiscardCard(_card);
     }
-
 }
