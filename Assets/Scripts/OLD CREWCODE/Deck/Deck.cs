@@ -1,3 +1,4 @@
+using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,15 +14,16 @@ public class Deck : MonoBehaviour
     [SerializeField] public CardCollection _communityDeck; //reference CardCollection Script
     [SerializeField] public CCard _cardPrefab; //reference to our CardPrefab, gets copied later with different versions (srciptables)
     
-    [SerializeField] public Canvas _cardCanvas;
+    public Canvas _cardCanvas;
+    public GameObject _handZone;
 
 
     private List<CCard> _deckPile = new();
     private List<CCard> _discardPile;
 
     public List<CCard> _handCards;
+    public List<CCard> _tempCards;
 
-    
 
 
 
@@ -85,6 +87,7 @@ public class Deck : MonoBehaviour
             _discardPile.Clear();
             ShuffleDeck();
         }
+        _deckPile[0].transform.parent = _handZone.transform;
         _handCards.Add(_deckPile[0]);
         _deckPile[0].gameObject.SetActive(true);
         _deckPile.RemoveAt(0);

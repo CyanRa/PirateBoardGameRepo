@@ -23,20 +23,21 @@ public class CardBehaviorScript : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("BeginDrag");
+        //Debug.Log("BeginDrag");
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         this.transform.position = eventData.position;
-        Debug.Log("Drag");
+        //Debug.Log("Drag");
 
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("EndDrag");
+        //Debug.Log("EndDrag");
         Deck.Instance.DiscardCard(_card);
+        Debug.Log(_card);
     }
 }
