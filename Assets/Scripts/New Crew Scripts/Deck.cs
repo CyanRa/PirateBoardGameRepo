@@ -13,8 +13,9 @@ public class CommunityDeck : MonoBehaviour
     private List<CrewMember> _tutorCrewDeck;
     private List<CrewMember> _discardPile;
 
+    public Hand _handScript;
 
-
+    
     private void Awake() //Singleton declaration
     {
         if (Instance == null)
@@ -28,8 +29,8 @@ public class CommunityDeck : MonoBehaviour
     }
     
 
-    //Need to get back to this after making Hand script
-    /*public void DrawCard()
+    //function to draw 1 card
+    public CrewMember DrawCard()
     {
         if (_crewDeck.Count <= 0)
         {
@@ -37,10 +38,11 @@ public class CommunityDeck : MonoBehaviour
             _discardPile.Clear();
             ShuffleDeck(_crewDeck);
         }
-        _crewDeck[0].transform.parent = _handZone.transform;
-        return.Add(_crewDeck[0]);
+        
+        CrewMember _crewMemberToReturn = _crewDeck[0];
         _crewDeck.RemoveAt(0);
-    }*/
+        return _crewMemberToReturn;
+    }
 
     public void ShuffleDeck(List<CrewMember> listToShuffle)
     {
@@ -57,4 +59,6 @@ public class CommunityDeck : MonoBehaviour
     {
         _discardPile.Add(crewToAddToDiscardPile);
     }
+
+    //Need to populate Deck
 }

@@ -14,9 +14,11 @@ public class CrewMember : MonoBehaviour
     public string _image;
     public int _power;
 
-    public bool isTutor;
+    public bool isTutor; //still need to make isTutor logic
     public bool isSelected;
     public bool isCommited;
+
+    public Hand _handScript;
 
     public void Start()
     {
@@ -26,17 +28,20 @@ public class CrewMember : MonoBehaviour
 
     public void Update()
     {
-        Ray ray;
-        RaycastHit hit;
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
+        //clciking on cards selects them
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-                print(hit.collider.name);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if (hit.collider != null)
+            {
+                hit.transform.GetComponent<CrewMember>().SelectThisCrew();
+            }
         }
     }
 
-    //unsure how to set booleans
+    //method for select cards, still need to add actual highlighting of cards.
     public void SelectThisCrew()
     {
         if (!isSelected) 
@@ -51,10 +56,15 @@ public class CrewMember : MonoBehaviour
         }
     }
 
+    //method for commiting this card
     public void CommitCrewToBattle()
     {
-
+        if (isSelected)
+        {
+            isSelected = false;
+            isCommited = true;
+            _handScript.CommitCard(GetComponent<CrewMember>());
+        }
     }
-
 
 }
