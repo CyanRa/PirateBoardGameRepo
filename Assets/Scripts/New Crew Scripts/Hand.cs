@@ -30,7 +30,7 @@ public class Hand : MonoBehaviour
         _totalPower = 0;
         foreach (CrewMember _crewMember in _commitedCards)
         {
-            _totalPower += _crewMember._power;
+            _totalPower += _crewMember.power;
             DiscardCrewMember(_crewMember);
         }
         _commitedCards = null;
@@ -38,7 +38,7 @@ public class Hand : MonoBehaviour
 
     public void DrawCard()
     {
-        _myFleetCrew.Add(_deckScript.DrawCard());
+        //_myFleetCrew.Add(_deckScript.DrawCard());
     }
 
 

@@ -1,0 +1,49 @@
+{
+    "loadedCrewMembers":[
+        {
+            "name":"Kraken",
+            "image":"kraken.png",
+            "power": 5,
+            "isTutor":false,
+            "isSelected":false,
+            "isCommited":false
+
+        },
+        {
+            "name":"Sea Witch",
+            "image":"seawitch.png",
+            "power": 3,
+            "isTutor":false,
+            "isSelected":false,
+            "isCommited":false
+
+        },
+        {
+            "name":"White Shirt",
+            "image":"whiteshirt.png",
+            "power": 1,
+            "isTutor":false,
+            "isSelected":false,
+            "isCommited":false
+
+        },
+        {
+            "name":"Salty Dog",
+            "image":"saltydog.png",
+            "power": 2,
+            "isTutor":false,
+            "isSelected":false,
+            "isCommited":false
+
+        },
+        {
+            "name":"Captain",
+            "image":"captain.png",
+            "power": 4,
+            "isTutor":false,
+            "isSelected":false,
+            "isCommited":false
+
+        }
+    ]
+}

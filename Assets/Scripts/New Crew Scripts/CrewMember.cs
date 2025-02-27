@@ -7,18 +7,17 @@ using static UnityEngine.UI.Image;
 
 
 
-
 public class CrewMember : MonoBehaviour
 {
-    public string _name;
-    public string _image;
-    public int _power;
+    public string name;
+    public string image;
+    public int power;
 
     public bool isTutor; //still need to make isTutor logic
     public bool isSelected;
     public bool isCommited;
-
-    public Hand _handScript;
+    
+    public Hand handScript;
 
     public void Start()
     {
@@ -63,7 +62,7 @@ public class CrewMember : MonoBehaviour
         {
             isSelected = false;
             isCommited = true;
-            _handScript.CommitCard(GetComponent<CrewMember>());
+            //handScript.CommitCard(GetComponent<CrewMember>());
         }
     }
 

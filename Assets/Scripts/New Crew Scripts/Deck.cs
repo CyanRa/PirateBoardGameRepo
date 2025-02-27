@@ -9,13 +9,23 @@ public class CommunityDeck : MonoBehaviour
 {
     public static CommunityDeck Instance { get; private set; } //Singleton
 
-    private List<CrewMember> _crewDeck;
-    private List<CrewMember> _tutorCrewDeck;
-    private List<CrewMember> _discardPile;
+    public List<CrewMember> _crewDeck;
+    public List<CrewMember> _tutorCrewDeck;
+    public List<CrewMember> _discardPile;
+
+    
 
     public Hand _handScript;
 
-    
+    public class Card{
+        public string name;
+        public string image;
+        public int power;
+
+        public bool isTutor; //still need to make isTutor logic
+        public bool isSelected;
+        public bool isCommited;
+    }
     private void Awake() //Singleton declaration
     {
         if (Instance == null)
