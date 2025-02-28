@@ -1,0 +1,19 @@
+{
+    "fighters":[
+        {
+            "fighterName":"Kraken",
+            "fighterImage":"kraken.png",
+            "fighterPower": 5
+          
+
+        },
+        {
+            "fighterName":"Sea Witch",
+            "fighterImage":"seawitch.png",
+            "fighterPower": 3
+        }
+          
+
+  
+    ]
+}

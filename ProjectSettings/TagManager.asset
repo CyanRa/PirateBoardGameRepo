@@ -8,6 +8,7 @@ TagManager:
   - NetworkManager
   - SpawnPoint
   - CCardCanvas
+  - Deck
   layers:
   - Default
   - TransparentFX

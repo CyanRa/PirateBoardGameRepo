@@ -12,7 +12,6 @@ public class JsonHandler : MonoBehaviour
 {
     public TextAsset JsonToLoadFrom;
     public CommunityDeck communityDeckToPopulate;
-    public CrewMember deWrappingCrewMember;
     List<CrewMember> listToReturn = new List<CrewMember>();
     
     [System.Serializable]
@@ -34,6 +33,7 @@ public class JsonHandler : MonoBehaviour
     void Start()
     {
         myStarterDeck = JsonUtility.FromJson<LoadedDeck>(JsonToLoadFrom.text);
+        
        
         //CommunityDeck.Instance._crewDeck = myStarterDeck.loadedCrewMembers;        
     }

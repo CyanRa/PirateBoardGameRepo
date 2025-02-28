@@ -1,48 +1,38 @@
 {
-    "loadedCrewMembers":[
+    "fighters":[
         {
-            "name":"Kraken",
-            "image":"kraken.png",
-            "power": 5,
-            "isTutor":false,
-            "isSelected":false,
-            "isCommited":false
+            "fighterName":"Kraken",
+            "fighterImage":"kraken.png",
+            "fighterPower": 5
+          
 
         },
         {
-            "name":"Sea Witch",
-            "image":"seawitch.png",
-            "power": 3,
-            "isTutor":false,
-            "isSelected":false,
-            "isCommited":false
+            "fighterName":"Sea Witch",
+            "fighterImage":"seawitch.png",
+            "fighterPower": 3
+          
 
         },
         {
-            "name":"White Shirt",
-            "image":"whiteshirt.png",
-            "power": 1,
-            "isTutor":false,
-            "isSelected":false,
-            "isCommited":false
+            "fighterName":"White Shirt",
+            "fighterImage":"whiteshirt.png",
+            "fighterPower": 1
+           
 
         },
         {
-            "name":"Salty Dog",
-            "image":"saltydog.png",
-            "power": 2,
-            "isTutor":false,
-            "isSelected":false,
-            "isCommited":false
+            "fighterName":"Salty Dog",
+            "fighterImage":"saltydog.png",
+            "fighterPower": 2
+          
 
         },
         {
-            "name":"Captain",
-            "image":"captain.png",
-            "power": 4,
-            "isTutor":false,
-            "isSelected":false,
-            "isCommited":false
+            "fighterName":"Captain",
+            "fighterImage":"captain.png",
+            "fighterPower": 4
+           
 
         }
     ]
