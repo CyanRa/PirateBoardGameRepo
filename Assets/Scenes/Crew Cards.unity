@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1489068665}
-  - component: {fileID: 1489068667}
+  - component: {fileID: 1489068666}
   m_Layer: 0
   m_Name: DeckLoader
   m_TagString: Deck
@@ -405,7 +405,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1489068667
+--- !u!114 &1489068666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,15 +414,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1489068663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a577f7e980980794aaa6fdb69654f36b, type: 3}
+  m_Script: {fileID: 11500000, guid: c654eda2f897ad24c8473037c1b3d231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   JsonToLoadFrom: {fileID: 4900000, guid: 08d273c3ed07b1b418caa66f2b48e7da, type: 3}
   JsonToLoadFrom2: {fileID: 4900000, guid: 471e0a0c91df25d4dbcaf50494cffa25, type: 3}
-  loadedFighters:
-    fighters: []
-  deck2:
-    fighters: []
+  loadedCrewMember:
+    crewMember: []
+  tutorDeck:
+    crewMember: []
 --- !u!1 &1515600214
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,13 +942,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1835317714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c535cc8cdd57414e86f2225dc01fb80, type: 3}
+  m_Script: {fileID: 11500000, guid: 7195ef7eb28b542408e63d85231602f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _crewDeck: []
-  _tutorCrewDeck: []
-  _discardPile: []
-  _handScript: {fileID: 0}
+  myFleetCrew: []
+  commitedCards: []
+  _totalPower: 0
+  deckLoader: {fileID: 1489068663}
+  crewMemberScript:
+    crewMemberName: 
+    crewMemberImage: 
+    crewMemberPower: 0
+  crewMemberPrefab: {fileID: 4348494174611873798, guid: ae11e64747c55404196ee38f27afe055, type: 3}
+  handZone: {fileID: 1704959282}
 --- !u!1 &2140069094
 GameObject:
   m_ObjectHideFlags: 0

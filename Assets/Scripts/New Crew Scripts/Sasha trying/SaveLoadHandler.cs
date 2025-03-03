@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SaveLoadHandler : MonoBehaviour
 {
     public TextAsset JsonToLoadFrom;
-     public TextAsset JsonToLoadFrom2;
+    public TextAsset JsonToLoadFrom2;
     public FightersData loadedFighters = new FightersData();
     public FightersData deck2 = new FightersData();
 

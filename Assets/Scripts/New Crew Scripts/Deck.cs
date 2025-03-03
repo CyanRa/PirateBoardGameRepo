@@ -9,9 +9,9 @@ public class CommunityDeck : MonoBehaviour
 {
     public static CommunityDeck Instance { get; private set; } //Singleton
 
-    public List<CrewMember> _crewDeck;
-    public List<CrewMember> _tutorCrewDeck;
-    public List<CrewMember> _discardPile;
+    public List<CrewMember> crewDeck;
+    public List<CrewMember> tutorCrewDeck;
+    public List<CrewMember> discardPile;
 
     
 
@@ -42,15 +42,15 @@ public class CommunityDeck : MonoBehaviour
     //function to draw 1 card
     public CrewMember DrawCard()
     {
-        if (_crewDeck.Count <= 0)
+        if (crewDeck.Count <= 0)
         {
-            _discardPile = _crewDeck;
-            _discardPile.Clear();
-            ShuffleDeck(_crewDeck);
+            discardPile = crewDeck;
+            discardPile.Clear();
+            ShuffleDeck(crewDeck);
         }
         
-        CrewMember _crewMemberToReturn = _crewDeck[0];
-        _crewDeck.RemoveAt(0);
+        CrewMember _crewMemberToReturn = crewDeck[0];
+        crewDeck.RemoveAt(0);
         return _crewMemberToReturn;
     }
 
@@ -67,7 +67,7 @@ public class CommunityDeck : MonoBehaviour
 
     public void AddCrewMemberToDiscardPile(CrewMember crewToAddToDiscardPile)
     {
-        _discardPile.Add(crewToAddToDiscardPile);
+        discardPile.Add(crewToAddToDiscardPile);
     }
 
     //Need to populate Deck
