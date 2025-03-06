@@ -48,13 +48,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
+  avatar: {fileID: 6772045645585059290}
   clickable:
     serializedVersion: 2
     m_Bits: 64
   myShips: []
-  selectedShips: []
+  SelectedShip: {fileID: 0}
+  MainSpawner: {fileID: 0}
+  endTurnButton: {fileID: 0}
   shipPrefab: {fileID: 4109729302943604207, guid: 05385616fc16e3940ae6838818a54237, type: 3}
-  avatar: {fileID: 6772045645585059290}
+  MenuController: {fileID: 0}
+  MultiplayerSystem: {fileID: 0}
+  gameStarted: 0
+  EndTurnText: {fileID: 0}
+  fleetColourID: 0
+  shipMaterialColour: {fileID: 0}
 --- !u!114 &5120672661187553825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97e8b7d05c7b5148ba757028c7a32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: e9481a60-a1ad-4595-be70-8af17c2cf827
+  Reliability: 1
+  LocalMethodBehavior: 1
   mySpawner: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!114 &6772045645585059290

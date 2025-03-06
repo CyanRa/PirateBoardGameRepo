@@ -6,13 +6,14 @@ using Alteruna;
 using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 public class FleetManager : CommunicationBridge
 {
     public Alteruna.Avatar avatar;
     public LayerMask clickable;
     private List<string> listOfPlayers;
     public List<GameObject> myShips;
-    public List<GameObject> selectedShips;
+    public GameObject SelectedShip;
     public ShipSpawnerBehaviour MainSpawner;
     public Button endTurnButton;
     public GameObject shipPrefab;
@@ -22,16 +23,29 @@ public class FleetManager : CommunicationBridge
     private bool isHost;
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
+    //public int fleetColourID;
+    [SerializeField]public string fleetColour;
+    public Material shipMaterialColour;
     
+    [SerializeField]public string Username = "";
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
+
     public void Awake(){
         isHost = Multiplayer.Instance.Me.Index == 0;
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
-        endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
-        endTurnButton.onClick.AddListener(EndTurn);
+        
 
         MainSpawner = GetComponent<ShipSpawnerBehaviour>(); 
+    }
+
+    public void Start(){
+        
+    }
+
+    private void InitEndTurnButton(){
+        endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
+        endTurnButton.onClick.AddListener(EndTurn);
     }
  
     void Update()
@@ -39,52 +53,77 @@ public class FleetManager : CommunicationBridge
     //Checks is the controlling avatar matches the 
        if(!avatar.IsMe){return;}
 
+
+        if(Input.GetKeyDown(KeyCode.F) && myShips.Count < 5 && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
+           GetComponent<ShipSpawnerBehaviour>().SpawnShip();
+           Debug.Log("SPAWNING CALLED");
+        }
     //Selecting ships
         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
 		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
+                if(hit.transform.GetComponent<Ship>().myFleet.name == name){
+                      if(SelectedShip != null)
+                {
+                    
+                    DeselectAll();
+                }
                     SelectByClicking(hit.transform.gameObject);                                                
                                                                  
             }else{
              DeselectAll();
             }  
-        }       
+            }else{
+                return;
+            }
+              
+        }
+        if (Input.GetMouseButtonDown(1) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
+		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+		    RaycastHit hit;
+
+		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
+                if(SelectedShip != null)
+                {
+                    SelectedShip.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
+                    DeselectAll();
+                }
+                    SelectByClicking(hit.transform.gameObject);                                                
+                                                                 
+            }else{
+             DeselectAll();
+            }  
+        }
+             
     }
     
    
 #region SHIPS
-    public void DeselectAll(){                       
-        selectedShips.Clear();
+    public void DeselectAll(){
+        if(SelectedShip != null){
+            SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);                   
+            SelectedShip = null;
+        }       
     }
 
     public void SelectByClicking(GameObject unit){   
-        DeselectAll();
-        selectedShips.Add(unit);
-        EnableUnitMovement(unit, true);
+        SelectedShip = unit;
+        shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
+        SelectedShip.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
+        unit.GetComponent<Ship>().EnableUnitMovement(unit, true);
         unit.GetComponent<Ship>().PlaySelectShipAudioClip();
     }
 
-    //Movement enabling also reuglates highlighting and dehighlighting neighbouring terrains
-    public void EnableUnitMovement(GameObject unit, bool shouldMove){   
-        if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == true){
-            unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours(unit.GetComponent<Ship>());
-        }
-
-        if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == false){
-            unit.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
-        }
-
-        unit.GetComponent<Ship>().enabled = shouldMove;
-        Debug.Log("Enabled movement of " + unit.transform.name);
-    }
+    
 
 
     public void DestroyShip(int shipIndex){
         myShips.RemoveAt(shipIndex);
     }
 
+   
     public void AddShipToFleet(GameObject spawnedShip, bool isFlagship){
         spawnedShip.GetComponent<Ship>().fleetsAvatar = GetComponent<Alteruna.Avatar>();
         spawnedShip.GetComponent<Ship>().myFleet = GetComponent<FleetManager>();
@@ -94,10 +133,7 @@ public class FleetManager : CommunicationBridge
         }else if(isFlagship){
             myShips.Add(spawnedShip);
             AddFlagShipToPanelUI(spawnedShip);         
-        }else{
-            Debug.Log("Ship limit reached for " + avatar.name);
-        }
-        
+        }       
     }
     private void AddShipToPanelUI(GameObject newShip){
         int index = myShips.Count;
@@ -107,18 +143,6 @@ public class FleetManager : CommunicationBridge
         MenuController.GetComponent<MenuBehaviour>().AddFlagShipToUI(newShip);        
     }
 
-    /*  //Checks if the passed on ship is in the fleet ship list
-    private bool CheckPosessionOfShip(GameObject ship){    
-        bool isMyShip = false;
-        foreach(GameObject x in myShips){
-            if(ship.transform.name == x.transform.name){
-                isMyShip = true;
-                return isMyShip;
-            }
-        }
-        return isMyShip;
-    }
-    */
 #endregion
 #region GAME_TURNS
     public void EndTurn(){
@@ -131,18 +155,33 @@ public class FleetManager : CommunicationBridge
         isMyTurn = true;
     }
 
+    public void GetColourID(){
+        Debug.Log("User name requesting color is: " + Multiplayer.GetUser());
+        //fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(Multiplayer.GetUser());        
+    }
+
     public void StartGame(){
-        Debug.Log("StartGame method in fleet is invoked");
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
+        MainSpawner.InitSpawnPoint();
+        InitEndTurnButton();
+        
+
         if(isHost){
             isMyTurn = true;
+            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                       
             MainSpawner.SpawnFlagShip();
-            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);      
-        }else{
+                
+        }        
+
+        if(!isHost){
             MainSpawner.SpawnFlagShip();
-        }                        
+        }
+                                          
         //MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(myUsers[0].Name); 
         gameStarted = true;                
     }
+
+   
 #endregion
+
 }

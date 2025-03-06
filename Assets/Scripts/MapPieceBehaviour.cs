@@ -12,43 +12,40 @@ public class MapPieceBehaviour : AttributesSync
 {   
     [SynchronizableField]public String occupyingShip = "";
     [SynchronizableField]public String occupyingFleet = "";
-    public Material myMaterial;
-    public Material highLightedMaterial;
-    [Range (0f,1f)]
-    public float alpha = 1f;
+    [SerializeField]public Ship defenderShip = null;
     public List<MapPieceBehaviour> neighboringTerrain = new List<MapPieceBehaviour>();
-    public Transform heighlightedHight;
+    public List<String> interactables = new List<String>();
+    public Material myMaterial; 
+    public Material highLightedMaterial;
     private Renderer renderer;
     private Transform transform;
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
-    public Material hostileNeighbouringTerrainMaterial;
+    public Material hostileNeighbouringTerrainMaterial; 
+    public Material allyNeighbouringTerrainMaterial;
     public bool areNeighboursHighlited = false;
+    public bool allowTerrainHighlight = true;
 
-    private System.Numerics.Vector3 verticalVector = new System.Numerics.Vector3(0f, 30f, 0f);
     void Start()
     {
         occupyingShip = "";
         renderer = GetComponent<Renderer>();
         transform = GetComponent<Transform>();
-       // myMaterial.color = new Color(renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, alpha);
     }
 
     private void OnMouseEnter(){
-        tempMaterial = GetComponent<MeshRenderer>().material;        
-        GetComponent<MeshRenderer>().material = highLightedMaterial;
-       // transform.position += new UnityEngine.Vector3(0,10, 0);
-       // transform.localScale = new UnityEngine.Vector3(1.1f, 1.0f, 1.1f);
+        if(allowTerrainHighlight){
+            tempMaterial = GetComponent<MeshRenderer>().material;        
+            GetComponent<MeshRenderer>().material = highLightedMaterial;
+        }
     }
 
     private void OnMouseExit(){
         GetComponent<MeshRenderer>().material = tempMaterial;
 
-        if(areNeighboursHighlited == false){
+        if(areNeighboursHighlited == false && allowTerrainHighlight){
             GetComponent<MeshRenderer>().material = myMaterial;           
         }        
-    //  transform.position += new UnityEngine.Vector3(0,-10, 0);
-    //  transform.localScale = new UnityEngine.Vector3(0.9f, 1.0f, 0.9f);
     }
 
     public void HighlightNeighbours(Ship unit){
@@ -57,33 +54,52 @@ public class MapPieceBehaviour : AttributesSync
             if(map.occupyingShip == ""){
                 map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
             }else{
-                if(occupyingFleet != unit.myFleet.name){
-                map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                Debug.Log(occupyingFleet + "      " + unit.myFleet.name);
+                if(map.occupyingFleet != unit.myFleet.name){  
+                    map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
                 }
-            }       
+                if(map.occupyingFleet == unit.myFleet.name){
+                    map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
+                }
+            }      
         }
+        allowTerrainHighlight = false;
     }
-
-  
+ 
     public void DeHighlightNeighbours(){       
         foreach(MapPieceBehaviour map in neighboringTerrain){           
             map.GetComponent<MeshRenderer>().material = myMaterial;
             map.areNeighboursHighlited = false;
-        }       
+        } 
+        allowTerrainHighlight = true;      
     }
 
-    public void BroadcastOccupyingMapPiece(Ship enteringShip){
-        
+
+    public void EnterMapPiece(Ship enteringShip)
+    {
+        if(occupyingFleet == ""){
+            BroadcastOccupyingMapPiece(enteringShip);
+        }else if(occupyingFleet == enteringShip.myFleet.name){
+            return;
+        }else{
+            ShipsEnterCombat(enteringShip, defenderShip);           
+        }
+    }
+    public void BroadcastOccupyingMapPiece(Ship enteringShip){        
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
-        BroadcastRemoteMethod("OccupyMapPiece", enteringShip.myFleet.name);
+        BroadcastRemoteMethod("SetOccupyingFleet", enteringShip.myFleet.name);
     }
     
     [SynchronizableMethod]
     public void OccupyMapPiece(String enteringShip){ 
-        occupyingShip = enteringShip;
+        occupyingShip = enteringShip;      
     }
     [SynchronizableMethod]
     public void SetOccupyingFleet(String enteringFleet){
         occupyingFleet = enteringFleet;
+    }
+
+    public void ShipsEnterCombat(Ship attackerShip, Ship defenderShip){
+        return;
     }
 }
