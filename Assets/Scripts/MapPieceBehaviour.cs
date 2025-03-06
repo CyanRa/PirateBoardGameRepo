@@ -13,24 +13,19 @@ public class MapPieceBehaviour : AttributesSync
     [SynchronizableField]public String occupyingShip = "";
     [SynchronizableField]public String occupyingFleet = "";
     [SerializeField]public Ship defenderShip = null;
-    public Material myMaterial;
-    public Material highLightedMaterial;
-    [Range (0f,1f)]
-    public float alpha = 1f;
     public List<MapPieceBehaviour> neighboringTerrain = new List<MapPieceBehaviour>();
-    public Transform heighlightedHight;
+    public List<String> interactables = new List<String>();
+    public Material myMaterial; 
+    public Material highLightedMaterial;
     private Renderer renderer;
     private Transform transform;
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
-    public Material hostileNeighbouringTerrainMaterial;
-    
+    public Material hostileNeighbouringTerrainMaterial; 
     public Material allyNeighbouringTerrainMaterial;
     public bool areNeighboursHighlited = false;
-
     public bool allowTerrainHighlight = true;
 
-    private System.Numerics.Vector3 verticalVector = new System.Numerics.Vector3(0f, 30f, 0f);
     void Start()
     {
         occupyingShip = "";
