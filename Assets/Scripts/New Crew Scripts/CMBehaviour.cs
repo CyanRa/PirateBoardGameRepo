@@ -5,24 +5,29 @@ using System.Collections.Generic;
 using Dreamteck;
 using static UnityEngine.UI.Image;
 using TMPro;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class CMBehaviour : MonoBehaviour
 {
     public bool isTutor; //still need to make isTutor logic make sepperate class
     public bool isSelected;
-    public bool isCommited;
+    public bool isCommitted;
 
     public TextMeshProUGUI displayedName;
     public TextMeshProUGUI displayedPower;
     public Image displayedImage;
 
+    public Transform committedZone;
     public CrewMember crewMember;
+
     
     public void Start()
     {
         isSelected = false;
-        isCommited = false;
-        isCommited = false;
+        isCommitted = false;
+        isCommitted = false;
+        Button button = GameObject.Find("Test Commit").GetComponent<Button>();
+        button.onClick.AddListener(CommitCrewToBattle);
     }
 
     public void LoadCardDisplay()
@@ -54,10 +59,10 @@ public class CMBehaviour : MonoBehaviour
     {
         if (isSelected)
         {
+            this.transform.SetParent(committedZone);       
             isSelected = false;
-            isCommited = true;
+            isCommitted = true;
             //handScript.CommitCard(GetComponent<CrewMember>());
         }
     }
-
 }

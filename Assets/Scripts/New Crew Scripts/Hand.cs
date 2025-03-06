@@ -7,7 +7,6 @@ using UnityEditor;
 public class Hand : MonoBehaviour
 {
     public List<CrewMember> myFleetCrew;
-    public List<CrewMember> commitedCards;
     public int _totalPower;
 
     //public CommunityDeck deckScript;
@@ -16,6 +15,7 @@ public class Hand : MonoBehaviour
 
     public GameObject crewMemberPrefab;
     public Transform handZone;
+    public Transform committedZone;
 
     public void Start()
     {
@@ -34,6 +34,7 @@ public class Hand : MonoBehaviour
             _cMBehaviour.crewMember = myFleetCrew[i];
             _cMBehaviour.LoadCardDisplay();
             _crewMember.transform.SetParent(handZone);
+            _cMBehaviour.committedZone = committedZone;
             i ++;
         }
     }
@@ -44,28 +45,25 @@ public class Hand : MonoBehaviour
         //deckScript.AddCrewMemberToDiscardPile(crewToDiscard);
     }
 
-    public void CommitCard(CrewMember _crewMember)
-    {
-        commitedCards.Add(_crewMember);
-        myFleetCrew.Remove(_crewMember);
-    }
-
     public void EndBattle()
     {
         _totalPower = 0;
-        foreach (CrewMember _crewMember in commitedCards)
+        foreach (Transform _card in committedZone)
         {
-            _totalPower += _crewMember.crewMemberPower;
-            DiscardCrewMember(_crewMember);
+            CMBehaviour _crewMember = _card.gameObject.GetComponent<CMBehaviour>();
+            _totalPower += _crewMember.crewMember.crewMemberPower;
+            Destroy(_card.gameObject);
         }
-        commitedCards = null;
+        Debug.Log("Total Power: "+_totalPower);
+        foreach (Transform _card in handZone)
+        {
+            Destroy(_card.gameObject);
+        }
     }
 
     public void DrawCard()
     {
         //_myFleetCrew.Add(_deckScript.DrawCard());
     }
-
-
 
 }
