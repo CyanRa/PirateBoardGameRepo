@@ -26,7 +26,7 @@ public class CMBehaviour : MonoBehaviour
         isSelected = false;
         isCommitted = false;
         isCommitted = false;
-        Button button = GameObject.Find("Test Commit").GetComponent<Button>();
+        Button button = GameObject.Find("CommitCardsButton").GetComponent<Button>();
         button.onClick.AddListener(CommitCrewToBattle);
     }
 
