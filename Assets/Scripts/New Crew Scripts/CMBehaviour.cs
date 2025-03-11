@@ -6,6 +6,7 @@ using Dreamteck;
 using static UnityEngine.UI.Image;
 using TMPro;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System;
 
 public class CMBehaviour : MonoBehaviour
 {
@@ -26,8 +27,14 @@ public class CMBehaviour : MonoBehaviour
         isSelected = false;
         isCommitted = false;
         isCommitted = false;
-        Button button = GameObject.Find("CommitCardsButton").GetComponent<Button>();
-        button.onClick.AddListener(CommitCrewToBattle);
+        try{
+            Button button = GameObject.Find("CommitCardsButton").GetComponent<Button>();
+            button.onClick.AddListener(CommitCrewToBattle);
+        }
+        catch(Exception e){
+            Debug.Log("Card instantiated for display only");
+        }
+        
     }
 
     public void LoadCardDisplay()

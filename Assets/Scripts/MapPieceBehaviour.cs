@@ -82,7 +82,7 @@ public class MapPieceBehaviour : AttributesSync
         }else if(occupyingFleet == enteringShip.myFleet.name){
             return;
         }else{
-            ShipsEnterCombat(enteringShip, defenderShip);           
+                      
         }
     }
     public void BroadcastOccupyingMapPiece(Ship enteringShip){        
@@ -99,7 +99,5 @@ public class MapPieceBehaviour : AttributesSync
         occupyingFleet = enteringFleet;
     }
 
-    public void ShipsEnterCombat(Ship attackerShip, Ship defenderShip){
-        return;
-    }
+  
 }

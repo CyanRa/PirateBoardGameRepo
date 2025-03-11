@@ -15,10 +15,14 @@ public class ShipSpawnerBehaviour : AttributesSync
    
     void Start()
     {
-        spawnIndex = 0;
-        mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
-        
         myAvatar = GetComponent<Alteruna.Avatar>();
+        if(myAvatar.IsMe){
+            spawnIndex = 0;
+            mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
+        }
+        
+        
+        
     }
 
     public void InitSpawnPoint(){

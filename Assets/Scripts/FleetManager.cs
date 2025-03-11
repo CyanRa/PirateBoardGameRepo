@@ -35,14 +35,23 @@ public class FleetManager : CommunicationBridge
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
         
+        
+        
+        
+       
+        
 
         MainSpawner = GetComponent<ShipSpawnerBehaviour>(); 
     }
 
     public void Start(){
+        if(avatar.IsMe){
+        Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
+        ShowCrewButton.onClick.AddListener(DisplayCrew);
+        }
         
     }
-
+    
     private void InitEndTurnButton(){
         endTurnButton = GameObject.Find("EndTurnButton").GetComponent<Button>();
         endTurnButton.onClick.AddListener(EndTurn);
@@ -149,10 +158,15 @@ public class FleetManager : CommunicationBridge
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
               MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
               isMyTurn = false;   
+              GetComponent<Hand>().DrawCard();
         }     
     }
     public void StartTurn(){
         isMyTurn = true;
+    }
+
+    public void DisplayCrew(){
+        MenuController.GetComponent<MenuBehaviour>().DisplayCrew(GetComponent<Hand>().myFleetCrew);
     }
 
     public void GetColourID(){
@@ -164,6 +178,7 @@ public class FleetManager : CommunicationBridge
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
         MainSpawner.InitSpawnPoint();
         InitEndTurnButton();
+        GetComponent<Hand>().DrawNCards(5);
         
 
         if(isHost){
@@ -183,5 +198,9 @@ public class FleetManager : CommunicationBridge
 
    
 #endregion
+
+    public void EnterCombat(string attacker, string defender){
+
+    }
 
 }

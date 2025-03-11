@@ -34,6 +34,111 @@
             "crewMemberPower": 4
            
 
+        },
+        {
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
         }
     ]
 }

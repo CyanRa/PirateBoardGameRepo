@@ -11,16 +11,12 @@ using UnityEngine.UIElements;
 public class Ship : AttributesSync
 {
     //Branch change test
-    PathCreator myPathCreator;
     public bool isMoving = false;
-    public String Fleet;
-    public int indexOfShip;
     public MapPieceBehaviour occupyingMapPiece;
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
     public float Speed = 10.0f;
-    public float RotationSpeed = 180.0f;
     public LayerMask MovementLayer;
     public Alteruna.Avatar fleetsAvatar;
     public AudioSource myAudioSource;
