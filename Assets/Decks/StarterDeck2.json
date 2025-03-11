@@ -1,19 +1,165 @@
 {
-    "fighters":[
+    "crewMember":[
         {
-            "fighterName":"Kraken",
-            "fighterImage":"kraken.png",
-            "fighterPower": 5
+            "crewMemberName":"Kraken",
+            "crewMemberImage":"kraken.png",
+            "crewMemberPower": 8
           
 
         },
         {
-            "fighterName":"Sea Witch",
-            "fighterImage":"seawitch.png",
-            "fighterPower": 3
-        }
+            "crewMemberName":"Kraken",
+            "crewMemberImage":"kraken.png",
+            "crewMemberPower": 8
           
 
-  
+        },
+        {
+            "crewMemberName":"Kraken",
+            "crewMemberImage":"kraken.png",
+            "crewMemberPower": 8
+          
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        }
     ]
 }

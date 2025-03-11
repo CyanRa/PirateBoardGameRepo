@@ -1,6 +1,329 @@
 {
     "crewMember":[
         {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+           
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+          
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+<<<<<<< HEAD
             "crewMemberName":"Full Raid",
             "crewMemberImage":"Felix Sprites/FullRaidSprite",
             "crewMemberPower": 5
@@ -15,6 +338,137 @@
 
         },
         {
+            "crewMemberName":"Swinging Swashbuckler",
+            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
+            "crewMemberPower": 1
+=======
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+>>>>>>> Crew-Cards-Felix
+           
+
+        },
+        {
+<<<<<<< HEAD
+            "crewMemberName":"DoubleTeam",
+            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
+            "crewMemberPower": 2
+          
+=======
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+>>>>>>> Crew-Cards-Felix
+
+        },
+        {
+            "crewMemberName":"Plunder Bundle",
+            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
+            "crewMemberPower": 4
+           
+
+        },
+        {
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+          
+
+        },
+        {
+<<<<<<< HEAD
+            "crewMemberName":"Sea Dog",
+            "crewMemberImage":"Felix Sprites/SeaDogSprite",
+            "crewMemberPower": 3
+=======
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+>>>>>>> Crew-Cards-Felix
+          
+
+        },
+        {
+<<<<<<< HEAD
             "crewMemberName":"Swinging Swashbuckler",
             "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
             "crewMemberPower": 1
@@ -36,6 +490,8 @@
 
         },
         {
+=======
+>>>>>>> Crew-Cards-Felix
             "crewMemberName":"Full Raid",
             "crewMemberImage":"Felix Sprites/FullRaidSprite",
             "crewMemberPower": 5
@@ -43,13 +499,20 @@
 
         },
         {
+<<<<<<< HEAD
             "crewMemberName":"Sea Dog",
             "crewMemberImage":"Felix Sprites/SeaDogSprite",
             "crewMemberPower": 3
+=======
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+>>>>>>> Crew-Cards-Felix
           
 
         },
         {
+<<<<<<< HEAD
             "crewMemberName":"Swinging Swashbuckler",
             "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
             "crewMemberPower": 1
@@ -60,14 +523,25 @@
             "crewMemberName":"DoubleTeam",
             "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
             "crewMemberPower": 2
+=======
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+>>>>>>> Crew-Cards-Felix
           
 
         },
         {
+<<<<<<< HEAD
             "crewMemberName":"Plunder Bundle",
             "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
             "crewMemberPower": 4
            
+=======
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+          
 
         },
         {
@@ -78,31 +552,10 @@
 
         },
         {
-            "crewMemberName":"Sea Dog",
-            "crewMemberImage":"Felix Sprites/SeaDogSprite",
-            "crewMemberPower": 3
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
           
-
-        },
-        {
-            "crewMemberName":"Swinging Swashbuckler",
-            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
-            "crewMemberPower": 1
-           
-
-        },
-        {
-            "crewMemberName":"DoubleTeam",
-            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
-            "crewMemberPower": 2
-          
-
-        },
-        {
-            "crewMemberName":"Plunder Bundle",
-            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
-            "crewMemberPower": 4
-           
 
         },
         {
@@ -113,31 +566,11 @@
 
         },
         {
-            "crewMemberName":"Sea Dog",
-            "crewMemberImage":"Felix Sprites/SeaDogSprite",
-            "crewMemberPower": 3
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
           
-
-        },
-        {
-            "crewMemberName":"Swinging Swashbuckler",
-            "crewMemberImage":"Felix Sprites/SwingingSwashbucklerSprite",
-            "crewMemberPower": 1
-           
-
-        },
-        {
-            "crewMemberName":"DoubleTeam",
-            "crewMemberImage":"Felix Sprites/DoubleTeamSprite",
-            "crewMemberPower": 2
-          
-
-        },
-        {
-            "crewMemberName":"Plunder Bundle",
-            "crewMemberImage":"Felix Sprites/PlunderBundleSprite",
-            "crewMemberPower": 4
-           
+>>>>>>> Crew-Cards-Felix
 
         }
     ]
