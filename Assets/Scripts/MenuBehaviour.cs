@@ -119,8 +119,6 @@ public class MenuBehaviour : AttributesSync
     void PassTurn(){
             int turnOwnerIndex = playersList.IndexOf(turnOwner);
             if(playersList.Count-1 != turnOwnerIndex){
-                Debug.Log("player list size is: " + playersList.Count);
-                Debug.Log("turn owner index is: " + turnOwnerIndex);
                 turnOwner = playersList[turnOwnerIndex+1];
             }else{
                 turnOwner = playersList[0];

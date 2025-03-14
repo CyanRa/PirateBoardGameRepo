@@ -7,6 +7,7 @@ using static UnityEngine.UI.Image;
 using TMPro;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System;
+using Alteruna;
 
 public class CMBehaviour : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class CMBehaviour : MonoBehaviour
 
     public Transform committedZone;
     public CrewMember crewMember;
+    public Hand myHand;
 
     
     public void Start()
@@ -47,7 +49,8 @@ public class CMBehaviour : MonoBehaviour
     //method for select cards, still need to add actual highlighting of cards.
     public void SelectThisCrew()
     {
-        if (!isSelected)
+        if(myHand.battleManager.turnOwner == myHand.battleManager.myTurnID){
+            if (!isSelected)
         {
             isSelected = true;
             Debug.Log("is Selected");
@@ -59,17 +62,28 @@ public class CMBehaviour : MonoBehaviour
             Debug.Log("is Deselected");
             GetComponent<Image>().enabled = false;
         }
+        }
+        
     }
 
     //method for commiting this card
     public void CommitCrewToBattle()
     {
+        if(myHand.battleManager.turnOwner == myHand.battleManager.myTurnID){
         if (isSelected)
         {
             this.transform.SetParent(committedZone);       
             isSelected = false;
             isCommitted = true;
+            myHand.battleManager.cardsPlayedLastTurn = true;
+            if(myHand.battleManager.myTurnID == 0){
+                myHand.battleManager.defenderPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+            }else{
+                myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+            }
             //handScript.CommitCard(GetComponent<CrewMember>());
         }
+        }
+        
     }
 }

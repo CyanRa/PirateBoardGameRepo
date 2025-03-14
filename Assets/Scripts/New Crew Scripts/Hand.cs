@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using Alteruna;
+using System;
 public class Hand : MonoBehaviour
 {
     public List<CrewMember> myFleetCrew;
@@ -17,39 +18,43 @@ public class Hand : MonoBehaviour
 
     public Transform handZone;
     public Transform committedZone;
+    public Transform opponentHandZone;
+    public Transform opponentCommittedZone;
+    public BattleManager battleManager;
 
     Alteruna.Avatar _avatar;
 
+    
     public void Start()
     {
         _avatar = this.gameObject.GetComponent<FleetManager>().avatar;
         //Initial referencing of Buttons and decks for fighting phase
-        if(_avatar.IsMe){
+        if(!_avatar.IsMe) return;
+        InitializeBattleZoneGameObjects();
+        CMSaveLoadHandler _cMSaveLoadHandler = deckLoader.GetComponent<CMSaveLoadHandler>();                   
+    }
+
+    private void InitializeBattleZoneGameObjects()
+    {
         committedZone = GameObject.Find("Committed Zone").transform;
         handZone = GameObject.Find("HandZone").transform;
+        opponentHandZone = GameObject.Find("Opp Hand Zone").transform;
+        opponentCommittedZone = GameObject.Find("Opp Committed Zone").transform;
         deckLoader = GameObject.Find("CommunityDeck");
-        BattleCanvas = GameObject.Find("2PLAYERFIGHTPREFAB");
-        
-        Button _DrawCardButton = GameObject.Find("DrawACardButton").GetComponent<Button>();
-        _DrawCardButton.onClick.AddListener(DrawCard);
-        Button _EndBattleButton = GameObject.Find("EndBattleButton").GetComponent<Button>();
-        _DrawCardButton.onClick.AddListener(EndBattle);
+        BattleCanvas = GameObject.Find("CardCanvas");
+        battleManager = BattleCanvas.GetComponentInParent<BattleManager>();
         BattleCanvas.SetActive(false);
-
-        CMSaveLoadHandler _cMSaveLoadHandler = deckLoader.GetComponent<CMSaveLoadHandler>(); 
-        }
-               
-        //myFleetCrew = _cMSaveLoadHandler.loadedCrewMember.crewMember;
-        InstantiateHand();
     }
 
     public void InstantiateHand()
     {
+        
         int i = 0;
         foreach (CrewMember ownedCrewMember in myFleetCrew)
         {
             GameObject _crewMember = Instantiate(crewMemberPrefab);
             CMBehaviour _cMBehaviour = _crewMember.GetComponent<CMBehaviour>();
+            _cMBehaviour.myHand = GetComponent<Hand>();
             _cMBehaviour.crewMember = myFleetCrew[i];
             _cMBehaviour.LoadCardDisplay();
             _crewMember.transform.SetParent(handZone);
@@ -57,13 +62,20 @@ public class Hand : MonoBehaviour
             i ++;
         }
     }
+    public void InstantiateOpponentHandZone(int numberOfOpponentCards){
+        for(int i = 0; i < numberOfOpponentCards; i++){
+            GameObject _crewMember = Instantiate(crewMemberPrefab);
+            _crewMember.transform.SetParent(opponentHandZone);
+        }
+        
+    }
 
 
     public void DiscardCrewMember(CrewMember crewToDiscard)
     {
         //deckScript.AddCrewMemberToDiscardPile(crewToDiscard);
     }
-
+    
     public void EndBattle()
     {
         _totalPower = 0;
@@ -92,6 +104,22 @@ public class Hand : MonoBehaviour
         for(int i = 0; i < amountOfCardsToDraw; i++){
             DrawCard();
         }
+    }
+
+    public void EndCardTurn(){
+        if(battleManager.cardsPlayedLastTurn == false){
+            battleManager.EndBattle();
+        }
+        if(battleManager.turnOwner == battleManager.myTurnID){
+            if(battleManager.turnOwner == 1){
+            battleManager.turnOwner = 0;
+            }else{
+            battleManager.turnOwner = 1;
+            }
+            battleManager.BroadcastSetTurnOwnerDisplay();
+        }
+        battleManager.cardsPlayedLastTurn = false;
+      
     }
 
 }

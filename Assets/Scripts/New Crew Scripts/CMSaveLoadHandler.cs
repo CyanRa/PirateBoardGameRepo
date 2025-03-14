@@ -27,9 +27,18 @@ public class CMSaveLoadHandler : AttributesSync
 
 
     public CrewMember ReturnDrawCard(){
-        CrewMember _crewMember = DrawPileCrewMember[0];
-        BroadcastRemoteMethod("RemoveTopCardFromCrewMemberDeck");
-        return _crewMember;       
+        if(DrawPileCrewMember.Count > 0){
+            CrewMember _crewMember = DrawPileCrewMember[0];
+            BroadcastRemoteMethod("RemoveTopCardFromCrewMemberDeck");
+            return _crewMember;   
+        }else{
+            DrawPileCrewMember = DiscardPileCrewMember;
+            ShuffleDeck();
+            CrewMember _crewMember = DrawPileCrewMember[0];
+            BroadcastRemoteMethod("RemoveTopCardFromCrewMemberDeck");
+            return _crewMember; 
+        }
+            
     }
 
     [SynchronizableMethod]

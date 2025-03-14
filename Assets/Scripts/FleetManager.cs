@@ -33,22 +33,15 @@ public class FleetManager : CommunicationBridge
     public void Awake(){
         isHost = Multiplayer.Instance.Me.Index == 0;
         MenuController = GameObject.Find("MenuSystem");
-        MultiplayerSystem = GameObject.Find("Multiplayer");
-        
-        
-        
-        
-       
-        
-
+        MultiplayerSystem = GameObject.Find("Multiplayer");     
         MainSpawner = GetComponent<ShipSpawnerBehaviour>(); 
     }
 
     public void Start(){
-        if(avatar.IsMe){
+        if(!avatar.IsMe) return; // Guard Cluase??
         Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
         ShowCrewButton.onClick.AddListener(DisplayCrew);
-        }
+        
         
     }
     
@@ -59,13 +52,11 @@ public class FleetManager : CommunicationBridge
  
     void Update()
     {
-    //Checks is the controlling avatar matches the 
-       if(!avatar.IsMe){return;}
-
+        //Checks is the controlling avatar matches 
+       if(!avatar.IsMe) return;
 
         if(Input.GetKeyDown(KeyCode.F) && myShips.Count < 5 && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
-           GetComponent<ShipSpawnerBehaviour>().SpawnShip();
-           Debug.Log("SPAWNING CALLED");
+           MainSpawner.SpawnShip();
         }
     //Selecting ships
         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
@@ -99,11 +90,11 @@ public class FleetManager : CommunicationBridge
                     SelectedShip.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
                     DeselectAll();
                 }
-                    SelectByClicking(hit.transform.gameObject);                                                
-                                                                 
-            }else{
-             DeselectAll();
-            }  
+            SelectByClicking(hit.transform.gameObject);                                                                                                     
+            }else
+                {
+                    DeselectAll();
+                }  
         }
              
     }
@@ -159,6 +150,9 @@ public class FleetManager : CommunicationBridge
               MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
               isMyTurn = false;   
               GetComponent<Hand>().DrawCard();
+              foreach(GameObject ship in myShips){
+                ship.GetComponent<Ship>().movementPoints = 1;
+              }
         }     
     }
     public void StartTurn(){
@@ -167,11 +161,6 @@ public class FleetManager : CommunicationBridge
 
     public void DisplayCrew(){
         MenuController.GetComponent<MenuBehaviour>().DisplayCrew(GetComponent<Hand>().myFleetCrew);
-    }
-
-    public void GetColourID(){
-        Debug.Log("User name requesting color is: " + Multiplayer.GetUser());
-        //fleetColourID = MenuController.GetComponent<MenuBehaviour>().GetColourID(Multiplayer.GetUser());        
     }
 
     public void StartGame(){
@@ -200,7 +189,54 @@ public class FleetManager : CommunicationBridge
 #endregion
 
     public void EnterCombat(string attacker, string defender){
+        foreach(GameObject ship in myShips){
+            if(ship.name == attacker){
+                Debug.Log(attacker + " is the attacking ship");
+                EnterCombatAsAttacker(attacker, defender);
+            }else if(ship.name == defender){
+                EnterCombatAsDefender(defender);
+            }else{
+                Debug.Log("Players are fighting. But not you");
+            }
+        }
+    }
+    public void EnterCombatAsAttacker(string attacker, string defender){
+        Hand _myHand = GetComponent<Hand>();
+        _myHand.BattleCanvas.SetActive(true);
+        _myHand.InstantiateHand();
+        BattleManager _BattleManager = _myHand.BattleCanvas.transform.GetComponentInParent<BattleManager>();
+        _BattleManager.shipInCombat = GameObject.Find(attacker).GetComponent<Ship>();
+        _BattleManager.attackerUID = Multiplayer.GetUser().Index;
+        _BattleManager.myHand = GetComponent<Hand>();
+        _BattleManager.myTurnID = 1;
+        _BattleManager.SetAttacker(avatar.name);
+        _BattleManager.BroadcastSetTurnOwnerDisplay();
+        Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
+        _endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);        
+        Ship _defenderShip = GameObject.Find(defender).GetComponent<Ship>();
+        ushort defenderUID = _defenderShip.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
+        MapPieceBehaviour mapPiece = GameObject.Find(_defenderShip.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
+        mapPiece.BroadcastBeginBattleDefender("", defender, defenderUID);
+        _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        _BattleManager.BroadcastInitializePrefabForDefender(defenderUID, _defenderShip.name);
 
     }
+
+    public void EnterCombatAsDefender(string defender){
+        GetComponent<Hand>().BattleCanvas.SetActive(true);
+        GetComponent<Hand>().InstantiateHand();
+        BattleManager _BattleManager = GetComponent<Hand>().BattleCanvas.transform.GetComponentInParent<BattleManager>();
+        _BattleManager.shipInCombat = GameObject.Find(defender).GetComponent<Ship>();
+        _BattleManager.defenderUID = _BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
+        //defender turnid set to 0
+        _BattleManager.myTurnID = 0;
+        _BattleManager.SetDefender(_BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().name); 
+        _BattleManager.myHand = GetComponent<Hand>();
+        Button endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
+        endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);
+        _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+    }
+
+    
 
 }

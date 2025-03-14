@@ -13,6 +13,7 @@ public class Ship : AttributesSync
     //Branch change test
     public bool isMoving = false;
     public MapPieceBehaviour occupyingMapPiece;
+    [SynchronizableField] public string occupyingMapPieceName;
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
@@ -22,16 +23,18 @@ public class Ship : AttributesSync
     public AudioSource myAudioSource;
     public AudioClip selectShipAudioClip;
     public AudioClip shipBellRingAudioClip;
+    public int movementPoints;
 
     private void Awake(){
-        myCamera = GameObject.Find("RTS_Camera").GetComponent<RTS_Camera>();        
+        myCamera = GameObject.Find("RTS_Camera").GetComponent<RTS_Camera>();   
+        movementPoints = 1;     
     }
  
     void Update(){
     //Quit the update if using avatar is not the avatar of the fleet
-        if(!fleetsAvatar.IsMe ){
-            return;
-        }
+        //if(!fleetsAvatar.IsMe ){
+            //return;
+        //}
 
     //Allows for a ship to move to any map piece before having one
     //Will be replaced by spawning logic                  
@@ -43,6 +46,7 @@ public class Ship : AttributesSync
 		        if( Physics.Raycast( ray, out hit, 1000, MovementLayer ) ){		            
                     mapPieceAnchor = hit.transform.GetChild(0).transform;
                     occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
+                    occupyingMapPieceName = occupyingMapPiece.name;
                     //OccupyMapPiece(true);
                     occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
                     isMoving = true;
@@ -50,7 +54,7 @@ public class Ship : AttributesSync
             }     
         }
     //Movement when unit is selected and is registered to a map piece        
-            if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null){        	
+            if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null && movementPoints > 0){        	
 		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
@@ -77,9 +81,9 @@ public class Ship : AttributesSync
             }            
         
     //Locks in movement until final position           
-            if(isMoving){
+            if(!isMoving) return;
                 MoveToAnchor(mapPieceAnchor);
-            }
+            
         
     }
 
@@ -87,6 +91,7 @@ public class Ship : AttributesSync
         OccupyMapPiece(false);
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
         occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
+        occupyingMapPieceName = occupyingMapPiece.name;
         occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
         occupyingMapPiece.defenderShip = GetComponent<Ship>();
         isMoving = true;
