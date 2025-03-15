@@ -7,6 +7,7 @@ using UnityEditor;
 using RTS_Cam;
 using UnityEngine.UIElements;
 using System.ComponentModel.Design;
+using TMPro;
 
 
 public class Ship : AttributesSync
@@ -57,7 +58,8 @@ public class Ship : AttributesSync
             }     
         }
     //Movement when unit is selected and is registered to a map piece        
-            if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null && movementPoints > 0){        	
+            if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null && movementPoints > 0){ 
+                movementPoints -= 1;       	
 		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
@@ -146,6 +148,9 @@ public class Ship : AttributesSync
 
     public void ChangeShipHealth(int damage){
         healthPoints -= damage;
+        if(healthPoints < 1){
+            myFleet.myShips.Remove(gameObject);           
+        }
         BroadcastRemoteMethod("CheckShipStatus");
     }
     [SynchronizableMethod]

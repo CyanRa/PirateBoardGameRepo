@@ -76,6 +76,20 @@ public class Hand : MonoBehaviour
         }
         
     }
+    public void PurgeUI(){
+        foreach(Transform child in opponentHandZone){
+            Destroy(child.gameObject);
+        }
+        foreach(Transform child in opponentCommittedZone){
+            Destroy(child.gameObject);
+        }
+        foreach(Transform child in handZone){
+            Destroy(child.gameObject);
+        }
+        foreach(Transform child in committedZone){
+            Destroy(child.gameObject);
+        }
+    }
     public void InstantiateCommitedCard(){
         GameObject _crewMember = Instantiate(crewMemberPrefab);
         _crewMember.transform.SetParent(opponentCommittedZone);

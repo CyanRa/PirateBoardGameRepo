@@ -17,8 +17,6 @@ public class MapPieceBehaviour : AttributesSync
     public List<String> interactables = new List<String>();
     public Material myMaterial; 
     public Material highLightedMaterial;
-    private Renderer renderer;
-    private Transform transform;
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial; 
@@ -30,8 +28,6 @@ public class MapPieceBehaviour : AttributesSync
     void Start()
     {
         occupyingShip = "";
-        renderer = GetComponent<Renderer>();
-        transform = GetComponent<Transform>();
     }
 
     private void OnMouseEnter(){
@@ -83,7 +79,8 @@ public class MapPieceBehaviour : AttributesSync
         }else if(occupyingFleet == enteringShip.myFleet.name){
             return;
         }else{
-             BroadCastBeginBattle(enteringShip.name, occupyingShip);     
+            BroadCastBeginBattle(enteringShip.name, occupyingShip);  
+            BroadcastOccupyingMapPiece(enteringShip);   
         }
     }
     public void BroadcastOccupyingMapPiece(Ship enteringShip){        

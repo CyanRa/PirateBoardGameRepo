@@ -60,14 +60,12 @@ public class BattleManager : AttributesSync
         if(myTurnID == 1){
             InvokeRemoteMethod("InitializeUI", (ushort)defenderUID, numberOfCardsInOpponentHand);
         }else if(myTurnID == 0){
-            Debug.Log("My UID is "+attackerUID + ". Defender UID is " + defenderUID);
             InvokeRemoteMethod("InitializeUI", (ushort)attackerUID, numberOfCardsInOpponentHand);
         }
         
     }
     [SynchronizableMethod]
-    public void InitializeUI(int numberOfCardsInOpponentHand){
-        
+    public void InitializeUI(int numberOfCardsInOpponentHand){        
         myHand.InstantiateOpponentHandZone(numberOfCardsInOpponentHand);
     }
 
@@ -97,12 +95,19 @@ public class BattleManager : AttributesSync
     [SynchronizableMethod]
     public void EndBattle(){
         if(attackerPower > defenderPower){
-            Debug.Log("Attacking fleet: " + attackerName + " is victorious!");
             DealDamageToLoser();
         }else{
-            Debug.Log("Defending fleet: " + defenderName + " is victorious!");
+
         }
+        myHand.PurgeUI();
+        PurgeDataOfFinishedBattle();
         myHand.BattleCanvas.SetActive(false);
+    }
+
+    private void PurgeDataOfFinishedBattle(){
+        turnOwner = 1;
+        attackerPower = 0;
+        defenderPower = 0;
     }
 
     private void DealDamageToLoser(){
