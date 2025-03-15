@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using Alteruna;
 using System;
+
 public class Hand : MonoBehaviour
 {
     public List<CrewMember> myFleetCrew;
@@ -22,14 +23,14 @@ public class Hand : MonoBehaviour
     public Transform opponentCommittedZone;
     public BattleManager battleManager;
 
-    Alteruna.Avatar _avatar;
+    public Alteruna.Avatar avatar;
 
     
     public void Start()
     {
-        _avatar = this.gameObject.GetComponent<FleetManager>().avatar;
+        avatar = this.gameObject.GetComponent<FleetManager>().avatar;
         //Initial referencing of Buttons and decks for fighting phase
-        if(!_avatar.IsMe) return;
+        if(!avatar.IsMe) return;
         InitializeBattleZoneGameObjects();
         CMSaveLoadHandler _cMSaveLoadHandler = deckLoader.GetComponent<CMSaveLoadHandler>();                   
     }
@@ -63,11 +64,21 @@ public class Hand : MonoBehaviour
         }
     }
     public void InstantiateOpponentHandZone(int numberOfOpponentCards){
+        if(opponentHandZone.childCount > 0){
+            foreach(Transform child in opponentHandZone){
+                Destroy(child.gameObject);
+            }
+
+        }
         for(int i = 0; i < numberOfOpponentCards; i++){
             GameObject _crewMember = Instantiate(crewMemberPrefab);
             _crewMember.transform.SetParent(opponentHandZone);
         }
         
+    }
+    public void InstantiateCommitedCard(){
+        GameObject _crewMember = Instantiate(crewMemberPrefab);
+        _crewMember.transform.SetParent(opponentCommittedZone);
     }
 
 
@@ -94,7 +105,7 @@ public class Hand : MonoBehaviour
 
     public void DrawCard()
     {
-        if(_avatar.IsMe){
+        if(avatar.IsMe){
             myFleetCrew.Add(deckLoader.GetComponent<CMSaveLoadHandler>().ReturnDrawCard());
             Debug.Log("Drawing a card for: " + this.gameObject.name);
         }
@@ -108,7 +119,7 @@ public class Hand : MonoBehaviour
 
     public void EndCardTurn(){
         if(battleManager.cardsPlayedLastTurn == false){
-            battleManager.EndBattle();
+            battleManager.BroadcastEndBattle();
         }
         if(battleManager.turnOwner == battleManager.myTurnID){
             if(battleManager.turnOwner == 1){

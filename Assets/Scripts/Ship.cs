@@ -6,6 +6,7 @@ using System;
 using UnityEditor;
 using RTS_Cam;
 using UnityEngine.UIElements;
+using System.ComponentModel.Design;
 
 
 public class Ship : AttributesSync
@@ -24,10 +25,12 @@ public class Ship : AttributesSync
     public AudioClip selectShipAudioClip;
     public AudioClip shipBellRingAudioClip;
     public int movementPoints;
+    [SynchronizableField]public int healthPoints;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera").GetComponent<RTS_Camera>();   
         movementPoints = 1;     
+        healthPoints = 1;
     }
  
     void Update(){
@@ -72,8 +75,11 @@ public class Ship : AttributesSync
                 
                 Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
-                occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
-
+                try{
+                    occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
+                }catch(Exception e){
+                    Debug.Log("No neighbours to dehighlight", this);
+                }
                 if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
                     myFleet.DeselectAll();
                     EnableUnitMovement(this.gameObject, false);
@@ -138,6 +144,17 @@ public class Ship : AttributesSync
         }
     }
 
+    public void ChangeShipHealth(int damage){
+        healthPoints -= damage;
+        BroadcastRemoteMethod("CheckShipStatus");
+    }
+    [SynchronizableMethod]
+    private void CheckShipStatus(){
+        if(healthPoints < 1){
+            Destroy(transform.gameObject);
+        }
+    }
+
     //SELECTING SHIPS FROM FLEET PANEL ICONS
     public void SelectShipFromItsIcon(GameObject shipToSelect){
         if(myFleet.Multiplayer.Me.Name == myFleet.MenuController.GetComponent<MenuBehaviour>().turnOwner){
@@ -169,14 +186,14 @@ public class Ship : AttributesSync
     [SynchronizableMethod]
     public void ChangeShipColour(string tempColour){
         Renderer tempRenderer = gameObject.GetComponent<Renderer>();
-        
+       
          switch(tempColour)
             {
                 case "Red": tempRenderer.material.SetColor("_BaseColor", Color.red); break;
                 case "Blue": tempRenderer.material.SetColor("_BaseColor", Color.blue); break;
                 case "Green": tempRenderer.material.SetColor("_BaseColor", Color.green); break;
                 case "Yellow": tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
-                default:print("psht"); break;
+                default:print("Something went wrong choosing colour"); break;
             }
     }
 }

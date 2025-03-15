@@ -16,27 +16,17 @@ public class ShipSpawnerBehaviour : AttributesSync
     void Start()
     {
         myAvatar = GetComponent<Alteruna.Avatar>();
-        if(myAvatar.IsMe){
-            spawnIndex = 0;
-            mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
-        }
-        
+
+        if(!myAvatar.IsMe)return;
+
+        spawnIndex = 0;
+        mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
         
         
     }
 
     public void InitSpawnPoint(){
         spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<Transform>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!myAvatar.IsMe){
-            return;
-        }
-
-       
     }
     
     public void SpawnShip(){       
@@ -73,8 +63,6 @@ public class ShipSpawnerBehaviour : AttributesSync
             }             
     }
     
-
-
     public void SpawnFlagShip(){
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
        spawnedShip.name = "FlagShip" + myAvatar.name;

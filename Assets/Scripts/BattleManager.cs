@@ -58,16 +58,25 @@ public class BattleManager : AttributesSync
 
     public void InvokeOpponentHandDisplay(int numberOfCardsInOpponentHand){
         if(myTurnID == 1){
-            InvokeRemoteMethod("InitializeUI", (ushort)0, numberOfCardsInOpponentHand);
+            InvokeRemoteMethod("InitializeUI", (ushort)defenderUID, numberOfCardsInOpponentHand);
         }else if(myTurnID == 0){
             Debug.Log("My UID is "+attackerUID + ". Defender UID is " + defenderUID);
-            InvokeRemoteMethod("InitializeUI", 1, numberOfCardsInOpponentHand);
+            InvokeRemoteMethod("InitializeUI", (ushort)attackerUID, numberOfCardsInOpponentHand);
         }
         
     }
     [SynchronizableMethod]
     public void InitializeUI(int numberOfCardsInOpponentHand){
+        
         myHand.InstantiateOpponentHandZone(numberOfCardsInOpponentHand);
+    }
+
+    public void InvokeDisplayCommitedCard(int uid){
+        InvokeRemoteMethod("DisplayCommitedCard", (ushort)uid);
+    }
+    [SynchronizableMethod]
+    public void DisplayCommitedCard(){
+        myHand.InstantiateCommitedCard();
     }
 
     public void BroadcastInitializePrefabForDefender(ushort defenderID,string defenderShip){
@@ -80,13 +89,33 @@ public class BattleManager : AttributesSync
         _ship.GetComponentInParent<FleetManager>().GetComponent<Hand>().BattleCanvas.SetActive(true);
 
     }
+    public void BroadcastEndBattle(){
+        InvokeRemoteMethod("EndBattle",(ushort)attackerUID);
+        InvokeRemoteMethod("EndBattle",(ushort)defenderUID);
+    }
 
     [SynchronizableMethod]
     public void EndBattle(){
         if(attackerPower > defenderPower){
             Debug.Log("Attacking fleet: " + attackerName + " is victorious!");
+            DealDamageToLoser();
         }else{
             Debug.Log("Defending fleet: " + defenderName + " is victorious!");
+        }
+        myHand.BattleCanvas.SetActive(false);
+    }
+
+    private void DealDamageToLoser(){
+        if(myTurnID == 0){
+            shipInCombat.ChangeShipHealth(1);
+        }
+    }
+
+    public bool MyTurn(){
+        if(myTurnID == turnOwner){
+            return true;
+        }else{
+            return false;
         }
     }
 
