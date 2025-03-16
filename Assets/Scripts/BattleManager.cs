@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Alteruna;
+using NUnit.Framework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : AttributesSync
 {
@@ -22,6 +25,8 @@ public class BattleManager : AttributesSync
 
     [SynchronizableField] public int attackerPower;
     [SynchronizableField] public int defenderPower;
+    [SynchronizableField] public List<int> attackerPlayedCards;
+    [SynchronizableField] public List<int> defenderPlayedCards;
 
     void Start()
     {
@@ -50,11 +55,7 @@ public class BattleManager : AttributesSync
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void InvokeOpponentHandDisplay(int numberOfCardsInOpponentHand){
         if(myTurnID == 1){
@@ -69,11 +70,16 @@ public class BattleManager : AttributesSync
         myHand.InstantiateOpponentHandZone(numberOfCardsInOpponentHand);
     }
 
-    public void InvokeDisplayCommitedCard(int uid){
-        InvokeRemoteMethod("DisplayCommitedCard", (ushort)uid);
+    public void InvokeDisplayCommitedCard(int uid, int _power){
+        InvokeRemoteMethod("DisplayCommitedCard", (ushort)uid, _power);
     }
     [SynchronizableMethod]
-    public void DisplayCommitedCard(){
+    public void DisplayCommitedCard(int _power){
+        if(myTurnID ==1){
+            defenderPlayedCards.Add(_power);
+        }else{
+            attackerPlayedCards.Add(_power);
+        }
         myHand.InstantiateCommitedCard();
     }
 
@@ -99,6 +105,8 @@ public class BattleManager : AttributesSync
         }else{
 
         }
+        Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
+        _endCardTurnButton.onClick.RemoveAllListeners();
         myHand.PurgeUI();
         PurgeDataOfFinishedBattle();
         myHand.BattleCanvas.SetActive(false);
@@ -108,6 +116,8 @@ public class BattleManager : AttributesSync
         turnOwner = 1;
         attackerPower = 0;
         defenderPower = 0;
+        cardsPlayedLastTurn = false;
+        shipInCombat = null;
     }
 
     private void DealDamageToLoser(){

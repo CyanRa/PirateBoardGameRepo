@@ -15,6 +15,7 @@ public class Hand : MonoBehaviour
     public GameObject deckLoader;
 
     public GameObject crewMemberPrefab;
+    public GameObject enemyCardbackPrefab;
     public GameObject BattleCanvas;
 
     public Transform handZone;
@@ -22,6 +23,7 @@ public class Hand : MonoBehaviour
     public Transform opponentHandZone;
     public Transform opponentCommittedZone;
     public BattleManager battleManager;
+    public CMSaveLoadHandler _cMSaveLoadHandler;
 
     public Alteruna.Avatar avatar;
 
@@ -32,7 +34,7 @@ public class Hand : MonoBehaviour
         //Initial referencing of Buttons and decks for fighting phase
         if(!avatar.IsMe) return;
         InitializeBattleZoneGameObjects();
-        CMSaveLoadHandler _cMSaveLoadHandler = deckLoader.GetComponent<CMSaveLoadHandler>();                   
+        _cMSaveLoadHandler = deckLoader.GetComponent<CMSaveLoadHandler>();                   
     }
 
     private void InitializeBattleZoneGameObjects()
@@ -71,7 +73,7 @@ public class Hand : MonoBehaviour
 
         }
         for(int i = 0; i < numberOfOpponentCards; i++){
-            GameObject _crewMember = Instantiate(crewMemberPrefab);
+            GameObject _crewMember = Instantiate(enemyCardbackPrefab);
             _crewMember.transform.SetParent(opponentHandZone);
         }
         
@@ -91,14 +93,14 @@ public class Hand : MonoBehaviour
         }
     }
     public void InstantiateCommitedCard(){
-        GameObject _crewMember = Instantiate(crewMemberPrefab);
+        GameObject _crewMember = Instantiate(enemyCardbackPrefab);
         _crewMember.transform.SetParent(opponentCommittedZone);
     }
 
 
     public void DiscardCrewMember(CrewMember crewToDiscard)
     {
-        //deckScript.AddCrewMemberToDiscardPile(crewToDiscard);
+        _cMSaveLoadHandler.AddCrewMemberToDiscardPile(crewToDiscard);
     }
     
     public void EndBattle()
@@ -120,7 +122,7 @@ public class Hand : MonoBehaviour
     public void DrawCard()
     {
         if(avatar.IsMe){
-            myFleetCrew.Add(deckLoader.GetComponent<CMSaveLoadHandler>().ReturnDrawCard());
+            myFleetCrew.Add(_cMSaveLoadHandler.ReturnDrawCard());
             Debug.Log("Drawing a card for: " + this.gameObject.name);
         }
         
