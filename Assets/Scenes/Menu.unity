@@ -761,9 +761,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1685942073472760942, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
+      propertyPath: m_IgnoreReversedGraphics
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1685942073472760943, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
       propertyPath: m_Name
       value: Room Browser
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685942073472760943, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1685942073860665674, guid: 3312ff21d3ed3374190a954c6a5c7185, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
