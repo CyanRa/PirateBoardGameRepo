@@ -81,8 +81,15 @@ MonoBehaviour:
   _totalPower: 0
   deckLoader: {fileID: 0}
   crewMemberPrefab: {fileID: 4348494174611873798, guid: ae11e64747c55404196ee38f27afe055, type: 3}
+  enemyCardbackPrefab: {fileID: 2912877660671961889, guid: a7f41e66ec7584743b1a16c26b5664e8, type: 3}
+  BattleCanvas: {fileID: 0}
   handZone: {fileID: 0}
   committedZone: {fileID: 0}
+  opponentHandZone: {fileID: 0}
+  opponentCommittedZone: {fileID: 0}
+  battleManager: {fileID: 0}
+  _cMSaveLoadHandler: {fileID: 0}
+  avatar: {fileID: 0}
 --- !u!114 &5120672661187553825
 MonoBehaviour:
   m_ObjectHideFlags: 0
