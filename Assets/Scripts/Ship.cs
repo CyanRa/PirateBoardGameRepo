@@ -97,6 +97,7 @@ public class Ship : AttributesSync
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
         OccupyMapPiece(false);
+        occupyingMapPiece.occupyingFleet = "";
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
         occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
