@@ -15,24 +15,18 @@ public class ShipSpawnerBehaviour : AttributesSync
    
     void Start()
     {
+        myAvatar = GetComponent<Alteruna.Avatar>();
+
+        if(!myAvatar.IsMe)return;
+
         spawnIndex = 0;
         mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
         
-        myAvatar = GetComponent<Alteruna.Avatar>();
+        
     }
 
     public void InitSpawnPoint(){
         spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<Transform>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!myAvatar.IsMe){
-            return;
-        }
-
-       
     }
     
     public void SpawnShip(){       
@@ -42,7 +36,8 @@ public class ShipSpawnerBehaviour : AttributesSync
             _tempSpawnedShipName = spawnedShip.name;        
             spawnedShip.transform.SetParent(myAvatar.transform);
             spawnedShip.transform.localScale += new Vector3(1,1,1);
-            string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;           
+            string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour; 
+            spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
             
             
@@ -68,14 +63,12 @@ public class ShipSpawnerBehaviour : AttributesSync
             }             
     }
     
-
-
     public void SpawnFlagShip(){
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
        spawnedShip.name = "FlagShip" + myAvatar.name;
        spawnedShip.transform.SetParent(myAvatar.transform);
        spawnedShip.transform.localScale += new Vector3(1,1,1);
-       myAvatar.GetComponent<FleetManager>().GetColourID();
+       spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;
        string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;      
        spawnedShip.GetComponent<Ship>().ChangeShipColour(shipColour);
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
@@ -105,7 +98,6 @@ public class ShipSpawnerBehaviour : AttributesSync
                 _ship.name = "FlagShip" + _avatar.name;          
                 _ship.transform.SetParent(_avatar.transform);
                 _ship.transform.localScale += new Vector3(1,1,1);
-                _avatar.GetComponent<FleetManager>().GetColourID();
                 _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
                 string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
             }             

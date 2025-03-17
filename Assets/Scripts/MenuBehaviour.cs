@@ -23,6 +23,8 @@ public class MenuBehaviour : AttributesSync
     public GameObject ActionBar;
     public GameObject StopOnMousePlane;
     public GameObject MultiplayerSystem;
+    public GameObject CrewDisplayPanel;
+    public GameObject crewMemberPrefab;
     
 #endregion
     public Button StartGameButton;
@@ -89,14 +91,34 @@ public class MenuBehaviour : AttributesSync
 
     public void BroadCastPassTurn(bool b){
     }
-    
+    public void DisplayCrew(List<CrewMember> myFleetCrew){
+        if(CrewDisplayPanel.activeSelf == false){
+            CrewDisplayPanel.SetActive(true);
+            int i = 0;
+            foreach (CrewMember ownedCrewMember in myFleetCrew)
+            {
+            GameObject _crewMember = Instantiate(crewMemberPrefab);
+            CMBehaviour _cMBehaviour = _crewMember.GetComponent<CMBehaviour>();
+            _cMBehaviour.crewMember = myFleetCrew[i];
+            _cMBehaviour.LoadCardDisplay();
+            _cMBehaviour.enabled = false;
+            _crewMember.GetComponent<Button>().enabled = false;
+            _crewMember.transform.SetParent(CrewDisplayPanel.transform);
+            i ++;
+            }
+        }else{
+            foreach (Transform _card in CrewDisplayPanel.transform)
+            {
+                Destroy(_card.gameObject);
+            }
+            CrewDisplayPanel.SetActive(false);
+        }
+    }
 
     [SynchronizableMethod]
     void PassTurn(){
             int turnOwnerIndex = playersList.IndexOf(turnOwner);
             if(playersList.Count-1 != turnOwnerIndex){
-                Debug.Log("player list size is: " + playersList.Count);
-                Debug.Log("turn owner index is: " + turnOwnerIndex);
                 turnOwner = playersList[turnOwnerIndex+1];
             }else{
                 turnOwner = playersList[0];

@@ -6,6 +6,8 @@ using Dreamteck;
 using static UnityEngine.UI.Image;
 using TMPro;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System;
+using Alteruna;
 
 public class CMBehaviour : MonoBehaviour
 {
@@ -19,6 +21,7 @@ public class CMBehaviour : MonoBehaviour
 
     public Transform committedZone;
     public CrewMember crewMember;
+    public Hand myHand;
 
     
     public void Start()
@@ -26,8 +29,14 @@ public class CMBehaviour : MonoBehaviour
         isSelected = false;
         isCommitted = false;
         isCommitted = false;
-        Button button = GameObject.Find("Test Commit").GetComponent<Button>();
-        button.onClick.AddListener(CommitCrewToBattle);
+        try{
+            Button button = GameObject.Find("CommitCardsButton").GetComponent<Button>();
+            button.onClick.AddListener(CommitCrewToBattle);
+        }
+        catch(Exception e){
+            Debug.Log("Card instantiated for display only");
+        }
+        
     }
 
     public void LoadCardDisplay()
@@ -37,32 +46,46 @@ public class CMBehaviour : MonoBehaviour
         displayedImage.sprite = Resources.Load<Sprite>(crewMember.crewMemberImage);
     }
 
-    //method for select cards, still need to add actual highlighting of cards.
     public void SelectThisCrew()
     {
-        if (!isSelected)
+        if(myHand.battleManager.turnOwner == myHand.battleManager.myTurnID){
+            if (!isSelected)
         {
             isSelected = true;
-            Debug.Log("is Selected");
             GetComponent<Image>().enabled = true;
         }
         else
         {
             isSelected = false;
-            Debug.Log("is Deselected");
             GetComponent<Image>().enabled = false;
         }
+        }
+        
     }
 
-    //method for commiting this card
+
     public void CommitCrewToBattle()
     {
-        if (isSelected)
-        {
+    try{
+        if(!myHand.battleManager.MyTurn() || !isSelected)return;
+        //if(!myHand.avatar.IsMe)return;        
+            GetComponent<Image>().enabled = false;
             this.transform.SetParent(committedZone);       
             isSelected = false;
             isCommitted = true;
-            //handScript.CommitCard(GetComponent<CrewMember>());
-        }
+            myHand.battleManager.cardsPlayedLastTurn = true;
+            myHand.myFleetCrew.Remove(crewMember);
+
+            if(myHand.battleManager.myTurnID == 0){
+                myHand.battleManager.defenderPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+                myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.attackerUID, crewMember.crewMemberPower);
+            }else{
+                myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+                myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.defenderUID, crewMember.crewMemberPower);
+            }
+            myHand.battleManager.InvokeOpponentHandDisplay(myHand.myFleetCrew.Count - myHand.committedZone.childCount);      
+    }catch(Exception e){
+
+    }          
     }
 }

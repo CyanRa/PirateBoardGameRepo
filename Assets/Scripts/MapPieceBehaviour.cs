@@ -17,20 +17,17 @@ public class MapPieceBehaviour : AttributesSync
     public List<String> interactables = new List<String>();
     public Material myMaterial; 
     public Material highLightedMaterial;
-    private Renderer renderer;
-    private Transform transform;
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial; 
     public Material allyNeighbouringTerrainMaterial;
     public bool areNeighboursHighlited = false;
     public bool allowTerrainHighlight = true;
+    public bool isAttacker = false;
 
     void Start()
     {
         occupyingShip = "";
-        renderer = GetComponent<Renderer>();
-        transform = GetComponent<Transform>();
     }
 
     private void OnMouseEnter(){
@@ -54,7 +51,7 @@ public class MapPieceBehaviour : AttributesSync
             if(map.occupyingShip == ""){
                 map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
             }else{
-                Debug.Log(occupyingFleet + "      " + unit.myFleet.name);
+        
                 if(map.occupyingFleet != unit.myFleet.name){  
                     map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
                 }
@@ -82,7 +79,8 @@ public class MapPieceBehaviour : AttributesSync
         }else if(occupyingFleet == enteringShip.myFleet.name){
             return;
         }else{
-            ShipsEnterCombat(enteringShip, defenderShip);           
+            BroadCastBeginBattle(enteringShip.name, occupyingShip);  
+            BroadcastOccupyingMapPiece(enteringShip);   
         }
     }
     public void BroadcastOccupyingMapPiece(Ship enteringShip){        
@@ -99,7 +97,16 @@ public class MapPieceBehaviour : AttributesSync
         occupyingFleet = enteringFleet;
     }
 
-    public void ShipsEnterCombat(Ship attackerShip, Ship defenderShip){
-        return;
+    public void BroadCastBeginBattle(string attacker, string defender){
+        int attackerID = Multiplayer.GetUser().Index;
+        InvokeRemoteMethod("BeginBattle", (ushort)attackerID, attacker, defender);
     }
+    public void BroadcastBeginBattleDefender(string attacker, string defender, ushort defenderID){
+        InvokeRemoteMethod("BeginBattle", defenderID, attacker, defender);
+    }
+    [SynchronizableMethod]
+    public void BeginBattle(string attacker, string defender){
+       Multiplayer.GetAvatar().GetComponent<FleetManager>().EnterCombat(attacker, defender);
+    }
+  
 }
