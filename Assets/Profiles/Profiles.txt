@@ -1,0 +1,10 @@
+{
+    "loadedProfiles": [
+        {
+            "profileName": "asd​"
+        },
+        {
+            "profileName": "asd​"
+        }
+    ]
+}
