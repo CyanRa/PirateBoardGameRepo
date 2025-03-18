@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3193788692375588692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4908685826299502843}
+  - component: {fileID: 6239365032464750233}
+  m_Layer: 0
+  m_Name: MenuSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4908685826299502843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193788692375588692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 968.9803, y: 137.59273, z: 9.037891}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6239365032464750233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193788692375588692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af61189707b9c1545a45681a351013df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 14b31f78-bde0-4a08-8c8c-fc0dfc799e2b
+  Reliability: 1
+  LocalMethodBehavior: 1
+  ShipDisplayPrefab: {fileID: 6506889585794836872, guid: 6f36b1c730288c048882a6db3e468b53, type: 3}
+  FlagShipDisplayPrefab: {fileID: 9168387684215942258, guid: c040448c5f3259949a30089808e05454, type: 3}
+  PreGameMenu: {fileID: 3308776618815734583, guid: d891243bf88d3994b98c3f1309f3543d, type: 3}
+  mySpawner: {fileID: 0}
+  MultiplayerPanel: {fileID: 0}
+  MenuPanel: {fileID: 0}
+  FleetPanel: {fileID: 0}
+  ActionBar: {fileID: 0}
+  StopOnMousePlane: {fileID: 0}
+  MultiplayerSystem: {fileID: 0}
+  CrewDisplayPanel: {fileID: 0}
+  crewMemberPrefab: {fileID: 4348494174611873798, guid: ae11e64747c55404196ee38f27afe055, type: 3}
+  StartGameButton: {fileID: 0}
+  turnOwner: 
+  playersList: []
+  TurnDisplayText: {fileID: 0}
+  UserDisplayText: {fileID: 0}

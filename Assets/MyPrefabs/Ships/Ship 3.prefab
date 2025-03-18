@@ -110,14 +110,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fe24050d56a7c4e8a86488f8285d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 65a3d351-862e-4285-a7e1-3b55cc7e4bf4
+  Reliability: 1
+  LocalMethodBehavior: 1
   isMoving: 0
-  Fleet: 
-  indexOfShip: 0
   occupyingMapPiece: {fileID: 0}
+  occupyingMapPieceName: 
   myFleet: {fileID: 0}
   myCamera: {fileID: 0}
   Speed: 50
-  RotationSpeed: 180
   MovementLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -125,6 +127,8 @@ MonoBehaviour:
   myAudioSource: {fileID: 8912244757005408298}
   selectShipAudioClip: {fileID: 8300000, guid: c4efc0456089b82468bca14a06bfdde6, type: 3}
   shipBellRingAudioClip: {fileID: 8300000, guid: 7ef926cef13f4e541ae152df6779f57a, type: 3}
+  movementPoints: 0
+  healthPoints: 0
 --- !u!114 &4572065181584098380
 MonoBehaviour:
   m_ObjectHideFlags: 0
