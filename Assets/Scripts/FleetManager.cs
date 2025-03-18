@@ -42,7 +42,6 @@ public class FleetManager : CommunicationBridge
         Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
         ShowCrewButton.onClick.AddListener(DisplayCrew);
         
-        
     }
     
     private void InitEndTurnButton(){

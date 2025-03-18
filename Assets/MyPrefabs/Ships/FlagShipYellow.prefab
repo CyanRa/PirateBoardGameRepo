@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 144.1
+      value: 144.1001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 580.38074
+      value: 580.2866
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aafa7e0113bb20d489fdd9d3dad28c1a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -110,14 +110,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fe24050d56a7c4e8a86488f8285d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: b3a15425-5e96-4b42-abdc-e2f50593bb4d
+  Reliability: 1
+  LocalMethodBehavior: 1
   isMoving: 0
-  Fleet: 
-  indexOfShip: 0
   occupyingMapPiece: {fileID: 0}
+  occupyingMapPieceName: 
   myFleet: {fileID: 0}
   myCamera: {fileID: 0}
   Speed: 50
-  RotationSpeed: 180
   MovementLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -125,6 +127,8 @@ MonoBehaviour:
   myAudioSource: {fileID: 8511091821143778726}
   selectShipAudioClip: {fileID: 8300000, guid: c4efc0456089b82468bca14a06bfdde6, type: 3}
   shipBellRingAudioClip: {fileID: 8300000, guid: 7ef926cef13f4e541ae152df6779f57a, type: 3}
+  movementPoints: 0
+  healthPoints: 0
 --- !u!114 &4428711452815187324
 MonoBehaviour:
   m_ObjectHideFlags: 0

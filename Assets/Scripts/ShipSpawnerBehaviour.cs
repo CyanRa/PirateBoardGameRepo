@@ -35,7 +35,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;  
             _tempSpawnedShipName = spawnedShip.name;        
             spawnedShip.transform.SetParent(myAvatar.transform);
-            spawnedShip.transform.localScale += new Vector3(1,1,1);
+            spawnedShip.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
             string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour; 
             spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
@@ -56,7 +56,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             if(_ship != null){  
                 _ship.name = "Ship" + _avatar.name + _spawnIndex;          
                 _ship.transform.SetParent(_avatar.transform);
-                _ship.transform.localScale += new Vector3(1,1,1);
+                _ship.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
                 Debug.Log("normal ships colour id is: " + _avatar.GetComponent<FleetManager>().fleetColour);
                 string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
@@ -67,7 +67,7 @@ public class ShipSpawnerBehaviour : AttributesSync
        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
        spawnedShip.name = "FlagShip" + myAvatar.name;
        spawnedShip.transform.SetParent(myAvatar.transform);
-       spawnedShip.transform.localScale += new Vector3(1,1,1);
+       spawnedShip.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
        spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;
        string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;      
        spawnedShip.GetComponent<Ship>().ChangeShipColour(shipColour);
@@ -97,7 +97,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             if(_ship != null){  
                 _ship.name = "FlagShip" + _avatar.name;          
                 _ship.transform.SetParent(_avatar.transform);
-                _ship.transform.localScale += new Vector3(1,1,1);
+                _ship.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
                 string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
             }             

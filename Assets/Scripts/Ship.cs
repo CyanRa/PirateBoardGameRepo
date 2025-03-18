@@ -29,7 +29,7 @@ public class Ship : AttributesSync
     [SynchronizableField]public int healthPoints;
 
     private void Awake(){
-        myCamera = GameObject.Find("RTS_Camera").GetComponent<RTS_Camera>();   
+        myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
         movementPoints = 1;     
         healthPoints = 1;
     }
