@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 4e22cffa15a097c499054d024bdf3291
   - enabled: 1
+    path: Assets/Scenes/Map Plane Splitting.unity
+    guid: 97f5451fadb547943bd758fcc31a37d4
+  - enabled: 1
     path: Assets/Scenes/Last.unity
     guid: 0fae7250b260376498a012d14bcce3d1
   m_configObjects:

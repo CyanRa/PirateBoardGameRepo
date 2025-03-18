@@ -22,6 +22,18 @@ MonoBehaviour:
     Title: SampleScene
     Description: Description missing.
   - Hidden: 0
+    SceneName: Menu
+    ScenePath: Assets/Scenes/Menu.unity
+    Image: {fileID: 0}
+    Title: Menu
+    Description: Description missing.
+  - Hidden: 0
+    SceneName: Map Plane Splitting
+    ScenePath: Assets/Scenes/Map Plane Splitting.unity
+    Image: {fileID: 0}
+    Title: Map Plane Splitting
+    Description: Description missing.
+  - Hidden: 0
     SceneName: Last
     ScenePath: Assets/Scenes/Last.unity
     Image: {fileID: 0}
