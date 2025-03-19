@@ -26,15 +26,14 @@ public class FleetManager : CommunicationBridge
     //public int fleetColourID;
     [SerializeField]public string fleetColour;
     public Material shipMaterialColour;
-    
-    [SerializeField]public string Username = "";
+
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
     public void Awake(){
         isHost = Multiplayer.Instance.Me.Index == 0;
         MenuController = GameObject.Find("MenuSystem");
-        MultiplayerSystem = GameObject.Find("Multiplayer");     
-        MainSpawner = GetComponent<ShipSpawnerBehaviour>(); 
+        MultiplayerSystem = GameObject.Find("Multiplayer");
+        MainSpawner = GetComponent<ShipSpawnerBehaviour>();
     }
 
     public void Start(){
@@ -58,27 +57,9 @@ public class FleetManager : CommunicationBridge
            MainSpawner.SpawnShip();
         }
     //Selecting ships
-        if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
-		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-		    RaycastHit hit;
+        SelectShip();
 
-		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
-                if(hit.transform.GetComponent<Ship>().myFleet.name == name){
-                      if(SelectedShip != null)
-                {
-                    
-                    DeselectAll();
-                }
-                    SelectByClicking(hit.transform.gameObject);                                                
-                                                                 
-            }else{
-             DeselectAll();
-            }  
-            }else{
-                return;
-            }
-              
-        }
+        
         if (Input.GetMouseButtonDown(1) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
 		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		    RaycastHit hit;
@@ -105,6 +86,29 @@ public class FleetManager : CommunicationBridge
             SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);                   
             SelectedShip = null;
         }       
+    }
+    public void SelectShip(){
+         if (Input.GetMouseButtonDown(0) && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){  
+		    Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+		    RaycastHit hit;
+
+		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
+                if(hit.transform.GetComponent<Ship>().myFleet.name == name){
+                      if(SelectedShip != null)
+                {
+                    
+                    DeselectAll();
+                }
+                    SelectByClicking(hit.transform.gameObject);                                                
+                                                                 
+            }else{
+             DeselectAll();
+            }  
+            }else{
+                return;
+            }
+              
+        }
     }
 
     public void SelectByClicking(GameObject unit){   

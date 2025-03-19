@@ -21,7 +21,7 @@ MonoBehaviour:
     Image: {fileID: 0}
     Title: SampleScene
     Description: Description missing.
-  - Hidden: 0
+  - Hidden: 1
     SceneName: Menu
     ScenePath: Assets/Scenes/Menu.unity
     Image: {fileID: 0}
@@ -31,8 +31,9 @@ MonoBehaviour:
     SceneName: Map Plane Splitting
     ScenePath: Assets/Scenes/Map Plane Splitting.unity
     Image: {fileID: 0}
-    Title: Map Plane Splitting
-    Description: Description missing.
+    Title: Felix's map
+    Description: Felix put together an epic map that is supposed to be better than
+      mine
   - Hidden: 0
     SceneName: Last
     ScenePath: Assets/Scenes/Last.unity

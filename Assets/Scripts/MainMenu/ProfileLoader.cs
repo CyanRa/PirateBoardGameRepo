@@ -8,7 +8,7 @@ public class ProfileLoader : MonoBehaviour
 {
     public TextAsset JsonToLoadFrom;
     public TextMeshProUGUI inputProfileText;
-    public Profiles loadedProfile;
+    public Profiles loadedProfile = new Profiles();
     private Profiles profilesToSave = new Profiles();
     private Profile profile = new Profile();
     private static string Path => Application.dataPath + "/Profiles/Profiles.json";
@@ -27,9 +27,13 @@ public class ProfileLoader : MonoBehaviour
             }
         }
         if(alreadyExists)return;
-        profilesToSave.loadedProfiles.Add(profile);
-        string json = JsonUtility.ToJson(profilesToSave, true);
+        loadedProfile.loadedProfiles.Add(profile);
+        string json = JsonUtility.ToJson(loadedProfile, true);
         File.WriteAllText(Path, json);
+    }
+
+    public void DeleteProfile(){
+        
     }
     public void UpdateProfileList(){
         loadedProfile = JsonUtility.FromJson<Profiles>(JsonToLoadFrom.text);
