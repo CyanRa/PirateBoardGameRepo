@@ -119,7 +119,7 @@ MonoBehaviour:
   occupyingMapPieceName: 
   myFleet: {fileID: 0}
   myCamera: {fileID: 0}
-  Speed: 50
+  Speed: 5
   MovementLayer:
     serializedVersion: 2
     m_Bits: 128

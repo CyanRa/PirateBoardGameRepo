@@ -30667,7 +30667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &951503908355238381
 GameObject:
   m_ObjectHideFlags: 0
@@ -32672,7 +32672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 2
+  lastTab: 0
   movementSettingsFoldout: 1
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 1
@@ -32694,11 +32694,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 55
-  maxHeight: 300
-  minHeight: 275
+  maxHeight: 350
+  minHeight: 262
   heightDampening: 1
   keyboardZoomingSensitivity: 2
-  scrollWheelZoomingSensitivity: 50
+  scrollWheelZoomingSensitivity: 25
   limitMap: 0
   limitX: 900
   limitY: 1
@@ -32714,7 +32714,7 @@ MonoBehaviour:
   useKeyboardZooming: 1
   zoomInKey: 281
   zoomOutKey: 280
-  useScrollwheelZooming: 0
+  useScrollwheelZooming: 1
   zoomingAxis: Mouse ScrollWheel
   useKeyboardRotation: 1
   rotateRightKey: 101
@@ -34838,7 +34838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3817650408606694436
 CanvasRenderer:
   m_ObjectHideFlags: 0

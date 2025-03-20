@@ -52,7 +52,7 @@ public class ShipSpawnerBehaviour : AttributesSync
         
             GameObject _ownerPlayer = GameObject.Find(_player);   
             Alteruna.Avatar _avatar = _ownerPlayer.GetComponent<Alteruna.Avatar>();
-            GameObject _ship = GameObject.Find("Ship(Clone)");
+            GameObject _ship = GameObject.Find("Ship1(Clone)");
             if(_ship != null){  
                 _ship.name = "Ship" + _avatar.name + _spawnIndex;          
                 _ship.transform.SetParent(_avatar.transform);
@@ -87,11 +87,11 @@ public class ShipSpawnerBehaviour : AttributesSync
 
             switch(_userIndex)
             {
-                case 1:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
-                case 2:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
-                case 3:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
-                case 4:  _ship = GameObject.Find("FlagShipRed(Clone)"); break;
-                default: _ship = GameObject.Find("FlagShipRed(Clone)"); break;
+                case 1:  _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
+                case 2:  _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
+                case 3:  _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
+                case 4:  _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
+                default: _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
             }
             
             if(_ship != null){  

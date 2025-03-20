@@ -13,9 +13,12 @@ public class MainMenuBehaviour : CommunicationBridge
     public GameObject MultiplayerMenu;
     public GameObject ProfileMenu;
     public GameObject ProfileCreatorMenu;
+    public GameObject ProfileDeleteMenu;
     public GameObject OptionsMenu;
     public GameObject ProfileDisplayPrefab;
     public GameObject ProfileDisplayParent;
+    public GameObject ProfileDeleteParent;
+    public GameObject ProfileDisplayPrefabToDelete;
     private ProfileLoader _profileLoader;
     public AudioSource myAudioSource;
     public AudioClip selectShipAudioClip;
@@ -38,13 +41,17 @@ public class MainMenuBehaviour : CommunicationBridge
 
     public void OpenProfileMenu(){
         MainMenu.SetActive(false);
-        ProfileMenu.SetActive(true);
+        ProfileMenu.SetActive(true);      
         _profileLoader.UpdateProfileList();
         InstantiateProfiles(_profileLoader.loadedProfile.loadedProfiles);
     }
     public void OpenProfileCreation(){
-        ProfileCreatorMenu.SetActive(true);
+        ProfileCreatorMenu.SetActive(true);     
         ProfileMenu.SetActive(false);     
+    }
+    public void OpenMainMenu(){
+        MainMenu.SetActive(true);
+        ProfileMenu.SetActive(false);
     }
     public void CloseProfileCreation(){
         ProfileCreatorMenu.SetActive(false);
@@ -62,6 +69,18 @@ public class MainMenuBehaviour : CommunicationBridge
             profileChoiceButton.transform.SetParent(ProfileDisplayParent.transform);
         }
     }
+
+    private void InstantiateProfilesToDelete(List<Profile> _profiles){
+        foreach(Transform _child in ProfileDisplayParent.transform){
+            Destroy(_child.gameObject);
+        }
+        foreach(Profile _profile in _profiles){
+            GameObject profileChoiceButton = Instantiate(ProfileDisplayPrefabToDelete);
+            profileChoiceButton.GetComponent<Button>().onClick.AddListener(DeleteProfile);
+            profileChoiceButton.GetComponentInChildren<TextMeshProUGUI>().text = _profile.profileName;
+            profileChoiceButton.transform.SetParent(ProfileDeleteParent.transform);
+        }
+    }
     public void OpenMultiplayerPanel(){
         USERNAME = selectedProfile.profileName;
         MultiplayerMenu.SetActive(true);
@@ -75,6 +94,29 @@ public class MainMenuBehaviour : CommunicationBridge
         MainMenu.SetActive(true);
         ProfileMenu.SetActive(false);
 
+    }
+
+    public void OpenProfileDeleteMenu(){
+        ProfileMenu.SetActive(false);
+        ProfileDeleteMenu.SetActive(true);
+        InstantiateProfilesToDelete(_profileLoader.loadedProfile.loadedProfiles); 
+    }
+    public void DeleteProfile(){
+        _profileLoader.DeleteProfile(EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text);
+        foreach(Transform _child in ProfileDeleteParent.transform){
+            Destroy(_child.gameObject);
+        }
+        CloseProfileDeleteMenu();
+    }
+
+    public void CloseProfileDeleteMenu(){
+        ProfileMenu.SetActive(true);
+        ProfileDeleteMenu.SetActive(false);
+        InstantiateProfiles(_profileLoader.loadedProfile.loadedProfiles); 
+
+    }
+    public void QuitGame(){
+        Application.Quit();
     }
 
 }

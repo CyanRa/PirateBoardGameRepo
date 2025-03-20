@@ -30,13 +30,13 @@ MonoBehaviour:
   - Hidden: 0
     SceneName: Map Plane Splitting
     ScenePath: Assets/Scenes/Map Plane Splitting.unity
-    Image: {fileID: 0}
+    Image: {fileID: 21300000, guid: a08d5c37bfcd82e4aba3a43a990b716d, type: 3}
     Title: Felix's map
     Description: Felix put together an epic map that is supposed to be better than
       mine
   - Hidden: 0
     SceneName: Last
     ScenePath: Assets/Scenes/Last.unity
-    Image: {fileID: 0}
+    Image: {fileID: 21300000, guid: 1ca149a8622afb9448e2d3352ba36f84, type: 3}
     Title: Last
-    Description: Description missing.
+    Description: Ironically was made the first

@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using Dreamteck;
 using static UnityEngine.UI.Image;
 using TMPro;
 using System.Runtime.InteropServices.WindowsRuntime;
