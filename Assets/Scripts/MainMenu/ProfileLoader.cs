@@ -4,6 +4,7 @@ using System.IO;
 using TMPro;
 using System.Linq;
 using Unity.VisualScripting;
+using Alteruna;
 
 
 public class ProfileLoader : MonoBehaviour
@@ -48,6 +49,7 @@ public class ProfileLoader : MonoBehaviour
     public void UpdateProfileList(){
         loadedProfile = JsonUtility.FromJson<Profiles>(File.ReadAllText(Path));
     }
+   
  
 
     
