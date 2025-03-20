@@ -22,6 +22,7 @@ public class MainMenuBehaviour : CommunicationBridge
     private ProfileLoader _profileLoader;
     public AudioSource myAudioSource;
     public AudioClip selectShipAudioClip;
+    public AudioClip bubblesTransitionAudioClip;
     public static string USERNAME;
 
     public Multiplayer myMultiplayer;
@@ -117,6 +118,10 @@ public class MainMenuBehaviour : CommunicationBridge
     }
     public void QuitGame(){
         Application.Quit();
+    }
+
+    public void PlayBubblesSoundEffect(){
+        myAudioSource.PlayOneShot(bubblesTransitionAudioClip);
     }
 
 }
