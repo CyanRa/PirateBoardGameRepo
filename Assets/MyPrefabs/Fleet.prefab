@@ -64,7 +64,7 @@ MonoBehaviour:
   EndTurnText: {fileID: 0}
   fleetColour: 
   shipMaterialColour: {fileID: 0}
-  Username: 
+  myGold: 10
 --- !u!114 &-6938788333451560399
 MonoBehaviour:
   m_ObjectHideFlags: 0

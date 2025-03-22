@@ -25,6 +25,9 @@ public class MenuBehaviour : AttributesSync
     public GameObject MultiplayerSystem;
     public GameObject CrewDisplayPanel;
     public GameObject crewMemberPrefab;
+    public GameObject InteractablePanelPrefab;
+    public GameObject InteractableButtonPrefab;
+    public Sprite HarbourButtonSprite;
     
 #endregion
     public Button StartGameButton;
@@ -184,4 +187,50 @@ public class MenuBehaviour : AttributesSync
         Destroy(StartGameButton.gameObject);
     }
 #endregion
+
+
+    
+
+    public void InstantiateInteractableButton(string interactable, FleetManager _fleet, Transform _mapPiece)
+    {
+        GameObject _interactable = Instantiate(InteractableButtonPrefab);
+        _interactable.transform.SetParent(InteractablePanelPrefab.transform);
+        Button _button = _interactable.GetComponent<Button>();
+        switch(interactable)
+        {
+            case "Tavern": 
+                _button.onClick.AddListener(() => TavernButtonMethod(_fleet, _interactable));
+                break;
+            case "PirateCove":
+                _button.onClick.AddListener(PirateCoveMethod);
+                break;
+            case "Harbor":
+                _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
+                _button.onClick.AddListener(() => HarborButtonMethod(_fleet, _interactable, _mapPiece));
+                break;
+                default:
+                break;
+        }
+        
+    }
+
+    private void TavernButtonMethod(FleetManager _fleet, GameObject _buttonPrefab){
+        if(_fleet.myGold >= 2){
+            _fleet.SpendGold(2);
+            _fleet.victoryPoints += 1;
+            Destroy(_buttonPrefab);
+        }
+    }
+    private void PirateCoveMethod(){
+
+    }
+
+    private void HarborButtonMethod(FleetManager _fleet, GameObject _buttonPrefab, Transform _mapPiece){
+        
+        if(_fleet.myGold >= 2){
+            _fleet.SpendGold(_fleet.myShips.Count);
+            _fleet.MainSpawner.SpawnShip(_mapPiece);
+            Destroy(_buttonPrefab);
+        }
+    }
 }

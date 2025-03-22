@@ -107,6 +107,16 @@ public class Ship : AttributesSync
         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
                        
     }
+    public void MoveToAMapPiece(Transform _mapPiece){       
+        mapPieceAnchor = _mapPiece.GetChild(0).transform;
+        occupyingMapPiece = _mapPiece.transform.GetComponent<MapPieceBehaviour>();
+        occupyingMapPieceName = occupyingMapPiece.name;
+        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+        occupyingMapPiece.defenderShip = GetComponent<Ship>();
+        isMoving = true;
+        gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
+
+    }
 
     //TO BE REPLACED WITH SPLINE MOVEMENT
     public void MoveToAnchor(Transform transform){        

@@ -25,6 +25,8 @@ public class FleetManager : CommunicationBridge
     //public int fleetColourID;
     [SerializeField]public string fleetColour;
     public Material shipMaterialColour;
+    [SerializeField]public int myGold;
+    [SerializeField]public int victoryPoints;
 
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
@@ -237,6 +239,13 @@ public class FleetManager : CommunicationBridge
         Button endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
         endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+    }
+
+    public void SpendGold(int _price){
+        myGold -= _price;
+    }
+    public void GetGold(int _goldAmount){
+        myGold += _goldAmount;
     }
 
     

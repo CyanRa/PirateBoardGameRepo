@@ -14,16 +14,26 @@ public class MapPieceBehaviour : AttributesSync
     [SynchronizableField]public String occupyingFleet = "";
     [SerializeField]public Ship defenderShip = null;
     public List<MapPieceBehaviour> neighboringTerrain = new List<MapPieceBehaviour>();
-    public List<String> interactables = new List<String>();
+    public bool areNeighboursHighlited = false;
+    public bool allowTerrainHighlight = true;
+    public bool isAttacker = false;
+    public MapInteractables myInteractable;
+    public enum MapInteractables{
+        Tavern,
+        Harbor,
+        PirateCove,
+        Rumor,
+        Empty
+    }
+   
+
+    [Header("MATERIALS")]
     public Material myMaterial; 
     public Material highLightedMaterial;
     private Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial; 
     public Material allyNeighbouringTerrainMaterial;
-    public bool areNeighboursHighlited = false;
-    public bool allowTerrainHighlight = true;
-    public bool isAttacker = false;
 
     void Start()
     {
@@ -81,7 +91,8 @@ public class MapPieceBehaviour : AttributesSync
         }else{
             BroadCastBeginBattle(enteringShip.name, occupyingShip);  
             BroadcastOccupyingMapPiece(enteringShip);   
-        }
+        } 
+        GenerateInteractable(enteringShip);
     }
     public void BroadcastOccupyingMapPiece(Ship enteringShip){        
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
@@ -108,5 +119,24 @@ public class MapPieceBehaviour : AttributesSync
     public void BeginBattle(string attacker, string defender){
        Multiplayer.GetAvatar().GetComponent<FleetManager>().EnterCombat(attacker, defender);
     }
-  
+
+    private void GenerateInteractable(Ship _enteringShip){
+        FleetManager _fleet = _enteringShip.myFleet;
+        MenuBehaviour _menuBehaviour = _fleet.MenuController.GetComponent<MenuBehaviour>();
+        switch(myInteractable)
+        {
+            case MapInteractables.Empty: break;
+            case MapInteractables.Harbor:
+                _menuBehaviour.InstantiateInteractableButton("Harbor", _fleet, gameObject.transform);
+                break;
+            case MapInteractables.Tavern: 
+                _menuBehaviour.InstantiateInteractableButton("Tavern", _fleet, null);
+                break;
+            case MapInteractables.PirateCove: 
+                _menuBehaviour.InstantiateInteractableButton("PirateCove",_fleet, null);
+                break;
+            case MapInteractables.Rumor: break;
+            default: break;
+        }
+    }
 }

@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8cb893fb-938b-4861-8856-bcfc70f5e9f5
+  _uidString: 1cecd132-db07-45a4-9bbd-c1d30641de4a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -437,15 +437,15 @@ MonoBehaviour:
   - {fileID: 1458076138}
   - {fileID: 1615284218}
   - {fileID: 130807688}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &37277851
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 21409c52-2864-407f-8969-2f5d7728cf71
+  _uidString: 7750d5bb-d401-4aa0-ba97-03b0a18861fa
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1055,15 +1055,15 @@ MonoBehaviour:
   - {fileID: 1882902888}
   - {fileID: 69031562}
   - {fileID: 1914402407}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 4
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &57999252
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 2e375cdf-8db3-42af-bf7e-49b656344afd
+  _uidString: ba2f81d6-826a-4fca-ab7c-49be72efd9c6
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1277,15 +1277,15 @@ MonoBehaviour:
   - {fileID: 1029695987}
   - {fileID: 1670982336}
   - {fileID: 57999251}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &69031563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 9609fecf-eabf-4daa-8e35-bf8d9b170c8b
+  _uidString: acdfd7b3-b53c-45ec-9e10-b8740c86a6ef
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1769,15 +1769,15 @@ MonoBehaviour:
   - {fileID: 571030081}
   - {fileID: 1542019185}
   - {fileID: 1979293115}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &99384811
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 52b8b6ad-c384-4e28-ac0b-516c726c1103
+  _uidString: 942c2d23-9650-4ccb-a944-b985ae85af88
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -2274,15 +2274,15 @@ MonoBehaviour:
   - {fileID: 1379708718}
   - {fileID: 974815236}
   - {fileID: 776288205}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &130807689
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2789,7 +2789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e9e10f9f-63e7-4a3b-9d57-33eb178a46b6
+  _uidString: 260f02d1-ac74-4c30-8beb-5df973bc8278
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -2801,15 +2801,15 @@ MonoBehaviour:
   - {fileID: 851984733}
   - {fileID: 1942986529}
   - {fileID: 777829845}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &183636217
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3384,7 +3384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8d1e3481-ff78-4f34-938a-a3dba29a6b6c
+  _uidString: d442c63d-f3b4-4cb7-9523-0c1ed3cca4b0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -3397,15 +3397,15 @@ MonoBehaviour:
   - {fileID: 792511522}
   - {fileID: 1180343190}
   - {fileID: 776288205}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &200955535
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 64913ed0-0a07-4e7b-be3c-160518689122
+  _uidString: 7f2bf1a6-7fb2-44e0-bd64-7967f37b1cba
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4100,15 +4100,15 @@ MonoBehaviour:
   - {fileID: 959105941}
   - {fileID: 777829845}
   - {fileID: 2132712192}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &252703155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4824,7 +4824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ba0f9ae3-c7f3-4a28-a850-ff96c65e0ac0
+  _uidString: 46559ade-2ab1-4273-b7d2-81675b32e8a0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4835,15 +4835,15 @@ MonoBehaviour:
   - {fileID: 1928178403}
   - {fileID: 1882902888}
   - {fileID: 1914402407}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 1
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &277211457
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5548,7 +5548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: f90a5e7d-8840-4757-a559-bb938f3afb3c
+  _uidString: 87ed5373-582a-461a-a670-417379a87376
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -5561,15 +5561,15 @@ MonoBehaviour:
   - {fileID: 472952289}
   - {fileID: 1029695987}
   - {fileID: 1882902888}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &372249584
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6052,7 +6052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1d63a99f-5ac9-4164-a9dc-2cf557ec9568
+  _uidString: 450a0f6a-eb4f-4dbb-98f4-18e861bb569f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -6065,15 +6065,15 @@ MonoBehaviour:
   - {fileID: 1244787254}
   - {fileID: 2015586002}
   - {fileID: 1616109465}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &398297926
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6383,7 +6383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1ad1016f-bb7b-469b-901d-496767bb6ed8
+  _uidString: e8c68f43-c01b-494b-b79e-0b5339f9c96b
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -6397,15 +6397,15 @@ MonoBehaviour:
   - {fileID: 691611724}
   - {fileID: 2015586002}
   - {fileID: 398297925}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &420670821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9108,7 +9108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 338db4d5-a769-41b0-b7ea-66a0b6d6b8bf
+  _uidString: 4e0eb284-5881-4ab8-96fe-e132d2d45bdc
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -9121,15 +9121,15 @@ MonoBehaviour:
   - {fileID: 730612838}
   - {fileID: 1029695987}
   - {fileID: 69031562}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &472952290
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10028,7 +10028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: c0e2cf0b-9ea6-450d-9ed1-9c303ff208d5
+  _uidString: f55a3272-8eb2-491c-82fb-bd4008fcdf4e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -10040,15 +10040,15 @@ MonoBehaviour:
   - {fileID: 1542019185}
   - {fileID: 1799901121}
   - {fileID: 959105941}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &571030082
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11138,7 +11138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 05d9c198-9d5e-462b-a5b6-24ebd86fa448
+  _uidString: acb6c7a1-ecfb-4b14-b48a-cc6e0288c01e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -11150,15 +11150,15 @@ MonoBehaviour:
   - {fileID: 1259804191}
   - {fileID: 1180343190}
   - {fileID: 99384810}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &690757098
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11376,7 +11376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 30cb1e98-6902-407d-98c9-67b7e8c3895b
+  _uidString: e11c8a00-616c-45ec-af0f-d00a24e2c106
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -11390,15 +11390,15 @@ MonoBehaviour:
   - {fileID: 2015586002}
   - {fileID: 851984733}
   - {fileID: 1713012822}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &691611725
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11873,7 +11873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: b3baefac-f521-4bad-8b97-764a0b00e944
+  _uidString: 87f8d8c3-f6ad-45e5-84b3-6302ca704817
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -11884,15 +11884,15 @@ MonoBehaviour:
   - {fileID: 1205153112}
   - {fileID: 1259804191}
   - {fileID: 200955534}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &697810839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12283,7 +12283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 70f67f8c-d285-48f5-b4af-e71f65bdf8e1
+  _uidString: a0fa00b9-1cf4-4562-a55f-6f807398f11f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12296,15 +12296,15 @@ MonoBehaviour:
   - {fileID: 472952289}
   - {fileID: 1670982336}
   - {fileID: 69031562}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &730612839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12606,7 +12606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e8ed1169-a5af-4511-9a68-87eb4369a93b
+  _uidString: 8c64d7c5-67bc-48fe-a734-08c7560ebbb9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12620,15 +12620,15 @@ MonoBehaviour:
   - {fileID: 1180343190}
   - {fileID: 420670820}
   - {fileID: 776288205}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &776288206
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12974,7 +12974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 95a04648-f943-4ee0-8666-842364523757
+  _uidString: 1ea3be43-83dd-4d40-b205-835dfb0be4b0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12986,15 +12986,15 @@ MonoBehaviour:
   - {fileID: 1942986529}
   - {fileID: 252703154}
   - {fileID: 2132712192}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &777829846
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13304,7 +13304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 14b33511-e070-4bd2-bc8c-5721d352de39
+  _uidString: a72cae1b-14b1-44ba-a61d-48911abb83b3
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -13316,15 +13316,15 @@ MonoBehaviour:
   - {fileID: 200955534}
   - {fileID: 1615284218}
   - {fileID: 776288205}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &792511523
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13530,7 +13530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 4aceac5c-bf23-47d5-956a-ffffec38708f
+  _uidString: f23dacb1-6a73-4352-8fbe-24243b87beee
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -13543,15 +13543,15 @@ MonoBehaviour:
   - {fileID: 2035763651}
   - {fileID: 1379708718}
   - {fileID: 1613320569}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &825885558
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13885,7 +13885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: c098c44b-818d-4de9-ba65-f24365784488
+  _uidString: bf8cf34a-65c8-4244-9163-12e7c1fe2557
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -13898,15 +13898,15 @@ MonoBehaviour:
   - {fileID: 1713012822}
   - {fileID: 1942986529}
   - {fileID: 730612838}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &851984734
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14312,7 +14312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: c9924979-5dc7-4e30-8077-f798d76a5830
+  _uidString: 010c1afb-439a-493b-a98e-c4c055490fa7
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -14324,15 +14324,15 @@ MonoBehaviour:
   - {fileID: 1244787254}
   - {fileID: 1928178403}
   - {fileID: 277211456}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &871577622
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15088,7 +15088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 0d585d94-a637-4b33-9893-2d4b686683c9
+  _uidString: 55e1f3f7-da23-423f-bf1f-228d9a9ed1ae
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15100,15 +15100,15 @@ MonoBehaviour:
   - {fileID: 183636216}
   - {fileID: 252703154}
   - {fileID: 777829845}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &959105942
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15559,7 +15559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 82829802-7d9a-4586-90fb-7dc8844acb81
+  _uidString: ee9a3461-fb4e-4fd0-bbfd-c20de4a12505
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15571,15 +15571,15 @@ MonoBehaviour:
   - {fileID: 130807688}
   - {fileID: 1379708718}
   - {fileID: 398297925}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &974815237
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16239,7 +16239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 0b1aead8-3320-42c7-8fa1-f662ab374ec0
+  _uidString: a96ea970-b50e-4798-b11b-673105b6848d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16251,15 +16251,15 @@ MonoBehaviour:
   - {fileID: 1882902888}
   - {fileID: 69031562}
   - {fileID: 57999251}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1029695988
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17272,7 +17272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 719ce62a-06c1-49ac-bb17-cb3a65802e99
+  _uidString: 69915222-f27d-4b09-8cee-bbf90b1961ad
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17286,15 +17286,15 @@ MonoBehaviour:
   - {fileID: 1979293115}
   - {fileID: 420670820}
   - {fileID: 99384810}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1180343191
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17512,7 +17512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1f416a9c-fee6-4ff3-a187-11e225219601
+  _uidString: 58a7efdf-8651-4b0c-9d4e-ea8a6b3d8b22
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17523,15 +17523,15 @@ MonoBehaviour:
   - {fileID: 1739431883}
   - {fileID: 200955534}
   - {fileID: 792511522}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1205153113
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17861,7 +17861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 96409c81-3c71-40a2-9fd4-2518195f4d5b
+  _uidString: 94d49729-92bf-43b0-bf3c-5c668a285820
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17875,15 +17875,15 @@ MonoBehaviour:
   - {fileID: 1616109465}
   - {fileID: 372249583}
   - {fileID: 1928178403}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1244787255
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18089,7 +18089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 9ab83378-680a-4871-a0be-0f9b24d29dea
+  _uidString: 8d406966-ee2d-4e5d-9368-91b3a1b27699
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -18101,15 +18101,15 @@ MonoBehaviour:
   - {fileID: 200955534}
   - {fileID: 1180343190}
   - {fileID: 690757097}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1259804192
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19123,7 +19123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7f889886-9ea1-4fcc-9071-28e8f4dfaf8b
+  _uidString: 5b8316c6-0889-4d47-9475-0b275fa77c5f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19136,15 +19136,15 @@ MonoBehaviour:
   - {fileID: 1613320569}
   - {fileID: 398297925}
   - {fileID: 1244787254}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1379708719
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19735,7 +19735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 2c6c9400-8939-4583-b75e-e2c60639cfcf
+  _uidString: e6a6cee3-cef6-4bd5-a15a-6fc345d1ad7e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19746,15 +19746,15 @@ MonoBehaviour:
   - {fileID: 1519745986}
   - {fileID: 130807688}
   - {fileID: 825885557}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1458076139
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20176,7 +20176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 60770808-deaf-47a5-9c43-03ee6031e4dd
+  _uidString: be9339a4-6583-42ba-b597-a9b7d722995c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -20187,15 +20187,15 @@ MonoBehaviour:
   - {fileID: 690757097}
   - {fileID: 99384810}
   - {fileID: 571030081}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1474732709
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20843,7 +20843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a1a4f5d6-9a38-4289-abb7-468a5c95208b
+  _uidString: d5e85054-8eab-43bf-adb2-b35ad2daac25
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -20853,15 +20853,15 @@ MonoBehaviour:
   - {fileID: 1458076138}
   - {fileID: 2035763651}
   - {fileID: 825885557}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1519745987
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21059,7 +21059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a09e469c-75be-4e38-8679-3c647c3072a2
+  _uidString: 5f7da026-6b08-4d02-81ca-9c518746dfb9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21071,15 +21071,15 @@ MonoBehaviour:
   - {fileID: 1979293115}
   - {fileID: 691611724}
   - {fileID: 1799901121}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1542019186
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21839,7 +21839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1628feb4-dc20-43cb-b28b-eadb175af112
+  _uidString: 69f61efb-6177-489d-8b38-e689ac1d70f4
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21851,15 +21851,15 @@ MonoBehaviour:
   - {fileID: 2035763651}
   - {fileID: 871577621}
   - {fileID: 1244787254}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1613320570
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22061,7 +22061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 9a40bf9b-e134-4347-bf89-0728e6b5c56f
+  _uidString: 7322ab87-83de-495a-a527-bb111a191c41
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22073,15 +22073,15 @@ MonoBehaviour:
   - {fileID: 792511522}
   - {fileID: 130807688}
   - {fileID: 776288205}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1615284219
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22307,7 +22307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 14d94445-69de-4234-a8eb-32e3795b02cf
+  _uidString: 67629cd7-4256-4fab-b841-775f99a5a738
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22320,15 +22320,15 @@ MonoBehaviour:
   - {fileID: 1713012822}
   - {fileID: 372249583}
   - {fileID: 472952289}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1616109466
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22837,7 +22837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e89a287a-1ba1-40da-b212-76feaa9d8454
+  _uidString: b4fd995c-ff1f-4d61-a2b6-71370faa4dfc
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22848,15 +22848,15 @@ MonoBehaviour:
   - {fileID: 730612838}
   - {fileID: 2132712192}
   - {fileID: 69031562}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1670982337
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23020,6 +23020,108 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &1685287266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685287269}
+  - component: {fileID: 1685287268}
+  - component: {fileID: 1685287267}
+  - component: {fileID: 1685287270}
+  m_Layer: 5
+  m_Name: InteractablesPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1685287267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685287266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1685287268
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685287266}
+  m_CullTransparentMesh: 1
+--- !u!224 &1685287269
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685287266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3078533733022874419}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 225}
+  m_SizeDelta: {x: 600, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1685287270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685287266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!43 &1711428847
 Mesh:
   m_ObjectHideFlags: 0
@@ -23235,7 +23337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1d2673a3-cb39-4094-99a4-399d3d0393bc
+  _uidString: 1e7af35c-f19b-461b-8315-03bd3c87f43c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -23248,15 +23350,15 @@ MonoBehaviour:
   - {fileID: 851984733}
   - {fileID: 730612838}
   - {fileID: 472952289}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1713012823
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23450,7 +23552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 4d43bed7-ee06-4781-abe5-82052fb77adc
+  _uidString: cc85572e-930e-4ef1-8c63-fd678abfbe8c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -23461,15 +23563,15 @@ MonoBehaviour:
   - {fileID: 37277850}
   - {fileID: 792511522}
   - {fileID: 1615284218}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1739431884
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24013,7 +24115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 79c86ccd-5c4a-4be6-a1cb-a19b58caee56
+  _uidString: 69956189-171c-40d4-8b97-01aa84718e2f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -24026,15 +24128,15 @@ MonoBehaviour:
   - {fileID: 691611724}
   - {fileID: 183636216}
   - {fileID: 851984733}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1799901122
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25729,7 +25831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8e8741c0-faca-4843-9226-497c1098c9fe
+  _uidString: 2bbcb6a9-a672-42d8-8b8b-ad973e0ee4f7
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -25742,15 +25844,15 @@ MonoBehaviour:
   - {fileID: 1029695987}
   - {fileID: 57999251}
   - {fileID: 1914402407}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1882902889
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26392,7 +26494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e3144f5d-25c7-40f4-9715-94a80629ed97
+  _uidString: 7e9c23df-27aa-4090-a72a-c735ae0cac11
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -26402,15 +26504,15 @@ MonoBehaviour:
   - {fileID: 277211456}
   - {fileID: 1882902888}
   - {fileID: 57999251}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!43 &1923061569
 Mesh:
   m_ObjectHideFlags: 0
@@ -26791,7 +26893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 498d34e0-6065-4cdb-a5c0-3cab9d65121a
+  _uidString: c058e718-127f-4d36-8ea1-7cb2cf729833
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -26803,15 +26905,15 @@ MonoBehaviour:
   - {fileID: 183636216}
   - {fileID: 277211456}
   - {fileID: 1882902888}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1928178404
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27009,7 +27111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 129f6e9c-e8d4-4524-8370-1625a400f338
+  _uidString: 9cca1b41-3dde-4a97-955d-24c13abe597c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27022,15 +27124,15 @@ MonoBehaviour:
   - {fileID: 777829845}
   - {fileID: 2132712192}
   - {fileID: 1670982336}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1942986530
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27735,7 +27837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 30c15b63-9242-475b-8f9e-8f814c528a9f
+  _uidString: 198b7948-f74b-4bc0-b921-f06402cd0ebe
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27747,15 +27849,15 @@ MonoBehaviour:
   - {fileID: 420670820}
   - {fileID: 691611724}
   - {fileID: 1542019185}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &1979293116
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27977,7 +28079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: eee6e098-0ebd-4694-ba1a-0efb34b86d48
+  _uidString: d39720d7-8fb4-4ace-ab9c-593792a121ac
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27988,15 +28090,15 @@ MonoBehaviour:
   - {fileID: 1259804191}
   - {fileID: 690757097}
   - {fileID: 1474732708}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &2002064993
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28375,7 +28477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 15bc1387-39c0-4872-9ae6-2eeb84ab5331
+  _uidString: 47ca23e6-ceb6-443a-a4e8-9861a43b535e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28387,15 +28489,15 @@ MonoBehaviour:
   - {fileID: 691611724}
   - {fileID: 1616109465}
   - {fileID: 1713012822}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &2015586003
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28701,7 +28803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d72887dc-ebf3-4ec0-8360-3d653b9f777e
+  _uidString: cf8cf681-cbcc-4b34-a2e2-46984c72cc00
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28712,15 +28814,15 @@ MonoBehaviour:
   - {fileID: 825885557}
   - {fileID: 1613320569}
   - {fileID: 871577621}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &2035763652
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29122,15 +29224,15 @@ MonoBehaviour:
   - {fileID: 252703154}
   - {fileID: 777829845}
   - {fileID: 1670982336}
-  interactables: []
+  areNeighboursHighlited: 0
+  allowTerrainHighlight: 1
+  isAttacker: 0
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  areNeighboursHighlited: 0
-  allowTerrainHighlight: 1
-  isAttacker: 0
 --- !u!64 &2132712193
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33673,6 +33775,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4774580217652210425}
+  - {fileID: 1685287269}
   - {fileID: 943812625509052424}
   - {fileID: 2565126999565533110}
   - {fileID: 6115121361107048866}
@@ -37022,7 +37125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 451, y: -8}
+  m_AnchoredPosition: {x: 470, y: -8}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5960733212878790828
@@ -37464,6 +37567,9 @@ MonoBehaviour:
   MultiplayerSystem: {fileID: 0}
   CrewDisplayPanel: {fileID: 4154300849957589001}
   crewMemberPrefab: {fileID: 4348494174611873798, guid: ae11e64747c55404196ee38f27afe055, type: 3}
+  InteractablePanelPrefab: {fileID: 1685287266}
+  InteractableButtonPrefab: {fileID: 937234667021126678, guid: 54938927e8909bd499dae0af1a7ca000, type: 3}
+  HarbourButtonSprite: {fileID: 21300000, guid: ffd922c151f962247a44422ef4f06c08, type: 3}
   StartGameButton: {fileID: 0}
   turnOwner: 
   playersList: []
