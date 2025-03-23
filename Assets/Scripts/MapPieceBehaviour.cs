@@ -41,6 +41,7 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     private void OnMouseEnter(){
+        TooltipSystem.Show(myInteractable.ToString(), "Map piece contains");
         if(allowTerrainHighlight){
             tempMaterial = GetComponent<MeshRenderer>().material;        
             GetComponent<MeshRenderer>().material = highLightedMaterial;
@@ -48,6 +49,7 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     private void OnMouseExit(){
+        TooltipSystem.Hide();
         GetComponent<MeshRenderer>().material = tempMaterial;
 
         if(areNeighboursHighlited == false && allowTerrainHighlight){
