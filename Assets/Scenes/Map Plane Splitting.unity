@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1cecd132-db07-45a4-9bbd-c1d30641de4a
+  _uidString: 0c4ae171-4a4d-4c5c-96e3-d004918db68c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7750d5bb-d401-4aa0-ba97-03b0a18861fa
+  _uidString: 1ea51797-1fba-47eb-884c-45418842485e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
-  myInteractable: 4
+  myInteractable: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ba2f81d6-826a-4fca-ab7c-49be72efd9c6
+  _uidString: 4827cef5-25d8-4d79-ad41-88bad3ef0564
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: acdfd7b3-b53c-45ec-9e10-b8740c86a6ef
+  _uidString: c61e9cd4-941e-4fc4-9098-05ab249580a0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 942c2d23-9650-4ccb-a944-b985ae85af88
+  _uidString: 09a33f53-6ede-46ef-ab2a-636a9b51e04d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -2789,7 +2789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 260f02d1-ac74-4c30-8beb-5df973bc8278
+  _uidString: d652c474-4d5e-4cdc-83d3-6093b7b3c71e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -3384,7 +3384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d442c63d-f3b4-4cb7-9523-0c1ed3cca4b0
+  _uidString: 06a21c36-209b-438f-aec2-83adb820ec06
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4090,7 +4090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7f2bf1a6-7fb2-44e0-bd64-7967f37b1cba
+  _uidString: 089ebc69-7246-4021-8bee-b5588c33dbee
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4824,7 +4824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 46559ade-2ab1-4273-b7d2-81675b32e8a0
+  _uidString: 317e290c-14cd-4782-a8d5-d57bc2757949
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -5548,7 +5548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 87ed5373-582a-461a-a670-417379a87376
+  _uidString: dfee73bc-6f99-4b95-bf62-63b8d67b7834
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -6052,7 +6052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 450a0f6a-eb4f-4dbb-98f4-18e861bb569f
+  _uidString: c20f9889-5b00-43e6-bf80-c7f6933879e2
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -6383,7 +6383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e8c68f43-c01b-494b-b79e-0b5339f9c96b
+  _uidString: 4b0cf7a7-bb87-448e-864c-ae91d26ca855
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -9108,7 +9108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 4e0eb284-5881-4ab8-96fe-e132d2d45bdc
+  _uidString: d0fd389d-9700-46af-a7e3-e6e626667f04
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -10028,7 +10028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: f55a3272-8eb2-491c-82fb-bd4008fcdf4e
+  _uidString: cc81d3bb-83fa-43c7-a71a-2e1a043248a3
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -11138,7 +11138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: acb6c7a1-ecfb-4b14-b48a-cc6e0288c01e
+  _uidString: 12fce6e2-84b0-432f-b1bf-7c39d2be1899
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -11376,7 +11376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e11c8a00-616c-45ec-af0f-d00a24e2c106
+  _uidString: 3e358b5f-b264-4a7c-80e7-4299cbdf8ed0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -11873,7 +11873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 87f8d8c3-f6ad-45e5-84b3-6302ca704817
+  _uidString: d621792b-5719-4e63-b4e4-2f1d0d160b8b
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12283,7 +12283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a0fa00b9-1cf4-4562-a55f-6f807398f11f
+  _uidString: 152f08e6-6558-4e7f-8511-0426ae53241e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12606,7 +12606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8c64d7c5-67bc-48fe-a734-08c7560ebbb9
+  _uidString: 0fd3357b-94f9-4fb8-86c4-7ca493480fd9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12974,7 +12974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1ea3be43-83dd-4d40-b205-835dfb0be4b0
+  _uidString: cb0f59b3-aad2-4ea0-8bf3-fc133436d144
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -13304,7 +13304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a72cae1b-14b1-44ba-a61d-48911abb83b3
+  _uidString: 9289a94f-3a8c-436c-86a6-b10553901e7a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -13530,7 +13530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: f23dacb1-6a73-4352-8fbe-24243b87beee
+  _uidString: b960eb38-1c07-463a-96cc-dfe083199d65
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -13885,7 +13885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: bf8cf34a-65c8-4244-9163-12e7c1fe2557
+  _uidString: 926c62d4-67aa-4c91-b111-14e1a437bcef
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -14312,7 +14312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 010c1afb-439a-493b-a98e-c4c055490fa7
+  _uidString: 3b20c96d-9938-4ea0-a2e4-59b2a3d85ee3
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15088,7 +15088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 55e1f3f7-da23-423f-bf1f-228d9a9ed1ae
+  _uidString: e6cf476f-75e4-4828-9e26-c070fc8c1ce0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15559,7 +15559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ee9a3461-fb4e-4fd0-bbfd-c20de4a12505
+  _uidString: a6568288-8c91-40f4-862b-d04dec32a548
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16239,7 +16239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a96ea970-b50e-4798-b11b-673105b6848d
+  _uidString: 07eabc2f-40b9-4816-8b78-602e1691ae95
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17272,7 +17272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 69915222-f27d-4b09-8cee-bbf90b1961ad
+  _uidString: dfe3e11f-c4e9-49c7-b2d1-9b052325aaae
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17512,7 +17512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 58a7efdf-8651-4b0c-9d4e-ea8a6b3d8b22
+  _uidString: e887df5d-a3b6-4f22-966e-f1efb1feb202
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17861,7 +17861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 94d49729-92bf-43b0-bf3c-5c668a285820
+  _uidString: 6b45dd48-1c0f-4df9-8cd8-75433cd69a69
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -18089,7 +18089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8d406966-ee2d-4e5d-9368-91b3a1b27699
+  _uidString: d7f1d14c-2a9a-42d8-b7a2-bfd18218b799
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19123,7 +19123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 5b8316c6-0889-4d47-9475-0b275fa77c5f
+  _uidString: b0467b1e-4fa3-4d36-8f88-ff06dff0d499
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19735,7 +19735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e6a6cee3-cef6-4bd5-a15a-6fc345d1ad7e
+  _uidString: ed9db6a0-436c-4bce-872a-66945a25917b
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -20176,7 +20176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: be9339a4-6583-42ba-b597-a9b7d722995c
+  _uidString: 052b9275-ce31-4d7f-afea-08451fc027bb
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -20843,7 +20843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d5e85054-8eab-43bf-adb2-b35ad2daac25
+  _uidString: a8521284-142c-4227-b74b-fa02892e50b2
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21059,7 +21059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 5f7da026-6b08-4d02-81ca-9c518746dfb9
+  _uidString: cf81e9a5-a646-42a7-902b-ce8601ae136f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21839,7 +21839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 69f61efb-6177-489d-8b38-e689ac1d70f4
+  _uidString: 8eb90426-ab82-4edb-9f35-f3b29981ccca
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22061,7 +22061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7322ab87-83de-495a-a527-bb111a191c41
+  _uidString: 3885d12b-2f6f-41c7-9c96-361c04984373
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22307,7 +22307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 67629cd7-4256-4fab-b841-775f99a5a738
+  _uidString: 62adf145-752f-4d84-9d1c-665ef1481964
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22837,7 +22837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: b4fd995c-ff1f-4d61-a2b6-71370faa4dfc
+  _uidString: c9cf1cbc-b6cf-4386-98c3-7e26bc1f3764
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -23337,7 +23337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1e7af35c-f19b-461b-8315-03bd3c87f43c
+  _uidString: 4ee29659-2f8e-4437-900d-64349d32010f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -23552,7 +23552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: cc85572e-930e-4ef1-8c63-fd678abfbe8c
+  _uidString: 51053e65-4918-4023-adb7-f8cc39d4fd38
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -24115,7 +24115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 69956189-171c-40d4-8b97-01aa84718e2f
+  _uidString: 5846884a-d0d6-40b1-8472-f87221d76df0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -25831,7 +25831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 2bbcb6a9-a672-42d8-8b8b-ad973e0ee4f7
+  _uidString: d5442f61-eb20-4882-8531-9d41ae82e1c1
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -25847,7 +25847,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
-  myInteractable: 0
+  myInteractable: 4
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -26494,7 +26494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7e9c23df-27aa-4090-a72a-c735ae0cac11
+  _uidString: 62d3f78c-5295-48da-9d9a-11beb8cc7f9d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -26893,7 +26893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: c058e718-127f-4d36-8ea1-7cb2cf729833
+  _uidString: 90dba5f1-5fd2-4984-b819-de0eac112aba
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27111,7 +27111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 9cca1b41-3dde-4a97-955d-24c13abe597c
+  _uidString: c3b23245-ab3e-4081-b0da-705f10deae7c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27837,7 +27837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 198b7948-f74b-4bc0-b921-f06402cd0ebe
+  _uidString: edc8661c-c25e-4a49-9f1f-8b1ee27965aa
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28079,7 +28079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d39720d7-8fb4-4ace-ab9c-593792a121ac
+  _uidString: 2d59b989-3d00-4d84-b5c6-06942d8c0a7f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28477,7 +28477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 47ca23e6-ceb6-443a-a4e8-9861a43b535e
+  _uidString: ba5da2cc-9b3d-4ec9-a9c4-e15cd1d5a8c9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28803,7 +28803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: cf8cf681-cbcc-4b34-a2e2-46984c72cc00
+  _uidString: abed67f1-a55d-4272-926c-40f27f5bfb01
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -30769,7 +30769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &951503908355238381
 GameObject:
   m_ObjectHideFlags: 0
@@ -34077,7 +34077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3197022366097855109
 GameObject:
   m_ObjectHideFlags: 0
@@ -34941,7 +34941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &3817650408606694436
 CanvasRenderer:
   m_ObjectHideFlags: 0
