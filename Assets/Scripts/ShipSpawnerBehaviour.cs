@@ -57,7 +57,8 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);                      
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
-            spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint);        
+            spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint); 
+            spawnedShip.GetComponent<Ship>().movementPoints = 0;       
             spawnIndex++;    
        }      
     }

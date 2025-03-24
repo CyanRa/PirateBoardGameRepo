@@ -213,6 +213,11 @@ public class MenuBehaviour : AttributesSync
         }
         
     }
+    public void ResetInteractablePanel(){
+        foreach(Transform child in InteractablePanelPrefab.transform){
+            Destroy(child.gameObject);
+        }
+    }
 
     private void TavernButtonMethod(FleetManager _fleet, GameObject _buttonPrefab){
         if(_fleet.myGold >= 2){

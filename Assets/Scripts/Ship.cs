@@ -96,6 +96,7 @@ public class Ship : AttributesSync
     }
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
+        myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
         OccupyMapPiece(false);
         occupyingMapPiece.occupyingFleet = "";
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
