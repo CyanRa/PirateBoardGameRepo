@@ -34,7 +34,9 @@ public class TooltipBehaviour : MonoBehaviour
     {
         Vector2 position = Input.mousePosition;
         float pivotX = position.x/Screen.width;
+        if(pivotX <= 0.8f){pivotX =0;position.x += 20f;}else{pivotX = 1; position.x -= 20f;}
         float pivotY = position.y/Screen.height;
+        if(pivotY <= 0.8f){pivotY =0;position.y += 20f;}else{pivotY = 1;position.y -=20f;}
         rectTransform.pivot = new Vector2(pivotX, pivotY);
         transform.position = position;
     }

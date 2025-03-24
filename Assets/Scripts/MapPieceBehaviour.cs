@@ -10,6 +10,7 @@ using System;
 
 public class MapPieceBehaviour : AttributesSync
 {   
+    private static LTDescr delay;
     [SynchronizableField]public String occupyingShip = "";
     [SynchronizableField]public String occupyingFleet = "";
     [SerializeField]public Ship defenderShip = null;
@@ -41,7 +42,10 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     private void OnMouseEnter(){
-        TooltipSystem.Show(myInteractable.ToString(), "Map piece contains");
+        delay = LeanTween.delayedCall(1f, ()=>{
+            TooltipSystem.Show(myInteractable.ToString(), "Map piece contains");
+        });
+        
         if(allowTerrainHighlight){
             tempMaterial = GetComponent<MeshRenderer>().material;        
             GetComponent<MeshRenderer>().material = highLightedMaterial;
@@ -49,8 +53,10 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     private void OnMouseExit(){
+        LeanTween.cancel(delay.uniqueId);
         TooltipSystem.Hide();
         GetComponent<MeshRenderer>().material = tempMaterial;
+        
 
         if(areNeighboursHighlited == false && allowTerrainHighlight){
             GetComponent<MeshRenderer>().material = myMaterial;           
