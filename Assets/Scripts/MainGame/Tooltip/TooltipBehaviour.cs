@@ -19,7 +19,7 @@ public class TooltipBehaviour : MonoBehaviour
 
     public void Start()
     {
-        gameObject.SetActive(false);
+        
     }
 
     public void SetText(string _content, string _header = ""){

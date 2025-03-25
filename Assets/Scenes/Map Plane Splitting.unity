@@ -1147,8 +1147,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21877,7 +21877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.094124, y: 304.65076}
+  m_AnchoredPosition: {x: 56.123295, y: 311.97055}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -28521,7 +28521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28582,10 +28582,10 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -31147,8 +31147,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33291,7 +33291,7 @@ MonoBehaviour:
   neighboringTerrain:
   - {fileID: 1244787254}
   - {fileID: 871577621}
-  - {fileID: 183636216}
+  - {fileID: 372249583}
   - {fileID: 277211456}
   - {fileID: 1882902888}
   areNeighboursHighlited: 0
@@ -42447,7 +42447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &3197022366097855109
 GameObject:
   m_ObjectHideFlags: 0
@@ -43470,7 +43470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3817650408606694436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46724,13 +46724,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6355438013311896322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9861067, z: -0, w: 0.16611353}
-  m_LocalPosition: {x: -0.57149965, y: 0.1749878, z: -0.6765}
+  m_LocalRotation: {x: -0, y: -0.9581774, z: -0, w: 0.28617507}
+  m_LocalPosition: {x: -0.5712, y: 0.1749878, z: -0.6706}
   m_LocalScale: {x: 0.0015, y: 0.03, z: 0.0015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1928178402}
-  m_LocalEulerAnglesHint: {x: 0, y: -160.876, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -146.742, z: 0}
 --- !u!114 &6017827131510564423
 MonoBehaviour:
   m_ObjectHideFlags: 0
