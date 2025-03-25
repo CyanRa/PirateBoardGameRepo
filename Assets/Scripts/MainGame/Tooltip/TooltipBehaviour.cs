@@ -17,6 +17,11 @@ public class TooltipBehaviour : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
+    public void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void SetText(string _content, string _header = ""){
         if(string.IsNullOrEmpty(_header)){
             header.gameObject.SetActive(false);

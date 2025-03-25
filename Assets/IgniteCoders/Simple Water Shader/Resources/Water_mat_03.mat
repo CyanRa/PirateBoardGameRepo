@@ -25,7 +25,8 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - Vector1_7273530c27a34c9f8ee5723b84f96baa: 0.2
     m_Colors:
     - Color_36218622185947c6a5ae36366d8e21d8: {r: 0.0582057, g: 0.3671813, b: 0.4113207, a: 0.9607843}
     - Color_93e06cd551a5449091bcde90b46765a0: {r: 0.16726941, g: 0.7207546, b: 0.7103115, a: 0.19607843}
