@@ -65,6 +65,9 @@ MonoBehaviour:
   fleetColour: 
   shipMaterialColour: {fileID: 0}
   myGold: 10
+  goldCount: {fileID: 0}
+  victoryPoints: 0
+  victoryPointsCount: {fileID: 0}
 --- !u!114 &-6938788333451560399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +83,7 @@ MonoBehaviour:
   myFleetCrew: []
   _totalPower: 0
   deckLoader: {fileID: 0}
-  crewMemberPrefab: {fileID: 4348494174611873798, guid: ae11e64747c55404196ee38f27afe055, type: 3}
+  crewMemberPrefab: {fileID: 3027260731280725542, guid: ae11e64747c55404196ee38f27afe055, type: 3}
   enemyCardbackPrefab: {fileID: 2912877660671961889, guid: a7f41e66ec7584743b1a16c26b5664e8, type: 3}
   BattleCanvas: {fileID: 0}
   handZone: {fileID: 0}

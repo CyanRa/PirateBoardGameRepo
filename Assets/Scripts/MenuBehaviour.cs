@@ -222,7 +222,7 @@ public class MenuBehaviour : AttributesSync
     private void TavernButtonMethod(FleetManager _fleet, GameObject _buttonPrefab){
         if(_fleet.myGold >= 2){
             _fleet.SpendGold(2);
-            _fleet.victoryPoints += 1;
+            _fleet.GetVictoryPoints(1);
             Destroy(_buttonPrefab);
         }
     }

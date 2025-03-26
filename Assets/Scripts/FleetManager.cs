@@ -26,7 +26,9 @@ public class FleetManager : CommunicationBridge
     [SerializeField]public string fleetColour;
     public Material shipMaterialColour;
     [SerializeField]public int myGold;
+    public TextMeshProUGUI goldCount;
     [SerializeField]public int victoryPoints;
+    public TextMeshProUGUI victoryPointsCount;
 
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
@@ -35,13 +37,26 @@ public class FleetManager : CommunicationBridge
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
         MainSpawner = GetComponent<ShipSpawnerBehaviour>();
+
+        
     }
 
     public void Start(){
-        if(!avatar.IsMe) return; // Guard Cluase??
+        if(!avatar.IsMe) return;
+        goldCount = GameObject.Find("GoldCount").GetComponentInChildren<TextMeshProUGUI>();
+        victoryPointsCount = GameObject.Find("VictoryPointsCount").GetComponentInChildren<TextMeshProUGUI>();
         Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
         ShowCrewButton.onClick.AddListener(DisplayCrew);
+        UpdateGoldDisplay();
+        UpdateVictoryPointsDisplay();
         
+    }
+
+    public void UpdateGoldDisplay(){
+        goldCount.text = myGold.ToString();
+    }
+    public void UpdateVictoryPointsDisplay(){
+        victoryPointsCount.text = victoryPoints.ToString();
     }
     
     private void InitEndTurnButton(){
@@ -241,9 +256,15 @@ public class FleetManager : CommunicationBridge
 
     public void SpendGold(int _price){
         myGold -= _price;
+        UpdateGoldDisplay();
     }
     public void GetGold(int _goldAmount){
         myGold += _goldAmount;
+        UpdateGoldDisplay();
+    }
+    public void GetVictoryPoints(int _victoryPoints){
+        victoryPoints += _victoryPoints;
+        UpdateVictoryPointsDisplay();
     }
 
     
