@@ -144,7 +144,7 @@ MonoBehaviour:
   rotationSped: 3
   panningSpeed: 25
   mouseRotationSpeed: 100
-  localRot: {x: 0, y: 0, z: 0}
+  inputDelta: {x: 0, y: 0}
   verticalRotationMouseSpeed: 30
   orbitDamping: 10
   autoHeight: 1

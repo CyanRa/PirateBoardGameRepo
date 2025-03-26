@@ -193,7 +193,7 @@ public class Ship : AttributesSync
     //NEEDS SOME BUFFER 
     private void MoveCameraFromIconSelection(GameObject shipToSelect){
         myCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
-        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 600, shipToSelect.transform.position.z);    
+        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 550, shipToSelect.transform.position.z);    
     }
 
     public void BroadcastChangeShipColour(int tempColourID){
