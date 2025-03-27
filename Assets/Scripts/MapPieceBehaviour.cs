@@ -18,7 +18,7 @@ public class MapPieceBehaviour : AttributesSync
     public bool areNeighboursHighlited = false;
     public bool allowTerrainHighlight = true;
     public bool isAttacker = false;
-    public MapInteractables myInteractable;
+    public List<MapInteractables> myInteractables;
     public enum MapInteractables{
         Tavern,
         Harbor,
@@ -43,7 +43,7 @@ public class MapPieceBehaviour : AttributesSync
 
     private void OnMouseEnter(){
         delay = LeanTween.delayedCall(1f, ()=>{
-            TooltipSystem.Show(myInteractable.ToString(), "Map piece contains");
+            TooltipSystem.Show(myInteractables.ToString(), "Map piece contains");
         });
         
         if(allowTerrainHighlight){
@@ -76,6 +76,20 @@ public class MapPieceBehaviour : AttributesSync
                 if(map.occupyingFleet == unit.myFleet.name){
                     map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
                 }
+            }
+            foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
+                map2.areNeighboursHighlited = true;
+                if(map2.occupyingShip == ""){
+                map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+            }else{
+        
+                if(map2.occupyingFleet != unit.myFleet.name){  
+                    map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                }
+                if(map2.occupyingFleet == unit.myFleet.name){
+                    map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
+                }
+            }
             }      
         }
         allowTerrainHighlight = false;
@@ -85,6 +99,10 @@ public class MapPieceBehaviour : AttributesSync
         foreach(MapPieceBehaviour map in neighboringTerrain){           
             map.GetComponent<MeshRenderer>().material = myMaterial;
             map.areNeighboursHighlited = false;
+            foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
+                map2.GetComponent<MeshRenderer>().material = myMaterial;
+                map2.areNeighboursHighlited = false;
+            }
         } 
         allowTerrainHighlight = true;      
     }
@@ -131,7 +149,7 @@ public class MapPieceBehaviour : AttributesSync
     private void GenerateInteractable(Ship _enteringShip){
         FleetManager _fleet = _enteringShip.myFleet;
         MenuBehaviour _menuBehaviour = _fleet.MenuController.GetComponent<MenuBehaviour>();
-        switch(myInteractable)
+        switch(myInteractables[0])
         {
             case MapInteractables.Empty: break;
             case MapInteractables.Harbor:

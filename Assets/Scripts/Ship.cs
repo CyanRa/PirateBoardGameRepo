@@ -8,6 +8,8 @@ using RTS_Cam;
 using UnityEngine.UIElements;
 using System.ComponentModel.Design;
 using TMPro;
+using System.Collections.Generic;
+using JetBrains.Annotations;
 
 
 public class Ship : AttributesSync
@@ -59,15 +61,19 @@ public class Ship : AttributesSync
         }
     //Movement when unit is selected and is registered to a map piece        
             if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null && movementPoints > 0){ 
-                movementPoints -= 1;       	
+                       	
 		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
 		
 		        if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
-		            
-                    if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){
-                         MoveFromAMapPieceToAMapPiece(hit);
+                    List<MapPieceBehaviour> _mapPieces = new List<MapPieceBehaviour>(); 
+		            foreach(MapPieceBehaviour _map in occupyingMapPiece.neighboringTerrain){
+                        _mapPieces.AddRange(_map.neighboringTerrain);
+                    }
+                    if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())||_mapPieces.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){
+                        
+                        MoveFromAMapPieceToAMapPiece(hit);
                     }                    
                 }
             } 
@@ -106,6 +112,7 @@ public class Ship : AttributesSync
         occupyingMapPiece.defenderShip = GetComponent<Ship>();
         isMoving = true;
         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
+        movementPoints -= 1;
                        
     }
     public void MoveToAMapPiece(Transform _mapPiece){       
@@ -125,7 +132,7 @@ public class Ship : AttributesSync
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed*Time.deltaTime );
             GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;
             
-            myCamera.targetFollow = transform;
+            //myCamera.targetFollow = transform;
             
         }else{
             isMoving = false;
