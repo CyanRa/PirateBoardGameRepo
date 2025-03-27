@@ -22043,7 +22043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -606.3272, y: 207.35034}
+  m_AnchoredPosition: {x: -599.3941, y: 200.41725}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -46183,6 +46183,7 @@ MonoBehaviour:
   rumorScrollPrefab: {fileID: 6493072151795834058, guid: c12e5cdb4c284bf469a2e6267d6ed5bd, type: 3}
   HarbourButtonSprite: {fileID: 21300000, guid: ffd922c151f962247a44422ef4f06c08, type: 3}
   RumorButtonSprite: {fileID: 21300000, guid: 1c8a246507c945e45b101e30ac4cf7c6, type: 3}
+  TreasureButtonImage: {fileID: 21300000, guid: 54aa528ab3a141f4094c598277cacbfc, type: 3}
   StartGameButton: {fileID: 0}
   turnOwner: 
   playersList: []

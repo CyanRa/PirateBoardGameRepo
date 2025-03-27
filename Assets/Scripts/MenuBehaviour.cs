@@ -240,9 +240,10 @@ public class MenuBehaviour : AttributesSync
 
     private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll)
     {
+        SpawnRumor();
         int mapNumber = UnityEngine.Random.Range(0,52);
         MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
-        _mapPiece.GenerateTreasuer();
+        _mapPiece.GenerateTreasure();
         Destroy(_buttonPrefab);
         Destroy(_scroll.gameObject);
     }
@@ -271,5 +272,18 @@ public class MenuBehaviour : AttributesSync
             _fleet.MainSpawner.SpawnShip(_mapPiece);
             Destroy(_buttonPrefab);
         }
+    }
+
+    private void SpawnRumor(){
+        int randMapPiece = UnityEngine.Random.Range(0,52);
+        MapPieceBehaviour _mapPiece = Map.transform.GetChild(randMapPiece).GetComponent<MapPieceBehaviour>();
+        if(!_mapPiece.HasRumor()){
+            _mapPiece.GenerateRumor();
+            
+        }else{
+            SpawnRumor();
+            return;
+        }
+        
     }
 }

@@ -68,18 +68,17 @@ public class MapPieceBehaviour : AttributesSync
         delay = LeanTween.delayedCall(1f, ()=>{
             TooltipSystem.Show(myInteractables[0].ToString());
         });
-        mapPieceHighlightDelay = LeanTween.delayedCall(0.1f, () =>{
-             if(allowTerrainHighlight){
-            tempMaterial = GetComponent<MeshRenderer>().material;        
-            GetComponent<MeshRenderer>().material = highLightedMaterial;
+       
+        if(allowTerrainHighlight){
+        tempMaterial = GetComponent<MeshRenderer>().material;        
+        GetComponent<MeshRenderer>().material = highLightedMaterial;
         }
-        });
+        
        
     }
 
     private void OnMouseExit(){
         LeanTween.cancel(delay.uniqueId);
-        LeanTween.cancel(mapPieceHighlightDelay.uniqueId);
         TooltipSystem.Hide();
         GetComponent<MeshRenderer>().material = tempMaterial;
         if(areNeighboursHighlited == false && allowTerrainHighlight){
@@ -94,6 +93,14 @@ public class MapPieceBehaviour : AttributesSync
     {
         foreach(MapInteractables _interactable in myInteractables){
             if(_interactable == MapInteractables.Treasure){
+                return true;
+            }
+        }
+        return false;
+    }
+    public bool HasRumor(){
+        foreach(MapInteractables _interactable in myInteractables){
+            if(_interactable == MapInteractables.Rumor){
                 return true;
             }
         }
@@ -211,7 +218,11 @@ public class MapPieceBehaviour : AttributesSync
         
     }
 
-    public void GenerateTreasuer(){
+    public void GenerateRumor(){
+        myInteractables.Add(MapInteractables.Rumor);
+        SpawnRumorScroll();
+    }
+    public void GenerateTreasure(){
         GetComponent<MeshRenderer>().material = treasureMaterial;
         myInteractables.Add(MapInteractables.Treasure);
     }
