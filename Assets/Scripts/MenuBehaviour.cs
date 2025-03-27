@@ -4,6 +4,7 @@ using System.Linq;
 using Alteruna;
 using NUnit.Framework;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ public class MenuBehaviour : AttributesSync
     bool StopOnMouseOn = false;
 #region GAMEOBJECTS
     public GameObject ShipDisplayPrefab;
+    public GameObject Map;
     public GameObject FlagShipDisplayPrefab;
     public GameObject PreGameMenu;
     public Spawner mySpawner;
@@ -27,7 +29,11 @@ public class MenuBehaviour : AttributesSync
     public GameObject crewMemberPrefab;
     public GameObject InteractablePanelPrefab;
     public GameObject InteractableButtonPrefab;
+    public GameObject rumorScrollPrefab;
     public Sprite HarbourButtonSprite;
+    public Sprite RumorButtonSprite;
+    public Sprite TreasureButtonImage;
+    
     
 #endregion
     public Button StartGameButton;
@@ -191,8 +197,9 @@ public class MenuBehaviour : AttributesSync
 
     
 
-    public void InstantiateInteractableButton(string interactable, FleetManager _fleet, Transform _mapPiece)
+    public void InstantiateInteractableButton(string interactable, Ship _ship, Transform _mapPiece)
     {
+        FleetManager _fleet = _ship.GetComponentInParent<FleetManager>();
         GameObject _interactable = Instantiate(InteractableButtonPrefab);
         _interactable.transform.SetParent(InteractablePanelPrefab.transform);
         Button _button = _interactable.GetComponent<Button>();
@@ -208,11 +215,38 @@ public class MenuBehaviour : AttributesSync
                 _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
                 _button.onClick.AddListener(() => HarborButtonMethod(_fleet, _interactable, _mapPiece));
                 break;
+            case "Rumor":
+                _interactable.GetComponent<Image>().sprite = RumorButtonSprite;
+                _button.onClick.AddListener(() => RumorButtonMethod(_interactable, _mapPiece));
+                break;
+            case "Treasure":
+                _interactable.GetComponent<Image>().sprite = TreasureButtonImage;
+                _button.onClick.AddListener(() => TreasureButtonMethod(_interactable, _ship, _mapPiece));
+                break;
                 default:
                 break;
         }
         
     }
+
+    private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
+    {
+        MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
+        tempMapPiece.RemoveTreasure();
+        //tempMapPiece.RemoveTreasure();
+        _ship.shipGold += UnityEngine.Random.Range(2,5);
+        Destroy(_buttonPrefab);
+    }
+
+    private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll)
+    {
+        int mapNumber = UnityEngine.Random.Range(0,52);
+        MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
+        _mapPiece.GenerateTreasuer();
+        Destroy(_buttonPrefab);
+        Destroy(_scroll.gameObject);
+    }
+
     public void ResetInteractablePanel(){
         foreach(Transform child in InteractablePanelPrefab.transform){
             Destroy(child.gameObject);

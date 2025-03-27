@@ -11,6 +11,7 @@ using System;
 public class MapPieceBehaviour : AttributesSync
 {   
     private static LTDescr delay;
+    private static LTDescr mapPieceHighlightDelay;
     [SynchronizableField]public String occupyingShip = "";
     [SynchronizableField]public String occupyingFleet = "";
     [SerializeField]public Ship defenderShip = null;
@@ -18,12 +19,15 @@ public class MapPieceBehaviour : AttributesSync
     public bool areNeighboursHighlited = false;
     public bool allowTerrainHighlight = true;
     public bool isAttacker = false;
+    private GameObject ScrollPrefab;
     public List<MapInteractables> myInteractables;
+
     public enum MapInteractables{
         Tavern,
         Harbor,
         PirateCove,
         Rumor,
+        Treasure,
         Empty
     }
    
@@ -35,32 +39,65 @@ public class MapPieceBehaviour : AttributesSync
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial; 
     public Material allyNeighbouringTerrainMaterial;
+    public Material treasureMaterial;
+    private MenuBehaviour MenuSystem;
 
     void Start()
     {
+        MenuSystem = GameObject.Find("MenuSystem").GetComponent<MenuBehaviour>();
         occupyingShip = "";
+        foreach(MapInteractables _interactable in myInteractables){
+            if(_interactable == MapInteractables.Rumor){
+                SpawnRumorScroll();
+            }
+        }
+        if(myInteractables.Count == 0){
+            myInteractables.Add(MapInteractables.Empty);
+        }
+    }
+
+    private void SpawnRumorScroll(){
+        ScrollPrefab = Instantiate(MenuSystem.rumorScrollPrefab);
+        ScrollPrefab.transform.position = this.transform.GetChild(0).transform.position;
+        ScrollPrefab.transform.position = new UnityEngine.Vector3(ScrollPrefab.transform.position.x, ScrollPrefab.transform.position.y+5, ScrollPrefab.transform.position.z);
+
+
     }
 
     private void OnMouseEnter(){
         delay = LeanTween.delayedCall(1f, ()=>{
-            TooltipSystem.Show(myInteractables.ToString(), "Map piece contains");
+            TooltipSystem.Show(myInteractables[0].ToString());
         });
-        
-        if(allowTerrainHighlight){
+        mapPieceHighlightDelay = LeanTween.delayedCall(0.1f, () =>{
+             if(allowTerrainHighlight){
             tempMaterial = GetComponent<MeshRenderer>().material;        
             GetComponent<MeshRenderer>().material = highLightedMaterial;
         }
+        });
+       
     }
 
     private void OnMouseExit(){
         LeanTween.cancel(delay.uniqueId);
+        LeanTween.cancel(mapPieceHighlightDelay.uniqueId);
         TooltipSystem.Hide();
         GetComponent<MeshRenderer>().material = tempMaterial;
-        
-
         if(areNeighboursHighlited == false && allowTerrainHighlight){
             GetComponent<MeshRenderer>().material = myMaterial;           
+        }
+        if(HasTreasure()){
+            GetComponent<MeshRenderer>().material = treasureMaterial;   
         }        
+    }
+
+    private bool HasTreasure()
+    {
+        foreach(MapInteractables _interactable in myInteractables){
+            if(_interactable == MapInteractables.Treasure){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void HighlightNeighbours(Ship unit){
@@ -149,20 +186,36 @@ public class MapPieceBehaviour : AttributesSync
     private void GenerateInteractable(Ship _enteringShip){
         FleetManager _fleet = _enteringShip.myFleet;
         MenuBehaviour _menuBehaviour = _fleet.MenuController.GetComponent<MenuBehaviour>();
-        switch(myInteractables[0])
+        for(int i = 0; i < myInteractables.Count; i++){
+            switch(myInteractables[i])
         {
             case MapInteractables.Empty: break;
             case MapInteractables.Harbor:
-                _menuBehaviour.InstantiateInteractableButton("Harbor", _fleet, gameObject.transform);
+                _menuBehaviour.InstantiateInteractableButton("Harbor", _enteringShip, gameObject.transform);
                 break;
             case MapInteractables.Tavern: 
-                _menuBehaviour.InstantiateInteractableButton("Tavern", _fleet, null);
+                _menuBehaviour.InstantiateInteractableButton("Tavern", _enteringShip, null);
                 break;
             case MapInteractables.PirateCove: 
-                _menuBehaviour.InstantiateInteractableButton("PirateCove",_fleet, null);
+                _menuBehaviour.InstantiateInteractableButton("PirateCove",_enteringShip, null);
                 break;
-            case MapInteractables.Rumor: break;
+            case MapInteractables.Rumor: 
+                _menuBehaviour.InstantiateInteractableButton("Rumor", _enteringShip, ScrollPrefab.transform);
+                break;
+            case MapInteractables.Treasure:
+            _menuBehaviour.InstantiateInteractableButton("Treasure", _enteringShip, gameObject.transform);
+                break;
             default: break;
         }
+        }
+        
+    }
+
+    public void GenerateTreasuer(){
+        GetComponent<MeshRenderer>().material = treasureMaterial;
+        myInteractables.Add(MapInteractables.Treasure);
+    }
+    public void RemoveTreasure(){
+        myInteractables.Remove(MapPieceBehaviour.MapInteractables.Treasure);
     }
 }

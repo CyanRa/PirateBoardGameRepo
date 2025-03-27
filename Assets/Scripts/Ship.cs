@@ -18,6 +18,7 @@ public class Ship : AttributesSync
     public bool isMoving = false;
     public MapPieceBehaviour occupyingMapPiece;
     [SynchronizableField] public string occupyingMapPieceName;
+    [SynchronizableField] public int shipGold;
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
@@ -34,6 +35,7 @@ public class Ship : AttributesSync
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
         movementPoints = 1;     
         healthPoints = 1;
+        shipGold = 0;
     }
  
     void Update(){
