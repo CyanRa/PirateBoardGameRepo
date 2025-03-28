@@ -160,17 +160,25 @@ public class MenuBehaviour : AttributesSync
     
 
     public void AddShipToUI(GameObject spawnedShip, int index){
-        GameObject shipIconTemp = Instantiate(ShipDisplayPrefab);
+        GameObject shipIconTemp = Instantiate(ShipDisplayPrefab);       
         shipIconTemp.GetComponentInChildren<TextMeshProUGUI>().text = index.ToString();
         shipIconTemp.transform.SetParent(FleetPanel.transform);
+        shipIconTemp.transform.localScale = new Vector3(1,1,1);
         Button tempButton = shipIconTemp.GetComponentInChildren<Button>();
+        Ship _ship = spawnedShip.GetComponent<Ship>();
+        _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
+        _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));       
     }
 
     public void AddFlagShipToUI(GameObject spawnedShip){
-        GameObject shipIconTemp = Instantiate(FlagShipDisplayPrefab);
+        GameObject shipIconTemp = Instantiate(FlagShipDisplayPrefab);       
         shipIconTemp.transform.SetParent(FleetPanel.transform);
+        shipIconTemp.transform.localScale = new Vector3(1,1,1);
         Button tempButton = shipIconTemp.GetComponentInChildren<Button>();
+        Ship _ship = spawnedShip.GetComponent<Ship>();
+        _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
+        _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));      
     }
 
@@ -206,18 +214,18 @@ public class MenuBehaviour : AttributesSync
         switch(interactable)
         {
             case "Tavern": 
-                _button.onClick.AddListener(() => TavernButtonMethod(_fleet, _interactable));
+                _button.onClick.AddListener(() => TavernButtonMethod(_ship, _interactable));
                 break;
             case "PirateCove":
                 _button.onClick.AddListener(PirateCoveMethod);
                 break;
             case "Harbor":
                 _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
-                _button.onClick.AddListener(() => HarborButtonMethod(_fleet, _interactable, _mapPiece));
+                _button.onClick.AddListener(() => HarborButtonMethod(_ship, _interactable, _mapPiece));
                 break;
             case "Rumor":
                 _interactable.GetComponent<Image>().sprite = RumorButtonSprite;
-                _button.onClick.AddListener(() => RumorButtonMethod(_interactable, _mapPiece));
+                _button.onClick.AddListener(() => RumorButtonMethod(_interactable, _mapPiece, _ship));
                 break;
             case "Treasure":
                 _interactable.GetComponent<Image>().sprite = TreasureButtonImage;
@@ -233,19 +241,21 @@ public class MenuBehaviour : AttributesSync
     {
         MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
         tempMapPiece.RemoveTreasure();
-        //tempMapPiece.RemoveTreasure();
         _ship.shipGold += UnityEngine.Random.Range(2,5);
+        _ship.UpdateGoldDisplay();
         Destroy(_buttonPrefab);
     }
 
-    private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll)
+    private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll, Ship _ship)
     {
+        MapPieceBehaviour shipOccupiedMapPiece = GameObject.Find(_ship.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
+        shipOccupiedMapPiece.BroadcastRemoveRumor();
         SpawnRumor();
         int mapNumber = UnityEngine.Random.Range(0,52);
         MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
         _mapPiece.GenerateTreasure();
         Destroy(_buttonPrefab);
-        Destroy(_scroll.gameObject);
+        //Destroy(_scroll.gameObject);
     }
 
     public void ResetInteractablePanel(){
@@ -254,10 +264,10 @@ public class MenuBehaviour : AttributesSync
         }
     }
 
-    private void TavernButtonMethod(FleetManager _fleet, GameObject _buttonPrefab){
-        if(_fleet.myGold >= 2){
-            _fleet.SpendGold(2);
-            _fleet.GetVictoryPoints(1);
+    private void TavernButtonMethod(Ship _ship, GameObject _buttonPrefab){
+        if(_ship.shipGold >= 2){
+            _ship.SpendGold(2);
+            _ship.GetComponentInParent<FleetManager>().GetVictoryPoints(1);
             Destroy(_buttonPrefab);
         }
     }
@@ -265,11 +275,11 @@ public class MenuBehaviour : AttributesSync
 
     }
 
-    private void HarborButtonMethod(FleetManager _fleet, GameObject _buttonPrefab, Transform _mapPiece){
+    private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){
         
-        if(_fleet.myGold >= 2){
-            _fleet.SpendGold(_fleet.myShips.Count);
-            _fleet.MainSpawner.SpawnShip(_mapPiece);
+        if(_ship.shipGold >= 2){
+            _ship.SpendGold(_ship.GetComponentInParent<FleetManager>().myShips.Count);
+            _ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(_mapPiece);
             Destroy(_buttonPrefab);
         }
     }
@@ -278,7 +288,7 @@ public class MenuBehaviour : AttributesSync
         int randMapPiece = UnityEngine.Random.Range(0,52);
         MapPieceBehaviour _mapPiece = Map.transform.GetChild(randMapPiece).GetComponent<MapPieceBehaviour>();
         if(!_mapPiece.HasRumor()){
-            _mapPiece.GenerateRumor();
+            _mapPiece.BroadcastGenerateRumor();
             
         }else{
             SpawnRumor();

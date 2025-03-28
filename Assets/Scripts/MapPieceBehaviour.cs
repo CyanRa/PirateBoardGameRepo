@@ -60,8 +60,6 @@ public class MapPieceBehaviour : AttributesSync
         ScrollPrefab = Instantiate(MenuSystem.rumorScrollPrefab);
         ScrollPrefab.transform.position = this.transform.GetChild(0).transform.position;
         ScrollPrefab.transform.position = new UnityEngine.Vector3(ScrollPrefab.transform.position.x, ScrollPrefab.transform.position.y+5, ScrollPrefab.transform.position.z);
-
-
     }
 
     private void OnMouseEnter(){
@@ -218,9 +216,25 @@ public class MapPieceBehaviour : AttributesSync
         
     }
 
+    public void BroadcastGenerateRumor(){
+        BroadcastRemoteMethod("GenerateRumor");
+    }
+
+    [SynchronizableMethod]
     public void GenerateRumor(){
         myInteractables.Add(MapInteractables.Rumor);
         SpawnRumorScroll();
+    }
+    public void BroadcastRemoveRumor(){
+        BroadcastRemoteMethod("RemoveRumor");
+    }
+    [SynchronizableMethod]
+    public void RemoveRumor(){
+        myInteractables.Remove(MapInteractables.Rumor);
+        Destroy(ScrollPrefab);
+        if(myInteractables.Count == 0){
+            myInteractables.Add(MapInteractables.Empty);
+        }
     }
     public void GenerateTreasure(){
         GetComponent<MeshRenderer>().material = treasureMaterial;

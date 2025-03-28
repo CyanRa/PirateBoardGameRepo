@@ -19,6 +19,7 @@ public class Ship : AttributesSync
     public MapPieceBehaviour occupyingMapPiece;
     [SynchronizableField] public string occupyingMapPieceName;
     [SynchronizableField] public int shipGold;
+    public TextMeshProUGUI goldDisplay;
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
@@ -37,13 +38,20 @@ public class Ship : AttributesSync
         healthPoints = 1;
         shipGold = 0;
     }
+
+    public void UpdateGoldDisplay(){
+        goldDisplay.text = shipGold.ToString();
+    }
+    public void SpendGold(int _price){
+        shipGold -= _price;
+        UpdateGoldDisplay();
+    }
+    public void GetGold(int _goldAmount){
+        shipGold += _goldAmount;
+        UpdateGoldDisplay();
+    }
  
     void Update(){
-    //Quit the update if using avatar is not the avatar of the fleet
-        //if(!fleetsAvatar.IsMe ){
-            //return;
-        //}
-
     //Allows for a ship to move to any map piece before having one
     //Will be replaced by spawning logic                  
         if(occupyingMapPiece == null){

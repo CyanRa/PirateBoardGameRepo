@@ -254,14 +254,7 @@ public class FleetManager : CommunicationBridge
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
     }
 
-    public void SpendGold(int _price){
-        myGold -= _price;
-        UpdateGoldDisplay();
-    }
-    public void GetGold(int _goldAmount){
-        myGold += _goldAmount;
-        UpdateGoldDisplay();
-    }
+    
     public void GetVictoryPoints(int _victoryPoints){
         victoryPoints += _victoryPoints;
         UpdateVictoryPointsDisplay();

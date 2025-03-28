@@ -88,6 +88,7 @@ public class ShipSpawnerBehaviour : AttributesSync
        spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;
        string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;      
        spawnedShip.GetComponent<Ship>().ChangeShipColour(shipColour);
+       spawnedShip.GetComponent<Ship>().shipGold = 1;
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
        BroadcastRemoteMethod("SynchSpawnedFlagShip", spawnedShip.GetComponent<Ship>().myFleet.name);
        spawnIndex++;       
