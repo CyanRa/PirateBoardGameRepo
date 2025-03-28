@@ -30,6 +30,13 @@ public class MapPieceBehaviour : AttributesSync
         Treasure,
         Empty
     }
+    public MapStatus myMapStatus;
+    public enum MapStatus{
+        Empty,
+        Allied,
+        Contested,
+        Hostile
+    }
    
 
     [Header("MATERIALS")]
@@ -54,6 +61,8 @@ public class MapPieceBehaviour : AttributesSync
         if(myInteractables.Count == 0){
             myInteractables.Add(MapInteractables.Empty);
         }
+        myMapStatus = MapStatus.Empty;
+
     }
 
     private void SpawnRumorScroll(){
@@ -70,9 +79,7 @@ public class MapPieceBehaviour : AttributesSync
         if(allowTerrainHighlight){
         tempMaterial = GetComponent<MeshRenderer>().material;        
         GetComponent<MeshRenderer>().material = highLightedMaterial;
-        }
-        
-       
+        }       
     }
 
     private void OnMouseExit(){

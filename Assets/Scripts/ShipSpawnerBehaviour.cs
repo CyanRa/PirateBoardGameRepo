@@ -48,7 +48,7 @@ public class ShipSpawnerBehaviour : AttributesSync
     }
     public void SpawnShip(Transform _spawnPoint){       
        if(myAvatar.GetComponent<FleetManager>().myShips.Count < 5){           
-            GameObject spawnedShip = mySpawner.Spawn(0, spawnPoint.position);
+            GameObject spawnedShip = mySpawner.Spawn(0, _spawnPoint.position);
             spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;  
             _tempSpawnedShipName = spawnedShip.name;        
             spawnedShip.transform.SetParent(myAvatar.transform);
@@ -57,7 +57,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);                      
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
-            spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint); 
+            //spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint); 
             spawnedShip.GetComponent<Ship>().movementPoints = 0;       
             spawnIndex++;    
        }      
