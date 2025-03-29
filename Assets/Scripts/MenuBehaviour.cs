@@ -239,15 +239,21 @@ public class MenuBehaviour : AttributesSync
 
     private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
+        if(_ship.actionPoints > 0){
+        _ship.actionPoints -= 1;
         MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
         tempMapPiece.RemoveTreasure();
         _ship.shipGold += UnityEngine.Random.Range(2,5);
         _ship.UpdateGoldDisplay();
         Destroy(_buttonPrefab);
+        }
+
     }
 
     private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll, Ship _ship)
     {
+        if(_ship.actionPoints > 0){
+            _ship.actionPoints -= 1;
         MapPieceBehaviour shipOccupiedMapPiece = GameObject.Find(_ship.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
         shipOccupiedMapPiece.BroadcastRemoveRumor();
         SpawnRumor();
@@ -255,17 +261,13 @@ public class MenuBehaviour : AttributesSync
         MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
         _mapPiece.GenerateTreasure();
         Destroy(_buttonPrefab);
-        //Destroy(_scroll.gameObject);
-    }
-
-    public void ResetInteractablePanel(){
-        foreach(Transform child in InteractablePanelPrefab.transform){
-            Destroy(child.gameObject);
         }
+        
     }
 
     private void TavernButtonMethod(Ship _ship, GameObject _buttonPrefab){
-        if(_ship.shipGold >= 2){
+        if(_ship.shipGold >= 2 && _ship.actionPoints > 0){
+            _ship.actionPoints -= 1;
             _ship.SpendGold(2);
             _ship.GetComponentInParent<FleetManager>().GetVictoryPoints(1);
             Destroy(_buttonPrefab);
@@ -277,7 +279,8 @@ public class MenuBehaviour : AttributesSync
 
     private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){
         
-        if(_ship.shipGold >= 2){
+        if(_ship.shipGold >= _ship.GetComponentInParent<FleetManager>().myShips.Count && _ship.actionPoints > 0){
+             _ship.actionPoints -= 1;
             _ship.SpendGold(_ship.GetComponentInParent<FleetManager>().myShips.Count);
             _ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(_mapPiece);
             Destroy(_buttonPrefab);
@@ -295,5 +298,10 @@ public class MenuBehaviour : AttributesSync
             return;
         }
         
+    }
+     public void ResetInteractablePanel(){
+        foreach(Transform child in InteractablePanelPrefab.transform){
+            Destroy(child.gameObject);
+        }
     }
 }

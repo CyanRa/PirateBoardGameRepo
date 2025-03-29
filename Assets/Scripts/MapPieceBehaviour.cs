@@ -15,6 +15,7 @@ public class MapPieceBehaviour : AttributesSync
     [SynchronizableField]public String occupyingShip = "";
     [SynchronizableField]public String occupyingFleet = "";
     [SerializeField]public Ship defenderShip = null;
+    public List<Ship> occupyingShips;
     public List<MapPieceBehaviour> neighboringTerrain = new List<MapPieceBehaviour>();
     public bool areNeighboursHighlited = false;
     public bool allowTerrainHighlight = true;
@@ -65,11 +66,7 @@ public class MapPieceBehaviour : AttributesSync
 
     }
 
-    private void SpawnRumorScroll(){
-        ScrollPrefab = Instantiate(MenuSystem.rumorScrollPrefab);
-        ScrollPrefab.transform.position = this.transform.GetChild(0).transform.position;
-        ScrollPrefab.transform.position = new UnityEngine.Vector3(ScrollPrefab.transform.position.x, ScrollPrefab.transform.position.y+5, ScrollPrefab.transform.position.z);
-    }
+   
 
     private void OnMouseEnter(){
         delay = LeanTween.delayedCall(1f, ()=>{
@@ -94,23 +91,7 @@ public class MapPieceBehaviour : AttributesSync
         }        
     }
 
-    private bool HasTreasure()
-    {
-        foreach(MapInteractables _interactable in myInteractables){
-            if(_interactable == MapInteractables.Treasure){
-                return true;
-            }
-        }
-        return false;
-    }
-    public bool HasRumor(){
-        foreach(MapInteractables _interactable in myInteractables){
-            if(_interactable == MapInteractables.Rumor){
-                return true;
-            }
-        }
-        return false;
-    }
+    
 
     public void HighlightNeighbours(Ship unit){
         foreach(MapPieceBehaviour map in neighboringTerrain){
@@ -159,16 +140,71 @@ public class MapPieceBehaviour : AttributesSync
 
     public void EnterMapPiece(Ship enteringShip)
     {
-        if(occupyingFleet == ""){
-            BroadcastOccupyingMapPiece(enteringShip);
-        }else if(occupyingFleet == enteringShip.myFleet.name){
-            return;
-        }else{
-            BroadCastBeginBattle(enteringShip.name, occupyingShip);  
-            BroadcastOccupyingMapPiece(enteringShip);   
-        } 
+        switch(myMapStatus){
+            case MapStatus.Empty: 
+            ConquerMapPiece(enteringShip);
+            break;
+            case MapStatus.Allied:
+            BroadCastAddOccupyingShip(enteringShip.name);
+            //GOLD SHARING 
+            break;
+            case MapStatus.Contested:
+            BroadCastAddOccupyingShip(enteringShip.name);
+            //ATTACK HOSTILE? 
+            break;
+            case MapStatus.Hostile:
+            BroadCastAddOccupyingShip(enteringShip.name);
+            BroadCastBeginBattle(enteringShip.name, occupyingShip); 
+            break;
+            default:break;
+        }
         GenerateInteractable(enteringShip);
     }
+
+    public void ConquerMapPiece(Ship _ship){
+        occupyingShip = _ship.name;
+        SetMapPieceAllied();
+        InvokeRemoteMethod("SetMapPieceHostile");
+        BroadcastRemoteMethod("AddOccupyingShip", _ship.name);
+    }
+    public void BroadCastAddOccupyingShip(string _ship){
+        BroadcastRemoteMethod("AddOccupyingShip", _ship);
+    }
+    [SynchronizableMethod]
+    private void AddOccupyingShip(string enteringShip){
+        Ship _ship = GameObject.Find(enteringShip).GetComponent<Ship>();
+        occupyingShips.Add(_ship);  
+    }
+    
+    public void BroadCastRemoveOccupyingShip(string _ship){
+        BroadcastRemoteMethod("RemoveOccupyingShip", _ship);
+        if(occupyingShips.Count == 0){
+            SetMapPieceEmpty();
+        }
+    }
+    [SynchronizableMethod]
+    private void RemoveOccupyingShip(string enteringShip){
+        Ship _ship = GameObject.Find(enteringShip).GetComponent<Ship>();
+        occupyingShips.Remove(_ship);  
+    }
+
+    [SynchronizableMethod]
+    private void SetMapPieceAllied(){
+        myMapStatus = MapStatus.Allied;
+    }
+    [SynchronizableMethod]
+    private void SetMapPieceContested(){
+        myMapStatus = MapStatus.Contested;
+    }
+    [SynchronizableMethod]
+    private void SetMapPieceHostile(){
+        myMapStatus = MapStatus.Hostile;
+    }
+    [SynchronizableMethod]
+    private void SetMapPieceEmpty(){
+        myMapStatus = MapStatus.Empty;
+    }
+
     public void BroadcastOccupyingMapPiece(Ship enteringShip){        
         BroadcastRemoteMethod("OccupyMapPiece", enteringShip.name);
         BroadcastRemoteMethod("SetOccupyingFleet", enteringShip.myFleet.name);
@@ -176,7 +212,8 @@ public class MapPieceBehaviour : AttributesSync
     
     [SynchronizableMethod]
     public void OccupyMapPiece(String enteringShip){ 
-        occupyingShip = enteringShip;      
+        occupyingShip = enteringShip; 
+           
     }
     [SynchronizableMethod]
     public void SetOccupyingFleet(String enteringFleet){
@@ -215,7 +252,7 @@ public class MapPieceBehaviour : AttributesSync
                 _menuBehaviour.InstantiateInteractableButton("Rumor", _enteringShip, ScrollPrefab.transform);
                 break;
             case MapInteractables.Treasure:
-            _menuBehaviour.InstantiateInteractableButton("Treasure", _enteringShip, gameObject.transform);
+                _menuBehaviour.InstantiateInteractableButton("Treasure", _enteringShip, gameObject.transform);
                 break;
             default: break;
         }
@@ -249,5 +286,29 @@ public class MapPieceBehaviour : AttributesSync
     }
     public void RemoveTreasure(){
         myInteractables.Remove(MapPieceBehaviour.MapInteractables.Treasure);
+    }
+
+    private bool HasTreasure()
+    {
+        foreach(MapInteractables _interactable in myInteractables){
+            if(_interactable == MapInteractables.Treasure){
+                return true;
+            }
+        }
+        return false;
+    }
+    public bool HasRumor(){
+        foreach(MapInteractables _interactable in myInteractables){
+            if(_interactable == MapInteractables.Rumor){
+                return true;
+            }
+        }
+        return false;
+    }
+
+     private void SpawnRumorScroll(){
+        ScrollPrefab = Instantiate(MenuSystem.rumorScrollPrefab);
+        ScrollPrefab.transform.position = this.transform.GetChild(0).transform.position;
+        ScrollPrefab.transform.position = new UnityEngine.Vector3(ScrollPrefab.transform.position.x, ScrollPrefab.transform.position.y+5, ScrollPrefab.transform.position.z);
     }
 }

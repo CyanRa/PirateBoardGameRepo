@@ -30,12 +30,14 @@ public class Ship : AttributesSync
     public AudioClip selectShipAudioClip;
     public AudioClip shipBellRingAudioClip;
     public int movementPoints;
+    public int actionPoints;
     [SynchronizableField]public int healthPoints;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
+        actionPoints = 1;
         movementPoints = 1;     
-        healthPoints = 1;
+        healthPoints = 2;
         shipGold = 0;
     }
 
@@ -81,8 +83,7 @@ public class Ship : AttributesSync
 		            foreach(MapPieceBehaviour _map in occupyingMapPiece.neighboringTerrain){
                         _mapPieces.AddRange(_map.neighboringTerrain);
                     }
-                    if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())||_mapPieces.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){
-                        
+                    if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())||_mapPieces.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){                       
                         MoveFromAMapPieceToAMapPiece(hit);
                     }                    
                 }
@@ -113,7 +114,7 @@ public class Ship : AttributesSync
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
         myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
-        OccupyMapPiece(false);
+        occupyingMapPiece.BroadCastRemoveOccupyingShip(gameObject.name);
         occupyingMapPiece.occupyingFleet = "";
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
         occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
@@ -164,15 +165,6 @@ public class Ship : AttributesSync
         }
 
         unit.GetComponent<Ship>().enabled = shouldMove;
-    }
-    
-    //OCCUPY DE-OCCUPY MAP PIECES
-    public void OccupyMapPiece(bool a){
-        if(a){
-            occupyingMapPiece.occupyingShip = transform.name;
-        }else{
-            occupyingMapPiece.occupyingShip = "";
-        }
     }
 
     public void ChangeShipHealth(int damage){

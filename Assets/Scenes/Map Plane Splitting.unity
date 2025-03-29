@@ -518,6 +518,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1739431883}
   - {fileID: 1458076138}
@@ -527,6 +528,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -1492,6 +1494,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1029695987}
   - {fileID: 1882902888}
@@ -1501,6 +1504,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -1881,6 +1885,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 730612838}
   - {fileID: 472952289}
@@ -1891,6 +1896,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -2452,6 +2458,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1474732708}
   - {fileID: 690757097}
@@ -2463,6 +2470,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -2957,6 +2965,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 37277850}
   - {fileID: 1458076138}
@@ -2969,6 +2978,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -3549,6 +3559,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 959105941}
   - {fileID: 1799901121}
@@ -3559,6 +3570,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -4145,6 +4157,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 697810838}
   - {fileID: 1205153112}
@@ -4156,6 +4169,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -5025,6 +5039,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 959105941}
   - {fileID: 777829845}
@@ -5033,6 +5048,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -5760,6 +5776,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 871577621}
   - {fileID: 1928178403}
@@ -5769,6 +5786,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -6919,6 +6937,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1244787254}
   - {fileID: 1616109465}
@@ -6930,6 +6949,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 00000000
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -7424,6 +7444,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 420670820}
   - {fileID: 974815236}
@@ -7435,6 +7456,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -7843,6 +7865,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1180343190}
   - {fileID: 776288205}
@@ -7855,6 +7878,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -10717,6 +10741,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1616109465}
   - {fileID: 1713012822}
@@ -10728,6 +10753,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -11439,6 +11465,71 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &508624938
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1037.6632
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 529.98895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126852802678255317, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002027835011511399, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15266
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892323673340193053, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407682323528985834, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
+      propertyPath: m_Name
+      value: LevelLoader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99fed54173ef33c4cad1825607af5d95, type: 3}
 --- !u!1 &534515182
 GameObject:
   m_ObjectHideFlags: 0
@@ -12038,6 +12129,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1474732708}
   - {fileID: 99384810}
@@ -12048,6 +12140,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -13696,6 +13789,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 2002064992}
   - {fileID: 1474732708}
@@ -13706,6 +13800,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 03000000
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -13935,6 +14030,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1542019185}
   - {fileID: 1979293115}
@@ -13947,6 +14043,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -14433,6 +14530,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 2002064992}
   - {fileID: 1205153112}
@@ -14442,6 +14540,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -14884,6 +14983,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 851984733}
   - {fileID: 1713012822}
@@ -14895,6 +14995,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -15552,6 +15653,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 792511522}
   - {fileID: 1615284218}
@@ -15564,6 +15666,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -15921,6 +16024,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 959105941}
   - {fileID: 183636216}
@@ -15931,6 +16035,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -16283,6 +16388,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1205153112}
   - {fileID: 1739431883}
@@ -16293,6 +16399,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -16597,6 +16704,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1458076138}
   - {fileID: 1519745986}
@@ -16608,6 +16716,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 03000000
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -17157,6 +17266,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1799901121}
   - {fileID: 691611724}
@@ -17168,6 +17278,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -17672,6 +17783,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 2035763651}
   - {fileID: 1613320569}
@@ -17682,6 +17794,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -18575,6 +18688,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 571030081}
   - {fileID: 1799901121}
@@ -18585,6 +18699,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -19047,6 +19162,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 420670820}
   - {fileID: 776288205}
@@ -19057,6 +19173,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -19846,6 +19963,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 372249583}
   - {fileID: 472952289}
@@ -19856,6 +19974,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 03000000
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -21239,6 +21358,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1259804191}
   - {fileID: 200955534}
@@ -21251,6 +21371,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -21511,6 +21632,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 697810838}
   - {fileID: 1739431883}
@@ -21520,6 +21642,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -21947,6 +22070,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1379708718}
   - {fileID: 1613320569}
@@ -21959,6 +22083,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -22208,7 +22333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.84377, y: 275.07312}
+  m_AnchoredPosition: {x: -486.20804, y: 255.31288}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -22379,6 +22504,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 2002064992}
   - {fileID: 697810838}
@@ -22389,6 +22515,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 01000000
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -23745,6 +23872,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 130807688}
   - {fileID: 825885557}
@@ -23756,6 +23884,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -24703,6 +24832,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 37277850}
   - {fileID: 1519745986}
@@ -24712,6 +24842,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -25176,6 +25307,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 2002064992}
   - {fileID: 690757097}
@@ -25185,6 +25317,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -26103,6 +26236,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1458076138}
   - {fileID: 2035763651}
@@ -26111,6 +26245,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -26351,6 +26486,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 571030081}
   - {fileID: 99384810}
@@ -26361,6 +26497,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -27478,6 +27615,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1379708718}
   - {fileID: 825885557}
@@ -27488,6 +27626,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -27701,6 +27840,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1739431883}
   - {fileID: 37277850}
@@ -27711,6 +27851,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -27948,6 +28089,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 398297925}
   - {fileID: 1244787254}
@@ -27959,6 +28101,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -28479,6 +28622,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1942986529}
   - {fileID: 730612838}
@@ -28488,6 +28632,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -29326,6 +29471,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 691611724}
   - {fileID: 2015586002}
@@ -29337,6 +29483,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -29542,6 +29689,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1205153112}
   - {fileID: 37277850}
@@ -29551,6 +29699,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -30430,6 +30579,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 571030081}
   - {fileID: 1542019185}
@@ -30441,6 +30591,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -32826,6 +32977,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 372249583}
   - {fileID: 1928178403}
@@ -32837,6 +32989,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -33490,6 +33643,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 277211456}
   - {fileID: 1882902888}
@@ -33498,6 +33652,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -33921,6 +34076,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1244787254}
   - {fileID: 871577621}
@@ -33931,6 +34087,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 01000000
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -34140,6 +34297,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 183636216}
   - {fileID: 851984733}
@@ -34151,6 +34309,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -35031,6 +35190,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 99384810}
   - {fileID: 1180343190}
@@ -35041,6 +35201,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -35447,6 +35608,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 697810838}
   - {fileID: 1259804191}
@@ -35456,6 +35618,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -35846,6 +36009,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 420670820}
   - {fileID: 398297925}
@@ -35856,6 +36020,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -36248,6 +36413,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1519745986}
   - {fileID: 825885557}
@@ -36257,6 +36423,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -36777,6 +36944,7 @@ MonoBehaviour:
   occupyingShip: 
   occupyingFleet: 
   defenderShip: {fileID: 0}
+  occupyingShips: []
   neighboringTerrain:
   - {fileID: 1942986529}
   - {fileID: 252703154}
@@ -36786,6 +36954,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   myInteractables: 
+  myMapStatus: 0
   myMaterial: {fileID: 2100000, guid: 19ac4fcfcf42b4344a6c7d97a5cd61fc, type: 2}
   highLightedMaterial: {fileID: 2100000, guid: e84fa704c4cd22540b012116ac732f8b, type: 2}
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
@@ -50684,3 +50853,4 @@ SceneRoots:
   - {fileID: 1964913034}
   - {fileID: 7038528722901477654}
   - {fileID: 7554354221872399377}
+  - {fileID: 508624938}
