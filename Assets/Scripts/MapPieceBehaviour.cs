@@ -47,6 +47,7 @@ public class MapPieceBehaviour : AttributesSync
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial; 
     public Material allyNeighbouringTerrainMaterial;
+    public Material contestedNeighbouringTerrain;
     public Material treasureMaterial;
     private MenuBehaviour MenuSystem;
 
@@ -95,33 +96,41 @@ public class MapPieceBehaviour : AttributesSync
 
     public void HighlightNeighbours(Ship unit){
         foreach(MapPieceBehaviour map in neighboringTerrain){
-            map.areNeighboursHighlited = true;
-            if(map.occupyingShip == ""){
+            switch(map.myMapStatus){
+            case MapStatus.Empty: 
                 map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
-            }else{
-        
-                if(map.occupyingFleet != unit.myFleet.name){  
-                    map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
-                }
-                if(map.occupyingFleet == unit.myFleet.name){
-                    map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
-                }
+            break;
+            case MapStatus.Allied:
+                map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
+            break;
+            case MapStatus.Contested:
+                map.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
+            break;
+            case MapStatus.Hostile:
+                map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+            break;
+            default:break;                
             }
-            foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
-                map2.areNeighboursHighlited = true;
-                if(map2.occupyingShip == ""){
-                map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
-            }else{
-        
-                if(map2.occupyingFleet != unit.myFleet.name){  
-                    map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
-                }
-                if(map2.occupyingFleet == unit.myFleet.name){
-                    map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;
-                }
-            }
-            }      
+                    foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
+                    switch(map2.myMapStatus){
+                        case MapStatus.Empty: 
+                            map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+                        break;
+                        case MapStatus.Allied:
+                            map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
+                        break;
+                        case MapStatus.Contested:
+                            map2.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
+                        break;
+                        case MapStatus.Hostile:
+                            map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                        break;
+                        default:break;
+                
         }
+        }
+        }
+        areNeighboursHighlited = true;
         allowTerrainHighlight = false;
     }
  
@@ -140,11 +149,21 @@ public class MapPieceBehaviour : AttributesSync
 
     public void EnterMapPiece(Ship enteringShip)
     {
+        int friendlyShipCount = 0;
         switch(myMapStatus){
             case MapStatus.Empty: 
             ConquerMapPiece(enteringShip);
             break;
             case MapStatus.Allied:
+            enteringShip.needsOffset = true;
+            enteringShip.offsetPosition[0] = 1;
+            
+            foreach(Ship _ship in occupyingShips){
+                if(_ship.myFleet == enteringShip.myFleet){
+                    friendlyShipCount +=1;
+                }
+            }
+            enteringShip.offsetPosition[1] = friendlyShipCount;
             BroadCastAddOccupyingShip(enteringShip.name);
             //GOLD SHARING 
             break;
@@ -153,6 +172,14 @@ public class MapPieceBehaviour : AttributesSync
             //ATTACK HOSTILE? 
             break;
             case MapStatus.Hostile:
+            enteringShip.needsOffset = true;
+            enteringShip.offsetPosition[0] = 2;
+            foreach(Ship _ship in occupyingShips){
+                if(_ship.myFleet == enteringShip.myFleet){
+                    friendlyShipCount +=1;
+                }
+            }
+            enteringShip.offsetPosition[1] = friendlyShipCount;
             BroadCastAddOccupyingShip(enteringShip.name);
             BroadCastBeginBattle(enteringShip.name, occupyingShip); 
             break;

@@ -166,14 +166,16 @@ public class FleetManager : CommunicationBridge
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
               MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
               isMyTurn = false;   
-              GetComponent<Hand>().DrawCard();
+              
               foreach(GameObject ship in myShips){
                 ship.GetComponent<Ship>().movementPoints = 1;
+                ship.GetComponent<Ship>().actionPoints = 1;
               }
         }     
     }
     public void StartTurn(){
         isMyTurn = true;
+        GetComponent<Hand>().DrawCard();
     }
 
     public void DisplayCrew(){

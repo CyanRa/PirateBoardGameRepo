@@ -32,6 +32,9 @@ public class Ship : AttributesSync
     public int movementPoints;
     public int actionPoints;
     [SynchronizableField]public int healthPoints;
+    public bool needsOffset;
+    //First digit for fleet position, Second for ship number position
+    public List<int> offsetPosition;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
@@ -39,6 +42,9 @@ public class Ship : AttributesSync
         movementPoints = 1;     
         healthPoints = 2;
         shipGold = 0;
+        needsOffset = false;
+        offsetPosition.Add(0);
+        offsetPosition.Add(0);
     }
 
     public void UpdateGoldDisplay(){
@@ -147,10 +153,12 @@ public class Ship : AttributesSync
             
         }else{
             isMoving = false;
+            if(needsOffset){OffsetThisShip();}
             myFleet.DeselectAll();
             EnableUnitMovement(this.gameObject, false);
             myCamera.ResetTarget();
         }
+        
         
     }
 
@@ -221,5 +229,48 @@ public class Ship : AttributesSync
                 case "Yellow": tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
                 default:print("Something went wrong choosing colour"); break;
             }
+    }
+
+    public void OffsetThisShip(){
+        if(offsetPosition[0] == 1){
+            //rotation stays the same for
+            switch(offsetPosition[1]){
+                case 1:
+                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                break;
+                case 2:
+                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z -2);
+                break;
+                case 3:
+                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z -4);
+                break;
+                case 4:
+                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                break;
+                default:
+                Debug.Log("ERROR OFFSETTING SHIP");
+                break;
+            }
+        }else if(offsetPosition[0] == 2){
+            transform.Rotate(0,180,0);
+            switch(offsetPosition[1]){
+                case 1:
+                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                break;
+                case 2:
+                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z -2);
+                break;
+                case 3:
+                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z -4);
+                break;
+                case 4:
+                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                break;
+                default:
+                Debug.Log("ERROR OFFSETTING SHIP");
+                break;
+            }    
+        }
+        needsOffset = false;
     }
 }

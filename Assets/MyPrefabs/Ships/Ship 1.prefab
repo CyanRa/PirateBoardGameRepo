@@ -117,6 +117,8 @@ MonoBehaviour:
   isMoving: 0
   occupyingMapPiece: {fileID: 0}
   occupyingMapPieceName: 
+  shipGold: 0
+  goldDisplay: {fileID: 0}
   myFleet: {fileID: 0}
   myCamera: {fileID: 0}
   Speed: 5
@@ -128,7 +130,10 @@ MonoBehaviour:
   selectShipAudioClip: {fileID: 8300000, guid: c4efc0456089b82468bca14a06bfdde6, type: 3}
   shipBellRingAudioClip: {fileID: 8300000, guid: 7ef926cef13f4e541ae152df6779f57a, type: 3}
   movementPoints: 0
+  actionPoints: 0
   healthPoints: 0
+  needsOffset: 0
+  offsetPosition: 
 --- !u!114 &4572065181584098380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,8 +188,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 35.689087, y: 2.4251041, z: 44.98161}
-  m_Center: {x: 0.123571776, y: 1.2125435, z: -1.4602569}
+  m_Size: {x: 4.188843, y: 2.4251041, z: 9.268494}
+  m_Center: {x: -0.028686523, y: 1.2125435, z: -0.39627075}
 --- !u!82 &8912244757005408298
 AudioSource:
   m_ObjectHideFlags: 0
