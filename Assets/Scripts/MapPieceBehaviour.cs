@@ -89,6 +89,8 @@ public class MapPieceBehaviour : AttributesSync
         }
         if(HasTreasure()){
             GetComponent<MeshRenderer>().material = treasureMaterial;   
+        }else{
+            GetComponent<MeshRenderer>().material = tempMaterial;  
         }        
     }
 
@@ -146,18 +148,21 @@ public class MapPieceBehaviour : AttributesSync
         allowTerrainHighlight = true;      
     }
 
-
+   
     public void EnterMapPiece(Ship enteringShip)
     {
         int friendlyShipCount = 0;
         switch(myMapStatus){
-            case MapStatus.Empty: 
+            
+            case MapStatus.Empty:         
+            foreach(Ship _ship in occupyingShips){
+                if(_ship.myFleet == enteringShip.myFleet){
+                    friendlyShipCount +=1;
+                }
+            }
             ConquerMapPiece(enteringShip);
             break;
-            case MapStatus.Allied:
-            enteringShip.needsOffset = true;
-            enteringShip.offsetPosition[0] = 1;
-            
+            case MapStatus.Allied:         
             foreach(Ship _ship in occupyingShips){
                 if(_ship.myFleet == enteringShip.myFleet){
                     friendlyShipCount +=1;
@@ -172,8 +177,6 @@ public class MapPieceBehaviour : AttributesSync
             //ATTACK HOSTILE? 
             break;
             case MapStatus.Hostile:
-            enteringShip.needsOffset = true;
-            enteringShip.offsetPosition[0] = 2;
             foreach(Ship _ship in occupyingShips){
                 if(_ship.myFleet == enteringShip.myFleet){
                     friendlyShipCount +=1;

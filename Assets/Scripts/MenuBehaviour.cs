@@ -132,7 +132,9 @@ public class MenuBehaviour : AttributesSync
             }else{
                 turnOwner = playersList[0];
             }
-            TurnDisplayText.text = turnOwner + "'s Turn";           
+            TurnDisplayText.text = turnOwner + "'s Turn";
+            FleetManager _fleet = Multiplayer.GetAvatar().GetComponent<FleetManager>();
+            _fleet.StartTurn();           
             Commit();       
     }
 
@@ -197,7 +199,7 @@ public class MenuBehaviour : AttributesSync
     public void TriggerStartGame(){
         Alteruna.Avatar myAvatar = Multiplayer.GetAvatar();
         myAvatar.GetComponent<FleetManager>().StartGame();
-        PreGameMenu.SetActive(false);
+        PreGameMenu.SetActive(false);       
         Destroy(StartGameButton.gameObject);
     }
 #endregion

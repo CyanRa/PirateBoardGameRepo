@@ -10,6 +10,7 @@ using System.ComponentModel.Design;
 using TMPro;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using System.Linq.Expressions;
 
 
 public class Ship : AttributesSync
@@ -32,7 +33,6 @@ public class Ship : AttributesSync
     public int movementPoints;
     public int actionPoints;
     [SynchronizableField]public int healthPoints;
-    public bool needsOffset;
     //First digit for fleet position, Second for ship number position
     public List<int> offsetPosition;
 
@@ -42,9 +42,9 @@ public class Ship : AttributesSync
         movementPoints = 1;     
         healthPoints = 2;
         shipGold = 0;
-        needsOffset = false;
         offsetPosition.Add(0);
         offsetPosition.Add(0);
+        
     }
 
     public void UpdateGoldDisplay(){
@@ -63,7 +63,8 @@ public class Ship : AttributesSync
     //Allows for a ship to move to any map piece before having one
     //Will be replaced by spawning logic                  
         if(occupyingMapPiece == null){
-            if (Input.GetMouseButtonDown(1) && !isMoving ){        	
+            if (Input.GetMouseButtonDown(1) && !isMoving ){ 
+                offsetPosition[0] = myFleet.fleetPositionIndex;       	
 		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
 		
@@ -147,13 +148,10 @@ public class Ship : AttributesSync
     public void MoveToAnchor(Transform transform){        
         if(GetComponent<Transform>().position.x != transform.position.x && GetComponent<Transform>().position.z != transform.position.z){
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed*Time.deltaTime );
-            GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;
-            
-            //myCamera.targetFollow = transform;
-            
+            GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;           
         }else{
             isMoving = false;
-            if(needsOffset){OffsetThisShip();}
+            OffsetThisShip();
             myFleet.DeselectAll();
             EnableUnitMovement(this.gameObject, false);
             myCamera.ResetTarget();
@@ -209,8 +207,8 @@ public class Ship : AttributesSync
 
     //NEEDS SOME BUFFER 
     private void MoveCameraFromIconSelection(GameObject shipToSelect){
-        myCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
-        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 550, shipToSelect.transform.position.z);    
+        //myCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
+        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 540, shipToSelect.transform.position.z);    
     }
 
     public void BroadcastChangeShipColour(int tempColourID){
@@ -232,45 +230,94 @@ public class Ship : AttributesSync
     }
 
     public void OffsetThisShip(){
-        if(offsetPosition[0] == 1){
+        if(offsetPosition[0] == 0){
             //rotation stays the same for
             switch(offsetPosition[1]){
+                case 0:
+                    transform.position = new UnityEngine.Vector3(transform.position.x,transform.position.y,transform.position.z -2);
+                break;
                 case 1:
-                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -4);
                 break;
                 case 2:
-                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z -4);
                 break;
                 case 3:
-                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z -4);
+                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z -6);
                 break;
                 case 4:
-                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x +2,transform.position.y,transform.position.z -6);
                 break;
                 default:
                 Debug.Log("ERROR OFFSETTING SHIP");
                 break;
             }
-        }else if(offsetPosition[0] == 2){
+        }else if(offsetPosition[0] == 1){
             transform.Rotate(0,180,0);
             switch(offsetPosition[1]){
+                case 0: 
+                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z+2 );
+                break;
                 case 1:
-                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z +4);
                 break;
                 case 2:
-                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z +4);
                 break;
                 case 3:
-                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z -4);
+                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z +6);
                 break;
                 case 4:
-                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x -2,transform.position.y,transform.position.z +6);
+                break;
+                default:
+                Debug.Log("ERROR OFFSETTING SHIP");
+                break;
+            }    
+        }else if(offsetPosition[0] == 2){
+            transform.Rotate(0,90,0);
+            switch(offsetPosition[1]){
+                case 0: 
+                    transform.position = new UnityEngine.Vector3(transform.position.x-2 ,transform.position.y,transform.position.z);
+                break;
+                case 1:
+                    transform.position = new UnityEngine.Vector3(transform.position.x-4 ,transform.position.y,transform.position.z-1 );
+                break;
+                case 2:
+                    transform.position = new UnityEngine.Vector3(transform.position.x-4 ,transform.position.y,transform.position.z+1 );
+                break;
+                case 3:
+                    transform.position = new UnityEngine.Vector3(transform.position.x-6 ,transform.position.y,transform.position.z );
+                break;
+                case 4:
+                    transform.position = new UnityEngine.Vector3(transform.position.x-6 ,transform.position.y,transform.position.z+2 );
+                break;
+                default:
+                Debug.Log("ERROR OFFSETTING SHIP");
+                break;
+            }    
+        }else if(offsetPosition[0] == 3){
+            transform.Rotate(0,270,3);
+            switch(offsetPosition[1]){
+                case 0: 
+                    transform.position = new UnityEngine.Vector3(transform.position.x+2 ,transform.position.y,transform.position.z );
+                break;
+                case 1:
+                    transform.position = new UnityEngine.Vector3(transform.position.x+4,transform.position.y,transform.position.z-1 );
+                break;
+                case 2:
+                    transform.position = new UnityEngine.Vector3(transform.position.x+4,transform.position.y,transform.position.z+1 );
+                break;
+                case 3:
+                    transform.position = new UnityEngine.Vector3(transform.position.x+6 ,transform.position.y,transform.position.z );
+                break;
+                case 4:
+                    transform.position = new UnityEngine.Vector3(transform.position.x+6,transform.position.y,transform.position.z-2 );
                 break;
                 default:
                 Debug.Log("ERROR OFFSETTING SHIP");
                 break;
             }    
         }
-        needsOffset = false;
     }
 }

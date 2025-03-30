@@ -29,6 +29,7 @@ public class FleetManager : CommunicationBridge
     public TextMeshProUGUI goldCount;
     [SerializeField]public int victoryPoints;
     public TextMeshProUGUI victoryPointsCount;
+    public int fleetPositionIndex;
 
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
@@ -37,7 +38,7 @@ public class FleetManager : CommunicationBridge
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
         MainSpawner = GetComponent<ShipSpawnerBehaviour>();
-
+        fleetPositionIndex = 0;
         
     }
 
@@ -174,8 +175,11 @@ public class FleetManager : CommunicationBridge
         }     
     }
     public void StartTurn(){
+        if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
         isMyTurn = true;
         GetComponent<Hand>().DrawCard();
+        fleetPositionIndex = MenuController.GetComponent<MenuBehaviour>().playersList.IndexOf(Multiplayer.GetUser().Name);  
+        }       
     }
 
     public void DisplayCrew(){
@@ -188,12 +192,12 @@ public class FleetManager : CommunicationBridge
         InitEndTurnButton();
         GetComponent<Hand>().DrawNCards(5);
         
+        
 
         if(isHost){
-            isMyTurn = true;
+            isMyTurn = true;        
             MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                       
-            MainSpawner.SpawnFlagShip();
-                
+            MainSpawner.SpawnFlagShip();               
         }        
 
         if(!isHost){
@@ -201,7 +205,8 @@ public class FleetManager : CommunicationBridge
         }
                                           
         //MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(myUsers[0].Name); 
-        gameStarted = true;                
+        gameStarted = true;  
+                    
     }
 
    

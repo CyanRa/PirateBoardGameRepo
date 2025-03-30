@@ -42,7 +42,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             
             
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);        
-
+            
             spawnIndex++;    
        }      
     }

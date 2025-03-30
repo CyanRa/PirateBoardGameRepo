@@ -534,6 +534,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &37277851
 MeshCollider:
@@ -1510,6 +1511,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &57999252
 MeshCollider:
@@ -1902,6 +1904,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &69031563
 MeshCollider:
@@ -2476,6 +2479,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &99384811
 MeshCollider:
@@ -2984,6 +2988,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &130807689
 MeshCollider:
@@ -3562,7 +3567,6 @@ MonoBehaviour:
   occupyingShips: []
   neighboringTerrain:
   - {fileID: 959105941}
-  - {fileID: 1799901121}
   - {fileID: 851984733}
   - {fileID: 1942986529}
   - {fileID: 777829845}
@@ -3576,6 +3580,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &183636217
 MeshCollider:
@@ -4175,6 +4180,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &200955535
 MeshCollider:
@@ -5054,6 +5060,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &252703155
 MeshCollider:
@@ -5792,6 +5799,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &277211457
 MeshCollider:
@@ -6939,7 +6947,6 @@ MonoBehaviour:
   defenderShip: {fileID: 0}
   occupyingShips: []
   neighboringTerrain:
-  - {fileID: 1244787254}
   - {fileID: 1616109465}
   - {fileID: 1928178403}
   - {fileID: 472952289}
@@ -6955,6 +6962,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &372249584
 MeshCollider:
@@ -7462,6 +7470,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &398297926
 MeshCollider:
@@ -7884,6 +7893,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &420670821
 MeshCollider:
@@ -10759,6 +10769,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &472952290
 MeshCollider:
@@ -12146,6 +12157,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &571030082
 MeshCollider:
@@ -13806,6 +13818,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &690757098
 MeshCollider:
@@ -14049,6 +14062,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &691611725
 MeshCollider:
@@ -14546,6 +14560,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &697810839
 MeshCollider:
@@ -15001,6 +15016,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &730612839
 MeshCollider:
@@ -15672,6 +15688,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &776288206
 MeshCollider:
@@ -16041,6 +16058,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &777829846
 MeshCollider:
@@ -16392,9 +16410,7 @@ MonoBehaviour:
   neighboringTerrain:
   - {fileID: 1205153112}
   - {fileID: 1739431883}
-  - {fileID: 200955534}
   - {fileID: 1615284218}
-  - {fileID: 776288205}
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
@@ -16405,6 +16421,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &792511523
 MeshCollider:
@@ -16722,6 +16739,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &825885558
 MeshCollider:
@@ -17268,7 +17286,6 @@ MonoBehaviour:
   defenderShip: {fileID: 0}
   occupyingShips: []
   neighboringTerrain:
-  - {fileID: 1799901121}
   - {fileID: 691611724}
   - {fileID: 183636216}
   - {fileID: 1713012822}
@@ -17284,6 +17301,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &851984734
 MeshCollider:
@@ -17800,6 +17818,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &871577622
 MeshCollider:
@@ -18705,6 +18724,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &959105942
 MeshCollider:
@@ -19179,6 +19199,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &974815237
 MeshCollider:
@@ -19980,6 +20001,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1029695988
 MeshCollider:
@@ -21377,6 +21399,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1180343191
 MeshCollider:
@@ -21648,6 +21671,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1205153113
 MeshCollider:
@@ -22077,8 +22101,6 @@ MonoBehaviour:
   - {fileID: 398297925}
   - {fileID: 871577621}
   - {fileID: 1616109465}
-  - {fileID: 372249583}
-  - {fileID: 1928178403}
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
@@ -22089,6 +22111,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1244787255
 MeshCollider:
@@ -22333,7 +22356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -486.20804, y: 255.31288}
+  m_AnchoredPosition: {x: 3.055445, y: 283.9027}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -22521,6 +22544,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1259804192
 MeshCollider:
@@ -23890,6 +23914,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1379708719
 MeshCollider:
@@ -24848,6 +24873,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1458076139
 MeshCollider:
@@ -25323,6 +25349,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1474732709
 MeshCollider:
@@ -26251,6 +26278,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1519745987
 MeshCollider:
@@ -26503,6 +26531,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1542019186
 MeshCollider:
@@ -27632,6 +27661,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1613320570
 MeshCollider:
@@ -27857,6 +27887,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1615284219
 MeshCollider:
@@ -28107,6 +28138,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1616109466
 MeshCollider:
@@ -28638,6 +28670,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1670982337
 MeshCollider:
@@ -29489,6 +29522,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1713012823
 MeshCollider:
@@ -29705,6 +29739,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1739431884
 MeshCollider:
@@ -30585,8 +30620,6 @@ MonoBehaviour:
   - {fileID: 1542019185}
   - {fileID: 959105941}
   - {fileID: 691611724}
-  - {fileID: 183636216}
-  - {fileID: 851984733}
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
@@ -30597,6 +30630,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1799901122
 MeshCollider:
@@ -32995,6 +33029,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1882902889
 MeshCollider:
@@ -33658,6 +33693,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!43 &1923061569
 Mesh:
@@ -34078,7 +34114,6 @@ MonoBehaviour:
   defenderShip: {fileID: 0}
   occupyingShips: []
   neighboringTerrain:
-  - {fileID: 1244787254}
   - {fileID: 871577621}
   - {fileID: 372249583}
   - {fileID: 277211456}
@@ -34093,6 +34128,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1928178404
 MeshCollider:
@@ -34315,6 +34351,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1942986530
 MeshCollider:
@@ -35207,6 +35244,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &1979293116
 MeshCollider:
@@ -35624,6 +35662,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &2002064993
 MeshCollider:
@@ -36026,6 +36065,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &2015586003
 MeshCollider:
@@ -36429,6 +36469,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &2035763652
 MeshCollider:
@@ -36960,6 +37001,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
+  contestedNeighbouringTerrain: {fileID: 0}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
 --- !u!64 &2132712193
 MeshCollider:
