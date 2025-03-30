@@ -121,27 +121,30 @@ namespace Alteruna
 
 		private void CreatedRoom(Multiplayer multiplayer, bool success, Room room, string inviteCode)
 		{
-			gameObject.SetActive(false);
+			
 			_textInviteCode.text = _toggleHideRoom.isOn ? inviteCode : "";
 
 			if (success && MapDescriptions.Instance.ChangeSceneOnRoomJoined)
 			{				
 				CustomRoomInfo roomInfo = Reader.DeserializePackedString<CustomRoomInfo>(room.Name);
-				//StartCoroutine(AnimateLoadLevel(roomInfo.SceneIndex,SpawnAvatarAfterLoad));
-				Multiplayer.LoadScene(roomInfo.SceneIndex, SpawnAvatarAfterLoad);				
+				StartCoroutine(AnimateLoadLevel(roomInfo.SceneIndex,SpawnAvatarAfterLoad));
+				//Multiplayer.LoadScene(roomInfo.SceneIndex, SpawnAvatarAfterLoad);				
 			}
 			else
 			{
 				Debug.LogError("Failed to create room!");
 			}
+		
 		}
 		IEnumerator AnimateLoadLevel(int _roomInfo, bool spawnAva){
 			Animator _animator = GameObject.Find("LevelLoader").GetComponentInChildren<Animator>();
 			_animator.SetTrigger("Start");
 			yield return new WaitForSeconds(1);
-			Multiplayer.LoadScene(_roomInfo, spawnAva);	
-			
+			Multiplayer.LoadScene(_roomInfo, spawnAva);
+			gameObject.SetActive(false);	
+
 		}
+
 
 #endregion
 

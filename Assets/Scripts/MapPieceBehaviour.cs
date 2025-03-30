@@ -113,6 +113,7 @@ public class MapPieceBehaviour : AttributesSync
             break;
             default:break;                
             }
+          
                     foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
                     switch(map2.myMapStatus){
                         case MapStatus.Empty: 
@@ -208,14 +209,15 @@ public class MapPieceBehaviour : AttributesSync
     
     public void BroadCastRemoveOccupyingShip(string _ship){
         BroadcastRemoteMethod("RemoveOccupyingShip", _ship);
-        if(occupyingShips.Count == 0){
-            SetMapPieceEmpty();
-        }
+        
     }
     [SynchronizableMethod]
     private void RemoveOccupyingShip(string enteringShip){
         Ship _ship = GameObject.Find(enteringShip).GetComponent<Ship>();
         occupyingShips.Remove(_ship);  
+        if(occupyingShips.Count == 0){
+            SetMapPieceEmpty();
+        }
     }
 
     [SynchronizableMethod]
