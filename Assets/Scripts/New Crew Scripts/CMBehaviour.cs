@@ -65,14 +65,14 @@ public class CMBehaviour : MonoBehaviour
 
     public void CommitCrewToBattle()
     {
-    try{
-        if(!myHand.battleManager.MyTurn() || !isSelected)return;
-        //if(!myHand.avatar.IsMe)return;        
+    
+        if(!myHand.battleManager.MyTurn() || !isSelected)return;       
             GetComponent<Image>().enabled = false;
             this.transform.SetParent(committedZone);       
             isSelected = false;
             isCommitted = true;
             myHand.battleManager.cardsPlayedLastTurn = true;
+            myHand.battleManager.InvokeOpponentHandDisplay(myHand.myFleetCrew.Count - 1); 
             myHand.myFleetCrew.Remove(crewMember);
 
             if(myHand.battleManager.myTurnID == 0){
@@ -82,9 +82,8 @@ public class CMBehaviour : MonoBehaviour
                 myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
                 myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.defenderUID, crewMember.crewMemberPower);
             }
-            myHand.battleManager.InvokeOpponentHandDisplay(myHand.myFleetCrew.Count - myHand.committedZone.childCount);      
-    }catch(Exception e){
-
-    }          
+            
+            //GetComponent<CMBehaviour>().enabled = false;
+                        
     }
 }

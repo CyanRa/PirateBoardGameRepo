@@ -3,6 +3,7 @@ using Alteruna;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class ShipSpawnerBehaviour : AttributesSync
 {
@@ -16,13 +17,9 @@ public class ShipSpawnerBehaviour : AttributesSync
     void Start()
     {
         myAvatar = GetComponent<Alteruna.Avatar>();
-
         if(!myAvatar.IsMe)return;
-
         spawnIndex = 0;
-        mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();
-        
-        
+        mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();       
     }
 
     public void InitSpawnPoint(){
@@ -38,11 +35,8 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnedShip.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
             string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour; 
             spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
-            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);
-            
-            
+            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);           
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);        
-            
             spawnIndex++;    
        }      
     }
@@ -57,8 +51,9 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);                      
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
-            //spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint); 
-            spawnedShip.GetComponent<Ship>().movementPoints = 0;       
+            spawnedShip.GetComponent<Ship>().enabled = true;
+            spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint.parent);             
+    
             spawnIndex++;    
        }      
     }
@@ -74,9 +69,11 @@ public class ShipSpawnerBehaviour : AttributesSync
                 _ship.name = "Ship" + _avatar.name + _spawnIndex;          
                 _ship.transform.SetParent(_avatar.transform);
                 _ship.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+                _ship.GetComponent<Ship>().enabled = true;
                 _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
-                Debug.Log("normal ships colour id is: " + _avatar.GetComponent<FleetManager>().fleetColour);
-                string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
+                
+                string shipColour = _avatar.GetComponent<FleetManager>().fleetColour;
+                _ship.GetComponent<Ship>().enabled = false;
             }             
     }
     

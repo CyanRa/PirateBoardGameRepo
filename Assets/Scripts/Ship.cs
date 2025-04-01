@@ -15,10 +15,11 @@ using System.Linq.Expressions;
 
 public class Ship : AttributesSync
 {
-    //Branch change test
+    private static LTDescr delay;
     public bool isMoving = false;
     public MapPieceBehaviour occupyingMapPiece;
     [SynchronizableField] public string occupyingMapPieceName;
+    [SynchronizableField] public string myFleetName;
     [SynchronizableField] public int shipGold;
     public TextMeshProUGUI goldDisplay;
     public FleetManager myFleet;
@@ -35,6 +36,7 @@ public class Ship : AttributesSync
     [SynchronizableField]public int healthPoints;
     //First digit for fleet position, Second for ship number position
     public List<int> offsetPosition;
+    private IconBehaviour myIcon;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
@@ -45,6 +47,15 @@ public class Ship : AttributesSync
         offsetPosition.Add(0);
         offsetPosition.Add(0);
         
+        
+       
+    }
+    public void Start()
+    {
+        if(myFleet.myShips.Contains(this.gameObject)){
+            myFleetName = myFleet.Multiplayer.GetUser();
+        }
+        
     }
 
     public void UpdateGoldDisplay(){
@@ -53,10 +64,37 @@ public class Ship : AttributesSync
     public void SpendGold(int _price){
         shipGold -= _price;
         UpdateGoldDisplay();
+        UpdateShipDisplayIcon();
     }
     public void GetGold(int _goldAmount){
         shipGold += _goldAmount;
         UpdateGoldDisplay();
+    }
+    public void SpendActionPoints(int _amountOfActionPoints){
+        actionPoints -= _amountOfActionPoints;
+        UpdateShipDisplayIcon();
+    }
+
+    public void SetIcon(IconBehaviour _icon){
+        myIcon = _icon;
+    }
+    public void UpdateShipDisplayIcon(){
+        if(actionPoints > 0 || movementPoints > 0){
+            myIcon.DisplayColor(true);
+        }else{
+            myIcon.DisplayColor(false);
+        }
+    }
+
+    private void OnMouseEnter(){
+        delay = LeanTween.delayedCall(0.2f, ()=>{
+            TooltipSystem.SetAllignmentTopLeft();
+            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP", myFleetName +" 's Fleet");
+        });             
+    }
+    private void OnMouseExit(){
+        LeanTween.cancel(delay.uniqueId);
+        TooltipSystem.Hide();     
     }
  
     void Update(){
@@ -104,7 +142,6 @@ public class Ship : AttributesSync
                 try{
                     occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
                 }catch(Exception e){
-                    Debug.Log("No neighbours to dehighlight", this);
                 }
                 if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
                     myFleet.DeselectAll();
@@ -122,7 +159,6 @@ public class Ship : AttributesSync
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
         myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
         occupyingMapPiece.BroadCastRemoveOccupyingShip(gameObject.name);
-        occupyingMapPiece.occupyingFleet = "";
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
         occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
@@ -131,6 +167,8 @@ public class Ship : AttributesSync
         isMoving = true;
         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
         movementPoints -= 1;
+        UpdateShipDisplayIcon();
+        occupyingMapPiece.ResetMaterial();
                        
     }
     public void MoveToAMapPiece(Transform _mapPiece){       

@@ -68,6 +68,7 @@ MonoBehaviour:
   goldCount: {fileID: 0}
   victoryPoints: 0
   victoryPointsCount: {fileID: 0}
+  fleetPositionIndex: 0
 --- !u!114 &-6938788333451560399
 MonoBehaviour:
   m_ObjectHideFlags: 0

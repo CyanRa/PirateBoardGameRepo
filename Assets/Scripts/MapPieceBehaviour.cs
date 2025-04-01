@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using Alteruna;
 using System;
+using JetBrains.Annotations;
 
 public class MapPieceBehaviour : AttributesSync
 {   
@@ -21,6 +22,7 @@ public class MapPieceBehaviour : AttributesSync
     public bool allowTerrainHighlight = true;
     public bool isAttacker = false;
     private GameObject ScrollPrefab;
+    private GameObject TreasurePrefab;
     public List<MapInteractables> myInteractables;
 
     public enum MapInteractables{
@@ -71,6 +73,7 @@ public class MapPieceBehaviour : AttributesSync
 
     private void OnMouseEnter(){
         delay = LeanTween.delayedCall(1f, ()=>{
+            TooltipSystem.SetAllignmentMiddle();
             TooltipSystem.Show(myInteractables[0].ToString());
         });
        
@@ -83,21 +86,14 @@ public class MapPieceBehaviour : AttributesSync
     private void OnMouseExit(){
         LeanTween.cancel(delay.uniqueId);
         TooltipSystem.Hide();
-        GetComponent<MeshRenderer>().material = tempMaterial;
-        if(areNeighboursHighlited == false && allowTerrainHighlight){
-            GetComponent<MeshRenderer>().material = myMaterial;           
-        }
-        if(HasTreasure()){
-            GetComponent<MeshRenderer>().material = treasureMaterial;   
-        }else{
-            GetComponent<MeshRenderer>().material = tempMaterial;  
-        }        
+        ResetMaterial();
     }
 
     
 
     public void HighlightNeighbours(Ship unit){
         foreach(MapPieceBehaviour map in neighboringTerrain){
+            map.areNeighboursHighlited = true;
             switch(map.myMapStatus){
             case MapStatus.Empty: 
                 map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
@@ -115,6 +111,7 @@ public class MapPieceBehaviour : AttributesSync
             }
           
                     foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
+                        map2.areNeighboursHighlited = true;
                     switch(map2.myMapStatus){
                         case MapStatus.Empty: 
                             map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
@@ -133,26 +130,44 @@ public class MapPieceBehaviour : AttributesSync
         }
         }
         }
+        GetComponent<MeshRenderer>().material =myMaterial;
         areNeighboursHighlited = true;
         allowTerrainHighlight = false;
     }
  
     public void DeHighlightNeighbours(){       
-        foreach(MapPieceBehaviour map in neighboringTerrain){           
+        foreach(MapPieceBehaviour map in neighboringTerrain){      
+            map.areNeighboursHighlited = false;     
             map.GetComponent<MeshRenderer>().material = myMaterial;
+            if(map.HasTreasure()){map.GetComponent<MeshRenderer>().material = treasureMaterial;}
             map.areNeighboursHighlited = false;
             foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
+                map2.areNeighboursHighlited = false;
                 map2.GetComponent<MeshRenderer>().material = myMaterial;
+                if(map2.HasTreasure()){map2.GetComponent<MeshRenderer>().material = treasureMaterial;}
                 map2.areNeighboursHighlited = false;
             }
         } 
         allowTerrainHighlight = true;      
     }
 
-   
+   public void ResetMaterial(){
+        GetComponent<MeshRenderer>().material = tempMaterial;
+        if(areNeighboursHighlited == false && allowTerrainHighlight){
+            GetComponent<MeshRenderer>().material = myMaterial;           
+        }else if(HasTreasure()){
+            GetComponent<MeshRenderer>().material = treasureMaterial;   
+        }else if(areNeighboursHighlited){
+            GetComponent<MeshRenderer>().material = tempMaterial;  
+        }else{
+            GetComponent<MeshRenderer>().material = myMaterial;  
+        }  
+   }
     public void EnterMapPiece(Ship enteringShip)
     {
         int friendlyShipCount = 0;
+        ResetMaterial();
+        
         switch(myMapStatus){
             
             case MapStatus.Empty:         
@@ -315,11 +330,17 @@ public class MapPieceBehaviour : AttributesSync
     public void GenerateTreasure(){
         GetComponent<MeshRenderer>().material = treasureMaterial;
         myInteractables.Add(MapInteractables.Treasure);
+        SpawnTresureChest();
     }
     public void RemoveTreasure(){
         myInteractables.Remove(MapPieceBehaviour.MapInteractables.Treasure);
+        Destroy(TreasurePrefab);
     }
-
+    public void SpawnTresureChest(){
+        TreasurePrefab = Instantiate(MenuSystem.treasureChestPrefab);
+        TreasurePrefab.transform.position = this.transform.GetChild(0).transform.position;
+        TreasurePrefab.transform.position = new UnityEngine.Vector3(TreasurePrefab.transform.position.x, TreasurePrefab.transform.position.y+4, TreasurePrefab.transform.position.z);
+    }
     private bool HasTreasure()
     {
         foreach(MapInteractables _interactable in myInteractables){
@@ -341,6 +362,6 @@ public class MapPieceBehaviour : AttributesSync
      private void SpawnRumorScroll(){
         ScrollPrefab = Instantiate(MenuSystem.rumorScrollPrefab);
         ScrollPrefab.transform.position = this.transform.GetChild(0).transform.position;
-        ScrollPrefab.transform.position = new UnityEngine.Vector3(ScrollPrefab.transform.position.x, ScrollPrefab.transform.position.y+5, ScrollPrefab.transform.position.z);
+        ScrollPrefab.transform.position = new UnityEngine.Vector3(ScrollPrefab.transform.position.x, ScrollPrefab.transform.position.y+4, ScrollPrefab.transform.position.z);
     }
 }

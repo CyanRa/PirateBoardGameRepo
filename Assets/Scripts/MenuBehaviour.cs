@@ -30,6 +30,7 @@ public class MenuBehaviour : AttributesSync
     public GameObject InteractablePanelPrefab;
     public GameObject InteractableButtonPrefab;
     public GameObject rumorScrollPrefab;
+    public GameObject treasureChestPrefab;
     public Sprite HarbourButtonSprite;
     public Sprite RumorButtonSprite;
     public Sprite TreasureButtonImage;
@@ -152,8 +153,7 @@ public class MenuBehaviour : AttributesSync
                     
         foreach(string user in listOfUsers){
            UserDisplayText.text += user + "\n";
-           playersList.Add(user);
-           Debug.Log("Added " + user + " to playersList");   
+           playersList.Add(user);  
         }  
         turnOwner = listOfUsers[0];
         TurnDisplayText.text = turnOwner + "'s Turn";
@@ -168,6 +168,7 @@ public class MenuBehaviour : AttributesSync
         shipIconTemp.transform.localScale = new Vector3(1,1,1);
         Button tempButton = shipIconTemp.GetComponentInChildren<Button>();
         Ship _ship = spawnedShip.GetComponent<Ship>();
+        _ship.SetIcon(shipIconTemp.GetComponentInChildren<IconBehaviour>());
         _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
         _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));       
@@ -179,6 +180,7 @@ public class MenuBehaviour : AttributesSync
         shipIconTemp.transform.localScale = new Vector3(1,1,1);
         Button tempButton = shipIconTemp.GetComponentInChildren<Button>();
         Ship _ship = spawnedShip.GetComponent<Ship>();
+        _ship.SetIcon(shipIconTemp.GetComponentInChildren<IconBehaviour>());
         _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
         _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));      
@@ -242,12 +244,12 @@ public class MenuBehaviour : AttributesSync
     private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
         if(_ship.actionPoints > 0){
-        _ship.actionPoints -= 1;
-        MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
-        tempMapPiece.RemoveTreasure();
-        _ship.shipGold += UnityEngine.Random.Range(2,5);
-        _ship.UpdateGoldDisplay();
-        Destroy(_buttonPrefab);
+            _ship.SpendActionPoints(1);
+            MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
+            tempMapPiece.RemoveTreasure();
+            _ship.shipGold += UnityEngine.Random.Range(2,5);
+            _ship.UpdateGoldDisplay();
+            Destroy(_buttonPrefab);
         }
 
     }
@@ -255,21 +257,21 @@ public class MenuBehaviour : AttributesSync
     private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll, Ship _ship)
     {
         if(_ship.actionPoints > 0){
-            _ship.actionPoints -= 1;
-        MapPieceBehaviour shipOccupiedMapPiece = GameObject.Find(_ship.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
-        shipOccupiedMapPiece.BroadcastRemoveRumor();
-        SpawnRumor();
-        int mapNumber = UnityEngine.Random.Range(0,52);
-        MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
-        _mapPiece.GenerateTreasure();
-        Destroy(_buttonPrefab);
+            _ship.SpendActionPoints(1);
+            MapPieceBehaviour shipOccupiedMapPiece = GameObject.Find(_ship.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
+            shipOccupiedMapPiece.BroadcastRemoveRumor();
+            SpawnRumor();
+            int mapNumber = UnityEngine.Random.Range(0,52);
+            MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
+            _mapPiece.GenerateTreasure();
+            Destroy(_buttonPrefab);
         }
         
     }
 
     private void TavernButtonMethod(Ship _ship, GameObject _buttonPrefab){
         if(_ship.shipGold >= 2 && _ship.actionPoints > 0){
-            _ship.actionPoints -= 1;
+            _ship.SpendActionPoints(1);
             _ship.SpendGold(2);
             _ship.GetComponentInParent<FleetManager>().GetVictoryPoints(1);
             Destroy(_buttonPrefab);
@@ -282,9 +284,9 @@ public class MenuBehaviour : AttributesSync
     private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){
         
         if(_ship.shipGold >= _ship.GetComponentInParent<FleetManager>().myShips.Count && _ship.actionPoints > 0){
-             _ship.actionPoints -= 1;
+            _ship.SpendActionPoints(1);
             _ship.SpendGold(_ship.GetComponentInParent<FleetManager>().myShips.Count);
-            _ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(_mapPiece);
+            _ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(_mapPiece.GetChild(0));
             Destroy(_buttonPrefab);
         }
     }

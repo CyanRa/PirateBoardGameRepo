@@ -38,7 +38,7 @@ namespace RTS_Cam
         #region Movement
 
         public float keyboardMovementSpeed = 5f; //speed with keyboard movement
-        public float screenEdgeMovementSpeed = 3f; //spee with screen edge movement
+        public float screenEdgeMovementSpeed = 3f; //speed with screen edge movement
         public float followingSpeed = 5f; //speed when following a target
         public float rotationSped = 3f;
         public float panningSpeed = 10f;
@@ -95,7 +95,7 @@ namespace RTS_Cam
         #region Input
 
         public bool useScreenEdgeInput = true;
-        public float screenEdgeBorder = 25f;
+        public float screenEdgeBorder = 200f;
 
         public bool useKeyboardInput = true;
         public string horizontalAxis = "Horizontal";
@@ -176,11 +176,15 @@ namespace RTS_Cam
 
         #region Unity_Methods
 
+
+  
         private void Start()
         {
             m_Transform = transform;
             initialCameraPosition = transform.position;
             initialCameraRotation = transform.rotation;
+            QualitySettings.vSyncCount = 0;
+		    Application.targetFrameRate = 60;
         }
 
         private void Update()
@@ -235,6 +239,7 @@ namespace RTS_Cam
 
             if (useScreenEdgeInput)
             {
+                screenEdgeBorder = 50f;
                 Vector3 desiredMove = new Vector3();
 
                 Rect leftRect = new Rect(0, 0, screenEdgeBorder, Screen.height);

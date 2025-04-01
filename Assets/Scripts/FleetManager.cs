@@ -30,6 +30,8 @@ public class FleetManager : CommunicationBridge
     [SerializeField]public int victoryPoints;
     public TextMeshProUGUI victoryPointsCount;
     public int fleetPositionIndex;
+    private Animator myAnimator;
+    
 
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
@@ -38,23 +40,19 @@ public class FleetManager : CommunicationBridge
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
         MainSpawner = GetComponent<ShipSpawnerBehaviour>();
-        fleetPositionIndex = 0;
-        
+        fleetPositionIndex = 0;   
+        myAnimator = GameObject.Find("MainGameAnimator")?.GetComponentInChildren<Animator>();
+		myAnimator?.SetTrigger("Start");     
     }
 
     public void Start(){
         if(!avatar.IsMe) return;
-        goldCount = GameObject.Find("GoldCount").GetComponentInChildren<TextMeshProUGUI>();
+
         victoryPointsCount = GameObject.Find("VictoryPointsCount").GetComponentInChildren<TextMeshProUGUI>();
         Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
         ShowCrewButton.onClick.AddListener(DisplayCrew);
-        UpdateGoldDisplay();
         UpdateVictoryPointsDisplay();
         
-    }
-
-    public void UpdateGoldDisplay(){
-        goldCount.text = myGold.ToString();
     }
     public void UpdateVictoryPointsDisplay(){
         victoryPointsCount.text = victoryPoints.ToString();
@@ -104,7 +102,6 @@ public class FleetManager : CommunicationBridge
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
                 if(SelectedShip != null)
                 {
-                    SelectedShip.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
                     DeselectAll();
                 }
             SelectByClicking(hit.transform.gameObject);                                                                                                     
@@ -120,13 +117,17 @@ public class FleetManager : CommunicationBridge
 #region SHIPS
     public void DeselectAll(){
         if(SelectedShip != null){
-            SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);                   
+            SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);
+            SelectedShip.GetComponent<Ship>().occupyingMapPiece?.DeHighlightNeighbours();                      
             SelectedShip = null;
         }       
     }
     
 
-    public void SelectByClicking(GameObject unit){   
+    public void SelectByClicking(GameObject unit){
+        if(SelectedShip != null){
+            DeselectAll();
+        }   
         SelectedShip = unit;
         shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
         SelectedShip.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
@@ -165,22 +166,31 @@ public class FleetManager : CommunicationBridge
 #region GAME_TURNS
     public void EndTurn(){
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
-              MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
-              isMyTurn = false;   
-              
-              foreach(GameObject ship in myShips){
-                ship.GetComponent<Ship>().movementPoints = 1;
-                ship.GetComponent<Ship>().actionPoints = 1;
-              }
+            MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
+            MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel(); 
+            isMyTurn = false;                
         }     
     }
     public void StartTurn(){
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
-        isMyTurn = true;
-        GetComponent<Hand>().DrawCard();
-        fleetPositionIndex = MenuController.GetComponent<MenuBehaviour>().playersList.IndexOf(Multiplayer.GetUser().Name);  
+            StartCoroutine(PlayStartTurnAnimation());
+            isMyTurn = true;
+            GetComponent<Hand>().DrawCard();
+            fleetPositionIndex = MenuController.GetComponent<MenuBehaviour>().playersList.IndexOf(Multiplayer.GetUser().Name);  
+            foreach(GameObject ship in myShips){
+                ship.GetComponent<Ship>().movementPoints = 1;
+                ship.GetComponent<Ship>().actionPoints = 1;
+                ship.GetComponent<Ship>().UpdateShipDisplayIcon();
+              }
         }       
     }
+
+    IEnumerator PlayStartTurnAnimation(){
+			myAnimator.SetTrigger("StartTurn");
+            
+			yield return new WaitForSeconds(2);
+		}
+       
 
     public void DisplayCrew(){
         MenuController.GetComponent<MenuBehaviour>().DisplayCrew(GetComponent<Hand>().myFleetCrew);
@@ -191,8 +201,6 @@ public class FleetManager : CommunicationBridge
         MainSpawner.InitSpawnPoint();
         InitEndTurnButton();
         GetComponent<Hand>().DrawNCards(5);
-        
-        
 
         if(isHost){
             isMyTurn = true;        
@@ -215,12 +223,10 @@ public class FleetManager : CommunicationBridge
     public void EnterCombat(string attacker, string defender){
         foreach(GameObject ship in myShips){
             if(ship.name == attacker){
-                Debug.Log(attacker + " is the attacking ship");
                 EnterCombatAsAttacker(attacker, defender);
             }else if(ship.name == defender){
                 EnterCombatAsDefender(defender);
             }else{
-                Debug.Log("Players are fighting. But not you");
             }
         }
     }

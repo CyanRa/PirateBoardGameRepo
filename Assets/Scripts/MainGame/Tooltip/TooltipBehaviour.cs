@@ -10,7 +10,7 @@ public class TooltipBehaviour : MonoBehaviour
     public TextMeshProUGUI header;
     public TextMeshProUGUI content;
     public LayoutElement layoutElement;
-    public int wrapLimit;
+    [SerializeField]public int wrapLimit;
     public RectTransform rectTransform;
     private void Awake()
     {

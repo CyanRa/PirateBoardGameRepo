@@ -16,4 +16,11 @@ public class TooltipSystem : MonoBehaviour
         current.Tooltip.SetText(_content, _header);
         current.Tooltip.gameObject.SetActive(true);
     }
+    public static void SetAllignmentTopLeft(){
+        current.Tooltip.content.alignment = TMPro.TextAlignmentOptions.TopLeft;
+    }
+    public static void SetAllignmentMiddle(){
+        current.Tooltip.content.alignment = TMPro.TextAlignmentOptions.Midline;
+
+    }
 }
