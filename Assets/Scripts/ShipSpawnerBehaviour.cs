@@ -52,7 +52,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);                      
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
             spawnedShip.GetComponent<Ship>().enabled = true;
-            spawnedShip.GetComponent<Ship>().MoveToAMapPiece(_spawnPoint.parent);             
+            spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);             
     
             spawnIndex++;    
        }      

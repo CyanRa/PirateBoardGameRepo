@@ -139,10 +139,7 @@ public class Ship : AttributesSync
                 
                 Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
-                try{
-                    occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
-                }catch(Exception e){
-                }
+                occupyingMapPiece?.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();            
                 if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
                     myFleet.DeselectAll();
                     EnableUnitMovement(this.gameObject, false);
@@ -169,6 +166,23 @@ public class Ship : AttributesSync
         movementPoints -= 1;
         UpdateShipDisplayIcon();
         occupyingMapPiece.ResetMaterial();
+                       
+    }
+    //For spawning from being bought 
+    public void SpawnShipFromHarbour(Transform _hit){       
+        occupyingMapPiece?.BroadCastRemoveOccupyingShip(gameObject.name);
+        mapPieceAnchor = _hit.GetChild(0).transform;
+        occupyingMapPiece = _hit.GetComponent<MapPieceBehaviour>();
+        occupyingMapPieceName = occupyingMapPiece.name;
+        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+        occupyingMapPiece.defenderShip = GetComponent<Ship>();
+        isMoving = true;
+        gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
+        movementPoints -= 1;
+        UpdateShipDisplayIcon();
+        occupyingMapPiece.ResetMaterial();
+        myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
+        ChangeShipColour(myFleet.fleetColour);
                        
     }
     public void MoveToAMapPiece(Transform _mapPiece){       
