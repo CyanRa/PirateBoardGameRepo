@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ae257fa1-c638-4161-8528-0906b31704f7
+  _uidString: f894b4d2-90bd-4dae-bae6-b0665a062dc0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 24129448-8a07-4fe5-8697-7e8414c6b7df
+  _uidString: 4afac185-8765-4241-a94a-fbe3387c42e1
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1881,7 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1e66a17f-04c8-4c52-b20c-bf8ecc094925
+  _uidString: 80550b6a-3cfe-47af-87b7-85d034748e6a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -2669,7 +2669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: f68b435d-5648-4678-a4f9-03b31de38cb3
+  _uidString: dcae6a01-dc6f-4abb-9eac-dbcb772168f4
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -3177,7 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7342708a-6668-4209-a70b-9b4c8715537c
+  _uidString: e7c41367-7643-4a6a-a650-ac9de7e263b8
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -3772,7 +3772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ee44c102-e079-43dd-a9dc-d16cb4329b5b
+  _uidString: c5053273-e3ec-4252-9567-13c3c92b943b
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4370,7 +4370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 0154275a-c144-4ba9-b537-18ed0f09a0ea
+  _uidString: fd44b339-c2de-4170-bb34-e208bbe73bc8
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4381,7 +4381,6 @@ MonoBehaviour:
   - {fileID: 697810838}
   - {fileID: 1205153112}
   - {fileID: 1259804191}
-  - {fileID: 792511522}
   - {fileID: 1180343190}
   - {fileID: 776288205}
   areNeighboursHighlited: 0
@@ -4560,9 +4559,29 @@ MonoBehaviour:
   m_Mesh: {fileID: 1093025578}
   m_VersionIndex: 968
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 9
+    b: 0
+  - a: 8
+    b: 9
+  - a: 7
+    b: 8
+  - a: 0
+    b: 1
+  - a: 1
+    b: 2
+  - a: 6
+    b: 7
+  - a: 5
+    b: 6
+  - a: 4
+    b: 5
+  - a: 2
+    b: 3
+  - a: 3
+    b: 4
+  m_SelectedVertices: 09000000000000000800000007000000010000000200000006000000050000000400000003000000
 --- !u!4 &200955539
 Transform:
   m_ObjectHideFlags: 0
@@ -5088,7 +5107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 9f7f8542-e5f0-4334-b295-bdd7ff25eee4
+  _uidString: bf3f8a64-44d6-4a42-91ee-c098a090d4c8
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -5991,7 +6010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 9ecebe56-ff9b-4458-8e13-84bdcb6f7a4c
+  _uidString: 6ec122ba-f1ae-4117-b102-5fdf269eff84
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -7153,7 +7172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 16d6eded-7db0-42c5-a778-d7b56d4af3ab
+  _uidString: 7ae280aa-0e57-443a-a97b-27a4ae11986e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -7660,7 +7679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 6b1f115d-a1f6-497e-a8fa-c3c4c778ad10
+  _uidString: e1ad7fbd-1426-4b55-a44c-aa69712ed5b8
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -8082,7 +8101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8f409650-7968-4ef7-bb5e-119637272020
+  _uidString: 324a2465-45d9-4930-9bee-f91a7cf0752d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -10959,7 +10978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a3750aaa-ed5e-4d18-b026-efbfe9a1492a
+  _uidString: d9d933aa-f361-49f1-be1e-893154e10496
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12484,7 +12503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7859e0e4-4eb3-4eb5-9b57-0e3cf4be829c
+  _uidString: 6ac54dc7-5849-479f-ab5f-7bfd70edd218
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -14145,7 +14164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ec23ed3d-51e8-4af0-8d16-560cc0b08421
+  _uidString: f509008a-c1ba-47b8-beb5-f18b7759b300
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -14387,7 +14406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 2a85f1ea-59f7-43e5-8267-a054a41bc32c
+  _uidString: 2328fb19-1d06-41e4-96cd-2c910f4c4576
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -14888,7 +14907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: b5898c30-5a89-4dc6-96cc-7fc44cb1182c
+  _uidString: 924a6635-4864-4648-af87-3907a2a220b7
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15342,7 +15361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 3f2d583a-1667-4aeb-b7e7-95a50f8fde61
+  _uidString: 1883b4d7-aa6c-438a-9025-131af43fe5e7
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16013,7 +16032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 28fb5c62-5819-406d-a539-3574e865cfa7
+  _uidString: 4483f5b9-3cd6-474c-b087-397bb9de2de2
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16385,7 +16404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 41f8e479-5c1b-4f27-bd9e-373744300be0
+  _uidString: 5c572924-cc2a-44a6-917e-1343ae0b4c6f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16750,7 +16769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 85dbf9a8-8415-434d-8fe4-3396114fc1a1
+  _uidString: 75fddf72-ef96-491b-b966-42b10ad2ee12
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17065,7 +17084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7599330e-0ca0-4366-88f2-4f4ac7370369
+  _uidString: 9ad8416e-4de6-4bd1-aff1-5907dd1ff1af
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17628,7 +17647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7740119a-e738-4630-b982-6d6a02570cc6
+  _uidString: 098e55cf-3f0c-491d-ae2d-c35b5848fd33
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -18145,7 +18164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: aaceeb89-feec-45c7-a5d6-e8630f33d7f8
+  _uidString: fd7e076a-cb37-46df-90a6-06ace374f21c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19126,7 +19145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ed41ec99-4085-40b5-87be-2253fe0c3f6a
+  _uidString: a396b2ae-ad21-4d87-b824-50709af0047c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19601,7 +19620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 098fa531-bb4c-48ec-ab4b-a5b14faf2745
+  _uidString: d9ac56a0-d237-4487-a630-e1efa7a9850e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -20403,7 +20422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1f224c87-93df-48ab-9641-8b9b0734102d
+  _uidString: 85f055fc-fbfa-413e-89c5-4701980791de
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21799,7 +21818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ba4269a7-94a6-49f3-bb3d-69e9bf7aee00
+  _uidString: 16d66370-9965-4eb6-bf04-e19b299ba86f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22074,7 +22093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a75ad075-9159-491a-8db8-fe37ecb94a03
+  _uidString: 4d7af26f-5ac6-476e-8f1f-cb26e1c508de
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22513,7 +22532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: aea319c0-6ba2-445c-899f-29f883586654
+  _uidString: 65e13c29-6918-4ff7-a111-d8d42692d335
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -22781,7 +22800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96.68339, y: 289.29446}
+  m_AnchoredPosition: {x: -1.6114298, y: 267.21912}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -22946,7 +22965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: b80fff1d-78a6-4303-bc1e-060fe71653b0
+  _uidString: 62855ad7-c1b0-4351-b170-6df71eb65ea1
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -24417,7 +24436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ce0c2a03-d91d-4d49-a79d-740f541c992c
+  _uidString: d624e9a5-a8fd-41c5-b0a8-8d78a33fe4db
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -25468,7 +25487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 539e88ef-c90b-43ea-bf25-fdda8b4d438e
+  _uidString: 59db7e9e-7c9a-4bd4-a9e4-d007bf42f9c0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -25944,7 +25963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 816a4549-af90-4806-b356-e004763f500d
+  _uidString: 0be16c8d-031a-418f-ae21-3ccc257cc672
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -26874,7 +26893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: f2c3364b-e541-4fe4-95df-b2e7de45f091
+  _uidString: 50f17689-b385-418d-9376-1e3f296c00dc
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27200,7 +27219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e3914593-737d-45de-b463-d9db9b65e8fb
+  _uidString: 090e7a5d-c6d1-4552-aaf0-b5c62d535ad1
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28432,7 +28451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 5dfc2522-289e-440a-b495-ade10fc63c16
+  _uidString: 6c62fdd3-602f-44ec-b496-7c95a767104c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28658,7 +28677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 87a7f160-330a-4652-bfea-49cb15c6d9eb
+  _uidString: 39f3673c-4c5b-4dab-a6db-65478af5f729
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28908,7 +28927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ac1f0392-7ac6-4dde-80d7-348aa4a91211
+  _uidString: 986340c0-ebbe-4f28-8638-66ce220c7e1e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -29442,7 +29461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: b5f6ae0b-4226-456d-b912-c86e2e1a8623
+  _uidString: 0bd4d9c1-2a0d-430c-9d19-096f653c0269
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -30292,7 +30311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: c3613ec3-910a-4fc3-bbc2-55df6bdbacaf
+  _uidString: 00df1c46-8160-4e0d-8dc7-af057d214620
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -30511,7 +30530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 93a5c844-4d19-428a-a3cc-a03b6a7e5015
+  _uidString: a82f84bb-a3a7-4c3b-b78f-7498bb8568cd
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -31250,7 +31269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d6127241-74c8-4dbf-8917-6859df53554f
+  _uidString: e0f2b4b9-f4a2-40eb-86dc-1772dfa9b07a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -33511,7 +33530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1fdd6a4d-e887-4cd6-a2f6-9a7c718dd51b
+  _uidString: 25572398-fa66-47d4-824c-1ced49223f88
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -34178,7 +34197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: b61ddd1a-ae05-4003-8cec-2e85cf682e10
+  _uidString: 5a202ab9-7d51-45de-a3c3-69cd88e9c04d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -34612,7 +34631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: fd1e469e-d143-4c67-bb7c-03c90669a4e5
+  _uidString: 914cd626-e05f-43ea-a9f8-e0bb68791830
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -34833,7 +34852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a634a7b3-43b9-44ff-842f-260240c469af
+  _uidString: 366edae4-1be7-42b6-b491-92e9d87b7431
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -35727,7 +35746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: fbada5a3-bdf4-406f-b457-ccbf7d0e5a0f
+  _uidString: f4c52f07-6d6d-4ff3-81ec-be18921d732a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -36146,7 +36165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 20c33400-c9e6-4183-a635-7466cb525ac3
+  _uidString: 9eeb6fb1-bad0-4fe1-a3e6-dbe3974d2ecf
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -36548,7 +36567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d942085d-5ea9-4a42-8f8e-b687c41e5f49
+  _uidString: a7dcb610-5152-4bc8-bfd6-d7eba487ea71
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -36953,7 +36972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 49fa3a4d-6c44-4a3b-b61f-7347a1966a92
+  _uidString: a5a96d68-2f46-4ff0-a45b-3851f01a6128
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -40046,6 +40065,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1250184130481788767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1259804196}
+    m_Modifications:
+    - target: {fileID: 4932240091752482227, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_Name
+      value: SM_PalmTree (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.7725008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.23797607
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.5924501
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9206341
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.39042655
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45.962
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
 --- !u!1 &1253328710759271783
 GameObject:
   m_ObjectHideFlags: 0
@@ -42991,24 +43067,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2762468246995359880
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5286794729947191567}
-  - component: {fileID: 3422296879104686189}
-  - component: {fileID: 8460545688470998922}
-  m_Layer: 0
-  m_Name: SM_PalmTree (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &2762468247003623924
 GameObject:
   m_ObjectHideFlags: 0
@@ -44171,14 +44229,6 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2762468247003623924}
-  m_Mesh: {fileID: -4488266975990590275, guid: 61814d276c8af20439a8e6850998a406, type: 3}
---- !u!33 &3422296879104686189
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762468246995359880}
   m_Mesh: {fileID: -4488266975990590275, guid: 61814d276c8af20439a8e6850998a406, type: 3}
 --- !u!33 &3422296879670387113
 MeshFilter:
@@ -46953,21 +47003,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 85554395}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &5286794729947191567
+--- !u!4 &5286794729947191567 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7674969034027638220, guid: 714760a13369ded47bd95dc17c56ae79, type: 3}
+  m_PrefabInstance: {fileID: 1250184130481788767}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762468246995359880}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.39042655, z: -0, w: 0.9206341}
-  m_LocalPosition: {x: -3.7725008, y: 0.23797607, z: 1.5924501}
-  m_LocalScale: {x: 0.0015000001, y: 0.03, z: 0.0015000001}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1259804196}
-  m_LocalEulerAnglesHint: {x: 0, y: 45.962, z: 0}
 --- !u!4 &5286794730386823738
 Transform:
   m_ObjectHideFlags: 0
@@ -52427,51 +52467,6 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2762468248567693644}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 583eb4cbdf20a41489bb1742c020a2a6, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!23 &8460545688470998922
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762468246995359880}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
