@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2878248527235166825}
   - component: {fileID: 8403812344583537899}
   - component: {fileID: -6938788333451560399}
+  - component: {fileID: -7411026855069328611}
   - component: {fileID: 5120672661187553825}
   - component: {fileID: 6772045645585059290}
   - component: {fileID: -2945069124548667745}
@@ -69,6 +70,7 @@ MonoBehaviour:
   victoryPoints: 0
   victoryPointsCount: {fileID: 0}
   fleetPositionIndex: 0
+  myInventory: {fileID: 0}
 --- !u!114 &-6938788333451560399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +96,31 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   _cMSaveLoadHandler: {fileID: 0}
   avatar: {fileID: 0}
+--- !u!114 &-7411026855069328611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602020258958154846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a39e0fd677357144949f145d67b527e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryPanel: {fileID: 0}
+  consumablePrefab: {fileID: 0}
+  allConsumables: []
+  myConsumables:
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
 --- !u!114 &5120672661187553825
 MonoBehaviour:
   m_ObjectHideFlags: 0

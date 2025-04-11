@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class MenuBehaviour : AttributesSync
 {
+    
     bool menuOpen = false;
     bool StopOnMouseOn = false;
 #region GAMEOBJECTS
@@ -34,6 +35,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite HarbourButtonSprite;
     public Sprite RumorButtonSprite;
     public Sprite TreasureButtonImage;
+    public List<GameObject> ConsumablePrefabs;
     
     
 #endregion
@@ -221,7 +223,7 @@ public class MenuBehaviour : AttributesSync
                 _button.onClick.AddListener(() => TavernButtonMethod(_ship, _interactable));
                 break;
             case "PirateCove":
-                _button.onClick.AddListener(PirateCoveMethod);
+                _button.onClick.AddListener(() => PirateCoveMethod(_fleet, _interactable));
                 break;
             case "Harbor":
                 _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
@@ -277,8 +279,9 @@ public class MenuBehaviour : AttributesSync
             Destroy(_buttonPrefab);
         }
     }
-    private void PirateCoveMethod(){
-
+    private void PirateCoveMethod(FleetManager _fleet, GameObject _buttonPrefab){
+        _fleet.myInventory.CreateConsumable(UnityEngine.Random.Range(0,6));
+        Destroy(_buttonPrefab);
     }
 
     private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){
