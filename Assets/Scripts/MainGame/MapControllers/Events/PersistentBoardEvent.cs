@@ -6,7 +6,7 @@ public abstract class PersistentBoardEvent : MonoBehaviour
     private GameEventManager myGameEventManager;
     protected virtual void InitializePersistentBoardEvent(){
         myGameEventManager = GameObject.Find("Map Holder").GetComponent<GameEventManager>();
-        myGameEventManager.myPersistentBoardEvents.Add(this);
+        //myGameEventManager.myPersistentBoardEvents.Add(this);
     }
 
 

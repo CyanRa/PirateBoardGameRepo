@@ -86,6 +86,7 @@ public class Shipwright : Consumable
     string image = "Shipwright";
     public override void UseConsumable(FleetManager ConsumableUser)
     {
+       
        Debug.Log("Shipwright");       
     }
 }
