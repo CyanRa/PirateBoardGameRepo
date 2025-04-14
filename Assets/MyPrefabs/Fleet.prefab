@@ -109,18 +109,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryPanel: {fileID: 0}
-  consumablePrefab: {fileID: 0}
-  allConsumables: []
+  consumablePrefab: {fileID: 7358299968444974966, guid: 199a88c4f466c0c44a932eead0af30c0, type: 3}
+  allConsumables:
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
   myConsumables:
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
-  - {fileID: 11400000, guid: 59ddf02f59887ba4ba4c2307f335228e, type: 2}
+  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
+  - {fileID: 11400000, guid: 8b1bcb5d684be214c92fc607727455ad, type: 2}
 --- !u!114 &5120672661187553825
 MonoBehaviour:
   m_ObjectHideFlags: 0

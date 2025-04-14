@@ -1,28 +1,35 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
-using Microsoft.Unity.VisualStudio.Editor;
+using Alteruna;
+using NUnit.Framework;
+
 
 public abstract class Consumable : ScriptableObject
 {  
-    public abstract void UseConsumable(FleetManager ConsumableUser);
+    public string consumableName = "Storm Calling";
+    public string description = " Your ships are immune to the storm this turn\n\n You may move the storm in any direction";
+    public string image = "StormCallingImage";
+    public int consumableIndex;
+    public FleetManager userFleet;
+    public abstract void UseConsumable(FleetManager userFleet);
 }
 
 
 [CreateAssetMenu(fileName = "StormCalling", menuName = "Consumable/StormCalling", order = 1)]
 public class StormCalling : Consumable
 {    
-    string image = "StormCallingImage";
-    public override void UseConsumable(FleetManager ConsumableUser)
+    public override void UseConsumable(FleetManager userFleet)
     {
-       Debug.Log("Storm Calling");
+        userFleet.myInventory.myConsumables.RemoveAt(1);
+        Debug.Log("Storm Calling");
     }
 }
 [CreateAssetMenu(fileName = "TributeToTheOldGods", menuName = "Consumable/TributeToTheOldGods", order = 1)]
 public class TributeToTheOldGods : Consumable
 {
-    string image = "TributeToGodsImage";
-    public override void UseConsumable(FleetManager ConsumableUser)
+
+    public override void UseConsumable(FleetManager userFleet)
     {
         Debug.Log("Tribute to The Old Gods");
     }
@@ -31,8 +38,7 @@ public class TributeToTheOldGods : Consumable
 [CreateAssetMenu(fileName = "Passage", menuName = "Consumable/Passage", order = 1)]
 public class Passage : Consumable
 {
-    string image = "Passage";
-    public override void UseConsumable(FleetManager ConsumableUser)
+    public override void UseConsumable(FleetManager userFleet)
     {
        Debug.Log("PASSAGE USED");      
     }
@@ -41,8 +47,7 @@ public class Passage : Consumable
 [CreateAssetMenu(fileName = "GreekFire", menuName = "Consumable/GreekFire", order = 1)]
 public class GreekFire : Consumable
 {
-    string image = "GreekFire";
-    public override void UseConsumable(FleetManager ConsumableUser)
+    public override void UseConsumable(FleetManager userFleet)
     {
        Debug.Log("Greek Fire");      
     }
@@ -51,8 +56,8 @@ public class GreekFire : Consumable
 [CreateAssetMenu(fileName = "CaptainsDecree", menuName = "Consumable/CaptainsDecree", order = 1)]
 public class CaptainsDecree : Consumable
 {
-    string image = "CaptainsDecree";
-    public override void UseConsumable(FleetManager ConsumableUser)
+
+    public override void UseConsumable(FleetManager userFleet)
     {
        Debug.Log("Captains Decree");       
     }
@@ -61,9 +66,7 @@ public class CaptainsDecree : Consumable
 
 [CreateAssetMenu(fileName = "TalesOfTheFlagShip", menuName = "Consumable/TalesOfTheFlagShip", order = 1)]
 public class TalesOfTheFlagship : Consumable
-{
-    string image = "TalesOfTheFlagShip";
-    public override void UseConsumable(FleetManager ConsumableUser)
+{    public override void UseConsumable(FleetManager userFleet)
     {
        Debug.Log("Tales of The Flagship");
        
@@ -73,8 +76,7 @@ public class TalesOfTheFlagship : Consumable
 [CreateAssetMenu(fileName = "PirateAlliance", menuName = "Consumable/PirateAlliance", order = 1)]
 public class PirateAlliance : Consumable
 {
-    string image = "PirateAlliance";
-    public override void UseConsumable(FleetManager ConsumableUser)
+    public override void UseConsumable(FleetManager userFleet)
     {
        Debug.Log("Pirate Alliance");       
     }
@@ -83,8 +85,7 @@ public class PirateAlliance : Consumable
 [CreateAssetMenu(fileName = "Shipwright", menuName = "Consumable/Shipwright", order = 1)]
 public class Shipwright : Consumable
 {
-    string image = "Shipwright";
-    public override void UseConsumable(FleetManager ConsumableUser)
+    public override void UseConsumable(FleetManager userFleet)
     {
        
        Debug.Log("Shipwright");       

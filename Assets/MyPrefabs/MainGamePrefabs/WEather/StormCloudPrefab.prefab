@@ -15767,7 +15767,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -16145,8 +16145,8 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.008726646
-      minScalar: -0.008726646
+      scalar: 0.0017453292
+      minScalar: -0.0017453292
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -19748,5 +19748,3 @@ MonoBehaviour:
   LocalMethodBehavior: 1
   occupyingMapPiece: {fileID: 0}
   StormingMapPieces: []
-  mapPiece: {fileID: 0}
-  mapPiece2: {fileID: 0}

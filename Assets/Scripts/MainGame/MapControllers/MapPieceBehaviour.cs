@@ -211,7 +211,7 @@ public class MapPieceBehaviour : AttributesSync
     private void HandleStorm(Ship enteringShip)
     {
        if(isStorming && enteringShip.isInsideStorm == false){
-            enteringShip.healthPoints -=1;
+            enteringShip.ChangeShipHealth(-1);
             enteringShip.isInsideStorm = true;
         }else if(!isStorming && enteringShip.isInsideStorm == true){
             enteringShip.isInsideStorm = false;

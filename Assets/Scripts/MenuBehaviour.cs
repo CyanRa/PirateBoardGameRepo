@@ -35,7 +35,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite HarbourButtonSprite;
     public Sprite RumorButtonSprite;
     public Sprite TreasureButtonImage;
-    public List<GameObject> ConsumablePrefabs;
+    public GameObject consumablePanel;
     
     
 #endregion
@@ -45,11 +45,23 @@ public class MenuBehaviour : AttributesSync
     
     [SerializeField]public TextMeshProUGUI TurnDisplayText;
     [SerializeField]public TextMeshProUGUI UserDisplayText; 
+    
 
     void Start()
     {
-        StartGameButton = GameObject.Find("StartGameButton").GetComponent<Button>();
+        StartGameButton = GameObject.Find("StartGameButton").GetComponent<Button>();      
         StartGameButton.onClick.AddListener(BroadCastTriggerStartGame);
+    }
+    public void ShowConsumablePanel(){
+        if(consumablePanel.activeSelf == true){
+            consumablePanel.GetComponent<ConsumableMenuBehaviour>().HideConsumableInspector();
+            consumablePanel.GetComponent<ConsumableMenuBehaviour>().DeleteConsumables();
+            consumablePanel.SetActive(false);
+        }else{
+            consumablePanel.SetActive(true);
+            consumablePanel.GetComponent<ConsumableMenuBehaviour>().InstantiateConsumables(Multiplayer.GetAvatar().GetComponent<Inventory>().myConsumables);
+            
+        }
     }
 
     void Update()
@@ -280,7 +292,7 @@ public class MenuBehaviour : AttributesSync
         }
     }
     private void PirateCoveMethod(FleetManager _fleet, GameObject _buttonPrefab){
-        _fleet.myInventory.CreateConsumable(UnityEngine.Random.Range(0,6));
+        _fleet.myInventory.AddConsumable();       
         Destroy(_buttonPrefab);
     }
 

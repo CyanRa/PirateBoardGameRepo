@@ -32,6 +32,7 @@ public class FleetManager : CommunicationBridge
     public int fleetPositionIndex;
     private Animator myAnimator;
     public Inventory myInventory;
+    private GameEventManager gameEventManager;
     
     private bool immuneToStorm = false;
     
@@ -45,6 +46,7 @@ public class FleetManager : CommunicationBridge
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
     public void Awake(){
+        gameEventManager = GameObject.Find("Map Holder").GetComponent<GameEventManager>();
         isHost = Multiplayer.Instance.Me.Index == 0;
         MenuController = GameObject.Find("MenuSystem");
         MultiplayerSystem = GameObject.Find("Multiplayer");
@@ -185,6 +187,9 @@ public class FleetManager : CommunicationBridge
         }     
     }
     public void StartTurn(){
+        if(isHost){
+            gameEventManager.HandleAllBoardEvents();
+        }
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
             StartCoroutine(PlayStartTurnAnimation());
             isMyTurn = true;
@@ -199,8 +204,7 @@ public class FleetManager : CommunicationBridge
     }
 
     IEnumerator PlayStartTurnAnimation(){
-			myAnimator.SetTrigger("StartTurn");
-            
+			myAnimator.SetTrigger("StartTurn");           
 			yield return new WaitForSeconds(2);
 		}
        

@@ -42,10 +42,8 @@ public class GameEventManager : AttributesSync
         
     }
     public void HandleAllBoardEvents(){
-        Debug.Log("HANDLING TURN");
         foreach(IBoardEvent persistentBoardEvent in myPersistentBoardEvents.Cast<IBoardEvent>())
         {
-            Debug.Log("PROCESSING CLOUD ");
             persistentBoardEvent.ProcessMyTurn();
         }
     }
@@ -56,7 +54,7 @@ public class GameEventManager : AttributesSync
           GameTurn = true;
         }
         if(Input.GetKeyDown(KeyCode.X)){            
-          SpawnStorm(transform.GetChild(5).GetComponent<MapPieceBehaviour>());
+          SpawnStorm(transform.GetChild(18).GetComponent<MapPieceBehaviour>());
         }
     }
 }

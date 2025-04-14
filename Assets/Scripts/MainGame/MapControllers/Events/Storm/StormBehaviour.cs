@@ -16,6 +16,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
     [SerializeField]private MapPieceBehaviour occupyingMapPiece;
     [SerializeField]private List<MapPieceBehaviour> StormingMapPieces;
     private RTS_Camera myCamera;
+    bool isMoving;
 
     private void Awake()
     {
@@ -44,10 +45,12 @@ public class StormBehaviour : AttributesSync, IBoardEvent
     }
 
     private void HandleOccupationByStorm(MapPieceBehaviour mapPieceBehaviour){
+        if(isMoving)return;
         MoveStorm(mapPieceBehaviour);
         occupyingMapPiece = mapPieceBehaviour;
         StormingMapPieces.Add(mapPieceBehaviour);
         mapPieceBehaviour.isStorming = true;
+
         foreach(MapPieceBehaviour map in mapPieceBehaviour.neighboringTerrain){
             StormingMapPieces.Add(map);
             map.isStorming = true;
@@ -55,6 +58,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         
     }
     private IEnumerator Co_MovingStorm(MapPieceBehaviour _mapPieceToMoveTo){
+        isMoving = true;
         Transform mapPieceAnchor = _mapPieceToMoveTo.transform.GetChild(0);
         GameObject tempObject = new GameObject("tempCloudAnchor");
         tempObject.transform.position = mapPieceAnchor.position;
@@ -70,8 +74,8 @@ public class StormBehaviour : AttributesSync, IBoardEvent
             yield return null;                       
         }  
 
-        myCamera.targetFollow = null;     
-        
+        myCamera.targetFollow = null;    
+        isMoving = false;        
         yield return null;       
     }
 }
