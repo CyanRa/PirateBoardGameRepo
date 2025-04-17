@@ -18,11 +18,14 @@ public abstract class Consumable : ScriptableObject
 
 [CreateAssetMenu(fileName = "StormCalling", menuName = "Consumable/StormCalling", order = 1)]
 public class StormCalling : Consumable
-{    
+{   
+    
     public override void UseConsumable(FleetManager userFleet)
     {
+        //Debug.Log("Waiting for fleet to select the storm to move");
         userFleet.myInventory.myConsumables.RemoveAt(1);
-        Debug.Log("Storm Calling");
+        userFleet.immuneToStorm = true;
+        userFleet.StartCoroutine("WaitForStormSelect");       
     }
 }
 [CreateAssetMenu(fileName = "TributeToTheOldGods", menuName = "Consumable/TributeToTheOldGods", order = 1)]
@@ -40,7 +43,9 @@ public class Passage : Consumable
 {
     public override void UseConsumable(FleetManager userFleet)
     {
-       Debug.Log("PASSAGE USED");      
+        userFleet.myInventory.myConsumables.RemoveAt(2);
+        userFleet.StartCoroutine(userFleet.WaitForMapPieceSelect());
+        Debug.Log("PASSAGE USED");      
     }
 }
 

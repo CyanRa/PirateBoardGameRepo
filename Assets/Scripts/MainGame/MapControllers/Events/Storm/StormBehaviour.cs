@@ -17,6 +17,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
     [SerializeField]private List<MapPieceBehaviour> StormingMapPieces;
     private RTS_Camera myCamera;
     bool isMoving;
+    public LayerMask MovementLayer;
 
     private void Awake()
     {
@@ -77,5 +78,42 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         myCamera.targetFollow = null;    
         isMoving = false;        
         yield return null;       
+    }
+    public void SelectStormForMovement(){
+        StartCoroutine(WaitForMapPieceSelect());
+    }
+
+    public IEnumerator WaitForMapPieceSelect(){
+        yield return StartCoroutine(MapPieceSelect());
+    }
+    public IEnumerator MapPieceSelect(){
+        bool done = false;
+        HighlightMapPiecesForSelection();
+        while(done == false){
+            if (Input.GetMouseButtonDown(1)){                   	
+		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+		        RaycastHit hit;		
+		        if( Physics.Raycast( ray, out hit) ){
+                    int mapPieceIndex = StormingMapPieces.IndexOf(hit.transform.GetComponent<MapPieceBehaviour>());	
+                    BroadcastRemoteMethod("BroadcastProcessingTurn", mapPieceIndex); 	    
+                    done = true;    
+                    UnityEngine.Debug.Log("Moving storm");  
+                    DeHighlightMapPiecesForSelection();                  
+                }    
+            }
+            yield return null;
+        }
+              
+    }
+
+    public void HighlightMapPiecesForSelection(){
+        foreach(MapPieceBehaviour _mapPiece in StormingMapPieces){
+            _mapPiece.GetComponent<MeshRenderer>().material = _mapPiece.highLightedMaterial;           
+        }
+    }
+    public void DeHighlightMapPiecesForSelection(){
+        foreach(MapPieceBehaviour _mapPiece in StormingMapPieces){
+            _mapPiece.GetComponent<MeshRenderer>().material = _mapPiece.myMaterial;           
+        }
     }
 }

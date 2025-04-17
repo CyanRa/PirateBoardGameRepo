@@ -17,6 +17,7 @@ public class Ship : AttributesSync
 {
     private static LTDescr delay;
     public bool isMoving = false;
+    [SynchronizableField]public bool isFlagship = false;
     public MapPieceBehaviour occupyingMapPiece;
     [SynchronizableField] public string occupyingMapPieceName;
     [SynchronizableField] public string myFleetName;
@@ -165,8 +166,7 @@ public class Ship : AttributesSync
         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
         movementPoints -= 1;
         UpdateShipDisplayIcon();
-        occupyingMapPiece.ResetMaterial();
-                       
+        occupyingMapPiece.ResetMaterial();                       
     }
     //For spawning from being bought 
     public void SpawnShipFromHarbour(Transform _hit){       

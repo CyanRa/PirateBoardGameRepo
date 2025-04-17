@@ -6,10 +6,12 @@ using Unity.VisualScripting;
 using TMPro;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
 public class FleetManager : CommunicationBridge
 {
     public Alteruna.Avatar avatar;
     public LayerMask clickable;
+    public LayerMask stormLayer;
     private List<string> listOfPlayers;
     public List<GameObject> myShips;
     public GameObject SelectedShip;
@@ -34,15 +36,16 @@ public class FleetManager : CommunicationBridge
     public Inventory myInventory;
     private GameEventManager gameEventManager;
     
-    private bool immuneToStorm = false;
+    [SerializeField]public bool immuneToStorm = false;
+    public bool choosingStorm;
     
-    private enum FleetControlState{
+    public enum FleetControlState{
         SelectingShip,
         SelectingMapPiece,
         ChoosingAction,
         InCombat
     }
-    private FleetControlState _fleetState = FleetControlState.SelectingShip;
+    public FleetControlState _fleetState = FleetControlState.SelectingShip;
     //Sets you as host if you are first in the room, and grabs the menu and multiplayer objects
 
     public void Awake(){
@@ -79,6 +82,7 @@ public class FleetManager : CommunicationBridge
     {
         //Checks is the controlling avatar matches 
        if(!avatar.IsMe) return;
+       if(_fleetState == FleetControlState.SelectingMapPiece)return;
 
         if(Input.GetKeyDown(KeyCode.F) && myShips.Count < 5 && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
            MainSpawner.SpawnShip();
@@ -183,7 +187,8 @@ public class FleetManager : CommunicationBridge
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
             MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
             MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel(); 
-            isMyTurn = false;                
+            isMyTurn = false; 
+            immuneToStorm = false;               
         }     
     }
     public void StartTurn(){
@@ -290,4 +295,68 @@ public class FleetManager : CommunicationBridge
         UpdateVictoryPointsDisplay();
     }
 
+    public IEnumerator WaitForStormSelect(){
+        yield return StartCoroutine("StormSelect");
+    }
+
+    public IEnumerator StormSelect(){
+       
+         
+        bool done = false;
+        Debug.Log("STARTED COORUTINE");
+        while(!done){
+        
+            if(Input.GetMouseButtonDown(0)){
+                Debug.Log("CLICKING TO SELECT A CLOUD");
+                Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+		        RaycastHit hit; 
+                if(Physics.Raycast(ray, out hit)){
+                    if(hit.transform.gameObject.GetComponent<StormBehaviour>() != null){
+                        Debug.Log("Selected storm. WAititng for map piece select");
+                        StormBehaviour storm = hit.transform.GetComponent<StormBehaviour>();
+                        storm.SelectStormForMovement();
+                        done = true;                 
+                    }
+                }
+		            
+            }
+            yield return null;
+        }
+        
+        
+    }
+    public IEnumerator WaitForMapPieceSelect(){
+        yield return StartCoroutine(MapPieceSelect());
+    }
+    private IEnumerator MapPieceSelect(){
+        if(IsFlagshipAlive())yield break;
+        bool done = false;
+            while(!done){
+            if (Input.GetMouseButtonDown(1)){                       	
+		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+		        RaycastHit hit;
+		
+		        if( Physics.Raycast( ray, out hit)){ 
+                    if(hit.transform.GetComponent<MapPieceBehaviour>()!=null){
+                        foreach(GameObject ship in myShips){
+                            if(ship.GetComponent<Ship>().isFlagship == true){
+                                ship.GetComponent<Ship>().MoveFromAMapPieceToAMapPiece(hit);
+                            }
+                        }
+                    }
+                }
+            } 
+            yield return null;
+        }
+    }
+
+    private bool IsFlagshipAlive()
+    {
+        foreach(GameObject ship in myShips){
+            if(ship.GetComponent<Ship>().isFlagship == true){
+                return true;
+            }
+        }
+        return false;
+    }
 }

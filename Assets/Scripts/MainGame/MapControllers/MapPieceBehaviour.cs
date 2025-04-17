@@ -9,6 +9,7 @@ using Alteruna;
 using System;
 using JetBrains.Annotations;
 using UnityEngine.Events;
+using System.Data;
 
 public class MapPieceBehaviour : AttributesSync
 {   
@@ -55,7 +56,7 @@ public class MapPieceBehaviour : AttributesSync
     public Material contestedNeighbouringTerrain;
     public Material treasureMaterial;
     private MenuBehaviour MenuSystem;
-    private string toolTipString;
+    public bool selectableMode;
 
     void Start()
     {
@@ -76,8 +77,15 @@ public class MapPieceBehaviour : AttributesSync
     {
         TooltipSystem.SetAllignmentMiddle();
         TooltipSystem.Show(myInteractables[0].ToString());
+        if(selectableMode){
+            ReturnThisMapPiece();
+        }
     }
 
+    private MapPieceBehaviour ReturnThisMapPiece()
+    {
+        return GetComponent<MapPieceBehaviour>();
+    }
 
     private void OnMouseEnter(){      
         if(allowTerrainHighlight){

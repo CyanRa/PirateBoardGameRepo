@@ -15,5 +15,6 @@ MonoBehaviour:
   consumableName: Storm Calling
   description: " Your ships are immune to the storm this turn\n\n You may move the
     storm in any direction"
-  image: MainGame/Interactables/Consumables/StormCalling
+  image: MainGame/Interactables/StormCalling
+  consumableIndex: 0
   userFleet: {fileID: 0}

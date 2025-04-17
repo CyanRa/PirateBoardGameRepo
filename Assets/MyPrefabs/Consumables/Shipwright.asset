@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Shipwright
   m_EditorClassIdentifier: Assembly-CSharp::Shipwright
-  consumableName: Storm Calling
-  description: " Your ships are immune to the storm this turn\n\n You may move the
-    storm in any direction"
-  image: StormCallingImage
+  consumableName: Shipwright
+  description: spawn a ship
+  image: MainGame/Interactables/Shipwirght
+  consumableIndex: 1
   userFleet: {fileID: 0}

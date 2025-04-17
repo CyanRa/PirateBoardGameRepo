@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Passage
   m_EditorClassIdentifier: Assembly-CSharp::Passage
-  consumableName: Storm Calling
-  description: " Your ships are immune to the storm this turn\n\n You may move the
-    storm in any direction"
-  image: StormCallingImage
-  consumableIndex: 0
+  consumableName: Posseidon's Passage
+  description: Move your flagship to any unoccupied map piece
+  image: Passage
+  consumableIndex: 2
   userFleet: {fileID: 0}
