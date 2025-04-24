@@ -1,7 +1,14 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.AddressableAssets.ResourceLocators;
+using UnityEngine.ResourceManagement.ResourceLocations;
+using UnityEngine.ResourceManagement.AsyncOperations;
+
 
 public class Inventory : MonoBehaviour
 {
@@ -9,13 +16,29 @@ public class Inventory : MonoBehaviour
     public GameObject consumablePrefab;
     [SerializeField]List<Consumable> allConsumables;
     public List<Consumable> myConsumables;
+    public Consumable[] playerConsumables = new Consumable[6];
     FleetManager myFleet;
     MenuBehaviour myMenu;
 
     public void Awake()
     {
         myFleet = GetComponent<FleetManager>();
-        myMenu = GameObject.Find("MenuSystem").GetComponent<MenuBehaviour>();
+        myMenu = GameObject.Find("MenuSystem")?.GetComponent<MenuBehaviour>();
+        LoadConsumables();
+    }
+
+
+
+    private void LoadConsumables()
+    {
+        Consumable tempConsumable = Resources.Load<Consumable>("Scriptables/StormCalling");
+        myConsumables.Add(tempConsumable);
+        tempConsumable = Resources.Load<Consumable>("Scriptables/GreekFire");
+        myConsumables.Add(tempConsumable);
+        tempConsumable = Resources.Load<Consumable>("Scriptables/Passage");
+        myConsumables.Add(tempConsumable);
+        tempConsumable = Resources.Load<Consumable>("Scriptables/Shipwright");
+        myConsumables.Add(tempConsumable);
     }
 
     public void AddConsumable(){
@@ -29,6 +52,7 @@ public class Inventory : MonoBehaviour
         }
         myConsumables?.Add(allConsumables[possibleOutcomes[UnityEngine.Random.Range(0, possibleOutcomes.Count)]]);  
     }
+
     public void InstantiateConsumables(){
         myMenu.consumablePanel.GetComponent<ConsumableMenuBehaviour>().InstantiateConsumables(myConsumables);
     }

@@ -10,6 +10,8 @@ using System;
 using JetBrains.Annotations;
 using UnityEngine.Events;
 using System.Data;
+using RTS_Cam;
+using System.Linq;
 
 public class MapPieceBehaviour : AttributesSync
 {   
@@ -23,6 +25,7 @@ public class MapPieceBehaviour : AttributesSync
     public bool areNeighboursHighlited = false;
     public bool allowTerrainHighlight = true;
     public bool isAttacker = false;
+    public bool isHighlighted = false;
     private GameObject ScrollPrefab;
     private GameObject TreasurePrefab;
     public List<MapInteractables> myInteractables;
@@ -44,12 +47,13 @@ public class MapPieceBehaviour : AttributesSync
         Hostile
     }
     public bool isStorming = false;
+    public bool movingStorm;
    
 
     [Header("MATERIALS")]
     public Material myMaterial; 
     public Material highLightedMaterial;
-    private Material tempMaterial;
+    public Material tempMaterial;
     public Material neighbouringTerrainMaterial;   
     public Material hostileNeighbouringTerrainMaterial; 
     public Material allyNeighbouringTerrainMaterial;
@@ -57,9 +61,11 @@ public class MapPieceBehaviour : AttributesSync
     public Material treasureMaterial;
     private MenuBehaviour MenuSystem;
     public bool selectableMode;
+    RTS_Camera myCamera;
 
     void Start()
     {
+        myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
         MenuSystem = GameObject.Find("MenuSystem").GetComponent<MenuBehaviour>();
         occupyingShip = "";
         foreach(MapInteractables _interactable in myInteractables){
@@ -96,7 +102,11 @@ public class MapPieceBehaviour : AttributesSync
 
     private void OnMouseExit(){
         TooltipSystem.Hide();
-        ResetMaterial();
+        if(movingStorm){GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;return;};
+        if(!isHighlighted){
+            ResetMaterial();
+        }
+       
     }
     private void OnClicked(){
         
@@ -108,9 +118,6 @@ public class MapPieceBehaviour : AttributesSync
         }else{
             toolTipString = myMapStatus.ToString();
         }
-
-   
-
         return toolTipString;
     }
 
@@ -118,41 +125,41 @@ public class MapPieceBehaviour : AttributesSync
         foreach(MapPieceBehaviour map in neighboringTerrain){
             map.areNeighboursHighlited = true;
             switch(map.myMapStatus){
-            case MapStatus.Empty: 
-                map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
-            break;
-            case MapStatus.Allied:
-                map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
-            break;
-            case MapStatus.Contested:
-                map.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
-            break;
-            case MapStatus.Hostile:
-                map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
-            break;
-            default:break;                
+                case MapStatus.Empty: 
+                    map.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+                break;
+                case MapStatus.Allied:
+                    map.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
+                break;
+                case MapStatus.Contested:
+                    map.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
+                break;
+                case MapStatus.Hostile:
+                    map.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                break;
+                default:break;                
             }
           
-                    foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
-                        map2.areNeighboursHighlited = true;
-                    switch(map2.myMapStatus){
-                        case MapStatus.Empty: 
-                            map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
-                        break;
-                        case MapStatus.Allied:
-                            map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
-                        break;
-                        case MapStatus.Contested:
-                            map2.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
-                        break;
-                        case MapStatus.Hostile:
-                            map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
-                        break;
-                        default:break;
+                foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
+                    map2.areNeighboursHighlited = true;
+                switch(map2.myMapStatus){
+                    case MapStatus.Empty: 
+                        map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+                    break;
+                    case MapStatus.Allied:
+                        map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
+                    break;
+                    case MapStatus.Contested:
+                        map2.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
+                    break;
+                    case MapStatus.Hostile:
+                        map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                    break;
+                    default:break;
                 
-        }
-        }
-        }
+                    }
+                }
+            }
         GetComponent<MeshRenderer>().material =myMaterial;
         areNeighboursHighlited = true;
         allowTerrainHighlight = false;
@@ -162,7 +169,9 @@ public class MapPieceBehaviour : AttributesSync
         foreach(MapPieceBehaviour map in neighboringTerrain){      
             map.areNeighboursHighlited = false;     
             map.GetComponent<MeshRenderer>().material = myMaterial;
-            if(map.HasTreasure()){map.GetComponent<MeshRenderer>().material = treasureMaterial;}
+            if(map.HasTreasure()){
+                map.GetComponent<MeshRenderer>().material = treasureMaterial;
+            }
             map.areNeighboursHighlited = false;
             foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
                 map2.areNeighboursHighlited = false;
@@ -189,7 +198,7 @@ public class MapPieceBehaviour : AttributesSync
     public void EnterMapPiece(Ship enteringShip)
     {
         HandleStorm(enteringShip);
-        
+        enteringShip.occupyingMapPiece = GetComponent<MapPieceBehaviour>();
         ResetMaterial();        
         switch(myMapStatus){
             
@@ -208,19 +217,38 @@ public class MapPieceBehaviour : AttributesSync
             break;
             case MapStatus.Hostile:           
             enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
+            SetMyShipsSelectable();
             BroadCastAddOccupyingShip(enteringShip.name);
-            BroadCastBeginBattle(enteringShip.name, occupyingShip); 
+            WaitForShipToAttackSelect(enteringShip);
+            //BroadCastBeginBattle(enteringShip.name, occupyingShip); 
             break;
             default:break;
         }
         GenerateInteractable(enteringShip);
     }
+    public void SetMyShipsSelectable(){
+        foreach(Ship _ship in occupyingShips){
+                _ship.selectingShip = true;
+            }
+    }  
+    public void SetMyShipsNonSelectable(){
+        foreach(Ship _ship in occupyingShips){
+                _ship.selectingShip = false;
+            }
+    }  
 
-    private void HandleStorm(Ship enteringShip)
+    public void DestroyAllShips(){
+        foreach(Ship ship in occupyingShips.ToList()){
+            ship.ChangeShipHealth(2);
+        }
+    }
+    public void HandleStorm(Ship enteringShip)
     {
        if(isStorming && enteringShip.isInsideStorm == false){
-            enteringShip.ChangeShipHealth(-1);
-            enteringShip.isInsideStorm = true;
+        if(enteringShip.myFleet.immuneToStorm != true){
+            enteringShip.ChangeShipHealth(1);
+        }           
+        enteringShip.isInsideStorm = true;
         }else if(!isStorming && enteringShip.isInsideStorm == true){
             enteringShip.isInsideStorm = false;
         }
@@ -254,6 +282,7 @@ public class MapPieceBehaviour : AttributesSync
     }
     [SynchronizableMethod]
     private void RemoveOccupyingShip(string enteringShip){
+        if(GameObject.Find(enteringShip).GetComponent<Ship>() == null)return;
         Ship _ship = GameObject.Find(enteringShip).GetComponent<Ship>();
         occupyingShips.Remove(_ship);  
         if(occupyingShips.Count == 0){
@@ -294,6 +323,11 @@ public class MapPieceBehaviour : AttributesSync
     public void BroadCastBeginBattle(string attacker, string defender){
         int attackerID = Multiplayer.GetUser().Index;
         InvokeRemoteMethod("BeginBattle", (ushort)attackerID, attacker, defender);
+    }
+    public void WaitForShipToAttackSelect(Ship attacker){
+        myCamera.targetFollow = occupyingShips[0].transform;
+        myCamera.transform.LookAt(occupyingShips[0].transform);
+        attacker.myFleet.StartCoroutine(attacker.myFleet.SelectShipToAttack(attacker));
     }
     public void BroadcastBeginBattleDefender(string attacker, string defender, ushort defenderID){
         InvokeRemoteMethod("BeginBattle", defenderID, attacker, defender);

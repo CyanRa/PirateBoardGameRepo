@@ -117,7 +117,7 @@ public class BattleManager : AttributesSync
         attackerPower = 0;
         defenderPower = 0;
         cardsPlayedLastTurn = false;
-        shipInCombat = null;
+
     }
 
     private void DealDamageToLoser(){

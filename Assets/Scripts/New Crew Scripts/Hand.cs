@@ -51,6 +51,7 @@ public class Hand : MonoBehaviour
 
     public void InstantiateHand()
     {
+        Debug.Log("INSTANTIATING HAND");
         
         int i = 0;
         foreach (CrewMember ownedCrewMember in myFleetCrew)

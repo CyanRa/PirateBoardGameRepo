@@ -74,6 +74,7 @@ MonoBehaviour:
   victoryPointsCount: {fileID: 0}
   fleetPositionIndex: 0
   myInventory: {fileID: 0}
+  lastPlayer: 0
   immuneToStorm: 0
   choosingStorm: 0
   _fleetState: 0
@@ -127,10 +128,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  myConsumables:
-  - {fileID: 11400000, guid: 4ffe4093bd70fa94bad644fd57938054, type: 2}
-  - {fileID: 11400000, guid: 8b1bcb5d684be214c92fc607727455ad, type: 2}
-  - {fileID: 11400000, guid: f49ac31996d1b3e48b88f5a8ac19874a, type: 2}
+  myConsumables: []
+  playerConsumables:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5120672661187553825
 MonoBehaviour:
   m_ObjectHideFlags: 0

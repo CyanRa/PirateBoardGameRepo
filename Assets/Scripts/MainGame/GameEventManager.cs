@@ -26,6 +26,20 @@ public class GameEventManager : AttributesSync
             }    
         }    
     }
+    public void HighlightHarbors(){
+        foreach(Transform childMap in transform){
+            if(childMap.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor){
+                childMap.GetComponent<MapPieceBehaviour>().isHighlighted = true;
+                childMap.GetComponent<MapPieceBehaviour>().GetComponent<MeshRenderer>().material = childMap.GetComponent<MapPieceBehaviour>().highLightedMaterial;
+            }
+            
+        }
+    }
+    public void DehighlightMaps(){
+        foreach(Transform childMap in transform){ 
+            childMap.GetComponent<MapPieceBehaviour>().GetComponent<MeshRenderer>().material = childMap.GetComponent<MapPieceBehaviour>().myMaterial;         
+        }
+    }
 
     public void SpawnStorm(MapPieceBehaviour mapPieceBehaviour){
         int mapPieceIndex = mapPieceBehaviour.transform.GetSiblingIndex();

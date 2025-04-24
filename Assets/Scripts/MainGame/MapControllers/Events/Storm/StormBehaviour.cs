@@ -52,9 +52,13 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         StormingMapPieces.Add(mapPieceBehaviour);
         mapPieceBehaviour.isStorming = true;
 
+        
         foreach(MapPieceBehaviour map in mapPieceBehaviour.neighboringTerrain){
             StormingMapPieces.Add(map);
             map.isStorming = true;
+            foreach(Ship ship in map.occupyingShips){
+                map.HandleStorm(ship);
+            }
         }
         
     }
@@ -76,7 +80,8 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         }  
 
         myCamera.targetFollow = null;    
-        isMoving = false;        
+        isMoving = false;  
+        Destroy(tempObject);      
         yield return null;       
     }
     public void SelectStormForMovement(){
@@ -95,25 +100,28 @@ public class StormBehaviour : AttributesSync, IBoardEvent
 		        RaycastHit hit;		
 		        if( Physics.Raycast( ray, out hit) ){
                     int mapPieceIndex = StormingMapPieces.IndexOf(hit.transform.GetComponent<MapPieceBehaviour>());	
+                    DeHighlightMapPiecesForSelection();
                     BroadcastRemoteMethod("BroadcastProcessingTurn", mapPieceIndex); 	    
-                    done = true;    
-                    UnityEngine.Debug.Log("Moving storm");  
-                    DeHighlightMapPiecesForSelection();                  
+                    done = true;                                       
                 }    
             }
-            yield return null;
+        yield return null;
         }
               
     }
 
     public void HighlightMapPiecesForSelection(){
         foreach(MapPieceBehaviour _mapPiece in StormingMapPieces){
-            _mapPiece.GetComponent<MeshRenderer>().material = _mapPiece.highLightedMaterial;           
+            if(_mapPiece != StormingMapPieces[0]){
+                _mapPiece.movingStorm = true;     
+                _mapPiece.GetComponent<MeshRenderer>().material = _mapPiece.allyNeighbouringTerrainMaterial;
+            }         
         }
     }
     public void DeHighlightMapPiecesForSelection(){
         foreach(MapPieceBehaviour _mapPiece in StormingMapPieces){
-            _mapPiece.GetComponent<MeshRenderer>().material = _mapPiece.myMaterial;           
+                _mapPiece.movingStorm = false;
+                _mapPiece.GetComponent<MeshRenderer>().material = _mapPiece.myMaterial;                               
         }
     }
 }

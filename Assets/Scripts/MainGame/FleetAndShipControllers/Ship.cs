@@ -11,6 +11,11 @@ using TMPro;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using System.Linq.Expressions;
+using UnityEngine.EventSystems;
+using System.Collections;
+
+
+
 
 
 public class Ship : AttributesSync
@@ -39,6 +44,9 @@ public class Ship : AttributesSync
     public List<int> offsetPosition;
     private IconBehaviour myIcon;
     public bool isInsideStorm = false;
+    public bool selectingShip;
+    public Button button1;
+    public bool usingGreekFire;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
@@ -47,15 +55,12 @@ public class Ship : AttributesSync
         healthPoints = 2;
         shipGold = 0;
         offsetPosition.Add(0);
-        offsetPosition.Add(0);
-    
+        offsetPosition.Add(0);    
     }
-    public void Start()
-    {
+    public void Start(){
         if(myFleet.myShips.Contains(this.gameObject)){
             myFleetName = myFleet.Multiplayer.GetUser();
-        }
-        
+        }      
     }
 
     public void UpdateGoldDisplay(){
@@ -87,20 +92,26 @@ public class Ship : AttributesSync
     }
 
     private void OnMouseEnter(){
+        if(selectingShip){
+            GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
+        }
         delay = LeanTween.delayedCall(0.2f, ()=>{
             TooltipSystem.SetAllignmentTopLeft();
             TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP", myFleetName +" 's Fleet");
         });             
     }
     private void OnMouseExit(){
+        if(selectingShip){
+            GetComponent<Ship>().ChangeShipColour(transform.GetComponentInParent<FleetManager>().fleetColour); 
+        }
         LeanTween.cancel(delay.uniqueId);
-        TooltipSystem.Hide();     
+        TooltipSystem.Hide();    
+        
     }
  
     void Update(){
     if(!myFleet.avatar.IsMe) return;
-    //Allows for a ship to move to any map piece before having one
-    //Will be replaced by spawning logic                  
+    //Initial ship movement. Will be replaced with spawn                  
         if(occupyingMapPiece == null){
             if (Input.GetMouseButtonDown(1) && !isMoving ){ 
                 offsetPosition[0] = myFleet.fleetPositionIndex;       	
@@ -129,15 +140,15 @@ public class Ship : AttributesSync
 		            foreach(MapPieceBehaviour _map in occupyingMapPiece.neighboringTerrain){
                         _mapPieces.AddRange(_map.neighboringTerrain);
                     }
-                    if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())||_mapPieces.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){                       
+                    if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())||_mapPieces.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){  
+                        if(occupyingMapPiece == hit.transform.GetComponent<MapPieceBehaviour>())return;                     
                         MoveFromAMapPieceToAMapPiece(hit);
                     }                    
                 }
             } 
         
     //Deselection when left clicking
-            if(Input.GetMouseButtonDown(0) && !isMoving){
-                
+            if(Input.GetMouseButtonDown(0) && !isMoving){              
                 Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece?.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();            
@@ -149,9 +160,7 @@ public class Ship : AttributesSync
         
     //Locks in movement until final position           
             if(!isMoving) return;
-                MoveToAnchor(mapPieceAnchor);
-            
-        
+            MoveToAnchor(mapPieceAnchor);      
     }
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
@@ -207,12 +216,10 @@ public class Ship : AttributesSync
             myFleet.DeselectAll();
             EnableUnitMovement(this.gameObject, false);
             myCamera.ResetTarget();
-        }
-        
-        
+        }        
     }
 
-    //Movement enabling also reuglates highlighting and dehighlighting neighbouring terrains
+    
     public void EnableUnitMovement(GameObject unit, bool shouldMove){   
         if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == true){
             unit.GetComponent<Ship>().occupyingMapPiece.HighlightNeighbours(unit.GetComponent<Ship>());
@@ -221,20 +228,25 @@ public class Ship : AttributesSync
         if(unit.GetComponent<Ship>().occupyingMapPiece != null && shouldMove == false){
             unit.GetComponent<Ship>().occupyingMapPiece.DeHighlightNeighbours();
         }
-
         unit.GetComponent<Ship>().enabled = shouldMove;
     }
 
     public void ChangeShipHealth(int damage){
+        myFleet = GetComponentInParent<FleetManager>();
         healthPoints -= damage;
         if(healthPoints < 1){
-            myFleet.myShips.Remove(gameObject);           
+            myFleet.RemoveShip(gameObject);        
         }
         BroadcastRemoteMethod("CheckShipStatus");
+
     }
     [SynchronizableMethod]
     private void CheckShipStatus(){
+        if(occupyingMapPiece==null){
+            occupyingMapPiece = GameObject.Find(occupyingMapPieceName)?.GetComponent<MapPieceBehaviour>();
+        }
         if(healthPoints < 1){
+            occupyingMapPiece?.BroadCastRemoveOccupyingShip(name);
             Destroy(transform.gameObject);
         }
     }
@@ -242,13 +254,11 @@ public class Ship : AttributesSync
     //SELECTING SHIPS FROM FLEET PANEL ICONS
     public void SelectShipFromItsIcon(GameObject shipToSelect){
         if(myFleet.Multiplayer.Me.Name == myFleet.MenuController.GetComponent<MenuBehaviour>().turnOwner){
-           MoveCameraFromIconSelection(shipToSelect);
+            MoveCameraFromIconSelection(shipToSelect);
             myFleet.SelectByClicking(shipToSelect);
             shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();  
         }                   
     }
-
-    
 
     public void PlaySelectShipAudioClip(){
         myAudioSource.PlayOneShot(selectShipAudioClip);
@@ -256,10 +266,8 @@ public class Ship : AttributesSync
     public void PlayShipBellRingAudioClip(){
         myAudioSource.PlayOneShot(shipBellRingAudioClip);
     }
-
     //NEEDS SOME BUFFER 
     private void MoveCameraFromIconSelection(GameObject shipToSelect){
-        //myCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
         myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 540, shipToSelect.transform.position.z);    
     }
 
@@ -271,34 +279,33 @@ public class Ship : AttributesSync
     public void ChangeShipColour(string tempColour){
         Renderer tempRenderer = gameObject.GetComponent<Renderer>();
        
-         switch(tempColour)
-            {
-                case "Red": tempRenderer.material.SetColor("_BaseColor", Color.red); break;
-                case "Blue": tempRenderer.material.SetColor("_BaseColor", Color.blue); break;
-                case "Green": tempRenderer.material.SetColor("_BaseColor", Color.green); break;
-                case "Yellow": tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
-                default:print("Something went wrong choosing colour"); break;
+        switch(tempColour){
+            case "Red": tempRenderer.material.SetColor("_BaseColor", Color.red); break;
+            case "Blue": tempRenderer.material.SetColor("_BaseColor", Color.blue); break;
+            case "Green": tempRenderer.material.SetColor("_BaseColor", Color.green); break;
+            case "Yellow": tempRenderer.material.SetColor("_BaseColor", Color.yellow); break;
+            default:print("Something went wrong choosing colour"); break;
             }
     }
 
+
     public void OffsetThisShip(){
         if(offsetPosition[0] == 0){
-            //rotation stays the same for
             switch(offsetPosition[1]){
                 case 0:
-                    transform.position = new UnityEngine.Vector3(transform.position.x,transform.position.y,transform.position.z -2);
+                    transform.position = new UnityEngine.Vector3(transform.position.x,transform.position.y,transform.position.z -1.5f);
                 break;
                 case 1:
-                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z -4);
+                    transform.position = new UnityEngine.Vector3(transform.position.x -0.7f,transform.position.y,transform.position.z -3);
                 break;
                 case 2:
-                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z -4);
+                    transform.position = new UnityEngine.Vector3(transform.position.x +0.7f,transform.position.y,transform.position.z -3);
                 break;
                 case 3:
                     transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z -6);
                 break;
                 case 4:
-                    transform.position = new UnityEngine.Vector3(transform.position.x +2,transform.position.y,transform.position.z -6);
+                    transform.position = new UnityEngine.Vector3(transform.position.x +1.4f,transform.position.y,transform.position.z -6);
                 break;
                 default:
                 Debug.Log("ERROR OFFSETTING SHIP");
@@ -308,13 +315,13 @@ public class Ship : AttributesSync
             transform.Rotate(0,180,0);
             switch(offsetPosition[1]){
                 case 0: 
-                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z+2 );
+                    transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z+1.5f );
                 break;
                 case 1:
-                    transform.position = new UnityEngine.Vector3(transform.position.x -1,transform.position.y,transform.position.z +4);
+                    transform.position = new UnityEngine.Vector3(transform.position.x -0.7f,transform.position.y,transform.position.z +3);
                 break;
                 case 2:
-                    transform.position = new UnityEngine.Vector3(transform.position.x +1,transform.position.y,transform.position.z +4);
+                    transform.position = new UnityEngine.Vector3(transform.position.x +0.7f,transform.position.y,transform.position.z +3);
                 break;
                 case 3:
                     transform.position = new UnityEngine.Vector3(transform.position.x ,transform.position.y,transform.position.z +6);
@@ -330,13 +337,13 @@ public class Ship : AttributesSync
             transform.Rotate(0,90,0);
             switch(offsetPosition[1]){
                 case 0: 
-                    transform.position = new UnityEngine.Vector3(transform.position.x-2 ,transform.position.y,transform.position.z);
+                    transform.position = new UnityEngine.Vector3(transform.position.x-1.5f ,transform.position.y,transform.position.z);
                 break;
                 case 1:
-                    transform.position = new UnityEngine.Vector3(transform.position.x-4 ,transform.position.y,transform.position.z-1 );
+                    transform.position = new UnityEngine.Vector3(transform.position.x-3 ,transform.position.y,transform.position.z-0.7f );
                 break;
                 case 2:
-                    transform.position = new UnityEngine.Vector3(transform.position.x-4 ,transform.position.y,transform.position.z+1 );
+                    transform.position = new UnityEngine.Vector3(transform.position.x-3,transform.position.y,transform.position.z+0.7f );
                 break;
                 case 3:
                     transform.position = new UnityEngine.Vector3(transform.position.x-6 ,transform.position.y,transform.position.z );
@@ -352,13 +359,13 @@ public class Ship : AttributesSync
             transform.Rotate(0,270,3);
             switch(offsetPosition[1]){
                 case 0: 
-                    transform.position = new UnityEngine.Vector3(transform.position.x+2 ,transform.position.y,transform.position.z );
+                    transform.position = new UnityEngine.Vector3(transform.position.x+1.5f ,transform.position.y,transform.position.z );
                 break;
                 case 1:
-                    transform.position = new UnityEngine.Vector3(transform.position.x+4,transform.position.y,transform.position.z-1 );
+                    transform.position = new UnityEngine.Vector3(transform.position.x+3,transform.position.y,transform.position.z-0.7f );
                 break;
                 case 2:
-                    transform.position = new UnityEngine.Vector3(transform.position.x+4,transform.position.y,transform.position.z+1 );
+                    transform.position = new UnityEngine.Vector3(transform.position.x+3,transform.position.y,transform.position.z+0.7f );
                 break;
                 case 3:
                     transform.position = new UnityEngine.Vector3(transform.position.x+6 ,transform.position.y,transform.position.z );
@@ -372,4 +379,81 @@ public class Ship : AttributesSync
             }    
         }
     }
+
+    //WAITING FOR DEFENDER TO SEND BACK ACTION
+    public void WaitForDefenderShipReaction(int attackerID, string attackerName){
+        myFleet = GetComponentInParent<FleetManager>();
+        InvokeRemoteMethod("AskOwnerForAction", myFleet.avatar.Owner.Index, attackerID, attackerName);
+            
+    }
+
+    [SynchronizableMethod]
+    private void AskOwnerForAction(int attackerID, string attackerName){
+
+        GameObject tempPanel;
+        tempPanel = myFleet.MenuController.GetComponent<MenuBehaviour>().defendingShipOptionsPanel;
+        tempPanel.SetActive(true);
+        UnityEngine.UI.Button tempButton = tempPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Button>();
+        tempButton.onClick.AddListener(() => InvokeStartCombat(attackerName, name, attackerID));
+        tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
+        bool a = false;
+
+        tempButton = tempPanel.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>();
+        foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
+            if(consumable.consumableIndex == 3 && isFlagship){
+                tempButton.onClick.AddListener(() => UsePassageInDefence(tempButton, consumable));
+                tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
+                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
+                a = true;
+            }
+        }
+        if(!a){
+            tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f/255,79f/255,58f/255);
+
+        }else{
+            a = false;
+        }
+
+        tempButton = tempPanel.transform.GetChild(2).GetComponent<UnityEngine.UI.Button>();
+        foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
+            if(consumable.consumableIndex == 4){
+                Debug.Log("HAS POWER ADDED TO BUTTON");
+                tempButton.onClick.AddListener(() => UseGreekFireInDefence(tempButton, consumable));
+                tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
+                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
+                a = true;
+
+            }if(!a){
+                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f/255,79f/255,58f/255);
+            }           
+        }       
+    }
+
+    [SynchronizableMethod]
+    private void StartCombat(string attacker, string defender){
+        Multiplayer.GetAvatar().GetComponent<FleetManager>().EnterCombat(attacker, defender);
+    }
+    
+    private void InvokeStartCombat(string attacker, string defender, int attackerID){
+        InvokeRemoteMethod("StartCombat", (ushort)attackerID,attacker,defender);
+    }
+    private void UsePassageInDefence(UnityEngine.UI.Button button, Consumable consumable){
+        consumable.UseConsumable(GetComponentInParent<FleetManager>());
+    }
+    private void UseGreekFireInDefence(UnityEngine.UI.Button button, Consumable consumable){
+        Debug.Log("This ship used greek fire", this);
+        usingGreekFire = true;
+        consumable.UseConsumable(GetComponentInParent<FleetManager>());
+    }
+
+    private void CloseDecisionPanel(UnityEngine.UI.Button button){
+        GameObject tempPanel;
+        tempPanel = myFleet.MenuController.GetComponent<MenuBehaviour>().defendingShipOptionsPanel;
+        button.onClick.RemoveAllListeners();
+        tempPanel.SetActive(false);
+    }
+        
+    
+
+
 }

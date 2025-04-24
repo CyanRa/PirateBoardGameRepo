@@ -36,6 +36,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite RumorButtonSprite;
     public Sprite TreasureButtonImage;
     public GameObject consumablePanel;
+    public GameObject defendingShipOptionsPanel;
     
     
 #endregion
@@ -59,8 +60,7 @@ public class MenuBehaviour : AttributesSync
             consumablePanel.SetActive(false);
         }else{
             consumablePanel.SetActive(true);
-            consumablePanel.GetComponent<ConsumableMenuBehaviour>().InstantiateConsumables(Multiplayer.GetAvatar().GetComponent<Inventory>().myConsumables);
-            
+            consumablePanel.GetComponent<ConsumableMenuBehaviour>().InstantiateConsumables(Multiplayer.GetAvatar().GetComponent<Inventory>().myConsumables);           
         }
     }
 
@@ -186,6 +186,9 @@ public class MenuBehaviour : AttributesSync
         _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
         _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));       
+    }
+    public void RemoveShipFromUI(int index){
+        Destroy(FleetPanel.transform.GetChild(index).gameObject);
     }
 
     public void AddFlagShipToUI(GameObject spawnedShip){
