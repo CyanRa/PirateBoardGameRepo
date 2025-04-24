@@ -59,6 +59,7 @@ public class MapPieceBehaviour : AttributesSync
     public Material allyNeighbouringTerrainMaterial;
     public Material contestedNeighbouringTerrain;
     public Material treasureMaterial;
+
     private MenuBehaviour MenuSystem;
     public bool selectableMode;
     RTS_Camera myCamera;
@@ -97,6 +98,9 @@ public class MapPieceBehaviour : AttributesSync
         if(allowTerrainHighlight){
         tempMaterial = GetComponent<MeshRenderer>().material;        
         GetComponent<MeshRenderer>().material = highLightedMaterial;
+        }
+        if(isHighlighted){
+            GetComponent<Renderer>().material = highLightedMaterial;
         }       
     }
 
@@ -105,6 +109,8 @@ public class MapPieceBehaviour : AttributesSync
         if(movingStorm){GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;return;};
         if(!isHighlighted){
             ResetMaterial();
+        }else{
+            GetComponent<Renderer>().material = neighbouringTerrainMaterial;
         }
        
     }
@@ -208,19 +214,19 @@ public class MapPieceBehaviour : AttributesSync
             case MapStatus.Allied:         
             enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
             BroadCastAddOccupyingShip(enteringShip.name);
-            //GOLD SHARING 
+
             break;
             case MapStatus.Contested:
             enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
             BroadCastAddOccupyingShip(enteringShip.name);
-            //ATTACK HOSTILE? 
+            WaitForShipToAttackSelect(enteringShip);
+
             break;
             case MapStatus.Hostile:           
             enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
             SetMyShipsSelectable();
             BroadCastAddOccupyingShip(enteringShip.name);
             WaitForShipToAttackSelect(enteringShip);
-            //BroadCastBeginBattle(enteringShip.name, occupyingShip); 
             break;
             default:break;
         }
@@ -287,6 +293,27 @@ public class MapPieceBehaviour : AttributesSync
         occupyingShips.Remove(_ship);  
         if(occupyingShips.Count == 0){
             SetMapPieceEmpty();
+        }
+    }
+    public void HandleMapPieceStatus(Ship ship){
+        List<FleetManager> occupyingFleets = new List<FleetManager>();
+        foreach(Ship _ship in occupyingShips){
+            if(!occupyingFleets.Contains(_ship.myFleet)){
+                occupyingFleets.Add(_ship.myFleet);
+            }
+        }
+        if(occupyingFleets.Count > 1){
+            BroadcastRemoteMethod("SetMapPieceContested");
+        }else if(occupyingFleets.Count == 1){
+            if(occupyingFleets[0] == ship.myFleet){
+                SetMapPieceAllied();
+                InvokeRemoteMethod("SetMapPieceHostile");
+            }
+        }else if(occupyingFleets.Count == 0){
+            BroadcastRemoteMethod("SetMapPieceEmpty");
+        }else if(occupyingFleets.Count == 1){
+            BroadcastRemoteMethod("SetMapPieceHostile");
+            InvokeRemoteMethod("SetMapPieceAllied", Multiplayer.GetUser(occupyingFleets[0].name).Index);
         }
     }
     [SynchronizableMethod]

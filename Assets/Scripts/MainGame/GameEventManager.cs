@@ -30,13 +30,14 @@ public class GameEventManager : AttributesSync
         foreach(Transform childMap in transform){
             if(childMap.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor){
                 childMap.GetComponent<MapPieceBehaviour>().isHighlighted = true;
-                childMap.GetComponent<MapPieceBehaviour>().GetComponent<MeshRenderer>().material = childMap.GetComponent<MapPieceBehaviour>().highLightedMaterial;
+                childMap.GetComponent<MapPieceBehaviour>().GetComponent<MeshRenderer>().material = childMap.GetComponent<MapPieceBehaviour>().neighbouringTerrainMaterial;
             }
             
         }
     }
     public void DehighlightMaps(){
         foreach(Transform childMap in transform){ 
+            childMap.GetComponent<MapPieceBehaviour>().isHighlighted = false;
             childMap.GetComponent<MapPieceBehaviour>().GetComponent<MeshRenderer>().material = childMap.GetComponent<MapPieceBehaviour>().myMaterial;         
         }
     }

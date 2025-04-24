@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: dca42d01-d5c3-4de5-a7e8-eb8044b871d1
+  _uidString: a7519122-298a-473e-a70b-c6ac5049d404
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -362,6 +362,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -372,7 +373,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &37277851
@@ -1163,7 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 89b77d88-b6d3-4693-82b9-b94ce56a4e37
+  _uidString: 88a4fda7-fec9-41a9-8d28-338a19db6d51
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1178,6 +1179,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -1188,7 +1190,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &57999252
@@ -1724,7 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: bef8213d-c8fa-4849-8f73-3e9a3d0dd9cb
+  _uidString: c830ecc9-327e-4e75-b141-964cc602d668
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -1740,6 +1742,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -1750,7 +1753,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &69031563
@@ -2516,7 +2519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: aec29aa5-fb40-424c-a77c-595377b71a2e
+  _uidString: 7773e458-fcca-46db-b2b9-11a0fee11ba4
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -2533,6 +2536,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -2543,7 +2547,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &99384811
@@ -3121,7 +3125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e5a2de98-3fb7-4d53-9675-610180aea254
+  _uidString: 1c4edc8c-30a6-4a10-b122-aceeea38000f
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -3139,6 +3143,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -3149,7 +3154,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &130807689
@@ -3555,7 +3560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e9483b2c-35b2-4e0d-9516-8703e48eb8af
+  _uidString: cd9211b1-841b-41b1-9bb7-3a8634a77e85
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -3570,6 +3575,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -3580,7 +3586,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &183636217
@@ -3992,7 +3998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 15ae9cd1-171a-40e5-9a49-81c656f31812
+  _uidString: ea1818d1-14c3-46bb-b7aa-c1e12530bad0
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4009,6 +4015,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -4019,7 +4026,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &200955535
@@ -4549,7 +4556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: c801da88-5f82-4b5c-8775-9ef3680f50d7
+  _uidString: 8606979d-6e84-438d-9d15-28cce6bc4a51
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4563,6 +4570,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -4573,7 +4581,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &252703155
@@ -4961,7 +4969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7dde899d-ce94-4994-98f9-275b11162005
+  _uidString: 8206b259-9d3d-42b1-b3bd-fefb203a54c3
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -4976,6 +4984,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -4986,7 +4995,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &277211457
@@ -6414,7 +6423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 05d4b41d-db76-4425-b4a8-43e6c7be00f8
+  _uidString: b3603ca3-d67c-4030-896c-32a84f925c06
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -6430,6 +6439,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 00000000
   myMapStatus: 0
   isStorming: 0
@@ -6440,7 +6450,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &372249584
@@ -6760,7 +6770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 323fd6b9-7678-4a91-856b-897c2b1075a8
+  _uidString: d567dbe5-4c63-487f-9454-bd245a36baab
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -6777,6 +6787,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -6787,7 +6798,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &398297926
@@ -7186,7 +7197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 4d3764bb-8ac2-4321-83ae-1bff4c8cb3e3
+  _uidString: 066fa3e7-5842-4feb-a289-839e526159ed
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -7204,6 +7215,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -7214,7 +7226,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &420670821
@@ -10397,7 +10409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 200b4732-83a7-4738-a2d4-cbdcca0e1ff3
+  _uidString: a7bc1dbd-593d-42eb-8853-1acbed702fc2
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -10414,6 +10426,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -10424,7 +10437,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &472952290
@@ -12642,7 +12655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: bdee8bb9-8145-4779-9ae0-1dddf6a54bb1
+  _uidString: 35fcf09a-456b-403a-8923-ae0a7917f112
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -12658,6 +12671,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -12668,7 +12682,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &571030082
@@ -15164,7 +15178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 7464fc4d-bb4b-49f6-b30b-a5e0ad1b2264
+  _uidString: eb252b91-b20a-4e3b-93b4-f2d46bec0cb7
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15180,6 +15194,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 03000000
   myMapStatus: 0
   isStorming: 0
@@ -15190,7 +15205,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &690757098
@@ -15410,7 +15425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 82e41658-7c14-4df8-b6f6-1a7a014a5c3a
+  _uidString: 743e22f4-06f2-42f2-ae59-58262c79651a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15428,6 +15443,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -15438,7 +15454,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &691611725
@@ -15750,7 +15766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a6876606-cb8b-4f94-94cd-ed0fda9b182e
+  _uidString: 553f2cca-b976-4911-867e-1ca5a63077eb
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -15765,6 +15781,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -15775,7 +15792,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &697810839
@@ -16043,7 +16060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 71d12852-3d03-480c-8f36-e74dac6ab860
+  _uidString: ac39098d-1a29-4cd0-a113-8af11fc9c46c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16060,6 +16077,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -16070,7 +16088,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &730612839
@@ -16883,7 +16901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: dd0ad7d0-848f-4890-a604-f18222ad1657
+  _uidString: bcf3f279-1803-4986-ae4a-160fea41e340
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -16901,6 +16919,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -16911,7 +16930,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &776288206
@@ -17259,7 +17278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 66af744b-0801-4a1d-90ea-4d6af8d9863e
+  _uidString: 0e3e6950-c2ea-4274-b473-870a4831b039
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17275,6 +17294,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -17285,7 +17305,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &777829846
@@ -17628,7 +17648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: fd22de33-395f-4d60-8a9b-8abf8cbc6a1f
+  _uidString: 0b575ee7-78b0-49f7-834a-690cbd73a93d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17642,6 +17662,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -17652,7 +17673,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &792511523
@@ -17947,7 +17968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 6f7b437d-3102-41ef-a43c-5c2062c77ad3
+  _uidString: bf6e9360-7c24-4b70-ad74-2c38bcacc590
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -17964,6 +17985,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 03000000
   myMapStatus: 0
   isStorming: 0
@@ -17974,7 +17996,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &825885558
@@ -18844,7 +18866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 708351fe-f3e4-4045-b936-d13712bec4a4
+  _uidString: d539f40b-ab8e-4adc-8b6e-7a876c4468aa
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -18860,6 +18882,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -18870,7 +18893,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &851984734
@@ -19501,7 +19524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: bf9d0348-7c20-42ed-80bf-cfaf968fde2a
+  _uidString: fda4b0f8-86b6-4858-8d45-7e70f142369a
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -19517,6 +19540,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -19527,7 +19551,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &871577622
@@ -20321,7 +20345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1b7816d3-4743-4813-98f6-3f3d12b0180a
+  _uidString: 87de13f3-cbee-46df-8872-d02eb081a855
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -20337,6 +20361,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -20347,7 +20372,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &959105942
@@ -21130,7 +21155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 135f08a9-7012-43ab-af42-8d8b6dd404fc
+  _uidString: d60a573f-161d-4485-a081-f87b91ea57a9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21146,6 +21171,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -21156,7 +21182,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &974815237
@@ -21914,7 +21940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: e679b25e-51f7-4526-a626-0614ef2694f1
+  _uidString: 9aabb067-2a5b-4fa6-ab56-d48ab4d712d4
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -21930,6 +21956,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 03000000
   myMapStatus: 0
   isStorming: 0
@@ -21940,7 +21967,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1029695988
@@ -23479,7 +23506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 3d7ef95d-215f-4f0b-8ef1-df951179fc50
+  _uidString: 8a049b6a-bce8-4f03-b89d-7266f89b4099
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -23497,6 +23524,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -23507,7 +23535,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1180343191
@@ -23833,7 +23861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 3e7ebd9a-8ed5-4060-84b1-8a6955de0a0b
+  _uidString: 0451d1da-9ade-41cc-b9b5-a57235ac2c24
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -23848,6 +23876,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -23858,7 +23887,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1205153113
@@ -24606,7 +24635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d77ce15d-7a25-4d4d-ba07-2869bdb09e9e
+  _uidString: fe1c37af-ed20-4a4a-bacf-0c7f449e695c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -24622,6 +24651,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -24632,7 +24662,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1244787255
@@ -24878,9 +24908,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -537.7123, y: -657.00543}
+  m_AnchoredPosition: {x: 27.298178, y: 440.5232}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25043,7 +25073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: ebf15413-8019-4f56-9cb9-118cb42b869d
+  _uidString: c06f35c8-cd07-4610-b018-a7486fa36de8
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -25059,6 +25089,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 01000000
   myMapStatus: 0
   isStorming: 0
@@ -25069,7 +25100,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1259804192
@@ -26819,7 +26850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 1f1874f5-8f52-452f-bbf2-a1bb8be97763
+  _uidString: 7f6f9671-48a8-4691-81a6-b29468e2576c
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -26836,6 +26867,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -26846,7 +26878,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1379708719
@@ -27874,7 +27906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8340c179-6335-4290-b59c-d09459f9a719
+  _uidString: 033b5987-8fb3-42e6-89e4-4b5b2df49369
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -27889,6 +27921,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -27899,7 +27932,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1458076139
@@ -28354,7 +28387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 8346b3c4-5667-431b-b14e-8873bd1ed563
+  _uidString: b8e37053-3e87-4cf2-b745-4d8a1c156208
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -28369,6 +28402,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -28379,7 +28413,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1474732709
@@ -29366,7 +29400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 27459f42-789f-43c3-b150-c6039881278f
+  _uidString: c6701f46-0577-42cc-8b71-5708037f8828
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -29380,6 +29414,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -29390,7 +29425,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1519745987
@@ -29696,7 +29731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 340f7fbd-41d4-434a-8d06-e99296f7349d
+  _uidString: 2a91754c-c655-4c15-a132-24365b59eff4
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -29712,6 +29747,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -29722,7 +29758,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1542019186
@@ -30767,7 +30803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 5dc98639-dddb-4ccf-bf53-a3eb44f577a7
+  _uidString: b54ba654-703f-4509-b274-c0b4fcf180e9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -30783,6 +30819,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -30793,7 +30830,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1613320570
@@ -30997,7 +31034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 0bf35e2a-f1e9-40c6-b7be-1c5068909de5
+  _uidString: 1b90c909-01ee-46f0-a984-8597fa9fa690
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -31013,6 +31050,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -31023,7 +31061,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1615284219
@@ -31416,7 +31454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a6ace8a5-81b8-4870-ae68-86edd4497771
+  _uidString: c5b8eefb-5727-475f-aabf-1d6779adf9a5
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -31433,6 +31471,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -31443,7 +31482,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1616109466
@@ -32137,7 +32176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 2d7215da-a0a6-4b6e-88a7-ef71127d24bc
+  _uidString: 39ae786a-a0e1-47c4-b772-8fd1aea94afe
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -32152,6 +32191,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -32162,7 +32202,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1670982337
@@ -32826,7 +32866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 37fc3ec2-a74d-48c9-b518-17c22af342d0
+  _uidString: 7114dc27-e977-422a-93a5-0e6b2feb11a2
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -32843,6 +32883,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -32853,7 +32894,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1713012823
@@ -33049,7 +33090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 588f5a22-77d4-440c-a512-41db85e293ca
+  _uidString: b3738661-9664-4241-bce9-d87b65528fa4
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -33064,6 +33105,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -33074,7 +33116,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1739431884
@@ -33792,7 +33834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: bba43095-5520-48f2-865c-04c9806d39bc
+  _uidString: b8235205-8c9d-4119-9c4a-7d5342bfe76d
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -33807,6 +33849,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -33817,7 +33860,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1799901122
@@ -35562,7 +35605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: d0b63cfc-f232-4e60-9a27-5c1d55cd1ea8
+  _uidString: e7398cc2-0ddc-4aba-ae79-528c37a879b9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -35579,6 +35622,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -35589,7 +35633,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1882902889
@@ -36068,7 +36112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 6617ae19-c841-4248-84ac-0f8af2dd6abf
+  _uidString: 2b71dd60-8294-47b0-a2f1-fe4cd567fb2e
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -36082,6 +36126,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -36092,7 +36137,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!43 &1914417794
@@ -36477,7 +36522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 83621800-bdc3-4ca6-ac3f-2efc075835a5
+  _uidString: f1dd040c-3184-4b40-9333-9645d78e0caa
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -36492,6 +36537,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 01000000
   myMapStatus: 0
   isStorming: 0
@@ -36502,7 +36548,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1928178404
@@ -36702,7 +36748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: a633a4a4-5093-446b-b14d-2035f6f214d5
+  _uidString: 4be2635c-917a-4034-8ddb-7b557eab9ca7
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -36719,6 +36765,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -36729,7 +36776,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1942986530
@@ -37105,7 +37152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 3dabfa2a-fcd7-4275-9680-584f409add57
+  _uidString: 97e7dace-b5d0-410c-a204-57f7f40ddb83
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -37121,6 +37168,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -37131,7 +37179,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &1979293116
@@ -37528,7 +37576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 21341b27-5a92-4b80-8aee-c01f08575342
+  _uidString: 3dc8f7d8-09c9-4008-a447-4c5e5a4231c5
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -37543,6 +37591,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -37553,7 +37602,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &2002064993
@@ -37769,7 +37818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 00a47800-cd1a-4d0b-8321-9ff7c2072187
+  _uidString: a75b88ae-2fe2-45dd-9c9c-a2dba2b90ba9
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -37785,6 +37834,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -37795,7 +37845,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &2015586003
@@ -38178,7 +38228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
-  _uidString: 4f5b12c3-b186-422b-b8e8-2d3486bee3af
+  _uidString: 62fab721-61a7-4bcb-af3a-87f251546069
   Reliability: 1
   LocalMethodBehavior: 1
   occupyingShip: 
@@ -38193,6 +38243,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -38203,7 +38254,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &2035763652
@@ -39386,6 +39437,7 @@ MonoBehaviour:
   areNeighboursHighlited: 0
   allowTerrainHighlight: 1
   isAttacker: 0
+  isHighlighted: 0
   myInteractables: 
   myMapStatus: 0
   isStorming: 0
@@ -39396,7 +39448,7 @@ MonoBehaviour:
   neighbouringTerrainMaterial: {fileID: 2100000, guid: e20019cbe1958f3489689f30eeaf86c9, type: 2}
   hostileNeighbouringTerrainMaterial: {fileID: 2100000, guid: 0e774d45d5065474bb0b8475634f01c0, type: 2}
   allyNeighbouringTerrainMaterial: {fileID: 2100000, guid: 3730f01464f572143a2d1777aa9e4d0b, type: 2}
-  contestedNeighbouringTerrain: {fileID: 0}
+  contestedNeighbouringTerrain: {fileID: 2100000, guid: a008deb12373bed468ee4c14ebb10bcd, type: 2}
   treasureMaterial: {fileID: 2100000, guid: 75c6afc95fa51d646ace8e04f3aa1b80, type: 2}
   selectableMode: 0
 --- !u!64 &2132712193

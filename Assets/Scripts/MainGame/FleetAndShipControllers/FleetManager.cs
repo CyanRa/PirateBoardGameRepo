@@ -192,6 +192,9 @@ public class FleetManager : CommunicationBridge
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().playersList[MenuController.GetComponent<MenuBehaviour>().playersList.Count -1]){
             gameEventManager.GameTurn = true;
         }    
+        foreach(Transform map in gameEventManager.transform){
+            map.GetComponent<MapPieceBehaviour>().HandleMapPieceStatus(myShips[0]?.GetComponent<Ship>());
+        }
     }
     public void StartTurn(){
         if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
@@ -396,7 +399,6 @@ public class FleetManager : CommunicationBridge
                         if(hit.transform.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor){
                             MainSpawner.SpawnShip(hit.transform.GetChild(0));
                             gameEventManager.DehighlightMaps();
-                            hit.transform.GetComponent<MapPieceBehaviour>().isHighlighted = false;
                             done = true;
                         }
                     }
@@ -405,5 +407,11 @@ public class FleetManager : CommunicationBridge
         yield return null;
         }
     }
-
+    public void GainFlagshipActionPoint(){
+        foreach(GameObject ship in myShips){
+            if(ship.GetComponent<Ship>().isFlagship){
+                ship.GetComponent<Ship>().actionPoints += 1;
+            }
+        }
+    }
 }

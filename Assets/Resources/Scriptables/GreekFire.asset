@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GreekFire
   m_EditorClassIdentifier: 
   consumableName: GreekFire
-  description: fire
+  description: Destroys all ships on the occupied map piece (Only usable when attacked)
   image: MainGame/Interactables/Consumables/GreekFire
   consumableIndex: 4
   userFleet: {fileID: 0}

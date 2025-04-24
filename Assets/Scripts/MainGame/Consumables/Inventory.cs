@@ -39,6 +39,8 @@ public class Inventory : MonoBehaviour
         myConsumables.Add(tempConsumable);
         tempConsumable = Resources.Load<Consumable>("Scriptables/Shipwright");
         myConsumables.Add(tempConsumable);
+        tempConsumable = Resources.Load<Consumable>("Scriptables/CaptainsDecree");
+        myConsumables.Add(tempConsumable);
     }
 
     public void AddConsumable(){

@@ -94,6 +94,7 @@ public class BattleManager : AttributesSync
 
     }
     public void BroadcastEndBattle(){
+        
         InvokeRemoteMethod("EndBattle",(ushort)attackerUID);
         InvokeRemoteMethod("EndBattle",(ushort)defenderUID);
     }
@@ -110,6 +111,7 @@ public class BattleManager : AttributesSync
         myHand.PurgeUI();
         PurgeDataOfFinishedBattle();
         myHand.BattleCanvas.SetActive(false);
+        
     }
 
     private void PurgeDataOfFinishedBattle(){

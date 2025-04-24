@@ -38,16 +38,6 @@ public class TributeToTheOldGods : Consumable
 
 
 
-[CreateAssetMenu(fileName = "CaptainsDecree", menuName = "Consumable/CaptainsDecree", order = 1)]
-public class CaptainsDecree : Consumable
-{
-
-    public override void UseConsumable(FleetManager userFleet){
-       Debug.Log("Captains Decree");       
-    }
-}
-
-
 [CreateAssetMenu(fileName = "TalesOfTheFlagShip", menuName = "Consumable/TalesOfTheFlagShip", order = 1)]
 public class TalesOfTheFlagship : Consumable
 {    public override void UseConsumable(FleetManager userFleet){

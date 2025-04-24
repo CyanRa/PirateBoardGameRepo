@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc14d0d2fb68ba40b6ffa40481b051d, type: 3}
-  m_Name: GreekFire
+  m_Script: {fileID: 11500000, guid: 871b805cd7ddde34e886b792774b3528, type: 3}
+  m_Name: CaptainsDecree
   m_EditorClassIdentifier: 
-  consumableName: GreekFire
-  description: fire
-  image: MainGame/Interactables/Consumables/GreekFire
-  consumableIndex: 4
+  consumableName: Captain's Decree
+  description: 'You may use an additional flagship action this turn '
+  image: MainGame/Interactables/Consumables/captainsDecree
+  consumableIndex: 5
   userFleet: {fileID: 0}
