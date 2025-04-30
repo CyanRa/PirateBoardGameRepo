@@ -179,14 +179,13 @@ public class Ship : AttributesSync
     }
     //For spawning from being bought 
     public void SpawnShipFromHarbour(Transform _hit){       
-        occupyingMapPiece?.BroadCastRemoveOccupyingShip(gameObject.name);
         mapPieceAnchor = _hit.GetChild(0).transform;
         occupyingMapPiece = _hit.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
         occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
         occupyingMapPiece.defenderShip = GetComponent<Ship>();
         isMoving = true;
-        gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
+        actionPoints -=1;
         movementPoints -= 1;
         UpdateShipDisplayIcon();
         occupyingMapPiece.ResetMaterial();
@@ -232,6 +231,7 @@ public class Ship : AttributesSync
     }
 
     public void ChangeShipHealth(int damage){
+        Debug.Log("TAKING " + damage + " DAMAGE");
         myFleet = GetComponentInParent<FleetManager>();
         healthPoints -= damage;
         if(healthPoints < 1){
@@ -240,6 +240,7 @@ public class Ship : AttributesSync
         BroadcastRemoteMethod("CheckShipStatus");
 
     }
+    
     [SynchronizableMethod]
     private void CheckShipStatus(){
         if(occupyingMapPiece==null){
@@ -247,8 +248,14 @@ public class Ship : AttributesSync
         }
         if(healthPoints < 1){
             occupyingMapPiece?.BroadCastRemoveOccupyingShip(name);
+            RemoveShipFromFleetPanel();
             Destroy(transform.gameObject);
         }
+    }
+
+    private void RemoveShipFromFleetPanel()
+    {
+        Destroy(myFleet.MenuController.GetComponent<MenuBehaviour>().FleetPanel.transform.GetChild(myFleet.myShips.IndexOf(gameObject)).gameObject);    
     }
 
     //SELECTING SHIPS FROM FLEET PANEL ICONS
@@ -382,6 +389,7 @@ public class Ship : AttributesSync
 
     //WAITING FOR DEFENDER TO SEND BACK ACTION
     public void WaitForDefenderShipReaction(int attackerID, string attackerName){
+        Debug.Log("WAITING FOR DEFENDER REACTION");
         myFleet = GetComponentInParent<FleetManager>();
         InvokeRemoteMethod("AskOwnerForAction", myFleet.avatar.Owner.Index, attackerID, attackerName);
             
@@ -389,18 +397,20 @@ public class Ship : AttributesSync
 
     [SynchronizableMethod]
     private void AskOwnerForAction(int attackerID, string attackerName){
-
+        Debug.Log("INSTANTIATING DEFENDER OPTIONS");
         GameObject tempPanel;
         tempPanel = myFleet.MenuController.GetComponent<MenuBehaviour>().defendingShipOptionsPanel;
         tempPanel.SetActive(true);
         UnityEngine.UI.Button tempButton = tempPanel.transform.GetChild(0).GetComponent<UnityEngine.UI.Button>();
-        tempButton.onClick.AddListener(() => InvokeStartCombat(attackerName, name, attackerID));
+        tempButton.onClick.RemoveAllListeners();
+        tempButton.onClick.AddListener(() => InvokeStartCombat(attackerName, name, attackerID, tempButton));
         tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
         bool a = false;
 
         tempButton = tempPanel.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>();
+        tempButton.onClick.RemoveAllListeners();
         foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
-            if(consumable.consumableIndex == 3 && isFlagship){
+            if(consumable.consumableIndex == 2 && isFlagship){
                 tempButton.onClick.AddListener(() => UsePassageInDefence(tempButton, consumable));
                 tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
                 tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
@@ -415,9 +425,9 @@ public class Ship : AttributesSync
         }
 
         tempButton = tempPanel.transform.GetChild(2).GetComponent<UnityEngine.UI.Button>();
+        tempButton.onClick.RemoveAllListeners();
         foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
             if(consumable.consumableIndex == 4){
-                Debug.Log("HAS POWER ADDED TO BUTTON");
                 tempButton.onClick.AddListener(() => UseGreekFireInDefence(tempButton, consumable));
                 tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
                 tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
@@ -428,14 +438,18 @@ public class Ship : AttributesSync
             }           
         }       
     }
+    private void RemoveAllListeners(){
+        
+    }
 
     [SynchronizableMethod]
     private void StartCombat(string attacker, string defender){
         Multiplayer.GetAvatar().GetComponent<FleetManager>().EnterCombat(attacker, defender);
     }
     
-    private void InvokeStartCombat(string attacker, string defender, int attackerID){
+    private void InvokeStartCombat(string attacker, string defender, int attackerID, UnityEngine.UI.Button button){
         InvokeRemoteMethod("StartCombat", (ushort)attackerID,attacker,defender);
+        button.onClick.RemoveAllListeners();
     }
     private void UsePassageInDefence(UnityEngine.UI.Button button, Consumable consumable){
         consumable.UseConsumable(GetComponentInParent<FleetManager>());
@@ -452,8 +466,6 @@ public class Ship : AttributesSync
         button.onClick.RemoveAllListeners();
         tempPanel.SetActive(false);
     }
-        
-    
 
-
+  
 }

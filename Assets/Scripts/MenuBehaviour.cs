@@ -37,6 +37,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite TreasureButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
+    public GameObject victoryPanel;
     
     
 #endregion
@@ -52,6 +53,7 @@ public class MenuBehaviour : AttributesSync
     {
         StartGameButton = GameObject.Find("StartGameButton").GetComponent<Button>();      
         StartGameButton.onClick.AddListener(BroadCastTriggerStartGame);
+        
     }
     public void ShowConsumablePanel(){
         if(consumablePanel.activeSelf == true){
@@ -325,5 +327,8 @@ public class MenuBehaviour : AttributesSync
         foreach(Transform child in InteractablePanelPrefab.transform){
             Destroy(child.gameObject);
         }
+    }
+    public void DisplayVictoryPanel(bool a){  
+        victoryPanel.SetActive(a);
     }
 }

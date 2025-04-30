@@ -288,7 +288,7 @@ public class MapPieceBehaviour : AttributesSync
     }
     [SynchronizableMethod]
     private void RemoveOccupyingShip(string enteringShip){
-        if(GameObject.Find(enteringShip).GetComponent<Ship>() == null)return;
+        if(GameObject.Find(enteringShip)?.GetComponent<Ship>() == null)return;
         Ship _ship = GameObject.Find(enteringShip).GetComponent<Ship>();
         occupyingShips.Remove(_ship);  
         if(occupyingShips.Count == 0){

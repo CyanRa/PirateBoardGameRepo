@@ -37,6 +37,8 @@ public class FleetManager : CommunicationBridge
     private Animator myAnimator;
     public Inventory myInventory;
     private GameEventManager gameEventManager;
+    private VictoryPanelBehaviour myVictoryPanel;
+    public bool victoryDecisionMade = false;
     public bool lastPlayer;
     
     [SerializeField]public bool immuneToStorm = false;
@@ -62,6 +64,10 @@ public class FleetManager : CommunicationBridge
         myAnimator = GameObject.Find("MainGameAnimator")?.GetComponentInChildren<Animator>();
 		myAnimator?.SetTrigger("Start");  
         myInventory = GetComponent<Inventory>();   
+        myVictoryPanel = GameObject.Find("VictoryPanel")?.GetComponentInChildren<VictoryPanelBehaviour>();
+        myVictoryPanel.myFleet = GetComponent<FleetManager>();
+        myVictoryPanel.gameObject.SetActive(false);
+        
     }
 
     public void Start(){
@@ -241,13 +247,16 @@ public class FleetManager : CommunicationBridge
 #endregion
 
     public void EnterCombat(string attacker, string defender){
+        Debug.Log("ENTERING COMBAT");
         foreach(GameObject ship in myShips){
             if(ship.name == attacker){
-                Debug.Log("ATTACKING SHIP REGISTERED", ship);
+                Hand _myHand = GetComponent<Hand>();
+                BattleManager _BattleManager = _myHand.BattleCanvas.transform.GetComponentInParent<BattleManager>();
+                _BattleManager.attackingShip = attacker;
                 EnterCombatAsAttacker(attacker, defender);
+                
             }else if(ship.name == defender){
                 EnterCombatAsDefender(defender);
-                Debug.Log("DEFENDING SHIP REGISTERED", ship);
             }else{
             }
         }
@@ -262,7 +271,7 @@ public class FleetManager : CommunicationBridge
                 if(Physics.Raycast(ray, out hit)){
                     if(hit.transform.GetComponent<Ship>() != null){
                         if(hit.transform.GetComponent<Ship>().myFleet != GetComponent<FleetManager>()){
-                            //EnterCombatAsAttacker(attacker.name, hit.transform.name);
+                            Debug.Log("SELECTING " + hit.transform.name + " TO ATTACK");
                             attacker.occupyingMapPiece.SetMyShipsNonSelectable();
                             hit.transform.GetComponent<Ship>().WaitForDefenderShipReaction(attacker.myFleet.avatar.Owner.Index, attacker.name);
                             hit.transform.GetComponent<Ship>().ChangeShipColour(hit.transform.GetComponentInParent<FleetManager>().fleetColour);
@@ -282,6 +291,7 @@ public class FleetManager : CommunicationBridge
         _myHand.InstantiateHand();
         BattleManager _BattleManager = _myHand.BattleCanvas.transform.GetComponentInParent<BattleManager>();
         _BattleManager.shipInCombat = GameObject.Find(attacker).GetComponent<Ship>();
+        _BattleManager.attackingShip = attacker;
         _BattleManager.attackerUID = Multiplayer.GetUser().Index;
         _BattleManager.myHand = GetComponent<Hand>();
         _BattleManager.myTurnID = 1;
@@ -295,6 +305,7 @@ public class FleetManager : CommunicationBridge
         mapPiece.BroadcastBeginBattleDefender("", defender, defenderUID);
         _BattleManager.BroadcastInitializePrefabForDefender(defenderUID, _defenderShip.name);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        
         
 
     }
@@ -312,6 +323,7 @@ public class FleetManager : CommunicationBridge
         Button endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
         endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        _BattleManager.defendingShip = defender;
     }
 
     
@@ -413,5 +425,55 @@ public class FleetManager : CommunicationBridge
                 ship.GetComponent<Ship>().actionPoints += 1;
             }
         }
+    }
+
+    public void HandleCombatVictory(int damage, string ship, string shipb){
+        Ship defendingShip = GameObject.Find(ship).GetComponent<Ship>();
+        Ship attackingShip = GameObject.Find(shipb).GetComponent<Ship>();
+        if(damage > 4 || defendingShip.healthPoints == 1){
+            MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(true);
+            StartCoroutine(WaitForVictoryDecision(defendingShip, attackingShip));
+            victoryDecisionMade = false;
+        }else{
+            switch(defendingShip.shipGold){
+                case 1: attackingShip.GetGold(1);
+                        defendingShip.GetGold(-1);
+                        defendingShip.ChangeShipHealth(1);
+                break;
+                case 0: defendingShip.ChangeShipHealth(1);
+                break;
+                default:attackingShip.GetGold(2);
+                        defendingShip.GetGold(-2); 
+                        defendingShip.ChangeShipHealth(1);
+                break;
+            }
+        }
+    
+        //wait for response
+    }
+    private IEnumerator WaitForVictoryDecision(Ship defendingShip, Ship attackingShip){
+        while(!victoryDecisionMade){              
+            yield return null;
+        }
+            switch(myVictoryPanel.decision){
+                case "Plunder":
+                GetComponent<FleetManager>().GetVictoryPoints(3);
+                attackingShip.GetGold(defendingShip.shipGold);
+                defendingShip.ChangeShipHealth(2);
+                MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(false);
+                break;
+                case "Capture":
+                GetComponent<FleetManager>().GetVictoryPoints(1);
+                MainSpawner.SpawnShip(attackingShip.occupyingMapPiece.transform.GetChild(0));
+                myShips.Last().GetComponent<Ship>().GetGold(defendingShip.shipGold);
+                myShips.Last().GetComponent<Ship>().ChangeShipHealth(1);
+                defendingShip.ChangeShipHealth(2);
+                MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(false);
+                break;
+                default: yield return null;
+                break;  
+            }   
+        
+
     }
 }

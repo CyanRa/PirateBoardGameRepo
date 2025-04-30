@@ -17,6 +17,8 @@ public class BattleManager : AttributesSync
     public TextMeshProUGUI turnOwnerText;
     [SynchronizableField]public string attackerName;
     [SynchronizableField]public string defenderName;
+    [SynchronizableField]public string attackingShip ="";
+    [SynchronizableField]public string defendingShip="";
     [SynchronizableField]public string turnOwnerDisplay;
     [SynchronizableField]public int turnOwner;
     [SynchronizableField]public int attackerUID;
@@ -27,6 +29,7 @@ public class BattleManager : AttributesSync
     [SynchronizableField] public int defenderPower;
     [SynchronizableField] public List<int> attackerPlayedCards;
     [SynchronizableField] public List<int> defenderPlayedCards;
+
 
     void Start()
     {
@@ -96,13 +99,13 @@ public class BattleManager : AttributesSync
     public void BroadcastEndBattle(){
         
         InvokeRemoteMethod("EndBattle",(ushort)attackerUID);
-        InvokeRemoteMethod("EndBattle",(ushort)defenderUID);
+        InvokeRemoteMethod("FinishBattleForDefender",(ushort)defenderUID);
     }
 
     [SynchronizableMethod]
     public void EndBattle(){
-        if(attackerPower > defenderPower){
-            DealDamageToLoser();
+        if(attackerPower > defenderPower){     
+            InvokeRemoteMethod("DisplayAttackerOptions", (ushort)attackerUID, defendingShip, attackerPower - defenderPower);
         }else{
 
         }
@@ -113,6 +116,14 @@ public class BattleManager : AttributesSync
         myHand.BattleCanvas.SetActive(false);
         
     }
+    [SynchronizableMethod]
+    private void FinishBattleForDefender(){
+        Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
+        _endCardTurnButton.onClick.RemoveAllListeners();
+        myHand.PurgeUI();
+        PurgeDataOfFinishedBattle();
+        myHand.BattleCanvas.SetActive(false);
+    }
 
     private void PurgeDataOfFinishedBattle(){
         turnOwner = 1;
@@ -122,10 +133,11 @@ public class BattleManager : AttributesSync
 
     }
 
-    private void DealDamageToLoser(){
-        if(myTurnID == 0){
-            shipInCombat.ChangeShipHealth(1);
-        }
+    [SynchronizableMethod]
+    private void DisplayAttackerOptions(string ship, int damage){ 
+        Ship _ship = GameObject.Find(ship).GetComponent<Ship>();
+        Ship _attackingShip = GameObject.Find(attackingShip).GetComponent<Ship>();
+        _attackingShip.GetComponentInParent<FleetManager>().HandleCombatVictory(damage, defendingShip, attackingShip);
     }
 
     public bool MyTurn(){
