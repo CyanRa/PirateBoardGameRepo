@@ -73,6 +73,7 @@ public class ShipSpawnerBehaviour : AttributesSync
                 _ship.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
                 _ship.GetComponent<Ship>().enabled = true;
                 _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
+                _ship.GetComponent<Ship>().offsetPosition[0] =  _ship.GetComponentInParent<FleetManager>().fleetPositionIndex;
                 
                 string shipColour = _avatar.GetComponent<FleetManager>().fleetColour;
                 _ship.GetComponent<Ship>().enabled = false;

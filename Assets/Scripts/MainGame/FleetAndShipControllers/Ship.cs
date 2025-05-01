@@ -255,6 +255,7 @@ public class Ship : AttributesSync
 
     private void RemoveShipFromFleetPanel()
     {
+        if(!myFleet.myShips.Contains(gameObject))return;
         Destroy(myFleet.MenuController.GetComponent<MenuBehaviour>().FleetPanel.transform.GetChild(myFleet.myShips.IndexOf(gameObject)).gameObject);    
     }
 
