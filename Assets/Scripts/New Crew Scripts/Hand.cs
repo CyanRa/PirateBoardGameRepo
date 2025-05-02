@@ -31,7 +31,6 @@ public class Hand : MonoBehaviour
     public void Start()
     {
         avatar = this.gameObject.GetComponent<FleetManager>().avatar;
-        //Initial referencing of Buttons and decks for fighting phase
         if(!avatar.IsMe) return;
         InitializeBattleZoneGameObjects();
         _cMSaveLoadHandler = deckLoader.GetComponent<CMSaveLoadHandler>();                   

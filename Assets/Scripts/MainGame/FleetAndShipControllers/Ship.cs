@@ -137,12 +137,27 @@ public class Ship : AttributesSync
 		
 		        if( Physics.Raycast( ray, out hit, 1000, MovementLayer )){
                     List<MapPieceBehaviour> _mapPieces = new List<MapPieceBehaviour>(); 
-		            foreach(MapPieceBehaviour _map in occupyingMapPiece.neighboringTerrain){
+                    bool onlyHostileNeighbours = true;
+		            foreach(MapPieceBehaviour _map in occupyingMapPiece.neighboringTerrain){                       
                         _mapPieces.AddRange(_map.neighboringTerrain);
+                        foreach(MapPieceBehaviour secondMapPiece in _map.neighboringTerrain){
+                            foreach(MapPieceBehaviour connectingMapPiece in secondMapPiece.neighboringTerrain){
+                                if(occupyingMapPiece.neighboringTerrain.Contains(connectingMapPiece) && connectingMapPiece.myMapStatus != MapPieceBehaviour.MapStatus.Hostile){
+                                    onlyHostileNeighbours = false;
+                                }
+                            }
+                            if(onlyHostileNeighbours == true){
+                                _mapPieces.Remove(secondMapPiece);                               
+                            }
+                            onlyHostileNeighbours = true;
+                        }
+                        
                     }
                     if(occupyingMapPiece.neighboringTerrain.Contains(hit.transform.GetComponent<MapPieceBehaviour>())||_mapPieces.Contains(hit.transform.GetComponent<MapPieceBehaviour>())){  
                         if(occupyingMapPiece == hit.transform.GetComponent<MapPieceBehaviour>())return;                     
                         MoveFromAMapPieceToAMapPiece(hit);
+                    }else{
+                        myFleet.DeselectAll();
                     }                    
                 }
             } 

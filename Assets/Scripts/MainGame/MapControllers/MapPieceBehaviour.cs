@@ -63,6 +63,7 @@ public class MapPieceBehaviour : AttributesSync
     private MenuBehaviour MenuSystem;
     public bool selectableMode;
     RTS_Camera myCamera;
+    public bool blocked;
 
     void Start()
     {
@@ -147,7 +148,14 @@ public class MapPieceBehaviour : AttributesSync
             }
           
                 foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
-                    map2.areNeighboursHighlited = true;
+                    bool isBlocked = false;
+                    foreach(MapPieceBehaviour connectingMapPiece in map2.neighboringTerrain){
+                        if(neighboringTerrain.Contains(connectingMapPiece) && connectingMapPiece.myMapStatus == MapPieceBehaviour.MapStatus.Hostile){
+                            isBlocked = true;
+                        }
+                    }
+                    if(!isBlocked){
+                        map2.areNeighboursHighlited = true;
                 switch(map2.myMapStatus){
                     case MapStatus.Empty: 
                         map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
@@ -164,6 +172,9 @@ public class MapPieceBehaviour : AttributesSync
                     default:break;
                 
                     }
+                    }
+                    isBlocked = false;
+                    
                 }
             }
         GetComponent<MeshRenderer>().material =myMaterial;
@@ -197,6 +208,8 @@ public class MapPieceBehaviour : AttributesSync
             GetComponent<MeshRenderer>().material = treasureMaterial;   
         }else if(areNeighboursHighlited){
             GetComponent<MeshRenderer>().material = tempMaterial;  
+        }else if(blocked){
+            GetComponent<MeshRenderer>().material = myMaterial; 
         }else{
             GetComponent<MeshRenderer>().material = myMaterial;  
         }  

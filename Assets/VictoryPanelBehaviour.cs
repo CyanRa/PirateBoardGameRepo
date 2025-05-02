@@ -5,7 +5,7 @@ public class VictoryPanelBehaviour : MonoBehaviour
 {
     public Button PlunderButton;
     public Button CaptureButton;
-    public string decision;
+    public string decision = "";
 
     public FleetManager myFleet;
 

@@ -56,7 +56,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         foreach(MapPieceBehaviour map in mapPieceBehaviour.neighboringTerrain){
             StormingMapPieces.Add(map);
             map.isStorming = true;
-            foreach(Ship ship in map.occupyingShips){
+            foreach(Ship ship in map.occupyingShips.ToList()){
                 map.HandleStorm(ship);
             }
         }
