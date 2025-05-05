@@ -173,6 +173,9 @@ public class MenuBehaviour : AttributesSync
         }  
         turnOwner = listOfUsers[0];
         TurnDisplayText.text = turnOwner + "'s Turn";
+        if(playersList.Last() == Multiplayer.Me.Name){
+            Multiplayer.GetAvatar().GetComponent<FleetManager>().lastPlayer = true;
+        }
     }
 
     
@@ -222,6 +225,7 @@ public class MenuBehaviour : AttributesSync
         myAvatar.GetComponent<FleetManager>().StartGame();
         PreGameMenu.SetActive(false);       
         Destroy(StartGameButton.gameObject);
+        
     }
 #endregion
 

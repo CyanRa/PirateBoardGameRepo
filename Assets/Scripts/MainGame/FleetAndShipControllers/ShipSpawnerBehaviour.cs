@@ -60,7 +60,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnIndex++;    
        }      
     }
-    
+  
     [SynchronizableMethod]
     public void SynchSpawnedShip(string _player, int _spawnIndex){
         

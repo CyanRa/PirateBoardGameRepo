@@ -246,24 +246,24 @@ public class Ship : AttributesSync
     }
 
     public void ChangeShipHealth(int damage){
-        Debug.Log("TAKING " + damage + " DAMAGE");
         myFleet = GetComponentInParent<FleetManager>();
         healthPoints -= damage;
-        if(healthPoints < 1){
-            myFleet.RemoveShip(gameObject);        
-        }
         BroadcastRemoteMethod("CheckShipStatus");
 
     }
     
     [SynchronizableMethod]
     private void CheckShipStatus(){
+        
         if(occupyingMapPiece==null){
             occupyingMapPiece = GameObject.Find(occupyingMapPieceName)?.GetComponent<MapPieceBehaviour>();
         }
         if(healthPoints < 1){
-            occupyingMapPiece?.BroadCastRemoveOccupyingShip(name);
-            RemoveShipFromFleetPanel();
+            if(GetComponentInParent<FleetManager>().myShips.Contains(gameObject)){
+                RemoveShipFromFleetPanel();
+                myFleet.myShips.Remove(gameObject);
+            }       
+            occupyingMapPiece?.BroadCastRemoveOccupyingShip(name);          
             Destroy(transform.gameObject);
         }
     }
@@ -405,7 +405,6 @@ public class Ship : AttributesSync
 
     //WAITING FOR DEFENDER TO SEND BACK ACTION
     public void WaitForDefenderShipReaction(int attackerID, string attackerName){
-        Debug.Log("WAITING FOR DEFENDER REACTION");
         myFleet = GetComponentInParent<FleetManager>();
         InvokeRemoteMethod("AskOwnerForAction", myFleet.avatar.Owner.Index, attackerID, attackerName);
             
@@ -413,7 +412,6 @@ public class Ship : AttributesSync
 
     [SynchronizableMethod]
     private void AskOwnerForAction(int attackerID, string attackerName){
-        Debug.Log("INSTANTIATING DEFENDER OPTIONS");
         GameObject tempPanel;
         tempPanel = myFleet.MenuController.GetComponent<MenuBehaviour>().defendingShipOptionsPanel;
         tempPanel.SetActive(true);
@@ -471,7 +469,6 @@ public class Ship : AttributesSync
         consumable.UseConsumable(GetComponentInParent<FleetManager>());
     }
     private void UseGreekFireInDefence(UnityEngine.UI.Button button, Consumable consumable){
-        Debug.Log("This ship used greek fire", this);
         usingGreekFire = true;
         consumable.UseConsumable(GetComponentInParent<FleetManager>());
     }

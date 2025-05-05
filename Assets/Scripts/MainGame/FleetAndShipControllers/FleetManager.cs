@@ -104,7 +104,7 @@ public class FleetManager : CommunicationBridge
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
-                if(hit.transform.GetComponent<Ship>().myFleet.name == name){
+                if(hit.transform.GetComponent<Ship>()?.myFleet.name == name){
                       if(SelectedShip != null)
                 {
                     
@@ -195,7 +195,7 @@ public class FleetManager : CommunicationBridge
             isMyTurn = false; 
             immuneToStorm = false;               
         } 
-        if(Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().playersList[MenuController.GetComponent<MenuBehaviour>().playersList.Count -1]){
+        if(lastPlayer){
             gameEventManager.GameTurn = true;
         }    
         foreach(Transform map in gameEventManager.transform){
@@ -247,7 +247,6 @@ public class FleetManager : CommunicationBridge
 #endregion
 
     public void EnterCombat(string attacker, string defender){
-        Debug.Log("ENTERING COMBAT");
         foreach(GameObject ship in myShips){
             if(ship.name == attacker){
                 Hand _myHand = GetComponent<Hand>();
@@ -271,7 +270,6 @@ public class FleetManager : CommunicationBridge
                 if(Physics.Raycast(ray, out hit)){
                     if(hit.transform.GetComponent<Ship>() != null){
                         if(hit.transform.GetComponent<Ship>().myFleet != GetComponent<FleetManager>()){
-                            Debug.Log("SELECTING " + hit.transform.name + " TO ATTACK");
                             attacker.occupyingMapPiece.SetMyShipsNonSelectable();
                             hit.transform.GetComponent<Ship>().WaitForDefenderShipReaction(attacker.myFleet.avatar.Owner.Index, attacker.name);
                             hit.transform.GetComponent<Ship>().ChangeShipColour(hit.transform.GetComponentInParent<FleetManager>().fleetColour);
@@ -305,9 +303,6 @@ public class FleetManager : CommunicationBridge
         mapPiece.BroadcastBeginBattleDefender("", defender, defenderUID);
         _BattleManager.BroadcastInitializePrefabForDefender(defenderUID, _defenderShip.name);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
-        
-        
-
     }
 
     
@@ -432,8 +427,10 @@ public class FleetManager : CommunicationBridge
         Ship attackingShip = GameObject.Find(shipb).GetComponent<Ship>();
         if(damage > 4 || defendingShip.healthPoints == 1){
             MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(true);
+            defendingShip.occupyingMapPiece.BroadCastRemoveOccupyingShip(defendingShip.name);   
+            defendingShip.occupyingMapPiece.HandleMapPieceStatus(attackingShip);
             StartCoroutine(WaitForVictoryDecision(defendingShip, attackingShip));
-            victoryDecisionMade = false;
+            
         }else{
             switch(defendingShip.shipGold){
                 case 1: attackingShip.GetGold(1);
@@ -452,28 +449,34 @@ public class FleetManager : CommunicationBridge
         //wait for response
     }
     private IEnumerator WaitForVictoryDecision(Ship defendingShip, Ship attackingShip){
+        
         while(!victoryDecisionMade){              
             yield return null;
         }
+        
             switch(myVictoryPanel.decision){
                 case "Plunder":
                 GetComponent<FleetManager>().GetVictoryPoints(3);
                 attackingShip.GetGold(defendingShip.shipGold);
                 defendingShip.ChangeShipHealth(2);
-                MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(false);
+                myVictoryPanel.decision = "";
+                MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(false);  
+                victoryDecisionMade = false;            
                 break;
+                
                 case "Capture":
                 GetComponent<FleetManager>().GetVictoryPoints(1);
                 MainSpawner.SpawnShip(attackingShip.occupyingMapPiece.transform.GetChild(0));
                 myShips.Last().GetComponent<Ship>().GetGold(defendingShip.shipGold);
                 myShips.Last().GetComponent<Ship>().ChangeShipHealth(1);
                 defendingShip.ChangeShipHealth(2);
+                myVictoryPanel.decision = "";
                 MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(false);
+                victoryDecisionMade = false;
                 break;
+                
                 default: yield return null;
                 break;  
-            }   
-        
-
+            }     
     }
 }

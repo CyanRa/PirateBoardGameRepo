@@ -14,9 +14,11 @@ public class VictoryPanelBehaviour : MonoBehaviour
     public void ConfirmPlunder(){
         decision = "Plunder";
         myFleet.victoryDecisionMade = true;
+
     }
     public void ConfrimCapture(){
         decision = "Capture";
         myFleet.victoryDecisionMade = true;
+
     }
 }

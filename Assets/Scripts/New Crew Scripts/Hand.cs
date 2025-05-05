@@ -134,10 +134,11 @@ public class Hand : MonoBehaviour
     }
 
     public void EndCardTurn(){
-        if(battleManager.cardsPlayedLastTurn == false){
-            battleManager.BroadcastEndBattle();
-        }
         if(battleManager.turnOwner == battleManager.myTurnID){
+            if(battleManager.cardsPlayedLastTurn == false){
+            battleManager.BroadcastEndBattle();
+            return;
+            }
             if(battleManager.turnOwner == 1){
             battleManager.turnOwner = 0;
             }else{

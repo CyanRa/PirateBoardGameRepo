@@ -63,7 +63,6 @@ public class MapPieceBehaviour : AttributesSync
     private MenuBehaviour MenuSystem;
     public bool selectableMode;
     RTS_Camera myCamera;
-    public bool blocked;
 
     void Start()
     {
@@ -129,6 +128,7 @@ public class MapPieceBehaviour : AttributesSync
     }
 
     public void HighlightNeighbours(Ship unit){
+        bool isBlocked = true;
         foreach(MapPieceBehaviour map in neighboringTerrain){
             map.areNeighboursHighlited = true;
             switch(map.myMapStatus){
@@ -146,34 +146,33 @@ public class MapPieceBehaviour : AttributesSync
                 break;
                 default:break;                
             }
-          
+
                 foreach(MapPieceBehaviour map2 in map.neighboringTerrain){
-                    bool isBlocked = false;
-                    foreach(MapPieceBehaviour connectingMapPiece in map2.neighboringTerrain){
-                        if(neighboringTerrain.Contains(connectingMapPiece) && connectingMapPiece.myMapStatus == MapPieceBehaviour.MapStatus.Hostile){
-                            isBlocked = true;
+                    isBlocked = true;
+                    foreach(MapPieceBehaviour connectingMapPiece in map2.neighboringTerrain){                      
+                        if(neighboringTerrain.Contains(connectingMapPiece) && connectingMapPiece.myMapStatus != MapPieceBehaviour.MapStatus.Hostile){
+                            isBlocked = false;
                         }
                     }
                     if(!isBlocked){
                         map2.areNeighboursHighlited = true;
-                switch(map2.myMapStatus){
-                    case MapStatus.Empty: 
-                        map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
-                    break;
-                    case MapStatus.Allied:
-                        map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
-                    break;
-                    case MapStatus.Contested:
-                        map2.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
-                    break;
-                    case MapStatus.Hostile:
-                        map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
-                    break;
-                    default:break;
+                        switch(map2.myMapStatus){
+                        case MapStatus.Empty: 
+                            map2.GetComponent<MeshRenderer>().material = neighbouringTerrainMaterial;
+                        break;
+                        case MapStatus.Allied:
+                            map2.GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial;           
+                        break;
+                        case MapStatus.Contested:
+                            map2.GetComponent<MeshRenderer>().material = contestedNeighbouringTerrain;
+                        break;
+                        case MapStatus.Hostile:
+                            map2.GetComponent<MeshRenderer>().material = hostileNeighbouringTerrainMaterial;
+                        break;
+                        default:break;               
+                        }
+                    }
                 
-                    }
-                    }
-                    isBlocked = false;
                     
                 }
             }
@@ -208,8 +207,6 @@ public class MapPieceBehaviour : AttributesSync
             GetComponent<MeshRenderer>().material = treasureMaterial;   
         }else if(areNeighboursHighlited){
             GetComponent<MeshRenderer>().material = tempMaterial;  
-        }else if(blocked){
-            GetComponent<MeshRenderer>().material = myMaterial; 
         }else{
             GetComponent<MeshRenderer>().material = myMaterial;  
         }  
@@ -245,6 +242,7 @@ public class MapPieceBehaviour : AttributesSync
         }
         GenerateInteractable(enteringShip);
     }
+
     public void SetMyShipsSelectable(){
         foreach(Ship _ship in occupyingShips){
                 _ship.selectingShip = true;
@@ -348,6 +346,7 @@ public class MapPieceBehaviour : AttributesSync
     [SynchronizableMethod]
     private void AddOccupyingShip(string enteringShip){
         Ship _ship = GameObject.Find(enteringShip).GetComponent<Ship>();
+        _ship.occupyingMapPiece = GetComponent<MapPieceBehaviour>();
         occupyingShips.Add(_ship);  
     }  
     [SynchronizableMethod]
