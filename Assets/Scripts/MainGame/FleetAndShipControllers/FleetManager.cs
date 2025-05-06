@@ -40,6 +40,7 @@ public class FleetManager : CommunicationBridge
     private VictoryPanelBehaviour myVictoryPanel;
     public bool victoryDecisionMade = false;
     public bool lastPlayer;
+    public bool ok = false;
     
     [SerializeField]public bool immuneToStorm = false;
     public bool choosingStorm;
@@ -368,7 +369,6 @@ public class FleetManager : CommunicationBridge
                                 ship.GetComponent<Ship>().occupyingMapPiece.BroadCastRemoveOccupyingShip(ship.name);
                                 ship.GetComponent<Ship>().enabled = true;
                                 ship.GetComponent<Ship>().MoveToAMapPiece(hit.transform);
-                                
                                 ship.GetComponent<Ship>().isMoving = true;
                                 done = true;                            
                             }

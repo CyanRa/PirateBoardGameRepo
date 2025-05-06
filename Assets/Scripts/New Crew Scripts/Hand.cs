@@ -22,6 +22,7 @@ public class Hand : MonoBehaviour
     public Transform committedZone;
     public Transform opponentHandZone;
     public Transform opponentCommittedZone;
+    public Transform opponentCommittedDisplayZone;
     public BattleManager battleManager;
     public CMSaveLoadHandler _cMSaveLoadHandler;
 
@@ -92,6 +93,23 @@ public class Hand : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+    public int GenerateAndDisplayAndProcessCard(int cardPower, int cardPosition, int accPwr){
+        
+        Destroy(opponentCommittedZone.GetChild(cardPosition).gameObject);
+        GameObject displayingCard = GameObject.Instantiate(crewMemberPrefab);
+        displayingCard.transform.SetParent(opponentCommittedZone);
+        displayingCard.transform.SetSiblingIndex(cardPosition);
+        CMBehaviour displayedCardCMBehaviour = displayingCard.GetComponent<CMBehaviour>();
+        foreach(CrewMember crewMember in _cMSaveLoadHandler.CrewMembersInGame){
+            if(crewMember.crewMemberPower == cardPower){
+                displayedCardCMBehaviour.crewMember = crewMember;
+                displayedCardCMBehaviour.LoadCardDisplay();
+                return displayedCardCMBehaviour.crewMember.crewMemberPower;
+            }                         
+        }   
+        return 0;   
+    }
+
     public void InstantiateCommitedCard(){
         GameObject _crewMember = Instantiate(enemyCardbackPrefab);
         _crewMember.transform.SetParent(opponentCommittedZone);
@@ -112,7 +130,6 @@ public class Hand : MonoBehaviour
             _totalPower += _crewMember.crewMember.crewMemberPower;
             Destroy(_card.gameObject);
         }
-        Debug.Log("Total Power: "+_totalPower);
         foreach (Transform _card in handZone)
         {
             Destroy(_card.gameObject);

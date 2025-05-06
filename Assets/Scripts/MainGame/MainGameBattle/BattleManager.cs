@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Alteruna;
 using NUnit.Framework;
@@ -24,9 +26,12 @@ public class BattleManager : AttributesSync
     [SynchronizableField]public int attackerUID;
     [SynchronizableField]public int defenderUID;
     public Ship shipInCombat;
+    GameObject DisplayPanel;
 
     [SynchronizableField] public int attackerPower;
+    public GameObject oppPowerDisplay;
     [SynchronizableField] public int defenderPower;
+    public GameObject myPowerDisplay;
     [SynchronizableField] public List<int> attackerPlayedCards;
     [SynchronizableField] public List<int> defenderPlayedCards;
 
@@ -34,6 +39,7 @@ public class BattleManager : AttributesSync
     void Start()
     {
         turnOwner = 1;
+        
     }
 
     public void SetDefender(string defender){
@@ -104,7 +110,11 @@ public class BattleManager : AttributesSync
 
     [SynchronizableMethod]
     public void EndBattle(){
-        if(attackerPower > defenderPower){     
+        StartCoroutine(DisplayBattleEnd(defenderPlayedCards));
+          
+    }
+    public void ContinueEndBattle(){
+        if (attackerPower > defenderPower){     
             InvokeRemoteMethod("DisplayAttackerOptions", (ushort)attackerUID, defendingShip, attackerPower - defenderPower);
         }else{
 
@@ -113,24 +123,29 @@ public class BattleManager : AttributesSync
         _endCardTurnButton.onClick.RemoveAllListeners();
         myHand.PurgeUI();
         PurgeDataOfFinishedBattle();
-        myHand.BattleCanvas.SetActive(false);
-        
+        cardsPlayedLastTurn = true;
+        myHand.BattleCanvas.SetActive(false);  
     }
     [SynchronizableMethod]
     private void FinishBattleForDefender(){
-        Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
-        _endCardTurnButton.onClick.RemoveAllListeners();
-        myHand.PurgeUI();
-        PurgeDataOfFinishedBattle();
-        myHand.BattleCanvas.SetActive(false);
+        StartCoroutine(DisplayBattleEnd(attackerPlayedCards));
     }
 
+    private IEnumerator DisplayBattleEnd(List<int> playedCardsPower){
+        int accPwr = 0;
+        foreach(int cardPower in playedCardsPower.ToList()){
+            accPwr += myHand.GenerateAndDisplayAndProcessCard(cardPower, playedCardsPower.IndexOf(cardPower), accPwr);
+            oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = accPwr.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        ContinueEndBattle();
+    }
+
+    
     private void PurgeDataOfFinishedBattle(){
         turnOwner = 1;
         attackerPower = 0;
-        defenderPower = 0;
-        cardsPlayedLastTurn = false;
-
+        defenderPower = 0;      
     }
 
     [SynchronizableMethod]

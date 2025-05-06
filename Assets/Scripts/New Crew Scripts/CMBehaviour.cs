@@ -75,11 +75,14 @@ public class CMBehaviour : MonoBehaviour
             myHand.battleManager.InvokeOpponentHandDisplay(myHand.myFleetCrew.Count - 1); 
             myHand.myFleetCrew.Remove(crewMember);
 
+
             if(myHand.battleManager.myTurnID == 0){
                 myHand.battleManager.defenderPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+                myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.defenderPower.ToString();
                 myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.attackerUID, crewMember.crewMemberPower);
             }else{
                 myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+                myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.attackerPower.ToString();
                 myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.defenderUID, crewMember.crewMemberPower);
             }
             

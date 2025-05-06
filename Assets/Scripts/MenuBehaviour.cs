@@ -33,6 +33,7 @@ public class MenuBehaviour : AttributesSync
     public GameObject rumorScrollPrefab;
     public GameObject treasureChestPrefab;
     public Sprite HarbourButtonSprite;
+    public Sprite RepairButtonSprite;
     public Sprite RumorButtonSprite;
     public Sprite TreasureButtonImage;
     public GameObject consumablePanel;
@@ -250,6 +251,10 @@ public class MenuBehaviour : AttributesSync
                 _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
                 _button.onClick.AddListener(() => HarborButtonMethod(_ship, _interactable, _mapPiece));
                 break;
+            case "Repair":
+                _interactable.GetComponent<Image>().sprite = RepairButtonSprite;
+                _button.onClick.AddListener(() => RepairAtHarborButtonMethod(_ship, _interactable));
+                break;
             case "Rumor":
                 _interactable.GetComponent<Image>().sprite = RumorButtonSprite;
                 _button.onClick.AddListener(() => RumorButtonMethod(_interactable, _mapPiece, _ship));
@@ -313,6 +318,12 @@ public class MenuBehaviour : AttributesSync
             _ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(_mapPiece.GetChild(0));
             Destroy(_buttonPrefab);
         }
+    }
+    private void RepairAtHarborButtonMethod(Ship _ship, GameObject _buttonPrefab){
+        if(_ship.healthPoints == 1){
+            _ship.ChangeShipHealth(-1);
+        }     
+        Destroy(_buttonPrefab);
     }
 
     private void SpawnRumor(){

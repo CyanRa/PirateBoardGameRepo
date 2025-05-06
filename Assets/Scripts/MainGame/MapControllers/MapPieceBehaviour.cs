@@ -243,6 +243,33 @@ public class MapPieceBehaviour : AttributesSync
         GenerateInteractable(enteringShip);
     }
 
+    //
+    public void EnterMapPiece(Ship enteringShip, bool passiveEntry)
+    {
+        enteringShip.occupyingMapPiece = GetComponent<MapPieceBehaviour>();
+        ResetMaterial();        
+        switch(myMapStatus){
+            
+            case MapStatus.Empty:         
+            ConquerMapPiece(enteringShip);
+            break;
+            case MapStatus.Allied:         
+            enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
+            BroadCastAddOccupyingShip(enteringShip.name);
+
+            break;
+            case MapStatus.Contested:
+            enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
+            BroadCastAddOccupyingShip(enteringShip.name);
+            break;
+            case MapStatus.Hostile:           
+            enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
+            BroadCastAddOccupyingShip(enteringShip.name);
+            break;
+            default:break;
+        }
+    }
+
     public void SetMyShipsSelectable(){
         foreach(Ship _ship in occupyingShips){
                 _ship.selectingShip = true;
@@ -385,6 +412,7 @@ public class MapPieceBehaviour : AttributesSync
             case MapInteractables.Empty: break;
             case MapInteractables.Harbor:
                 _menuBehaviour.InstantiateInteractableButton("Harbor", _enteringShip, gameObject.transform);
+                _menuBehaviour.InstantiateInteractableButton("Repair", _enteringShip, null);
                 break;
             case MapInteractables.Tavern: 
                 _menuBehaviour.InstantiateInteractableButton("Tavern", _enteringShip, null);

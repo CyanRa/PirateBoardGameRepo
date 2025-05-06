@@ -27,6 +27,13 @@
             "crewMemberPower": 4
            
 
+        },
+        {
+            "crewMemberName":"Full Raid",
+            "crewMemberImage":"Felix Sprites/FullRaidSprite",
+            "crewMemberPower": 5
+          
+
         }
     ]
 }

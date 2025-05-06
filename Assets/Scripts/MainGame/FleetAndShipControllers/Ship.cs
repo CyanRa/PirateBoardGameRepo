@@ -68,12 +68,17 @@ public class Ship : AttributesSync
     }
     public void SpendGold(int _price){
         shipGold -= _price;
-        UpdateGoldDisplay();
+        if(Multiplayer.GetAvatar().GetComponent<FleetManager>().myShips.Contains(gameObject)){
+            UpdateGoldDisplay();
+        }
         UpdateShipDisplayIcon();
     }
     public void GetGold(int _goldAmount){
         shipGold += _goldAmount;
-        UpdateGoldDisplay();
+        if(Multiplayer.GetAvatar().GetComponent<FleetManager>().myShips.Contains(gameObject)){
+            UpdateGoldDisplay();
+        }
+        Commit();
     }
     public void SpendActionPoints(int _amountOfActionPoints){
         actionPoints -= _amountOfActionPoints;
@@ -197,7 +202,7 @@ public class Ship : AttributesSync
         mapPieceAnchor = _hit.GetChild(0).transform;
         occupyingMapPiece = _hit.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
-        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>(), true);
         occupyingMapPiece.defenderShip = GetComponent<Ship>();
         isMoving = true;
         actionPoints -=1;

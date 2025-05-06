@@ -16,12 +16,14 @@ public class CMSaveLoadHandler : AttributesSync
     public List<CrewMember> DrawPileCrewMember = new List<CrewMember>();
     public List<CrewMember> DiscardPileCrewMember = new List<CrewMember>();
     public List<CrewMember> DrawPileTutor = new List<CrewMember>();
+    public List<CrewMember> CrewMembersInGame = new List<CrewMember>();
 
     public void Start()
     {
         loadedCrewMember = JsonUtility.FromJson<CMData>(JsonToLoadFrom.text);
         tutorDeck = JsonUtility.FromJson<CMData>(JsonToLoadFrom2.text);
         DrawPileCrewMember = loadedCrewMember.crewMember;
+        CrewMembersInGame = tutorDeck.crewMember;
         ShuffleDeck();
     }
 
