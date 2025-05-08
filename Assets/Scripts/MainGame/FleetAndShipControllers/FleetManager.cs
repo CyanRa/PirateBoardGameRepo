@@ -10,6 +10,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using RTS_Cam;
 using UnityEditor;
+using System.Transactions;
 public class FleetManager : CommunicationBridge
 {
     public Alteruna.Avatar avatar;
@@ -23,7 +24,7 @@ public class FleetManager : CommunicationBridge
     public GameObject shipPrefab;
     public GameObject MenuController;
     public GameObject MultiplayerSystem;
-    private bool isMyTurn = false;    
+    public bool isMyTurn = false;    
     private bool isHost;
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
@@ -43,7 +44,7 @@ public class FleetManager : CommunicationBridge
     public bool ok = false;
     
     [SerializeField]public bool immuneToStorm = false;
-    public bool choosingStorm;
+    public bool choosingStorm = false;
     RTS_Camera myCamera;
     
     public enum FleetControlState{
@@ -77,9 +78,7 @@ public class FleetManager : CommunicationBridge
         victoryPointsCount = GameObject.Find("VictoryPointsCount").GetComponentInChildren<TextMeshProUGUI>();
         Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
         ShowCrewButton.onClick.AddListener(DisplayCrew);
-        UpdateVictoryPointsDisplay();
-        
-        
+        UpdateVictoryPointsDisplay();       
     }
     public void UpdateVictoryPointsDisplay(){
         victoryPointsCount.text = victoryPoints.ToString();
@@ -94,6 +93,7 @@ public class FleetManager : CommunicationBridge
     {
         //Checks is the controlling avatar matches 
        if(!avatar.IsMe) return;
+       if(choosingStorm) return;
        if(_fleetState == FleetControlState.SelectingMapPiece)return;
 
         if(Input.GetKeyDown(KeyCode.F) && myShips.Count < 5 && Multiplayer.Me.Name == MenuController.GetComponent<MenuBehaviour>().turnOwner){
@@ -150,6 +150,7 @@ public class FleetManager : CommunicationBridge
     }
     
     public void SelectByClicking(GameObject unit){
+        if(!myShips.Contains(unit))return;
         if(_fleetState != FleetControlState.SelectingShip)return;
         if(SelectedShip != null){
             DeselectAll();
@@ -196,6 +197,7 @@ public class FleetManager : CommunicationBridge
             isMyTurn = false; 
             immuneToStorm = false;               
         } 
+        //WHAT IF LAST PLAYER DIES OR LEAVES THE GAME???
         if(lastPlayer){
             gameEventManager.GameTurn = true;
         }    
@@ -294,6 +296,7 @@ public class FleetManager : CommunicationBridge
         _BattleManager.attackerUID = Multiplayer.GetUser().Index;
         _BattleManager.myHand = GetComponent<Hand>();
         _BattleManager.myTurnID = 1;
+        _BattleManager.attackerDamageBoost = _BattleManager.shipInCombat.damageBoost;
         _BattleManager.SetAttacker(avatar.name);
         _BattleManager.BroadcastSetTurnOwnerDisplay();
         Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
@@ -304,6 +307,7 @@ public class FleetManager : CommunicationBridge
         mapPiece.BroadcastBeginBattleDefender("", defender, defenderUID);
         _BattleManager.BroadcastInitializePrefabForDefender(defenderUID, _defenderShip.name);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        _BattleManager.Commit();
     }
 
     
@@ -312,6 +316,7 @@ public class FleetManager : CommunicationBridge
         GetComponent<Hand>().InstantiateHand();
         BattleManager _BattleManager = GetComponent<Hand>().BattleCanvas.transform.GetComponentInParent<BattleManager>();
         _BattleManager.shipInCombat = GameObject.Find(defender).GetComponent<Ship>();
+        _BattleManager.defenderDamageBoost = _BattleManager.shipInCombat.damageBoost;
         _BattleManager.defenderUID = _BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
         _BattleManager.myTurnID = 0;
         _BattleManager.SetDefender(_BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().name); 
@@ -320,6 +325,7 @@ public class FleetManager : CommunicationBridge
         endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
         _BattleManager.defendingShip = defender;
+        _BattleManager.Commit();
     }
 
     
@@ -332,7 +338,8 @@ public class FleetManager : CommunicationBridge
         yield return StartCoroutine(StormSelect());
     }
 
-    public IEnumerator StormSelect(){         
+    public IEnumerator StormSelect(){   
+        choosingStorm = true;      
         bool done = false;
         while(!done){
         
@@ -343,7 +350,8 @@ public class FleetManager : CommunicationBridge
                     if(hit.transform.gameObject.GetComponent<StormBehaviour>() != null){
                         StormBehaviour storm = hit.transform.GetComponent<StormBehaviour>();
                         storm.SelectStormForMovement();
-                        done = true;                 
+                        done = true; 
+                        choosingStorm = false;                
                     }
                 }		            
             }
@@ -380,7 +388,7 @@ public class FleetManager : CommunicationBridge
         }
     }
 
-    private bool IsFlagshipAlive()
+    public bool IsFlagshipAlive()
     {
         foreach(GameObject ship in myShips){
             if(ship.GetComponent<Ship>().isFlagship == true){
@@ -403,7 +411,7 @@ public class FleetManager : CommunicationBridge
 		
 		        if( Physics.Raycast( ray, out hit)){ 
                     if(hit.transform.GetComponent<MapPieceBehaviour>()!=null){
-                        if(hit.transform.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor){
+                        if(hit.transform.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor && hit.transform.GetComponent<MapPieceBehaviour>().occupyingShips.Count == 0){
                             MainSpawner.SpawnShip(hit.transform.GetChild(0));
                             gameEventManager.DehighlightMaps();
                             done = true;
@@ -418,6 +426,7 @@ public class FleetManager : CommunicationBridge
         foreach(GameObject ship in myShips){
             if(ship.GetComponent<Ship>().isFlagship){
                 ship.GetComponent<Ship>().actionPoints += 1;
+                ship.GetComponent<Ship>().movementPoints +=1;
             }
         }
     }

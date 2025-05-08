@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using Alteruna;
 using System;
+using System.Linq;
 
 public class Hand : MonoBehaviour
 {
@@ -65,6 +66,10 @@ public class Hand : MonoBehaviour
             _cMBehaviour.committedZone = committedZone;
             i ++;
         }
+        SortHand();
+    }
+    public void SortHand(){
+       myFleetCrew = myFleetCrew.OrderByDescending(CrewMember => CrewMember.crewMemberPower).ToList();
     }
     public void InstantiateOpponentHandZone(int numberOfOpponentCards){
         if(opponentHandZone.childCount > 0){
@@ -93,8 +98,7 @@ public class Hand : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
-    public int GenerateAndDisplayAndProcessCard(int cardPower, int cardPosition, int accPwr){
-        
+    public void GenerateAndDisplayAndProcessCard(int cardPower, int cardPosition, int accPwr){
         Destroy(opponentCommittedZone.GetChild(cardPosition).gameObject);
         GameObject displayingCard = GameObject.Instantiate(crewMemberPrefab);
         displayingCard.transform.SetParent(opponentCommittedZone);
@@ -104,10 +108,8 @@ public class Hand : MonoBehaviour
             if(crewMember.crewMemberPower == cardPower){
                 displayedCardCMBehaviour.crewMember = crewMember;
                 displayedCardCMBehaviour.LoadCardDisplay();
-                return displayedCardCMBehaviour.crewMember.crewMemberPower;
             }                         
-        }   
-        return 0;   
+        }     
     }
 
     public void InstantiateCommitedCard(){
@@ -140,7 +142,7 @@ public class Hand : MonoBehaviour
     {
         if(avatar.IsMe){
             myFleetCrew.Add(_cMSaveLoadHandler.ReturnDrawCard());
-            Debug.Log("Drawing a card for: " + this.gameObject.name);
+            SortHand();
         }
         
     }

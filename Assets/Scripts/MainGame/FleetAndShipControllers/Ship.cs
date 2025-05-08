@@ -47,6 +47,7 @@ public class Ship : AttributesSync
     public bool selectingShip;
     public Button button1;
     public bool usingGreekFire;
+    public int damageBoost = 0;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
@@ -72,6 +73,7 @@ public class Ship : AttributesSync
             UpdateGoldDisplay();
         }
         UpdateShipDisplayIcon();
+        Commit();
     }
     public void GetGold(int _goldAmount){
         shipGold += _goldAmount;
@@ -102,7 +104,7 @@ public class Ship : AttributesSync
         }
         delay = LeanTween.delayedCall(0.2f, ()=>{
             TooltipSystem.SetAllignmentTopLeft();
-            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP", myFleetName +" 's Fleet");
+            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP\n" + damageBoost + " Att\n" + GetComponentInParent<Hand>().myFleetCrew.Count + " Crew Cards", myFleetName +" 's Fleet");
         });             
     }
     private void OnMouseExit(){
@@ -116,6 +118,7 @@ public class Ship : AttributesSync
  
     void Update(){
     if(!myFleet.avatar.IsMe) return;
+    if(myFleet.choosingStorm) return;
     //Initial ship movement. Will be replaced with spawn                  
         if(occupyingMapPiece == null){
             if (Input.GetMouseButtonDown(1) && !isMoving ){ 
@@ -411,8 +414,7 @@ public class Ship : AttributesSync
     //WAITING FOR DEFENDER TO SEND BACK ACTION
     public void WaitForDefenderShipReaction(int attackerID, string attackerName){
         myFleet = GetComponentInParent<FleetManager>();
-        InvokeRemoteMethod("AskOwnerForAction", myFleet.avatar.Owner.Index, attackerID, attackerName);
-            
+        InvokeRemoteMethod("AskOwnerForAction", myFleet.avatar.Owner.Index, attackerID, attackerName);           
     }
 
     [SynchronizableMethod]
@@ -430,7 +432,7 @@ public class Ship : AttributesSync
         tempButton.onClick.RemoveAllListeners();
         foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
             if(consumable.consumableIndex == 2 && isFlagship){
-                tempButton.onClick.AddListener(() => UsePassageInDefence(tempButton, consumable));
+                tempButton.onClick.AddListener(() => UsePassageInDefence(tempButton, consumable,(ushort)attackerID));
                 tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
                 tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
                 a = true;
@@ -447,7 +449,7 @@ public class Ship : AttributesSync
         tempButton.onClick.RemoveAllListeners();
         foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
             if(consumable.consumableIndex == 4){
-                tempButton.onClick.AddListener(() => UseGreekFireInDefence(tempButton, consumable));
+                tempButton.onClick.AddListener(() => UseGreekFireInDefence(tempButton, consumable, (ushort)attackerID));
                 tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
                 tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
                 a = true;
@@ -456,6 +458,10 @@ public class Ship : AttributesSync
                 tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f/255,79f/255,58f/255);
             }           
         }       
+    }
+    [SynchronizableMethod]
+    private void DeselectAfterCombatPrevention(ushort attackerID){
+        Multiplayer.GetAvatar(attackerID).GetComponent<FleetManager>().DeselectAll();
     }
     private void RemoveAllListeners(){
         
@@ -470,12 +476,14 @@ public class Ship : AttributesSync
         InvokeRemoteMethod("StartCombat", (ushort)attackerID,attacker,defender);
         button.onClick.RemoveAllListeners();
     }
-    private void UsePassageInDefence(UnityEngine.UI.Button button, Consumable consumable){
+    private void UsePassageInDefence(UnityEngine.UI.Button button, Consumable consumable, ushort attID){
         consumable.UseConsumable(GetComponentInParent<FleetManager>());
+        InvokeRemoteMethod("DeselectAfterCombatPrevention", attID, attID);
     }
-    private void UseGreekFireInDefence(UnityEngine.UI.Button button, Consumable consumable){
+    private void UseGreekFireInDefence(UnityEngine.UI.Button button, Consumable consumable, ushort attID){
         usingGreekFire = true;
         consumable.UseConsumable(GetComponentInParent<FleetManager>());
+        InvokeRemoteMethod("DeselectAfterCombatPrevention", attID, attID);
     }
 
     private void CloseDecisionPanel(UnityEngine.UI.Button button){

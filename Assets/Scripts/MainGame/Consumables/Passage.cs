@@ -4,6 +4,7 @@ using UnityEngine;
 public class Passage : Consumable
 {
     public override void UseConsumable(FleetManager userFleet){
+        if(!userFleet.IsFlagshipAlive())return;
         base.RemoveConsumable(userFleet); 
         userFleet.StartCoroutine(userFleet.WaitForMapPieceSelect());             
     }

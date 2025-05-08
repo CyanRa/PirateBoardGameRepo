@@ -28,7 +28,7 @@ public class GameEventManager : AttributesSync
     }
     public void HighlightHarbors(){
         foreach(Transform childMap in transform){
-            if(childMap.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor){
+            if(childMap.GetComponent<MapPieceBehaviour>().myInteractables[0] == MapPieceBehaviour.MapInteractables.Harbor && childMap.GetComponent<MapPieceBehaviour>().occupyingShips.Count == 0){
                 childMap.GetComponent<MapPieceBehaviour>().isHighlighted = true;
                 childMap.GetComponent<MapPieceBehaviour>().GetComponent<MeshRenderer>().material = childMap.GetComponent<MapPieceBehaviour>().neighbouringTerrainMaterial;
             }

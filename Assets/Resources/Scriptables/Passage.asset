@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Passage
   m_EditorClassIdentifier: 
   consumableName: Passage
-  description: passage
+  description: Choose an unoccupied map piece to move your flagship to
   image: MainGame/Interactables/Consumables/Passage
   consumableIndex: 2
   userFleet: {fileID: 0}

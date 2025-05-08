@@ -25,6 +25,8 @@ public class BattleManager : AttributesSync
     [SynchronizableField]public int turnOwner;
     [SynchronizableField]public int attackerUID;
     [SynchronizableField]public int defenderUID;
+    [SynchronizableField]public int attackerDamageBoost;
+    [SynchronizableField]public int defenderDamageBoost;
     public Ship shipInCombat;
     GameObject DisplayPanel;
 
@@ -110,7 +112,7 @@ public class BattleManager : AttributesSync
 
     [SynchronizableMethod]
     public void EndBattle(){
-        StartCoroutine(DisplayBattleEnd(defenderPlayedCards));
+        StartCoroutine(DisplayBattleEnd(defenderPlayedCards, true));
           
     }
     public void ContinueEndBattle(){
@@ -128,16 +130,27 @@ public class BattleManager : AttributesSync
     }
     [SynchronizableMethod]
     private void FinishBattleForDefender(){
-        StartCoroutine(DisplayBattleEnd(attackerPlayedCards));
+        StartCoroutine(DisplayBattleEnd(attackerPlayedCards, false));
     }
 
-    private IEnumerator DisplayBattleEnd(List<int> playedCardsPower){
+    private IEnumerator DisplayBattleEnd(List<int> playedCardsPower, bool isAttacker){
+
+        
+        int pos = 0;
         int accPwr = 0;
         foreach(int cardPower in playedCardsPower.ToList()){
-            accPwr += myHand.GenerateAndDisplayAndProcessCard(cardPower, playedCardsPower.IndexOf(cardPower), accPwr);
+            myHand.GenerateAndDisplayAndProcessCard(cardPower, pos, accPwr);
+            accPwr += cardPower;
+            if(isAttacker){
+                accPwr += attackerDamageBoost;
+            }else{
+                accPwr += defenderDamageBoost;
+            }
             oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = accPwr.ToString();
-            yield return new WaitForSeconds(1f);
+            pos++;
+            yield return new WaitForSeconds(1.5f);
         }
+        yield return new WaitForSeconds(3f);
         ContinueEndBattle();
     }
 
@@ -146,6 +159,10 @@ public class BattleManager : AttributesSync
         turnOwner = 1;
         attackerPower = 0;
         defenderPower = 0;      
+        myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+        oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+        attackerPlayedCards.Clear();
+        defenderPlayedCards.Clear();
     }
 
     [SynchronizableMethod]

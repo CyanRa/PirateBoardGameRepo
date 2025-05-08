@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shipwright
   m_EditorClassIdentifier: 
   consumableName: Shipwright
-  description: shipwright
+  description: Gain a fleetship in any unoccupied port on the map
   image: MainGame/Interactables/Consumables/Shipwright
   consumableIndex: 3
   userFleet: {fileID: 0}

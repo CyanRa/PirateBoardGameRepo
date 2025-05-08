@@ -74,7 +74,9 @@ MonoBehaviour:
   victoryPointsCount: {fileID: 0}
   fleetPositionIndex: 0
   myInventory: {fileID: 0}
+  victoryDecisionMade: 0
   lastPlayer: 0
+  ok: 0
   immuneToStorm: 0
   choosingStorm: 0
   _fleetState: 0
@@ -100,6 +102,7 @@ MonoBehaviour:
   committedZone: {fileID: 0}
   opponentHandZone: {fileID: 0}
   opponentCommittedZone: {fileID: 0}
+  opponentCommittedDisplayZone: {fileID: 0}
   battleManager: {fileID: 0}
   _cMSaveLoadHandler: {fileID: 0}
   avatar: {fileID: 0}
@@ -117,17 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventoryPanel: {fileID: 0}
   consumablePrefab: {fileID: 7358299968444974966, guid: 199a88c4f466c0c44a932eead0af30c0, type: 3}
-  allConsumables:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  allConsumables: []
   myConsumables: []
   playerConsumables:
   - {fileID: 0}

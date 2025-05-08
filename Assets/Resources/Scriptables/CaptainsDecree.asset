@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CaptainsDecree
   m_EditorClassIdentifier: 
   consumableName: Captain's Decree
-  description: 'You may use an additional flagship action this turn '
+  description: Your flahship gains 1 action point and 1 movement point
   image: MainGame/Interactables/Consumables/captainsDecree
   consumableIndex: 5
   userFleet: {fileID: 0}

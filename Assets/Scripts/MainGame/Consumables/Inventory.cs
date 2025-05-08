@@ -32,27 +32,20 @@ public class Inventory : MonoBehaviour
     private void LoadConsumables()
     {
         Consumable tempConsumable = Resources.Load<Consumable>("Scriptables/StormCalling");
-        myConsumables.Add(tempConsumable);
+        allConsumables.Add(tempConsumable);
         tempConsumable = Resources.Load<Consumable>("Scriptables/GreekFire");
-        myConsumables.Add(tempConsumable);
+        allConsumables.Add(tempConsumable);
         tempConsumable = Resources.Load<Consumable>("Scriptables/Passage");
-        myConsumables.Add(tempConsumable);
+        allConsumables.Add(tempConsumable);
         tempConsumable = Resources.Load<Consumable>("Scriptables/Shipwright");
-        myConsumables.Add(tempConsumable);
+        allConsumables.Add(tempConsumable);
         tempConsumable = Resources.Load<Consumable>("Scriptables/CaptainsDecree");
-        myConsumables.Add(tempConsumable);
+        allConsumables.Add(tempConsumable);
     }
 
     public void AddConsumable(){
         List<int> possibleOutcomes = new List<int>();
-        if(myConsumables.Count < 6){
-            foreach(Consumable consumable in myConsumables){
-                if(consumable==null){
-                    possibleOutcomes.Add(consumable.consumableIndex);
-                }
-            }
-        }
-        myConsumables?.Add(allConsumables[possibleOutcomes[UnityEngine.Random.Range(0, possibleOutcomes.Count)]]);  
+        myConsumables?.Add(allConsumables[UnityEngine.Random.Range(0, allConsumables.Count)]);  
     }
 
     public void InstantiateConsumables(){

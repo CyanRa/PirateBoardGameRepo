@@ -35,6 +35,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite HarbourButtonSprite;
     public Sprite RepairButtonSprite;
     public Sprite RumorButtonSprite;
+    public Sprite PirateCoveButtonSprite;
     public Sprite TreasureButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
@@ -119,6 +120,7 @@ public class MenuBehaviour : AttributesSync
     public void BroadCastPassTurn(bool b){
     }
     public void DisplayCrew(List<CrewMember> myFleetCrew){
+
         if(CrewDisplayPanel.activeSelf == false){
             CrewDisplayPanel.SetActive(true);
             int i = 0;
@@ -131,6 +133,7 @@ public class MenuBehaviour : AttributesSync
             _cMBehaviour.enabled = false;
             _crewMember.GetComponent<Button>().enabled = false;
             _crewMember.transform.SetParent(CrewDisplayPanel.transform);
+            
             i ++;
             }
         }else{
@@ -176,6 +179,7 @@ public class MenuBehaviour : AttributesSync
         TurnDisplayText.text = turnOwner + "'s Turn";
         if(playersList.Last() == Multiplayer.Me.Name){
             Multiplayer.GetAvatar().GetComponent<FleetManager>().lastPlayer = true;
+            Debug.Log("Im the last player");
         }
     }
 
@@ -245,7 +249,8 @@ public class MenuBehaviour : AttributesSync
                 _button.onClick.AddListener(() => TavernButtonMethod(_ship, _interactable));
                 break;
             case "PirateCove":
-                _button.onClick.AddListener(() => PirateCoveMethod(_fleet, _interactable));
+                _interactable.GetComponent<Image>().sprite = PirateCoveButtonSprite;
+                _button.onClick.AddListener(() => PirateCoveMethod(_ship, _interactable));
                 break;
             case "Harbor":
                 _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
@@ -305,9 +310,13 @@ public class MenuBehaviour : AttributesSync
             Destroy(_buttonPrefab);
         }
     }
-    private void PirateCoveMethod(FleetManager _fleet, GameObject _buttonPrefab){
-        _fleet.myInventory.AddConsumable();       
-        Destroy(_buttonPrefab);
+    private void PirateCoveMethod(Ship _ship, GameObject _buttonPrefab){
+        if(_ship.shipGold >=1 && _ship.actionPoints > 0){
+            _ship.SpendGold(1);
+            _ship.myFleet.myInventory.AddConsumable();       
+            Destroy(_buttonPrefab);
+        }
+        
     }
 
     private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){
