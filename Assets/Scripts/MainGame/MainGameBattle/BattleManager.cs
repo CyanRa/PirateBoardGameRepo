@@ -65,13 +65,20 @@ public class BattleManager : AttributesSync
         turnOwnerText.text = turnOwnerDisplay;
     }
 
-
-
-
+    public void RequestInvokeOppHandDisplay(){
+        InvokeRemoteMethod("InvokeOppHandDisplay", (ushort)attackerUID);
+    }
+    [SynchronizableMethod]
+    public void InvokeOppHandDisplay()
+    {
+        InvokeOpponentHandDisplay(myHand.myFleetCrew.Count);
+    }
+    [SynchronizableMethod]
+    
     public void InvokeOpponentHandDisplay(int numberOfCardsInOpponentHand){
         if(myTurnID == 1){
             InvokeRemoteMethod("InitializeUI", (ushort)defenderUID, numberOfCardsInOpponentHand);
-        }else if(myTurnID == 0){
+        }else{
             InvokeRemoteMethod("InitializeUI", (ushort)attackerUID, numberOfCardsInOpponentHand);
         }
         
@@ -115,18 +122,29 @@ public class BattleManager : AttributesSync
         StartCoroutine(DisplayBattleEnd(defenderPlayedCards, true));
           
     }
-    public void ContinueEndBattle(){
+    [SynchronizableMethod]
+    public void ContinueEndBattle(){       
         if (attackerPower > defenderPower){     
             InvokeRemoteMethod("DisplayAttackerOptions", (ushort)attackerUID, defendingShip, attackerPower - defenderPower);
         }else{
 
         }
+        Button _endCardTurnButton = GameObject.Find("EndCardTurnButton")?.GetComponent<Button>();
+        _endCardTurnButton.onClick.RemoveAllListeners();
+        myHand.PurgeUI();
+        PurgeDataOfFinishedBattle();
+        cardsPlayedLastTurn = true;
+        myHand.BattleCanvas.SetActive(false);
+        InvokeRemoteMethod("ContinueEndBattleDefender", (ushort)defenderUID);
+    }
+    [SynchronizableMethod]
+    public void ContinueEndBattleDefender(){       
         Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
         _endCardTurnButton.onClick.RemoveAllListeners();
         myHand.PurgeUI();
         PurgeDataOfFinishedBattle();
         cardsPlayedLastTurn = true;
-        myHand.BattleCanvas.SetActive(false);  
+        myHand.BattleCanvas.SetActive(false);
     }
     [SynchronizableMethod]
     private void FinishBattleForDefender(){
@@ -141,7 +159,7 @@ public class BattleManager : AttributesSync
         foreach(int cardPower in playedCardsPower.ToList()){
             myHand.GenerateAndDisplayAndProcessCard(cardPower, pos, accPwr);
             accPwr += cardPower;
-            if(isAttacker){
+            if(!isAttacker){
                 accPwr += attackerDamageBoost;
             }else{
                 accPwr += defenderDamageBoost;
@@ -151,7 +169,10 @@ public class BattleManager : AttributesSync
             yield return new WaitForSeconds(1.5f);
         }
         yield return new WaitForSeconds(3f);
-        ContinueEndBattle();
+        InvokeRemoteMethod("ContinueEndBattle", (ushort)attackerUID);
+       
+          
+        
     }
 
     

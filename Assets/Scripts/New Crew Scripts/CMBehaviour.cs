@@ -47,6 +47,7 @@ public class CMBehaviour : MonoBehaviour
 
     public void SelectThisCrew()
     {
+        if(isCommitted)return;
         if(myHand.battleManager.turnOwner == myHand.battleManager.myTurnID){
             if (!isSelected)
         {

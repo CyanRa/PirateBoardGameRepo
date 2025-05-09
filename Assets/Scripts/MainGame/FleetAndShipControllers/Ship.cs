@@ -47,7 +47,7 @@ public class Ship : AttributesSync
     public bool selectingShip;
     public Button button1;
     public bool usingGreekFire;
-    public int damageBoost = 0;
+    [SynchronizableField]public int damageBoost = 0;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
@@ -189,6 +189,7 @@ public class Ship : AttributesSync
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
         myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
         occupyingMapPiece.BroadCastRemoveOccupyingShip(gameObject.name);
+        occupyingMapPiece.HandleMapPieceStatus(GetComponent<Ship>());
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
         occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
@@ -473,6 +474,7 @@ public class Ship : AttributesSync
     }
     
     private void InvokeStartCombat(string attacker, string defender, int attackerID, UnityEngine.UI.Button button){
+        GetComponentInParent<FleetManager>().InitDefenderBattleManager();
         InvokeRemoteMethod("StartCombat", (ushort)attackerID,attacker,defender);
         button.onClick.RemoveAllListeners();
     }

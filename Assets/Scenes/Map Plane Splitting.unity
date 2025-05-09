@@ -27356,7 +27356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.468628, y: 442.27972}
+  m_AnchoredPosition: {x: 38.917034, y: 475.39764}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -47937,7 +47937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ef8c68bade09b41aca258d42a632f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastTab: 0
+  lastTab: 2
   movementSettingsFoldout: 1
   zoomingSettingsFoldout: 0
   rotationSettingsFoldout: 1
@@ -47955,15 +47955,15 @@ MonoBehaviour:
   inputDelta: {x: 0, y: 0}
   verticalRotationMouseSpeed: 0
   orbitDamping: 10
-  autoHeight: 1
+  autoHeight: 0
   groundMask:
     serializedVersion: 2
-    m_Bits: 55
-  maxHeight: 282
+    m_Bits: 128
+  maxHeight: 290
   minHeight: 262
   heightDampening: 1
   keyboardZoomingSensitivity: 2
-  scrollWheelZoomingSensitivity: 65
+  scrollWheelZoomingSensitivity: 40
   limitMap: 0
   limitX: 900
   limitY: 1
@@ -56393,7 +56393,7 @@ GameObject:
   - component: {fileID: 7544338293257396945}
   - component: {fileID: 7536183427712927457}
   - component: {fileID: 7554354221872399378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}

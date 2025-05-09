@@ -11,6 +11,7 @@ using System.Linq.Expressions;
 using RTS_Cam;
 using UnityEditor;
 using System.Transactions;
+
 public class FleetManager : CommunicationBridge
 {
     public Alteruna.Avatar avatar;
@@ -312,8 +313,8 @@ public class FleetManager : CommunicationBridge
 
     
     public void EnterCombatAsDefender(string defender){
-        GetComponent<Hand>().BattleCanvas.SetActive(true);
-        GetComponent<Hand>().InstantiateHand();
+        //GetComponent<Hand>().BattleCanvas.SetActive(true);
+        //GetComponent<Hand>().InstantiateHand();
         BattleManager _BattleManager = GetComponent<Hand>().BattleCanvas.transform.GetComponentInParent<BattleManager>();
         _BattleManager.shipInCombat = GameObject.Find(defender).GetComponent<Ship>();
         _BattleManager.defenderDamageBoost = _BattleManager.shipInCombat.damageBoost;
@@ -324,8 +325,17 @@ public class FleetManager : CommunicationBridge
         Button endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
         endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        _BattleManager.RequestInvokeOppHandDisplay();
         _BattleManager.defendingShip = defender;
         _BattleManager.Commit();
+    }
+
+    
+    
+
+    public void InitDefenderBattleManager(){
+        GetComponent<Hand>().BattleCanvas.SetActive(true);
+        GetComponent<Hand>().InstantiateHand();
     }
 
     
