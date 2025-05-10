@@ -104,7 +104,7 @@ public class Ship : AttributesSync
         }
         delay = LeanTween.delayedCall(0.2f, ()=>{
             TooltipSystem.SetAllignmentTopLeft();
-            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP\n" + damageBoost + " Att\n" + GetComponentInParent<Hand>().myFleetCrew.Count + " Crew Cards", myFleetName +" 's Fleet");
+            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP\n" + damageBoost + " Att\n" + GetComponentInParent<Hand>().myFleetCrewCount + " Crew Cards", myFleetName +" 's Fleet");
         });             
     }
     private void OnMouseExit(){
@@ -138,7 +138,7 @@ public class Ship : AttributesSync
         }
     //Movement when unit is selected and is registered to a map piece        
             if (Input.GetMouseButtonDown(1) && !isMoving && occupyingMapPiece != null && movementPoints > 0){ 
-                       	
+                offsetPosition[0] = myFleet.fleetPositionIndex;         	
 		        Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
 		        RaycastHit hit;
                 occupyingMapPiece.GetComponent<MapPieceBehaviour>().DeHighlightNeighbours();
@@ -184,6 +184,14 @@ public class Ship : AttributesSync
     //Locks in movement until final position           
             if(!isMoving) return;
             MoveToAnchor(mapPieceAnchor);      
+    }
+    public void InitSpawnMove(Transform initTransform){	 		            
+        mapPieceAnchor = initTransform;
+        occupyingMapPiece = initTransform.GetComponentInParent<MapPieceBehaviour>();
+        occupyingMapPieceName = occupyingMapPiece.name;
+        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+        isMoving = true;  
+                   
     }
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){

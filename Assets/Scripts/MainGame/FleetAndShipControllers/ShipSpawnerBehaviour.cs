@@ -20,11 +20,12 @@ public class ShipSpawnerBehaviour : AttributesSync
         if(!myAvatar.IsMe)return;
         spawnIndex = 0;
         mySpawner = GameObject.Find("SpawnPool").GetComponent<Spawner>();       
+        Debug.Log("IM THE SPAWNER", this);
     }
 
-    public void InitSpawnPoint(){
+    /*public void InitSpawnPoint(){
         spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<Transform>();
-    }
+    }*/
     
     public void SpawnShip(){       
        if(myAvatar.GetComponent<FleetManager>().myShips.Count < 5){           
@@ -92,7 +93,8 @@ public class ShipSpawnerBehaviour : AttributesSync
        spawnedShip.GetComponent<Ship>().damageBoost = 1;
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
        BroadcastRemoteMethod("SynchSpawnedFlagShip", spawnedShip.GetComponent<Ship>().myFleet.name);
-       spawnIndex++;       
+       spawnIndex++;
+       spawnedShip.GetComponent<Ship>().InitSpawnMove(spawnPoint);      
     }
 
     [SynchronizableMethod]

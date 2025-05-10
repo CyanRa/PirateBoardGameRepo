@@ -35,7 +35,7 @@ public class FleetManager : CommunicationBridge
     public TextMeshProUGUI goldCount;
     [SerializeField]public int victoryPoints;
     public TextMeshProUGUI victoryPointsCount;
-    public int fleetPositionIndex;
+    [SerializeField]public int fleetPositionIndex;
     private Animator myAnimator;
     public Inventory myInventory;
     private GameEventManager gameEventManager;
@@ -47,6 +47,7 @@ public class FleetManager : CommunicationBridge
     [SerializeField]public bool immuneToStorm = false;
     public bool choosingStorm = false;
     RTS_Camera myCamera;
+    [SerializeField]public string InitSpawnPoint = "";
     
     public enum FleetControlState{
         SelectingShip,
@@ -234,23 +235,30 @@ public class FleetManager : CommunicationBridge
 
     public void StartGame(){
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
-        MainSpawner.InitSpawnPoint();
+        
+        
         InitEndTurnButton();
         GetComponent<Hand>().DrawNCards(5);
 
         if(isHost){
             isMyTurn = true;        
-            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                       
-            MainSpawner.SpawnFlagShip();               
-        }        
-        if(!isHost){
-            MainSpawner.SpawnFlagShip();
-        }
+            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                                                 
+        }    
+            
+
         gameStarted = true;                    
     }
+    public void SpawnFlagShipsAtRandomSpawns(List<int> spawnPoints){
+        InitSpawnPoint = MenuController.GetComponent<MenuBehaviour>().SpawnPoints[spawnPoints[Multiplayer.GetUser().Index]].name;
+        Transform Spawn = GameObject.Find(InitSpawnPoint).transform.GetChild(0);
+        MainSpawner.spawnPoint = Spawn;
+        MainSpawner.SpawnFlagShip();
+        myShips[0].GetComponent<Ship>().enabled = true;
+    }
 
-   
-#endregion
+
+
+    #endregion
 
     public void EnterCombat(string attacker, string defender){
         foreach(GameObject ship in myShips){

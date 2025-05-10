@@ -40,6 +40,8 @@ public class MenuBehaviour : AttributesSync
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
     public GameObject victoryPanel;
+    public List<Transform> SpawnPoints = new List<Transform>();
+    List<int> spawnPoints = new List<int>();
     
     
 #endregion
@@ -164,9 +166,35 @@ public class MenuBehaviour : AttributesSync
         List<string> listOfUsers = new List<string>();
         for(int i = 0; i < myUsersPar.Count; i++){
             listOfUsers.Add(myUsersPar[i].Name);
-        }      
+        }
+        GenerateInitSpawnPointsAndSendToUsers(listOfUsers);      
         BroadcastRemoteMethod("DisplayListOfPlayers", listOfUsers);
     }
+
+
+    private void GenerateInitSpawnPointsAndSendToUsers(List<String> players)
+    {
+        
+        spawnPoints.Add(0);
+        spawnPoints.Add(1);
+        spawnPoints.Add(2);
+        spawnPoints.Add(3);
+        spawnPoints = spawnPoints.OrderBy( x => UnityEngine.Random.value ).ToList( );
+        
+
+        for(int i = 0; i<players.Count; i++){
+            Multiplayer.GetAvatar((ushort)i).GetComponent<FleetManager>().InitSpawnPoint = SpawnPoints[i].name;          
+        }
+        Commit();
+        BroadcastRemoteMethod("SpawnFlagShips", spawnPoints);
+    }
+    
+    [SynchronizableMethod]
+    private void SpawnFlagShips(List<int> spawnPoints){
+        Multiplayer.GetAvatar().GetComponent<FleetManager>().SpawnFlagShipsAtRandomSpawns(spawnPoints);
+    }
+    
+    
 
     [SynchronizableMethod]
     public void DisplayListOfPlayers(List<string> listOfUsers){

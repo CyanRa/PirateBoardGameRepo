@@ -301,7 +301,7 @@ public class MapPieceBehaviour : AttributesSync
     public int FriendlyShipCount(Ship enteringShip){
         int _friendlyShipCount = 0;
         foreach(Ship _ship in occupyingShips){
-                if(_ship.myFleet == enteringShip.myFleet){
+                if(_ship.myFleet == enteringShip.myFleet && enteringShip != _ship){
                     _friendlyShipCount +=1;
                 }
             }
@@ -345,9 +345,7 @@ public class MapPieceBehaviour : AttributesSync
                 occupyingFleets.Add(_ship.GetComponentInParent<FleetManager>());
             }
         }
-        foreach(FleetManager occfleet in occupyingFleets){
-            Debug.Log("Map piece " + name + " is occupied by " + occfleet.name);
-        }
+
         if(occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>())){
             SetMapPieceHostile();
         }else if(occupyingFleets.Count > 1 && occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>())){

@@ -7,9 +7,10 @@ using Alteruna;
 using System;
 using System.Linq;
 
-public class Hand : MonoBehaviour
+public class Hand : AttributesSync
 {
     public List<CrewMember> myFleetCrew;
+    [SynchronizableField]public int myFleetCrewCount;
     public int _totalPower;
 
     //public CommunityDeck deckScript;
@@ -142,6 +143,7 @@ public class Hand : MonoBehaviour
         if(avatar.IsMe){
             myFleetCrew.Add(_cMSaveLoadHandler.ReturnDrawCard());
             SortHand();
+            myFleetCrewCount += 1;
         }
         
     }
@@ -155,6 +157,7 @@ public class Hand : MonoBehaviour
         if(battleManager.turnOwner == battleManager.myTurnID){
             if(battleManager.cardsPlayedLastTurn == false){
             battleManager.BroadcastEndBattle();
+            myFleetCrewCount = myFleetCrew.Count;
             return;
             }
             if(battleManager.turnOwner == 1){
