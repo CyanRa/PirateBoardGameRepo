@@ -319,6 +319,10 @@ public class FleetManager : CommunicationBridge
         mapPiece.BroadcastBeginBattleDefender("", defender, defenderUID);
         _BattleManager.BroadcastInitializePrefabForDefender(defenderUID, _defenderShip.name);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        if(_BattleManager.shipInCombat.isFlagship){
+            _BattleManager.attackerPower += 1;
+            _BattleManager.myPowerDisplay.GetComponent<TextMeshProUGUI>().text = 1.ToString();
+        }
         _BattleManager.Commit();
     }
 
@@ -336,7 +340,12 @@ public class FleetManager : CommunicationBridge
         endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
         _BattleManager.RequestInvokeOppHandDisplay();
+        if(_BattleManager.shipInCombat.isFlagship){
+            _BattleManager.defenderPower += 1;
+            _BattleManager.myPowerDisplay.GetComponent<TextMeshProUGUI>().text = 1.ToString();
+        }
         _BattleManager.defendingShip = defender;
+        
         _BattleManager.Commit();
     }
 

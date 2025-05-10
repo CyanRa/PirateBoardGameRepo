@@ -155,20 +155,24 @@ public class BattleManager : AttributesSync
 
         int pos = 0;
         int accPwr = 0;
-        foreach(int cardPower in playedCardsPower.ToList()){
-            myHand.GenerateAndDisplayAndProcessCard(cardPower, pos, accPwr);
-            accPwr += cardPower;
-            oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = accPwr.ToString();
-            pos++;
-            yield return new WaitForSeconds(1.5f);
-        }
         if(shipInCombat.isFlagship){
             if(myTurnID == 1){
                 attackerPower +=1;
+                accPwr +=1;
+
             }else{
                 defenderPower +=1;
-            }
+                accPwr+=1;
+            }     
         }
+        foreach(int cardPower in playedCardsPower.ToList()){
+            myHand.GenerateAndDisplayAndProcessCard(cardPower, pos, accPwr);
+            accPwr += cardPower;
+           
+            pos++;
+            yield return new WaitForSeconds(1.5f);
+        }
+        
         yield return new WaitForSeconds(3f);
         InvokeRemoteMethod("ContinueEndBattle", (ushort)attackerUID);    
     }
