@@ -57,6 +57,7 @@ public class FleetManager : CommunicationBridge
     public FleetControlState _fleetState = FleetControlState.SelectingShip;
 
     public void Awake(){
+    
         myCamera = GameObject.Find("RTS_Camera_var1")?.GetComponent<RTS_Camera>();   
         gameEventManager = GameObject.Find("Map Holder")?.GetComponent<GameEventManager>();
         isHost = Multiplayer.Instance.Me.Index == 0;
@@ -106,7 +107,7 @@ public class FleetManager : CommunicationBridge
 		    RaycastHit hit;
 
 		    if( Physics.Raycast( ray, out hit, 2000, clickable)){
-                if(hit.transform.GetComponent<Ship>()?.myFleet.name == name){
+                if("Fleet ("+hit.transform.GetComponent<Ship>().myFleetName+")" == name){
                       if(SelectedShip != null)
                 {
                     
@@ -196,14 +197,15 @@ public class FleetManager : CommunicationBridge
             MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
             MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel(); 
             isMyTurn = false; 
-            immuneToStorm = false;               
+            immuneToStorm = false;   
+             //WHAT IF LAST PLAYER DIES OR LEAVES THE GAME???
+            if(lastPlayer){
+                gameEventManager.GameTurn = true;
+            }               
         } 
-        //WHAT IF LAST PLAYER DIES OR LEAVES THE GAME???
-        if(lastPlayer){
-            gameEventManager.GameTurn = true;
-        }    
+        
         foreach(Transform map in gameEventManager.transform){
-            map.GetComponent<MapPieceBehaviour>().HandleMapPieceStatus(myShips[0]?.GetComponent<Ship>());
+            map.GetComponent<MapPieceBehaviour>().HandleMapPieceStatus();
         }
     }
     public void StartTurn(){
@@ -297,9 +299,10 @@ public class FleetManager : CommunicationBridge
         _BattleManager.attackerUID = Multiplayer.GetUser().Index;
         _BattleManager.myHand = GetComponent<Hand>();
         _BattleManager.myTurnID = 1;
-        _BattleManager.attackerDamageBoost = _BattleManager.shipInCombat.damageBoost;
         _BattleManager.SetAttacker(avatar.name);
         _BattleManager.BroadcastSetTurnOwnerDisplay();
+        Ship defendingShip = GameObject.Find(defender).GetComponent<Ship>();
+        _BattleManager.defenderUID = defendingShip.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
         Button _endCardTurnButton = GameObject.Find("EndCardTurnButton").GetComponent<Button>();
         _endCardTurnButton.onClick.AddListener(GetComponent<Hand>().EndCardTurn);        
         Ship _defenderShip = GameObject.Find(defender).GetComponent<Ship>();
@@ -317,7 +320,6 @@ public class FleetManager : CommunicationBridge
         //GetComponent<Hand>().InstantiateHand();
         BattleManager _BattleManager = GetComponent<Hand>().BattleCanvas.transform.GetComponentInParent<BattleManager>();
         _BattleManager.shipInCombat = GameObject.Find(defender).GetComponent<Ship>();
-        _BattleManager.defenderDamageBoost = _BattleManager.shipInCombat.damageBoost;
         _BattleManager.defenderUID = _BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
         _BattleManager.myTurnID = 0;
         _BattleManager.SetDefender(_BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().name); 
@@ -447,9 +449,7 @@ public class FleetManager : CommunicationBridge
         if(damage > 4 || defendingShip.healthPoints == 1){
             MenuController.GetComponent<MenuBehaviour>().DisplayVictoryPanel(true);
             defendingShip.occupyingMapPiece.BroadCastRemoveOccupyingShip(defendingShip.name);   
-            defendingShip.occupyingMapPiece.HandleMapPieceStatus(attackingShip);
-            StartCoroutine(WaitForVictoryDecision(defendingShip, attackingShip));
-            
+            StartCoroutine(WaitForVictoryDecision(defendingShip, attackingShip));            
         }else{
             switch(defendingShip.shipGold){
                 case 1: attackingShip.GetGold(1);
@@ -464,6 +464,7 @@ public class FleetManager : CommunicationBridge
                 break;
             }
         }
+        attackingShip.occupyingMapPiece.HandleMapPieceStatus();
     
         //wait for response
     }

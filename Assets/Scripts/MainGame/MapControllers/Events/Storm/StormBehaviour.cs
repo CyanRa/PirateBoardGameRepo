@@ -56,9 +56,14 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         foreach(MapPieceBehaviour map in mapPieceBehaviour.neighboringTerrain){
             StormingMapPieces.Add(map);
             map.isStorming = true;
-            foreach(Ship ship in map.occupyingShips.ToList()){
-                map.HandleStorm(ship);
+            if(map.occupyingShips.Count != 0){
+                foreach(Ship ship in map.occupyingShips.ToList()){
+                    if(ship != null && Multiplayer.GetAvatar().GetComponent<FleetManager>().myShips.Contains(ship.gameObject)){
+                        map.HandleStorm(ship);
+                    }
             }
+            }
+            
         }
         
     }

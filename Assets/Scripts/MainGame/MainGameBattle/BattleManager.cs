@@ -25,8 +25,6 @@ public class BattleManager : AttributesSync
     [SynchronizableField]public int turnOwner;
     [SynchronizableField]public int attackerUID;
     [SynchronizableField]public int defenderUID;
-    [SynchronizableField]public int attackerDamageBoost;
-    [SynchronizableField]public int defenderDamageBoost;
     public Ship shipInCombat;
     GameObject DisplayPanel;
 
@@ -127,8 +125,10 @@ public class BattleManager : AttributesSync
         if (attackerPower > defenderPower){     
             InvokeRemoteMethod("DisplayAttackerOptions", (ushort)attackerUID, defendingShip, attackerPower - defenderPower);
         }else{
-
+            shipInCombat.occupyingMapPiece.HandleMapPieceStatus();
         }
+        //BREAKS
+        
         Button _endCardTurnButton = GameObject.Find("EndCardTurnButton")?.GetComponent<Button>();
         _endCardTurnButton.onClick.RemoveAllListeners();
         myHand.PurgeUI();
@@ -143,7 +143,7 @@ public class BattleManager : AttributesSync
         _endCardTurnButton.onClick.RemoveAllListeners();
         myHand.PurgeUI();
         PurgeDataOfFinishedBattle();
-        cardsPlayedLastTurn = true;
+        cardsPlayedLastTurn = false;
         myHand.BattleCanvas.SetActive(false);
     }
     [SynchronizableMethod]
@@ -153,33 +153,31 @@ public class BattleManager : AttributesSync
 
     private IEnumerator DisplayBattleEnd(List<int> playedCardsPower, bool isAttacker){
 
-        
         int pos = 0;
         int accPwr = 0;
         foreach(int cardPower in playedCardsPower.ToList()){
             myHand.GenerateAndDisplayAndProcessCard(cardPower, pos, accPwr);
             accPwr += cardPower;
-            if(!isAttacker){
-                accPwr += attackerDamageBoost;
-            }else{
-                accPwr += defenderDamageBoost;
-            }
             oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = accPwr.ToString();
             pos++;
             yield return new WaitForSeconds(1.5f);
         }
+        if(shipInCombat.isFlagship){
+            if(myTurnID == 1){
+                attackerPower +=1;
+            }else{
+                defenderPower +=1;
+            }
+        }
         yield return new WaitForSeconds(3f);
-        InvokeRemoteMethod("ContinueEndBattle", (ushort)attackerUID);
-       
-          
-        
+        InvokeRemoteMethod("ContinueEndBattle", (ushort)attackerUID);    
     }
 
     
     private void PurgeDataOfFinishedBattle(){
         turnOwner = 1;
         attackerPower = 0;
-        defenderPower = 0;      
+        defenderPower = 0;    
         myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "0";
         oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = "0";
         attackerPlayedCards.Clear();

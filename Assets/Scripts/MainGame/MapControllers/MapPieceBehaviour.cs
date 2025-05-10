@@ -333,25 +333,33 @@ public class MapPieceBehaviour : AttributesSync
             SetMapPieceEmpty();
         }
     }
-    public void HandleMapPieceStatus(Ship ship){
+    public void HandleMapPieceStatus(){  
+        BroadcastRemoteMethod("SynchMapStatus");     
+    }
+    [SynchronizableMethod]
+    private void SynchMapStatus(){
         List<FleetManager> occupyingFleets = new List<FleetManager>();
+        
         foreach(Ship _ship in occupyingShips){
-            if(!occupyingFleets.Contains(_ship.myFleet)){
-                occupyingFleets.Add(_ship.myFleet);
+            if(!occupyingFleets.Contains(_ship.GetComponentInParent<FleetManager>())){
+                occupyingFleets.Add(_ship.GetComponentInParent<FleetManager>());
             }
         }
-        if(occupyingFleets.Count > 1){
-            BroadcastRemoteMethod("SetMapPieceContested");
+        foreach(FleetManager occfleet in occupyingFleets){
+            Debug.Log("Map piece " + name + " is occupied by " + occfleet.name);
+        }
+        if(occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>())){
+            SetMapPieceHostile();
+        }else if(occupyingFleets.Count > 1 && occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>())){
+            SetMapPieceContested();
         }else if(occupyingFleets.Count == 1){
-            if(occupyingFleets[0] == ship.myFleet){
+            if(occupyingFleets[0] == Multiplayer.GetAvatar().GetComponent<FleetManager>()){
                 SetMapPieceAllied();
-                InvokeRemoteMethod("SetMapPieceHostile");
+            }else{
+                SetMapPieceHostile();
             }
         }else if(occupyingFleets.Count == 0){
-            BroadcastRemoteMethod("SetMapPieceEmpty");
-        }else if(occupyingFleets.Count == 1){
-            BroadcastRemoteMethod("SetMapPieceHostile");
-            InvokeRemoteMethod("SetMapPieceAllied", Multiplayer.GetUser(occupyingFleets[0].name).Index);
+            SetMapPieceEmpty();
         }
     }
     [SynchronizableMethod]
