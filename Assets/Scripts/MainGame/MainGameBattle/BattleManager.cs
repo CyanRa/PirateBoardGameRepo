@@ -117,8 +117,7 @@ public class BattleManager : AttributesSync
 
     [SynchronizableMethod]
     public void EndBattle(){
-        StartCoroutine(DisplayBattleEnd(defenderPlayedCards, true));
-          
+        StartCoroutine(DisplayBattleEnd(defenderPlayedCards, true));          
     }
     [SynchronizableMethod]
     public void ContinueEndBattle(){       
@@ -159,16 +158,16 @@ public class BattleManager : AttributesSync
             if(myTurnID == 1){
                 attackerPower +=1;
                 accPwr +=1;
-
             }else{
                 defenderPower +=1;
                 accPwr+=1;
             }     
         }
+        oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = accPwr.ToString();  
         foreach(int cardPower in playedCardsPower.ToList()){
             myHand.GenerateAndDisplayAndProcessCard(cardPower, pos, accPwr);
             accPwr += cardPower;
-           
+            oppPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = accPwr.ToString();          
             pos++;
             yield return new WaitForSeconds(1.5f);
         }

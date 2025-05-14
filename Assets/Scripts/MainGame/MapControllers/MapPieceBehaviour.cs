@@ -29,6 +29,8 @@ public class MapPieceBehaviour : AttributesSync
     private GameObject ScrollPrefab;
     private GameObject TreasurePrefab;
     public List<MapInteractables> myInteractables;
+    private GameObject pointerObject;
+    private bool previewing = true;
 
     public enum MapInteractables{
         Tavern,
@@ -78,6 +80,29 @@ public class MapPieceBehaviour : AttributesSync
             myInteractables.Add(MapInteractables.Empty);
         }
         myMapStatus = MapStatus.Empty;
+        Invoke("FindPointer", 1);
+    }
+
+    void FindPointer(){
+        pointerObject = GameObject.Find("PointerObject");
+    }
+
+    void OnMouseOver()
+    {
+        if(Multiplayer.GetAvatar().GetComponent<FleetManager>()._fleetState != FleetManager.FleetControlState.SelectingMapPiece)return;
+        
+        if(previewing){
+            if(pointerObject != null){
+                BroadcastRemoteMethod("ShowPath");
+            }
+        }
+    }
+    
+    [SynchronizableMethod]
+    void ShowPath(){
+        pointerObject.GetComponent<Pointer>().objectPosition = this.transform.GetChild(0);
+        pointerObject.GetComponent<Pointer>().FindSelectedObject();
+        previewing = false;
     }
 
     private void OnMouseDown()
@@ -112,7 +137,12 @@ public class MapPieceBehaviour : AttributesSync
         }else{
             GetComponent<Renderer>().material = neighbouringTerrainMaterial;
         }
-       
+        
+        BroadcastRemoteMethod("HidePath");
+    }
+    [SynchronizableMethod]
+    void HidePath(){
+        previewing = true;
     }
     private void OnClicked(){
         
@@ -243,7 +273,6 @@ public class MapPieceBehaviour : AttributesSync
         GenerateInteractable(enteringShip);
     }
 
-    //
     public void EnterMapPiece(Ship enteringShip, bool passiveEntry)
     {
         enteringShip.occupyingMapPiece = GetComponent<MapPieceBehaviour>();
@@ -397,8 +426,9 @@ public class MapPieceBehaviour : AttributesSync
         InvokeRemoteMethod("BeginBattle", (ushort)attackerID, attacker, defender);
     }
     public void WaitForShipToAttackSelect(Ship attacker){
-        myCamera.targetFollow = occupyingShips[0].transform;
+        attacker.actionPoints -= 1;
         myCamera.transform.LookAt(occupyingShips[0].transform);
+        myCamera.targetFollow = occupyingShips[0].transform;       
         attacker.myFleet.StartCoroutine(attacker.myFleet.SelectShipToAttack(attacker));
     }
     public void BroadcastBeginBattleDefender(string attacker, string defender, ushort defenderID){

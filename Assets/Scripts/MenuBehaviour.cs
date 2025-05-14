@@ -173,14 +173,12 @@ public class MenuBehaviour : AttributesSync
 
 
     private void GenerateInitSpawnPointsAndSendToUsers(List<String> players)
-    {
-        
+    {       
         spawnPoints.Add(0);
         spawnPoints.Add(1);
         spawnPoints.Add(2);
         spawnPoints.Add(3);
-        spawnPoints = spawnPoints.OrderBy( x => UnityEngine.Random.value ).ToList( );
-        
+        spawnPoints = spawnPoints.OrderBy( x => UnityEngine.Random.value ).ToList( );       
 
         for(int i = 0; i<players.Count; i++){
             Multiplayer.GetAvatar((ushort)i).GetComponent<FleetManager>().InitSpawnPoint = SpawnPoints[i].name;          
@@ -188,7 +186,7 @@ public class MenuBehaviour : AttributesSync
         Commit();
         BroadcastRemoteMethod("SpawnFlagShips", spawnPoints);
     }
-    
+
     [SynchronizableMethod]
     private void SpawnFlagShips(List<int> spawnPoints){
         Multiplayer.GetAvatar().GetComponent<FleetManager>().SpawnFlagShipsAtRandomSpawns(spawnPoints);
@@ -347,8 +345,7 @@ public class MenuBehaviour : AttributesSync
         
     }
 
-    private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){
-        
+    private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){        
         if(_ship.shipGold >= _ship.GetComponentInParent<FleetManager>().myShips.Count && _ship.actionPoints > 0){
             _ship.SpendActionPoints(1);
             _ship.SpendGold(_ship.GetComponentInParent<FleetManager>().myShips.Count);
@@ -372,8 +369,7 @@ public class MenuBehaviour : AttributesSync
         }else{
             SpawnRumor();
             return;
-        }
-        
+        }       
     }
      public void ResetInteractablePanel(){
         foreach(Transform child in InteractablePanelPrefab.transform){

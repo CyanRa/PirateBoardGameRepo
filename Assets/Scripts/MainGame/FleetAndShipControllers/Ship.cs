@@ -48,6 +48,8 @@ public class Ship : AttributesSync
     public Button button1;
     public bool usingGreekFire;
     [SynchronizableField]public int damageBoost = 0;
+    
+    private bool playingShipSelectSound = false;
 
     private void Awake(){
         myCamera = GameObject.Find("RTS_Camera_var1").GetComponent<RTS_Camera>();   
@@ -237,7 +239,8 @@ public class Ship : AttributesSync
     }
 
     //TO BE REPLACED WITH SPLINE MOVEMENT
-    public void MoveToAnchor(Transform transform){        
+    public void MoveToAnchor(Transform transform){
+        myFleet.myPointer.BroadCastHidePath();        
         if(GetComponent<Transform>().position.x != transform.position.x && GetComponent<Transform>().position.z != transform.position.z){
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed*Time.deltaTime );
             GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;           
@@ -296,19 +299,24 @@ public class Ship : AttributesSync
         if(myFleet.Multiplayer.Me.Name == myFleet.MenuController.GetComponent<MenuBehaviour>().turnOwner){
             MoveCameraFromIconSelection(shipToSelect);
             myFleet.SelectByClicking(shipToSelect);
-            shipToSelect.GetComponent<Ship>().PlaySelectShipAudioClip();  
+            shipToSelect.GetComponent<Ship>().StartCoroutine(Co_PlaySelectShipAudioClip()); 
         }                   
     }
-
-    public void PlaySelectShipAudioClip(){
-        myAudioSource.PlayOneShot(selectShipAudioClip);
+    public IEnumerator Co_PlaySelectShipAudioClip(){
+        if(playingShipSelectSound == false){
+            playingShipSelectSound = true;
+            myAudioSource.PlayOneShot(selectShipAudioClip);
+            yield return new WaitForSeconds(1.5f);
+            playingShipSelectSound = false;
+        }
     }
     public void PlayShipBellRingAudioClip(){
         myAudioSource.PlayOneShot(shipBellRingAudioClip);
     }
     //NEEDS SOME BUFFER 
     private void MoveCameraFromIconSelection(GameObject shipToSelect){
-        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x, 540, shipToSelect.transform.position.z);    
+        myCamera.transform.position = new Vector3(shipToSelect.transform.position.x+7, 535, shipToSelect.transform.position.z+7);    
+        myCamera.transform.LookAt(shipToSelect.transform);
     }
 
     public void BroadcastChangeShipColour(int tempColourID){

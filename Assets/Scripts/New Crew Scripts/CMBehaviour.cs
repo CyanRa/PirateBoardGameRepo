@@ -48,25 +48,24 @@ public class CMBehaviour : MonoBehaviour
     public void SelectThisCrew()
     {
         if(isCommitted)return;
-        if(myHand.battleManager.turnOwner == myHand.battleManager.myTurnID){
-            if (!isSelected)
-        {
-            isSelected = true;
-            GetComponent<Image>().enabled = true;
-        }
-        else
-        {
-            isSelected = false;
-            GetComponent<Image>().enabled = false;
-        }
+            if(myHand.battleManager.turnOwner == myHand.battleManager.myTurnID){
+                if (!isSelected)
+            {
+                isSelected = true;
+                GetComponent<Image>().enabled = true;
+            }
+            else
+            {
+                isSelected = false;
+                GetComponent<Image>().enabled = false;
+            }
         }
         
     }
 
 
     public void CommitCrewToBattle()
-    {
-    
+    {   
         if(!myHand.battleManager.MyTurn() || !isSelected)return;       
             GetComponent<Image>().enabled = false;
             this.transform.SetParent(committedZone);       
@@ -85,9 +84,6 @@ public class CMBehaviour : MonoBehaviour
                 myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
                 myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.attackerPower.ToString();
                 myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.defenderUID, crewMember.crewMemberPower);
-            }
-            
-            //GetComponent<CMBehaviour>().enabled = false;
-                        
+            }                      
     }
 }

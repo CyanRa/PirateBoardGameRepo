@@ -156,16 +156,16 @@ public class Hand : AttributesSync
     public void EndCardTurn(){
         if(battleManager.turnOwner == battleManager.myTurnID){
             if(battleManager.cardsPlayedLastTurn == false){
-            battleManager.BroadcastEndBattle();
-            myFleetCrewCount = myFleetCrew.Count;
-            return;
+                battleManager.BroadcastEndBattle();
+                myFleetCrewCount = myFleetCrew.Count;
+                return;
             }
             if(battleManager.turnOwner == 1){
-            battleManager.turnOwner = 0;
+                battleManager.turnOwner = 0;
             }else{
-            battleManager.turnOwner = 1;
+                battleManager.turnOwner = 1;
             }
-            battleManager.BroadcastSetTurnOwnerDisplay();
+                battleManager.BroadcastSetTurnOwnerDisplay();
         }
         battleManager.cardsPlayedLastTurn = false;
       
