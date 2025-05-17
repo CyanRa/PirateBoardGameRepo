@@ -22,11 +22,6 @@ public class Dijkstra : MonoBehaviour
             savedNodes.Add(child.GetComponent<MapPieceBehaviour>());
         }
         nodesToProcess = savedNodes.ToList();
-        List<MapPieceBehaviour> list = CalculateShortestPathDijkstra(transform.GetChild(0).GetComponent<MapPieceBehaviour>(), transform.GetChild(40).GetComponent<MapPieceBehaviour>());
-        foreach(MapPieceBehaviour map in list){
-            Debug.Log(map.name);
-        }
-
     }
 
     public List<MapPieceBehaviour> CalculateShortestPathDijkstra(MapPieceBehaviour startPiece, MapPieceBehaviour endPiece){
@@ -68,14 +63,10 @@ public class Dijkstra : MonoBehaviour
             }
         }
         }
-        
-        
         //var keyR = MinHeapQueue.Min(kvp => kvp.Value);
         //var myKey = MinHeapQueue.FirstOrDefault(x => x.Value == keyR).Key;
         //ProcessNode(MinHeapQueue.FirstOrDefault(x => x.Value == keyR).Key);
-
-        
-        return FormKnotListToReturn(endPiece, startPiece);
+    return FormKnotListToReturn(endPiece, startPiece);
 
     }
 

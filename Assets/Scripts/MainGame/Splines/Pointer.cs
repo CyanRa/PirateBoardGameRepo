@@ -67,25 +67,7 @@ public class Pointer : AttributesSync
             spline.Add(piecesToGoal[mapIndex].transform.GetChild(0).position, TangentMode.Mirrored);
             mapIndex++;
         }
-        
-        /*foreach(MapPieceBehaviour map in piecesToGoal){
-            spline.Add(piecesToGoal[mapIndex].transform.GetChild(0).position, TangentMode.Mirrored);
 
-            objectPosition = piecesToGoal[mapIndex+1].transform.GetChild(0);
-            objectKnot.Position = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z);
-            playerKnot.Position = objectPosition.position;
-
-            playerKnot.TangentOut = new float3(bendAmount, 0f, 0f);
-            objectKnot.TangentIn = new float3(bendAmount, 0f, 0f);
-
-            spline.SetKnot(mapIndex, playerKnot);
-            spline.SetKnot(mapIndex+1, objectKnot);
-
-            spline.SetTangentMode(mapIndex, mode: TangentMode.Mirrored, BezierTangent.Out);
-            spline.SetTangentMode(mapIndex+1, mode: TangentMode.Mirrored, BezierTangent.In);
-
-            mapIndex ++;
-        }*/
         GetComponent<SplineInstantiate>().enabled = true;
     }
 
