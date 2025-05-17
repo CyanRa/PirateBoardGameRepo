@@ -177,7 +177,7 @@ public class BattleManager : AttributesSync
     }
 
     
-    private void PurgeDataOfFinishedBattle(){
+    public void PurgeDataOfFinishedBattle(){
         turnOwner = 1;
         attackerPower = 0;
         defenderPower = 0;    

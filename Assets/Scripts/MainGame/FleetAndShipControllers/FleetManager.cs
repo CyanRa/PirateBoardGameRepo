@@ -173,6 +173,8 @@ public class FleetManager : AttributesSync
         Debug.Log(ship);
         Transform _ship = GameObject.Find(ship).transform;
         Multiplayer.GetAvatar().GetComponent<FleetManager>().myPointer.SetupSpline(_ship);
+        myPointer.startMapPieceName = _ship.GetComponent<Ship>().occupyingMapPieceName;
+        myPointer.GetStartMapPiece();
     }
 
     public void RemoveShip(GameObject ship){
@@ -308,6 +310,7 @@ public class FleetManager : AttributesSync
         _myHand.BattleCanvas.SetActive(true);
         _myHand.InstantiateHand();
         BattleManager _BattleManager = _myHand.BattleCanvas.transform.GetComponentInParent<BattleManager>();
+        _BattleManager.PurgeDataOfFinishedBattle();
         _BattleManager.shipInCombat = GameObject.Find(attacker).GetComponent<Ship>();
         _BattleManager.attackingShip = attacker;
         _BattleManager.attackerUID = Multiplayer.GetUser().Index;
@@ -325,6 +328,7 @@ public class FleetManager : AttributesSync
         mapPiece.BroadcastBeginBattleDefender("", defender, defenderUID);
         _BattleManager.BroadcastInitializePrefabForDefender(defenderUID, _defenderShip.name);
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
+        
         if(_BattleManager.shipInCombat.isFlagship){
             _BattleManager.attackerPower += 1;
             _BattleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = 1.ToString();
@@ -335,6 +339,7 @@ public class FleetManager : AttributesSync
     
     public void EnterCombatAsDefender(string defender){
         BattleManager _BattleManager = GetComponent<Hand>().BattleCanvas.transform.GetComponentInParent<BattleManager>();
+         _BattleManager.PurgeDataOfFinishedBattle();
         _BattleManager.shipInCombat = GameObject.Find(defender).GetComponent<Ship>();
         _BattleManager.defenderUID = _BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
         _BattleManager.myTurnID = 0;

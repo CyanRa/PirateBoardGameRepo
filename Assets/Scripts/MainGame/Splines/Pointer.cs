@@ -2,12 +2,16 @@ using UnityEngine;
 using UnityEngine.Splines;
 using Unity.Mathematics;
 using Alteruna;
+using System.Collections.Generic;
+using System.Linq;
 
 public class Pointer : AttributesSync
 {
     [HideInInspector]
     public Transform objectPosition;
-    private Transform playerPosition;
+    public Transform playerPosition;
+    [SynchronizableField] public string startMapPieceName ="";
+    public MapPieceBehaviour startMapPiece;
     public float bendAmount;
 
     private Spline spline;
@@ -29,14 +33,22 @@ public class Pointer : AttributesSync
         spline.Add(playerKnot);
         spline.Insert(1, objectKnot);
     }
+
+    public void SetupSpline(Transform map, int index){      
+        spline.Insert(index, objectKnot);
+    }
+
+    public void GetStartMapPiece(){
+        startMapPiece = GameObject.Find(startMapPieceName).GetComponent<MapPieceBehaviour>();
+    }
     
 
     public void FindSelectedObject(){
         objectKnot.Position = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z);
         playerKnot.Position = objectPosition.position;
 
-        playerKnot.TangentOut = new float3(bendAmount, 0f, 1f);
-        objectKnot.TangentIn = new float3(bendAmount, 0f, -1f);
+        playerKnot.TangentOut = new float3(bendAmount, 0f, 0f);
+        objectKnot.TangentIn = new float3(bendAmount, 0f, 0f);
 
         spline.SetKnot(0, playerKnot);
         spline.SetKnot(1, objectKnot);
@@ -44,6 +56,36 @@ public class Pointer : AttributesSync
         spline.SetTangentMode(0, mode: TangentMode.Mirrored, BezierTangent.Out);
         spline.SetTangentMode(1, mode: TangentMode.Mirrored, BezierTangent.In);
 
+        GetComponent<SplineInstantiate>().enabled = true;
+    }
+
+    public void FindSelectedObject(List<MapPieceBehaviour> piecesToGoal){
+        spline.Clear();
+        int mapIndex = 0;
+        
+        foreach(MapPieceBehaviour map in piecesToGoal){
+            spline.Add(piecesToGoal[mapIndex].transform.GetChild(0).position, TangentMode.Mirrored);
+            mapIndex++;
+        }
+        
+        /*foreach(MapPieceBehaviour map in piecesToGoal){
+            spline.Add(piecesToGoal[mapIndex].transform.GetChild(0).position, TangentMode.Mirrored);
+
+            objectPosition = piecesToGoal[mapIndex+1].transform.GetChild(0);
+            objectKnot.Position = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z);
+            playerKnot.Position = objectPosition.position;
+
+            playerKnot.TangentOut = new float3(bendAmount, 0f, 0f);
+            objectKnot.TangentIn = new float3(bendAmount, 0f, 0f);
+
+            spline.SetKnot(mapIndex, playerKnot);
+            spline.SetKnot(mapIndex+1, objectKnot);
+
+            spline.SetTangentMode(mapIndex, mode: TangentMode.Mirrored, BezierTangent.Out);
+            spline.SetTangentMode(mapIndex+1, mode: TangentMode.Mirrored, BezierTangent.In);
+
+            mapIndex ++;
+        }*/
         GetComponent<SplineInstantiate>().enabled = true;
     }
 

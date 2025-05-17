@@ -10,6 +10,10 @@ public class GameEventManager : AttributesSync
     public List<IBoardEvent> myPersistentBoardEvents = new List<IBoardEvent>();
    
     private bool myBool;
+    [SynchronizableField]public bool mapPreviewing = true;
+    [SynchronizableField]public bool shipMoving = false;
+
+    
     public bool GameTurn
     {
         get { return myBool ; }

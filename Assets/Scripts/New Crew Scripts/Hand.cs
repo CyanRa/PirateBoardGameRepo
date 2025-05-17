@@ -85,6 +85,7 @@ public class Hand : AttributesSync
         
     }
     public void PurgeUI(){
+        myFleetCrewCount = myFleetCrew.Count;
         foreach(Transform child in opponentHandZone){
             Destroy(child.gameObject);
         }
@@ -157,7 +158,7 @@ public class Hand : AttributesSync
         if(battleManager.turnOwner == battleManager.myTurnID){
             if(battleManager.cardsPlayedLastTurn == false){
                 battleManager.BroadcastEndBattle();
-                myFleetCrewCount = myFleetCrew.Count;
+                
                 return;
             }
             if(battleManager.turnOwner == 1){

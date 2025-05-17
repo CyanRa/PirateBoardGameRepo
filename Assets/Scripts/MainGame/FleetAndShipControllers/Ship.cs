@@ -197,6 +197,8 @@ public class Ship : AttributesSync
     }
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
+        myFleet.myPointer.BroadCastHidePath();
+        occupyingMapPiece.GetComponentInParent<GameEventManager>().shipMoving = true;
         myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
         occupyingMapPiece.BroadCastRemoveOccupyingShip(gameObject.name);
         occupyingMapPiece.HandleMapPieceStatus();
@@ -212,7 +214,8 @@ public class Ship : AttributesSync
         occupyingMapPiece.ResetMaterial();                       
     }
     //For spawning from being bought 
-    public void SpawnShipFromHarbour(Transform _hit){       
+    public void SpawnShipFromHarbour(Transform _hit){ 
+              
         mapPieceAnchor = _hit.GetChild(0).transform;
         occupyingMapPiece = _hit.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
@@ -240,7 +243,7 @@ public class Ship : AttributesSync
 
     //TO BE REPLACED WITH SPLINE MOVEMENT
     public void MoveToAnchor(Transform transform){
-        myFleet.myPointer.BroadCastHidePath();        
+              
         if(GetComponent<Transform>().position.x != transform.position.x && GetComponent<Transform>().position.z != transform.position.z){
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed*Time.deltaTime );
             GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;           
@@ -248,6 +251,7 @@ public class Ship : AttributesSync
             isMoving = false;
             OffsetThisShip();
             myFleet.DeselectAll();
+            occupyingMapPiece.GetComponentInParent<GameEventManager>().shipMoving = false;
             EnableUnitMovement(this.gameObject, false);
             myCamera.ResetTarget();
         }        

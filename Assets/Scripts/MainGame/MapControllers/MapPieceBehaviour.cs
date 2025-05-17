@@ -30,7 +30,7 @@ public class MapPieceBehaviour : AttributesSync
     private GameObject TreasurePrefab;
     public List<MapInteractables> myInteractables;
     private GameObject pointerObject;
-    private bool previewing = true;
+    public bool previewing = true;
 
     public enum MapInteractables{
         Tavern,
@@ -91,7 +91,7 @@ public class MapPieceBehaviour : AttributesSync
     {
         if(Multiplayer.GetAvatar().GetComponent<FleetManager>()._fleetState != FleetManager.FleetControlState.SelectingMapPiece)return;
         
-        if(previewing){
+        if(GetComponentInParent<GameEventManager>().mapPreviewing && !GetComponentInParent<GameEventManager>().shipMoving){
             if(pointerObject != null){
                 BroadcastRemoteMethod("ShowPath");
             }
@@ -100,9 +100,12 @@ public class MapPieceBehaviour : AttributesSync
     
     [SynchronizableMethod]
     void ShowPath(){
-        pointerObject.GetComponent<Pointer>().objectPosition = this.transform.GetChild(0);
-        pointerObject.GetComponent<Pointer>().FindSelectedObject();
-        previewing = false;
+
+        //pointerObject.GetComponent<Pointer>().objectPosition = this.transform.GetChild(0);
+        //pointerObject.GetComponent<Pointer>().FindSelectedObject(GetComponentInParent<Dijkstra>().CalculateShortestPathDijkstra(GetComponent<MapPieceBehaviour>(),pointerObject.GetComponent<Pointer>().startMapPiece));
+        List<MapPieceBehaviour> maplist = GetComponentInParent<Dijkstra>().CalculateShortestPathDijkstra(pointerObject.GetComponent<Pointer>().startMapPiece,GetComponent<MapPieceBehaviour>());
+        pointerObject.GetComponent<Pointer>().FindSelectedObject(maplist);
+        GetComponentInParent<GameEventManager>().mapPreviewing = false;
     }
 
     private void OnMouseDown()
@@ -137,13 +140,9 @@ public class MapPieceBehaviour : AttributesSync
         }else{
             GetComponent<Renderer>().material = neighbouringTerrainMaterial;
         }
-        
-        BroadcastRemoteMethod("HidePath");
+        GetComponentInParent<GameEventManager>().mapPreviewing = true;       
     }
-    [SynchronizableMethod]
-    void HidePath(){
-        previewing = true;
-    }
+    
     private void OnClicked(){
         
     }
