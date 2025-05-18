@@ -93,16 +93,14 @@ public class MapPieceBehaviour : AttributesSync
         
         if(GetComponentInParent<GameEventManager>().mapPreviewing && !GetComponentInParent<GameEventManager>().shipMoving){
             if(pointerObject != null){
-                BroadcastRemoteMethod("ShowPath");
+                //BroadcastRemoteMethod("ShowPath");
+                ShowPath();
             }
         }
     }
     
     [SynchronizableMethod]
     void ShowPath(){
-
-        //pointerObject.GetComponent<Pointer>().objectPosition = this.transform.GetChild(0);
-        //pointerObject.GetComponent<Pointer>().FindSelectedObject(GetComponentInParent<Dijkstra>().CalculateShortestPathDijkstra(GetComponent<MapPieceBehaviour>(),pointerObject.GetComponent<Pointer>().startMapPiece));
         List<MapPieceBehaviour> maplist = GetComponentInParent<Dijkstra>().CalculateShortestPathDijkstra(pointerObject.GetComponent<Pointer>().startMapPiece,GetComponent<MapPieceBehaviour>());
         pointerObject.GetComponent<Pointer>().FindSelectedObject(maplist);
         GetComponentInParent<GameEventManager>().mapPreviewing = false;

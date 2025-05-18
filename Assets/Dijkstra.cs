@@ -9,10 +9,11 @@ using Alteruna;
 
 public class Dijkstra : MonoBehaviour
 {   
-
-    [SerializeField]Dictionary<MapPieceBehaviour, MapPieceBehaviour> Predecessors = new Dictionary<MapPieceBehaviour, MapPieceBehaviour>();
-    [SerializeField]Dictionary<MapPieceBehaviour, int> MinHeapQueue = new Dictionary<MapPieceBehaviour, int>();
+    Dictionary<MapPieceBehaviour, MapPieceBehaviour> Predecessors = new Dictionary<MapPieceBehaviour, MapPieceBehaviour>();
+    Dictionary<MapPieceBehaviour, int> MinHeapQueue = new Dictionary<MapPieceBehaviour, int>();
     List<MapPieceBehaviour> nodesToProcess = new List<MapPieceBehaviour>();
+
+    //List of all map pieces to re-initialize min heap queue
     List<MapPieceBehaviour> savedNodes = new List<MapPieceBehaviour>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,11 +26,11 @@ public class Dijkstra : MonoBehaviour
     }
 
     public List<MapPieceBehaviour> CalculateShortestPathDijkstra(MapPieceBehaviour startPiece, MapPieceBehaviour endPiece){
-        //Initialize mean-heap queueu from start node neighbours r = 2
         Predecessors.Clear();
         MinHeapQueue.Clear();
         nodesToProcess = savedNodes.ToList();
 
+        //Initializing minheapqueue from start node with r = 2
         foreach(MapPieceBehaviour connectedNode in startPiece.neighboringTerrain){
             foreach(MapPieceBehaviour connectedNode2 in connectedNode.neighboringTerrain){
                 if(!MinHeapQueue.ContainsKey(connectedNode2)){
@@ -42,40 +43,37 @@ public class Dijkstra : MonoBehaviour
         }
         nodesToProcess.Remove(startPiece);
 
-        while(nodesToProcess.Count != 0){
-            foreach(KeyValuePair<MapPieceBehaviour, int> key in MinHeapQueue.ToList()){
-            if(nodesToProcess.Contains(key.Key)){
-                foreach(MapPieceBehaviour connectedNode in key.Key.neighboringTerrain){
-                    foreach(MapPieceBehaviour connectedNode2 in connectedNode.neighboringTerrain){
-                        if(!MinHeapQueue.ContainsKey(connectedNode2)){
-                            MinHeapQueue.Add(connectedNode2, ConnectedNodeValue(connectedNode2,MinHeapQueue[key.Key]));
-                            Predecessors[connectedNode2] = key.Key;
-                        }else if(MinHeapQueue.ContainsKey(connectedNode2)){
-                            if(MinHeapQueue[key.Key] + ConnectedNodeValue(connectedNode2) < MinHeapQueue[connectedNode2]){
-                                MinHeapQueue[connectedNode2] = ConnectedNodeValue(connectedNode2,MinHeapQueue[key.Key]);
+            while(nodesToProcess.Count != 0){
+                foreach(KeyValuePair<MapPieceBehaviour, int> key in MinHeapQueue.ToList()){
+                if(nodesToProcess.Contains(key.Key)){
+                    foreach(MapPieceBehaviour connectedNode in key.Key.neighboringTerrain){
+                        foreach(MapPieceBehaviour connectedNode2 in connectedNode.neighboringTerrain){
+                            if(!MinHeapQueue.ContainsKey(connectedNode2)){
+                                MinHeapQueue.Add(connectedNode2, ConnectedNodeValue(connectedNode2,MinHeapQueue[key.Key]));
                                 Predecessors[connectedNode2] = key.Key;
+                            }else if(MinHeapQueue.ContainsKey(connectedNode2)){
+                                if(MinHeapQueue[key.Key] + ConnectedNodeValue(connectedNode2) < MinHeapQueue[connectedNode2]){
+                                    MinHeapQueue[connectedNode2] = ConnectedNodeValue(connectedNode2,MinHeapQueue[key.Key]);
+                                    Predecessors[connectedNode2] = key.Key;
+                                }
+                            }else{
                             }
-                        }else{
-                        }
-                    }         
+                        }         
+                    }
+                    nodesToProcess.Remove(key.Key);
                 }
-                nodesToProcess.Remove(key.Key);
             }
-        }
         }
         //var keyR = MinHeapQueue.Min(kvp => kvp.Value);
         //var myKey = MinHeapQueue.FirstOrDefault(x => x.Value == keyR).Key;
-        //ProcessNode(MinHeapQueue.FirstOrDefault(x => x.Value == keyR).Key);
     return FormKnotListToReturn(endPiece, startPiece);
-
     }
 
     private List<MapPieceBehaviour> FormKnotListToReturn(MapPieceBehaviour endMapPiece, MapPieceBehaviour startMapPiece)
     {
         List<MapPieceBehaviour> KnotListToEndPiece = new List<MapPieceBehaviour>();
         KnotListToEndPiece.Add(endMapPiece);
-        
-        
+               
         do{
             KnotListToEndPiece.Add(Predecessors[endMapPiece]);
             endMapPiece = Predecessors[endMapPiece];
@@ -104,12 +102,5 @@ public class Dijkstra : MonoBehaviour
         }else{
             return minheapqueueint + 1;
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

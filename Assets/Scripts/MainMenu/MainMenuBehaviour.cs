@@ -18,6 +18,7 @@ public class MainMenuBehaviour : CommunicationBridge
     public GameObject ProfileDisplayPrefab;
     public GameObject ProfileDisplayParent;
     public GameObject ProfileDeleteParent;
+    public GameObject OptionsPanel;
     public GameObject ProfileDisplayPrefabToDelete;
     private ProfileLoader _profileLoader;
     public AudioSource myAudioSource;
@@ -122,6 +123,13 @@ public class MainMenuBehaviour : CommunicationBridge
 
     public void PlayBubblesSoundEffect(){
         myAudioSource.PlayOneShot(bubblesTransitionAudioClip);
+    }
+
+    public void SetOptionsPanelActive(){
+        OptionsPanel.SetActive(true);
+    }
+    public void SetOptionsPanelInactive(){
+        OptionsPanel.SetActive(false);
     }
 
 }
