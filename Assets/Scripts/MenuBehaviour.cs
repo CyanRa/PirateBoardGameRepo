@@ -37,6 +37,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite RumorButtonSprite;
     public Sprite PirateCoveButtonSprite;
     public Sprite TreasureButtonImage;
+    public Sprite RetalButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
     public GameObject victoryPanel;
@@ -294,6 +295,10 @@ public class MenuBehaviour : AttributesSync
                 _interactable.GetComponent<Image>().sprite = TreasureButtonImage;
                 _button.onClick.AddListener(() => TreasureButtonMethod(_interactable, _ship, _mapPiece));
                 break;
+            case "Retal":
+                _interactable.GetComponent<Image>().sprite = RetalButtonImage;
+                _button.onClick.AddListener(() => RetalButtonMethod(_interactable, _ship, _mapPiece));
+                break;
                 default:
                 break;
         }
@@ -302,12 +307,23 @@ public class MenuBehaviour : AttributesSync
 
     private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
+        
+        if(_ship.actionPoints > 0){
+        _ship.SpendActionPoints(1);
+        MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
+         tempMapPiece.RemoveTreasure();
+        _ship.shipGold += UnityEngine.Random.Range(2,5);
+        _ship.UpdateGoldDisplay();
+        Destroy(_buttonPrefab);
+        }
+    }
+    private void RetalButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
+    {
         if(_ship.actionPoints > 0){
             _ship.SpendActionPoints(1);
+            _ship.hasRetal = false;
             MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
-            tempMapPiece.RemoveTreasure();
-            _ship.shipGold += UnityEngine.Random.Range(2,5);
-            _ship.UpdateGoldDisplay();
+            tempMapPiece.WaitForShipToAttackSelect(_ship);
             Destroy(_buttonPrefab);
         }
 
@@ -315,17 +331,18 @@ public class MenuBehaviour : AttributesSync
 
     private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll, Ship _ship)
     {
-        if(_ship.actionPoints > 0){
+        if (_ship.actionPoints > 0)
+        {
             _ship.SpendActionPoints(1);
             MapPieceBehaviour shipOccupiedMapPiece = GameObject.Find(_ship.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
             shipOccupiedMapPiece.BroadcastRemoveRumor();
             SpawnRumor();
-            int mapNumber = UnityEngine.Random.Range(0,52);
+            int mapNumber = UnityEngine.Random.Range(0, 52);
             MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
             _mapPiece.GenerateTreasure();
             Destroy(_buttonPrefab);
         }
-        
+
     }
 
     private void TavernButtonMethod(Ship _ship, GameObject _buttonPrefab){

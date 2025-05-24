@@ -144,21 +144,27 @@ public class FleetManager : AttributesSync
       
 #region SHIPS
     public void DeselectAll(){
-        if(SelectedShip != null){
+        if (SelectedShip != null)
+        {
             SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);
-            SelectedShip.GetComponent<Ship>().occupyingMapPiece?.DeHighlightNeighbours();                      
+            SelectedShip.GetComponent<Ship>().occupyingMapPiece?.DeHighlightNeighbours();
             SelectedShip = null;
             _fleetState = FleetControlState.SelectingShip;
+            
         }       
     }
     
     public void SelectByClicking(GameObject unit){
-        if(!myShips.Contains(unit))return;
+        MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
+        if (!myShips.Contains(unit)) return;
         if(_fleetState != FleetControlState.SelectingShip)return;
         if(SelectedShip != null){
             DeselectAll();
-        }   
+        }
         SelectedShip = unit;
+        if(unit.GetComponent<Ship>().hasRetal){
+            MenuController.GetComponent<MenuBehaviour>().InstantiateInteractableButton("Retal", unit.GetComponent<Ship>(), unit.GetComponent<Ship>().occupyingMapPiece.transform);
+        }
         
         BroadcastRemoteMethod("SetNewShipForPath", unit.name);
         shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
@@ -282,6 +288,7 @@ public class FleetManager : AttributesSync
             }
         }
     }
+    
     public IEnumerator SelectShipToAttack(Ship attacker){
         
         bool done = false;
@@ -291,8 +298,9 @@ public class FleetManager : AttributesSync
 		        RaycastHit hit; 
                 if(Physics.Raycast(ray, out hit)){
                     if(hit.transform.GetComponent<Ship>() != null){
-                        if(hit.transform.GetComponent<Ship>().myFleet != GetComponent<FleetManager>()){
+                        if(hit.transform.GetComponent<Ship>().myFleet != GetComponent<FleetManager>() && hit.transform.GetComponent<Ship>().occupyingMapPiece == attacker.occupyingMapPiece){
                             attacker.occupyingMapPiece.SetMyShipsNonSelectable();
+                            myCamera.targetFollow = null;
                             hit.transform.GetComponent<Ship>().WaitForDefenderShipReaction(attacker.myFleet.avatar.Owner.Index, attacker.name);
                             hit.transform.GetComponent<Ship>().ChangeShipColour(hit.transform.GetComponentInParent<FleetManager>().fleetColour);
                             done = true;
@@ -341,6 +349,7 @@ public class FleetManager : AttributesSync
         BattleManager _BattleManager = GetComponent<Hand>().BattleCanvas.transform.GetComponentInParent<BattleManager>();
          _BattleManager.PurgeDataOfFinishedBattle();
         _BattleManager.shipInCombat = GameObject.Find(defender).GetComponent<Ship>();
+        _BattleManager.shipInCombat.hasRetal = true;
         _BattleManager.defenderUID = _BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().Possessor.Index;
         _BattleManager.myTurnID = 0;
         _BattleManager.SetDefender(_BattleManager.shipInCombat.GetComponentInParent<Alteruna.Avatar>().name); 

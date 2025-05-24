@@ -48,6 +48,7 @@ public class Ship : AttributesSync
     public Button button1;
     public bool usingGreekFire;
     [SynchronizableField]public int damageBoost = 0;
+    public bool hasRetal = false;
     
     private bool playingShipSelectSound = false;
 
