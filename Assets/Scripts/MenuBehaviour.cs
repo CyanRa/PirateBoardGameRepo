@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Alteruna;
 using NUnit.Framework;
 using TMPro;
@@ -27,16 +28,20 @@ public class MenuBehaviour : AttributesSync
     public GameObject StopOnMousePlane;
     public GameObject MultiplayerSystem;
     public GameObject CrewDisplayPanel;
+    public GameObject CrewDisplayForPVE;
     public GameObject crewMemberPrefab;
+    public GameObject crewMemberPrefabPvE;
     public GameObject InteractablePanelPrefab;
     public GameObject InteractableButtonPrefab;
     public GameObject rumorScrollPrefab;
+    public GameObject sirensPrefab;
     public GameObject treasureChestPrefab;
     public Sprite HarbourButtonSprite;
     public Sprite RepairButtonSprite;
     public Sprite RumorButtonSprite;
     public Sprite PirateCoveButtonSprite;
     public Sprite TreasureButtonImage;
+    public Sprite SirensButtonImage;
     public Sprite RetalButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
@@ -51,13 +56,15 @@ public class MenuBehaviour : AttributesSync
     [SerializeField]public List<string> playersList;
     
     [SerializeField]public TextMeshProUGUI TurnDisplayText;
-    [SerializeField]public TextMeshProUGUI UserDisplayText; 
-    
+    [SerializeField]public TextMeshProUGUI UserDisplayText;
+
 
     void Start()
     {
-        StartGameButton = GameObject.Find("StartGameButton").GetComponent<Button>();      
+        StartGameButton = GameObject.Find("StartGameButton").GetComponent<Button>();
         StartGameButton.onClick.AddListener(BroadCastTriggerStartGame);
+        
+ 
         
     }
     public void ShowConsumablePanel(){
@@ -147,6 +154,30 @@ public class MenuBehaviour : AttributesSync
             CrewDisplayPanel.SetActive(false);
         }
     }
+    public void DisplayCrewForPVE(List<CrewMember> myFleetCrew){
+
+        if(CrewDisplayForPVE.activeSelf == false){
+            CrewDisplayForPVE.SetActive(true);
+            int i = 0;
+            foreach (CrewMember ownedCrewMember in myFleetCrew)
+            {
+            GameObject _crewMember = Instantiate(crewMemberPrefabPvE);
+            CMBehaviour _cMBehaviour = _crewMember.GetComponent<CMBehaviour>();
+            _cMBehaviour.crewMember = myFleetCrew[i];
+            _cMBehaviour.LoadCardDisplay();
+            _crewMember.transform.SetParent(CrewDisplayForPVE.transform.GetChild(0));         
+            i ++;
+            }
+        }else{
+            foreach (Transform _card in CrewDisplayForPVE.transform.GetChild(0))
+            {
+                Destroy(_card.gameObject);
+            }
+            CrewDisplayForPVE.SetActive(false);
+        }
+    }
+
+
 
     [SynchronizableMethod]
     void PassTurn(){
@@ -259,10 +290,10 @@ public class MenuBehaviour : AttributesSync
         Destroy(StartGameButton.gameObject);
         
     }
-#endregion
+    #endregion
 
 
-    
+
 
     public void InstantiateInteractableButton(string interactable, Ship _ship, Transform _mapPiece)
     {
@@ -270,9 +301,9 @@ public class MenuBehaviour : AttributesSync
         GameObject _interactable = Instantiate(InteractableButtonPrefab);
         _interactable.transform.SetParent(InteractablePanelPrefab.transform);
         Button _button = _interactable.GetComponent<Button>();
-        switch(interactable)
+        switch (interactable)
         {
-            case "Tavern": 
+            case "Tavern":
                 _button.onClick.AddListener(() => TavernButtonMethod(_ship, _interactable));
                 break;
             case "PirateCove":
@@ -295,26 +326,41 @@ public class MenuBehaviour : AttributesSync
                 _interactable.GetComponent<Image>().sprite = TreasureButtonImage;
                 _button.onClick.AddListener(() => TreasureButtonMethod(_interactable, _ship, _mapPiece));
                 break;
+            case "Sirens":
+                _interactable.GetComponent<Image>().sprite = SirensButtonImage;
+                _button.onClick.AddListener(() => SirensButtonMethod(_interactable, _ship, _mapPiece));
+                break;
             case "Retal":
                 _interactable.GetComponent<Image>().sprite = RetalButtonImage;
                 _button.onClick.AddListener(() => RetalButtonMethod(_interactable, _ship, _mapPiece));
                 break;
-                default:
+            default:
                 break;
         }
         
+        
     }
 
-    private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
+    private void SirensButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
         
-        if(_ship.actionPoints > 0){
-        _ship.SpendActionPoints(1);
-        MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
-         tempMapPiece.RemoveTreasure();
-        _ship.shipGold += UnityEngine.Random.Range(2,5);
-        _ship.UpdateGoldDisplay();
-        Destroy(_buttonPrefab);
+            DisplayCrewForPVE(Multiplayer.GetAvatar().GetComponent<Hand>().myFleetCrew);
+            CrewDisplayForPVE.GetComponent<PvEHandler>().myFleet = _ship.myFleet;
+            CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Sirens", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());
+            _ship.SpendActionPoints(1);
+        
+    }
+    
+    private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
+    {
+        if (_ship.actionPoints > 0)
+        {
+            _ship.SpendActionPoints(1);
+            MapPieceBehaviour tempMapPiece = _mapPiece.GetComponent<MapPieceBehaviour>();
+            tempMapPiece.RemoveTreasure();
+            _ship.shipGold += UnityEngine.Random.Range(2, 5);
+            _ship.UpdateGoldDisplay();
+            Destroy(_buttonPrefab);
         }
     }
     private void RetalButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)

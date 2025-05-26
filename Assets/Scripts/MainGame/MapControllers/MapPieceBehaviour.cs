@@ -28,17 +28,20 @@ public class MapPieceBehaviour : AttributesSync
     public bool isHighlighted = false;
     private GameObject ScrollPrefab;
     private GameObject TreasurePrefab;
+    private GameObject SirenPrefab;
     public List<MapInteractables> myInteractables;
     private GameObject pointerObject;
     public bool previewing = true;
 
-    public enum MapInteractables{
+    public enum MapInteractables
+    {
         Tavern,
         Harbor,
         PirateCove,
         Rumor,
         Treasure,
-        Empty
+        Empty,
+        Sirens
         
     }
     public MapStatus myMapStatus;
@@ -372,7 +375,7 @@ public class MapPieceBehaviour : AttributesSync
             }
         }
 
-        if(occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>())){
+        if(occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>()) || myInteractables.Contains(MapInteractables.Sirens)){
             SetMapPieceHostile();
         }else if(occupyingFleets.Count > 1 && occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>())){
             SetMapPieceContested();
@@ -459,13 +462,30 @@ public class MapPieceBehaviour : AttributesSync
             case MapInteractables.Treasure:
                 _menuBehaviour.InstantiateInteractableButton("Treasure", _enteringShip, gameObject.transform);
                 break;
+            case MapInteractables.Sirens:
+                _menuBehaviour.InstantiateInteractableButton("Sirens", _enteringShip, gameObject.transform);
+                break;
             default: break;
         }
         }
         
     }
 
-    public void BroadcastGenerateRumor(){
+    public void GenerateSirens()
+    {
+        myInteractables.Add(MapInteractables.Sirens);
+        BroadcastRemoteMethod("SynchMapStatus");
+        SirenPrefab = Instantiate(MenuSystem.sirensPrefab);
+        SirenPrefab.transform.position = this.transform.GetChild(0).transform.position;
+    }
+    public void RemoveSirens()
+    {
+        Destroy(SirenPrefab.gameObject);
+        myInteractables.Remove(MapInteractables.Sirens);
+    }
+
+    public void BroadcastGenerateRumor()
+    {
         BroadcastRemoteMethod("GenerateRumor");
     }
     [SynchronizableMethod]

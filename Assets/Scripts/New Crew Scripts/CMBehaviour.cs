@@ -62,28 +62,47 @@ public class CMBehaviour : MonoBehaviour
         }
         
     }
+    public void SelectThisCrewPVE()
+    {
+
+        if (!isSelected)
+        {
+            isSelected = true;
+            GetComponent<Image>().enabled = true;
+        }
+        else
+        {
+            isSelected = false;
+            GetComponent<Image>().enabled = false;
+        }
+             
+    }
+    
 
 
     public void CommitCrewToBattle()
-    {   
-        if(!myHand.battleManager.MyTurn() || !isSelected)return;       
-            GetComponent<Image>().enabled = false;
-            this.transform.SetParent(committedZone);       
-            isSelected = false;
-            isCommitted = true;
-            myHand.battleManager.cardsPlayedLastTurn = true;
-            myHand.battleManager.InvokeOpponentHandDisplay(myHand.myFleetCrew.Count - 1); 
-            myHand.myFleetCrew.Remove(crewMember);
+    {
+        if (!myHand.battleManager.MyTurn() || !isSelected) return;
+        GetComponent<Image>().enabled = false;
+        this.transform.SetParent(committedZone);
+        isSelected = false;
+        isCommitted = true;
+        myHand.battleManager.cardsPlayedLastTurn = true;
+        myHand.battleManager.InvokeOpponentHandDisplay(myHand.myFleetCrew.Count - 1);
+        myHand.myFleetCrew.Remove(crewMember);
 
 
-            if(myHand.battleManager.myTurnID == 0){
-                myHand.battleManager.defenderPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
-                myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.defenderPower.ToString();
-                myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.attackerUID, crewMember.crewMemberPower);
-            }else{
-                myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
-                myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.attackerPower.ToString();
-                myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.defenderUID, crewMember.crewMemberPower);
-            }                      
+        if (myHand.battleManager.myTurnID == 0)
+        {
+            myHand.battleManager.defenderPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+            myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.defenderPower.ToString();
+            myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.attackerUID, crewMember.crewMemberPower);
+        }
+        else
+        {
+            myHand.battleManager.attackerPower += GetComponent<CMBehaviour>().crewMember.crewMemberPower;
+            myHand.battleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = myHand.battleManager.attackerPower.ToString();
+            myHand.battleManager.InvokeDisplayCommitedCard(myHand.battleManager.defenderUID, crewMember.crewMemberPower);
+        }
     }
 }

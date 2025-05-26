@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Multiplayer: {fileID: 0}
+  _uidString: 02746cd3-7c21-4048-82cd-b0dbd0edad48
+  Reliability: 1
+  LocalMethodBehavior: 1
   avatar: {fileID: 6772045645585059290}
   clickable:
     serializedVersion: 2
@@ -64,6 +67,7 @@ MonoBehaviour:
   shipPrefab: {fileID: 4109729302943604207, guid: 05385616fc16e3940ae6838818a54237, type: 3}
   MenuController: {fileID: 0}
   MultiplayerSystem: {fileID: 0}
+  isMyTurn: 0
   gameStarted: 0
   EndTurnText: {fileID: 0}
   fleetColour: 
@@ -79,6 +83,8 @@ MonoBehaviour:
   ok: 0
   immuneToStorm: 0
   choosingStorm: 0
+  InitSpawnPoint: 
+  myPointer: {fileID: 0}
   _fleetState: 0
 --- !u!114 &-6938788333451560399
 MonoBehaviour:
@@ -92,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7195ef7eb28b542408e63d85231602f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 
+  Reliability: 1
+  LocalMethodBehavior: 1
   myFleetCrew: []
+  myFleetCrewCount: 0
   _totalPower: 0
   deckLoader: {fileID: 0}
   crewMemberPrefab: {fileID: 3027260731280725542, guid: ae11e64747c55404196ee38f27afe055, type: 3}

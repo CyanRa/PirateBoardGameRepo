@@ -84,6 +84,8 @@ public class FleetManager : AttributesSync
         victoryPointsCount = GameObject.Find("VictoryPointsCount").GetComponentInChildren<TextMeshProUGUI>();
         Button ShowCrewButton = GameObject.Find("ShowCrewButton").GetComponent<Button>();
         ShowCrewButton.onClick.AddListener(DisplayCrew);
+        //Button ShowCrewButtonForPVE = GameObject.Find("ShowCrewButton").GetComponent<Button>();
+        //ShowCrewButton.onClick.AddListener(() => DisplayCrewForPVE());
         UpdateVictoryPointsDisplay();       
     }
     public void UpdateVictoryPointsDisplay(){
@@ -215,10 +217,12 @@ public class FleetManager : AttributesSync
             MenuController.GetComponent<MenuBehaviour>().BroadcastPassTurn(); 
             MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel(); 
             isMyTurn = false; 
-            immuneToStorm = false;   
-             //WHAT IF LAST PLAYER DIES OR LEAVES THE GAME???
-            if(lastPlayer){
+            immuneToStorm = false;
+            //WHAT IF LAST PLAYER DIES OR LEAVES THE GAME???
+            if (lastPlayer)
+            {
                 gameEventManager.GameTurn = true;
+                gameEventManager.GenerateBoardEvent();
             }               
         } 
         
@@ -249,20 +253,26 @@ public class FleetManager : AttributesSync
     public void DisplayCrew(){
         MenuController.GetComponent<MenuBehaviour>().DisplayCrew(GetComponent<Hand>().myFleetCrew);
     }
+    public void DisplayCrewForPVE()
+    { 
+        MenuController.GetComponent<MenuBehaviour>().DisplayCrewForPVE(GetComponent<Hand>().myFleetCrew);
+    }
 
-    public void StartGame(){
+    public void StartGame()
+    {
         List<User> myUsers = MultiplayerSystem.GetComponent<Multiplayer>().GetUsers();
-          
+
         InitEndTurnButton();
         GetComponent<Hand>().DrawNCards(5);
 
-        if(isHost){
-            isMyTurn = true;        
-            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);                                                 
-        }    
-            
+        if (isHost)
+        {
+            isMyTurn = true;
+            MenuController.GetComponent<MenuBehaviour>().BroadcastDisplayListOfPlayers(myUsers);
+        }
 
-        gameStarted = true;                    
+
+        gameStarted = true;
     }
     public void SpawnFlagShipsAtRandomSpawns(List<int> spawnPoints){
         InitSpawnPoint = MenuController.GetComponent<MenuBehaviour>().SpawnPoints[spawnPoints[Multiplayer.GetUser().Index]].name;

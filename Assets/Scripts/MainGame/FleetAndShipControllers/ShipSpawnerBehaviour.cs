@@ -55,6 +55,25 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnIndex++;    
        }      
     }
+
+    public void SpawnShip(Transform _spawnPoint, bool damaged){       
+       if(myAvatar.GetComponent<FleetManager>().myShips.Count < 5){           
+            GameObject spawnedShip = mySpawner.Spawn(0, _spawnPoint.position);
+            spawnedShip.name = "Ship" + myAvatar.name + spawnIndex;  
+            _tempSpawnedShipName = spawnedShip.name;        
+            spawnedShip.transform.SetParent(myAvatar.transform);
+            spawnedShip.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
+            string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour; 
+            spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
+            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);                      
+            BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
+            spawnedShip.GetComponent<Ship>().enabled = true;
+            spawnedShip.GetComponent<Ship>().ChangeShipHealth(1);
+            spawnedShip.GetComponent<Ship>().offsetPosition[0] =  spawnedShip.GetComponentInParent<FleetManager>().fleetPositionIndex;
+            spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);                 
+            spawnIndex++;    
+       }      
+    }
   
     [SynchronizableMethod]
     public void SynchSpawnedShip(string _player, int _spawnIndex){
