@@ -88,8 +88,7 @@ public class MenuBehaviour : AttributesSync
     public void ChooseColour(Button _button){
         FleetManager _fleet = Multiplayer.GetAvatar().GetComponent<FleetManager>();
         if (_fleet.fleetColour==""){
-            BroadcastRemoteMethod("LockInFleetColour", _button.gameObject.name, _fleet.name);
-            
+            BroadcastRemoteMethod("LockInFleetColour", _button.gameObject.name, _fleet.name);           
         }       
     }
 
