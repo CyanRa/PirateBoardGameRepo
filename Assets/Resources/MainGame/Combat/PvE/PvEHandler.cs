@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Alteruna;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +27,9 @@ public class PvEHandler : MonoBehaviour
     private string victoryString;
     private string failureString;
     public bool done = false;
+    private bool damageDisplayDone = false;
     MapPieceBehaviour map;
+    MapPieceBehaviour.MapInteractables interactable;
     
 
 
@@ -36,6 +40,7 @@ public class PvEHandler : MonoBehaviour
         map = _map;
         Dice.Clear();
         enemyRolls.Clear();
+        myTotalPower += ship.damageBoost;
         switch (enemy)
         {
             case "Sirens":
@@ -48,6 +53,23 @@ public class PvEHandler : MonoBehaviour
                 Die.GetComponent<Image>().sprite = diceSides[5];
                 Dice.Add(Die);
                 enemyRolls.Add(6);
+                interactable = MapPieceBehaviour.MapInteractables.Sirens;
+                break;
+            case "Dragon":
+
+                victoryString = "You slay the dragon over and over again, until you decide to kill it ridding the world of this perverted evil";
+                failureString = "The dragon slays you over and over until it gets bored and leaves you damaged(by 1 point)";
+                transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = enemySprites[1];
+                interactable = MapPieceBehaviour.MapInteractables.Dragon;
+                for (int i = 0; i < 3; i++)
+                {
+                    Die = Instantiate(DicePrefab);
+                    Die.transform.SetParent(transform.GetChild(2).GetChild(1));
+                    Die.GetComponent<Image>().sprite = diceSides[5];
+                    Dice.Add(Die);
+                    enemyRolls.Add(6);
+                }
+
                 break;
             default: break;
         }
@@ -83,20 +105,22 @@ public class PvEHandler : MonoBehaviour
             }
         }
         cardsSelected = true;
-        RollMonsterDamage();
+        StartCoroutine(RollMonsterDamage());
     }
 
-    private void RollMonsterDamage()
+    private IEnumerator RollMonsterDamage()
     {
         int index = 0;
         foreach (int roll in enemyRolls)
         {
 
-            int _roll = UnityEngine.Random.Range(1, roll);
+            int _roll = UnityEngine.Random.Range(1, roll+1);
             enemyPower += _roll;
             StartCoroutine(DisplayRoll(_roll, index));
             index++;
+            yield return new WaitForSeconds(1f);
         }
+        StartCoroutine(DisplayResultScreen());
     }
     IEnumerator DisplayRoll(int roll, int index)
     {
@@ -107,24 +131,50 @@ public class PvEHandler : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        transform.GetChild(2).GetChild(1).GetChild(index).gameObject.GetComponent<Image>().sprite = diceSides[roll - 1];
+        transform.GetChild(2).GetChild(1).GetChild(index).gameObject.GetComponent<Image>().sprite = diceSides[roll-1];
+        
         yield return new WaitForSeconds(3f);
+        damageDisplayDone = true;
 
-        StartCoroutine(DisplayResultScreen());
+        
     }
 
     IEnumerator DisplayResultScreen()
     {
+        while (!damageDisplayDone) { yield return null; }
+        
         PvEResultDisplayPanel.SetActive(true);
         if (myTotalPower >= enemyPower)
         {
-            myFleet.GetVictoryPoints(2);
-            if(myFleet.myShips.Count < 5){
-                ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(ship.occupyingMapPiece.gameObject.transform.GetChild(0), true);
+            switch (interactable)
+            {
+                case MapPieceBehaviour.MapInteractables.Sirens:
+                    myFleet.GetVictoryPoints(2);
+                    if (myFleet.myShips.Count < 5)
+                    {
+                        ship.GetComponentInParent<FleetManager>().MainSpawner.SpawnShip(ship.occupyingMapPiece.gameObject.transform.GetChild(0), true);
+                    }
+                    map.RemoveSirens();
+                    break;
+
+
+                case MapPieceBehaviour.MapInteractables.Dragon:
+                    myFleet.GetVictoryPoints(6);
+                    foreach (IBoardEvent boardEvent in map.GetComponentInParent<GameEventManager>().myPersistentBoardEvents.ToList())
+                    {
+                        if (boardEvent is DragonBehaviour)
+                        {
+                            DragonBehaviour dragon = (DragonBehaviour)boardEvent;
+                            map.GetComponentInParent<GameEventManager>().myPersistentBoardEvents.Remove(boardEvent);
+                            dragon.Die();
+                        }
+                    }
+                    break;
             }
-            map.RemoveSirens();
+
             PvEResultDisplayPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = victoryString;
             PvEResultDisplayPanel.transform.GetChild(1).GetComponent<Image>().sprite = victorySprite;
+            damageDisplayDone = false;
         }
         else
         {
@@ -137,18 +187,21 @@ public class PvEHandler : MonoBehaviour
             yield return null;
         }
         done = false;
-        PvEResultDisplayPanel.SetActive(false);
         PurgeAndCloseThePvECombatPanel();
+        PvEResultDisplayPanel.SetActive(false);
+        gameObject.SetActive(false);  
     }
 
     private void PurgeAndCloseThePvECombatPanel()
     {
         myTotalPower = 0;
         enemyPower = 0;
-        foreach (Transform child in transform.GetChild(2).GetChild(1)) {
+        foreach (Transform child in transform.GetChild(0)) {
             Destroy(child.gameObject);
-        }       
-        enemyRolls.Clear();
-        gameObject.SetActive(false);
+        }
+        foreach (Transform child in transform.GetChild(2).GetChild(1)) { 
+            Destroy(child.gameObject);
+        }
+        enemyRolls.Clear();    
     }
 }

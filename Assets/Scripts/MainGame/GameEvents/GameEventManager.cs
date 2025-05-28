@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 public class GameEventManager : AttributesSync
 {
     public GameObject StormPrefab;
+    public GameObject DragonPrefab;
     public List<IBoardEvent> myPersistentBoardEvents = new List<IBoardEvent>();
     private bool myBool;
     [SynchronizableField]public bool mapPreviewing = true;
@@ -53,7 +54,7 @@ public class GameEventManager : AttributesSync
 
     public void GenerateBoardEvent()
     {
-        int eventNumber = UnityEngine.Random.Range(0, 3);
+        int eventNumber = UnityEngine.Random.Range(0, 5);
         
         switch (eventNumber)
         {
@@ -87,13 +88,22 @@ public class GameEventManager : AttributesSync
                 break;
             case 3:
                 mapNumber = UnityEngine.Random.Range(0, 52);
-                if (transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>().myInteractables.Contains(MapPieceBehaviour.MapInteractables.Sirens))
+                if (myPersistentBoardEvents.OfType<DragonBehaviour>().Any())
                 {
                     GenerateBoardEvent();
                     return;
                 }
-                BroadcastRemoteMethod("SpawnSirens", mapNumber);
-                break;    
+                BroadcastRemoteMethod("SpawnDragon", mapNumber);
+                break;   
+            case 4:
+                mapNumber = UnityEngine.Random.Range(0, 52);
+                if (myPersistentBoardEvents.OfType<DragonBehaviour>().Any())
+                {
+                    GenerateBoardEvent();
+                    return;
+                }
+                BroadcastRemoteMethod("SpawnDragon", mapNumber);
+                break;   
             default: break;
 
         }
@@ -103,6 +113,17 @@ public class GameEventManager : AttributesSync
     private void SpawnSirens(int mapNumber)
     { 
         transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>().GenerateSirens();
+    }
+
+    [SynchronizableMethod]
+    private void SpawnDragon(int mapNumber)
+    {
+        GameObject newDragon = Instantiate(DragonPrefab);
+        DragonBehaviour Dragon = newDragon.GetComponent<DragonBehaviour>();
+        Dragon.occupyingMapPiece = transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
+        transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>().myInteractables.Add(MapPieceBehaviour.MapInteractables.Dragon);
+        newDragon.transform.position = new Vector3(transform.GetChild(mapNumber).GetChild(0).position.x, newDragon.transform.position.y, transform.GetChild(mapNumber).GetChild(0).position.z);
+        myPersistentBoardEvents.Add(Dragon);
     }
 
     [SynchronizableMethod]

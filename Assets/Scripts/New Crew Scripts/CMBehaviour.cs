@@ -33,7 +33,6 @@ public class CMBehaviour : MonoBehaviour
             button.onClick.AddListener(CommitCrewToBattle);
         }
         catch(Exception e){
-            Debug.Log("Card instantiated for display only");
         }
         
     }

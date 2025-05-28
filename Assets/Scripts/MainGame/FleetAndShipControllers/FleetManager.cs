@@ -166,8 +166,7 @@ public class FleetManager : AttributesSync
         SelectedShip = unit;
         if(unit.GetComponent<Ship>().hasRetal){
             MenuController.GetComponent<MenuBehaviour>().InstantiateInteractableButton("Retal", unit.GetComponent<Ship>(), unit.GetComponent<Ship>().occupyingMapPiece.transform);
-        }
-        
+        }       
         BroadcastRemoteMethod("SetNewShipForPath", unit.name);
         shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
         SelectedShip.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
@@ -178,7 +177,6 @@ public class FleetManager : AttributesSync
 
     [SynchronizableMethod]
     void SetNewShipForPath(string ship){       
-        Debug.Log(ship);
         Transform _ship = GameObject.Find(ship).transform;
         Multiplayer.GetAvatar().GetComponent<FleetManager>().myPointer.SetupSpline(_ship);
         myPointer.startMapPieceName = _ship.GetComponent<Ship>().occupyingMapPieceName;

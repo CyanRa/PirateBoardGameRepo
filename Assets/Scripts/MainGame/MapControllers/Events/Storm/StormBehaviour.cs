@@ -61,7 +61,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
                     if(ship != null && Multiplayer.GetAvatar().GetComponent<FleetManager>().myShips.Contains(ship.gameObject)){
                         map.HandleStorm(ship);
                     }
-            }
+                }
             }
             
         }
@@ -75,7 +75,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         tempObject.transform.position = new Vector3(mapPieceAnchor.position.x, gameObject.transform.position.y, mapPieceAnchor.position.z);
         tempObject.transform.Rotate(-90,0,0);
         Transform tempAnchor = tempObject.transform;
-        myCamera.targetFollow = transform;
+        //myCamera.targetFollow = transform;
 
         while(GetComponent<Transform>().position.x != tempAnchor.position.x && GetComponent<Transform>().position.z != tempAnchor.position.z){
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, tempAnchor.position, 5f*Time.deltaTime);
@@ -84,7 +84,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
             yield return null;                       
         }  
 
-        myCamera.targetFollow = null;    
+        //myCamera.targetFollow = null;    
         isMoving = false;  
         Destroy(tempObject);      
         yield return null;       

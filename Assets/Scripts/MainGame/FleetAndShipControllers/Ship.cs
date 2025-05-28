@@ -201,8 +201,10 @@ public class Ship : AttributesSync
         myFleet.myPointer.BroadCastHidePath();
         occupyingMapPiece.GetComponentInParent<GameEventManager>().shipMoving = true;
         myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
+        occupyingMapPiece.HandleFleetFormation(myFleet, offsetPosition[1]);
         occupyingMapPiece.BroadCastRemoveOccupyingShip(gameObject.name);
         occupyingMapPiece.HandleMapPieceStatus();
+        
         mapPieceAnchor = _hit.transform.GetChild(0).transform;
         occupyingMapPiece = _hit.transform.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
@@ -244,7 +246,7 @@ public class Ship : AttributesSync
 
     //TO BE REPLACED WITH SPLINE MOVEMENT
     public void MoveToAnchor(Transform transform){
-              
+        hasRetal = false;
         if(GetComponent<Transform>().position.x != transform.position.x && GetComponent<Transform>().position.z != transform.position.z){
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed*Time.deltaTime );
             GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;           
