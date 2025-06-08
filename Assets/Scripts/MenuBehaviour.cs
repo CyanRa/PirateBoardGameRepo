@@ -35,6 +35,7 @@ public class MenuBehaviour : AttributesSync
     public GameObject InteractableButtonPrefab;
     public GameObject rumorScrollPrefab;
     public GameObject sirensPrefab;
+    public GameObject piratePrefab;
     public GameObject treasureChestPrefab;
     public Sprite HarbourButtonSprite;
     public Sprite RepairButtonSprite;
@@ -44,6 +45,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite SirensButtonImage;
     public Sprite DragonButtonImage;
     public Sprite RetalButtonImage;
+    public Sprite PiratesButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
     public GameObject victoryPanel;
@@ -333,6 +335,10 @@ public class MenuBehaviour : AttributesSync
                 _interactable.GetComponent<Image>().sprite = DragonButtonImage;
                 _button.onClick.AddListener(() => DragonButtonMethod(_interactable, _ship, _mapPiece));
                 break;
+            case "Pirates":
+                _interactable.GetComponent<Image>().sprite = PiratesButtonImage;
+                _button.onClick.AddListener(() => PiratesButtonMethod(_interactable, _ship, _mapPiece));
+                break;
             case "Retal":
                 _interactable.GetComponent<Image>().sprite = RetalButtonImage;
                 _button.onClick.AddListener(() => RetalButtonMethod(_interactable, _ship, _mapPiece));
@@ -344,16 +350,30 @@ public class MenuBehaviour : AttributesSync
         
     }
 
+    private void PiratesButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
+    {
+        if (_ship.actionPoints > 0)
+        {
+            DisplayCrewForPVE(Multiplayer.GetAvatar().GetComponent<Hand>().myFleetCrew);
+            CrewDisplayForPVE.GetComponent<PvEHandler>().myFleet = _ship.myFleet;
+            CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Pirates", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());
+            _ship.SpendActionPoints(1);
+        }
+
+    }
+    
+    
+
     private void SirensButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
         if (_ship.actionPoints > 0)
         {
             DisplayCrewForPVE(Multiplayer.GetAvatar().GetComponent<Hand>().myFleetCrew);
             CrewDisplayForPVE.GetComponent<PvEHandler>().myFleet = _ship.myFleet;
-            CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Sirens", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());    
-            _ship.SpendActionPoints(1);  
+            CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Sirens", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());
+            _ship.SpendActionPoints(1);
         }
-        
+
     }
 
     private void DragonButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)

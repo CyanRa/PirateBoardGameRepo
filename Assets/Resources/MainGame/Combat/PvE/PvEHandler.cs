@@ -55,6 +55,18 @@ public class PvEHandler : MonoBehaviour
                 enemyRolls.Add(6);
                 interactable = MapPieceBehaviour.MapInteractables.Sirens;
                 break;
+            case "Pirates":
+
+                victoryString = "You  call their mother a landlubber decisively winning the roast battle. You gain 2 victory points and a trasure";
+                failureString = "Before you could even speak the rebel leader points to your wooden peg and procliams 'WHAT ARE THOOOOOOOOOOSE' You take 1 damage";
+                Die = Instantiate(DicePrefab);
+                transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = enemySprites[2];
+                Die.transform.SetParent(transform.GetChild(2).GetChild(1));
+                Die.GetComponent<Image>().sprite = diceSides[3];
+                Dice.Add(Die);
+                enemyRolls.Add(4);
+                interactable = MapPieceBehaviour.MapInteractables.Pirates;
+                break;
             case "Dragon":
 
                 victoryString = "You slay the dragon over and over again, until you decide to kill it ridding the world of this perverted evil";
@@ -169,6 +181,12 @@ public class PvEHandler : MonoBehaviour
                             dragon.Die();
                         }
                     }
+                    break;
+                case MapPieceBehaviour.MapInteractables.Pirates:
+                    myFleet.GetVictoryPoints(2);
+                    myFleet.myInventory.AddConsumable();
+                    victoryString += ": " + myFleet.myInventory.myConsumables[myFleet.myInventory.myConsumables.Count-1].name;
+                    map.RemovePirates();
                     break;
             }
 

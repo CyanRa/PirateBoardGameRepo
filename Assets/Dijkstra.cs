@@ -56,7 +56,6 @@ public class Dijkstra : MonoBehaviour
                                     MinHeapQueue[connectedNode2] = ConnectedNodeValue(connectedNode2,MinHeapQueue[key.Key]);
                                     Predecessors[connectedNode2] = key.Key;
                                 }
-                            }else{
                             }
                         }         
                     }

@@ -4,7 +4,6 @@ using UnityEngine;
 public class Shipwright : Consumable
 {
     public override void UseConsumable(FleetManager userFleet){
-       if(!userFleet.isMyTurn)return;
        base.RemoveConsumable(userFleet);
        userFleet.WaitForHarborSelect();
        Debug.Log("Shipwright");       

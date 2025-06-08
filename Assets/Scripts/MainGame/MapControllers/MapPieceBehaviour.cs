@@ -13,7 +13,6 @@ using System.Data;
 using RTS_Cam;
 using System.Linq;
 using UnityEngine.UIElements;
-using UnityEditor.ShaderGraph.Internal;
 
 public class MapPieceBehaviour : AttributesSync
 {
@@ -31,6 +30,7 @@ public class MapPieceBehaviour : AttributesSync
     private GameObject ScrollPrefab;
     private GameObject TreasurePrefab;
     private GameObject SirenPrefab;
+    private GameObject PiratePrefab;
     public List<MapInteractables> myInteractables;
     private GameObject pointerObject;
     public bool previewing = true;
@@ -44,7 +44,8 @@ public class MapPieceBehaviour : AttributesSync
         Treasure,
         Empty,
         Sirens,
-        Dragon
+        Dragon,
+        Pirates
 
     }
     public MapStatus myMapStatus;
@@ -447,7 +448,7 @@ public class MapPieceBehaviour : AttributesSync
             }
         }
 
-        if (occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>()) || myInteractables.Contains(MapInteractables.Sirens) || myInteractables.Contains(MapInteractables.Dragon))
+        if (occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>()) || myInteractables.Contains(MapInteractables.Sirens) || myInteractables.Contains(MapInteractables.Dragon) || myInteractables.Contains(MapInteractables.Pirates))
         {
             SetMapPieceHostile();
         }
@@ -576,11 +577,35 @@ public class MapPieceBehaviour : AttributesSync
                 case MapInteractables.Dragon:
                     _menuBehaviour.InstantiateInteractableButton("Dragon", _enteringShip, gameObject.transform);
                     break;
+                case MapInteractables.Pirates:
+                    _menuBehaviour.InstantiateInteractableButton("Pirates", _enteringShip, gameObject.transform);
+                    break;
+                    
                 default: break;
             }
         }
 
     }
+
+    public void GeneratePirates()
+    {
+        myInteractables.Add(MapInteractables.Pirates);
+        BroadcastRemoteMethod("SynchMapStatus");
+        PiratePrefab = Instantiate(MenuSystem.piratePrefab);
+        PiratePrefab.transform.position = this.transform.GetChild(0).transform.position;
+    }
+    public void RemovePirates()
+    {
+        BroadcastRemoteMethod("BroadRemovePirates");
+    }
+    [SynchronizableMethod]
+    private void BroadRemovePirates()
+    {
+        Destroy(PiratePrefab.gameObject);
+        myInteractables.Remove(MapInteractables.Pirates);
+        HandleMapPieceStatus();
+    }
+
 
     public void GenerateSirens()
     {

@@ -84,7 +84,7 @@ public class GameEventManager : AttributesSync
                     GenerateBoardEvent();
                     return;
                 }
-                BroadcastRemoteMethod("SpawnSirens", mapNumber);
+                BroadcastRemoteMethod("SpawnPirates", mapNumber);
                 break;
             case 3:
                 mapNumber = UnityEngine.Random.Range(0, 52);
@@ -102,7 +102,7 @@ public class GameEventManager : AttributesSync
                     GenerateBoardEvent();
                     return;
                 }
-                BroadcastRemoteMethod("SpawnDragon", mapNumber);
+                BroadcastRemoteMethod("SpawnPirates", mapNumber);
                 break;   
             default: break;
 
@@ -113,6 +113,12 @@ public class GameEventManager : AttributesSync
     private void SpawnSirens(int mapNumber)
     { 
         transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>().GenerateSirens();
+    }
+
+    [SynchronizableMethod]
+    private void SpawnPirates(int mapNumber)
+    { 
+        transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>().GeneratePirates();
     }
 
     [SynchronizableMethod]

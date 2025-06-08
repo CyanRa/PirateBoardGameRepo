@@ -5,8 +5,7 @@ using UnityEngine;
 public class CaptainsDecree : Consumable
 {
     public override void UseConsumable(FleetManager userFleet){
-        if(!userFleet.isMyTurn)return;
         base.RemoveConsumable(userFleet);
-       userFleet.GainFlagshipActionPoint(); 
+        userFleet.GainFlagshipActionPoint(); 
     }
 }
