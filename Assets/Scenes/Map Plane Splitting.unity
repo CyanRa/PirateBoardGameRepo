@@ -28620,7 +28620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.91975915, y: 469.7085}
+  m_AnchoredPosition: {x: 7.423503, y: 480.83286}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -45769,7 +45769,7 @@ MonoBehaviour:
   Multiplayer: {fileID: 0}
   SpawnableObjects:
   - {fileID: 8827019255276885257, guid: cf3c9621c384add4b99063741b26f1ea, type: 3}
-  - {fileID: 6201212206276407101, guid: 55a2d915994f108488aee37745cce7d0, type: 3}
+  - {fileID: 1782304150146954836, guid: 91811713ca8710342b760437d24938a7, type: 3}
   OnObjectSpawn:
     m_PersistentCalls:
       m_Calls: []

@@ -278,20 +278,31 @@ public class Ship : AttributesSync
         BroadcastRemoteMethod("CheckShipStatus");
 
     }
-    
+
     [SynchronizableMethod]
-    private void CheckShipStatus(){
-        
-        if(occupyingMapPiece==null){
+    private void CheckShipStatus()
+    {
+
+        if (occupyingMapPiece == null)
+        {
             occupyingMapPiece = GameObject.Find(occupyingMapPieceName)?.GetComponent<MapPieceBehaviour>();
         }
-        if(healthPoints < 1){
-            if(GetComponentInParent<FleetManager>().myShips.Contains(gameObject)){
+        if (healthPoints < 1)
+        {
+            if (GetComponentInParent<FleetManager>().myShips.Contains(gameObject))
+            {
                 RemoveShipFromFleetPanel();
                 myFleet.myShips.Remove(gameObject);
-            }       
-            occupyingMapPiece?.BroadCastRemoveOccupyingShip(name);          
+            }
+            occupyingMapPiece?.BroadCastRemoveOccupyingShip(name);
             Destroy(transform.gameObject);
+        }
+        if (healthPoints == 1)
+        {
+            GetComponentInChildren<ParticleSystem>().Play();
+        }
+        if (healthPoints == 2) { 
+            GetComponentInChildren<ParticleSystem>().Stop();
         }
     }
 

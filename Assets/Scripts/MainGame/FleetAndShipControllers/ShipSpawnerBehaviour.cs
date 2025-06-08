@@ -107,6 +107,7 @@ public class ShipSpawnerBehaviour : AttributesSync
        _spawnedShipBehaviour.shipGold = 1;
        _spawnedShipBehaviour.isFlagship = true;
        _spawnedShipBehaviour.damageBoost = 1;
+       spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();
        myAvatar.GetComponent<FleetManager>().myPointer.SetupSpline();
 
        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
@@ -133,13 +134,15 @@ public class ShipSpawnerBehaviour : AttributesSync
                 case 4:  _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
                 default: _ship = GameObject.Find("FlagShipYellow(Clone)"); break;
             }
-            
-            if(_ship != null){  
-                _ship.name = "FlagShip" + _avatar.name;          
-                _ship.transform.SetParent(_avatar.transform);
-                _ship.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
-                _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
-                string shipColour = _avatar.GetComponent<FleetManager>().fleetColour; 
+
+        if (_ship != null)
+        {
+            _ship.name = "FlagShip" + _avatar.name;
+            _ship.transform.SetParent(_avatar.transform);
+            _ship.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
+            string shipColour = _avatar.GetComponent<FleetManager>().fleetColour;
+            _ship.GetComponentInChildren<ParticleSystem>().Stop();
             }             
     }
 }
