@@ -31,7 +31,7 @@ public class Ship : AttributesSync
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
-    public float Speed = 10.0f;
+    public float Speed = 20.0f;
     public LayerMask MovementLayer;
     public Alteruna.Avatar fleetsAvatar;
     public AudioSource myAudioSource;
@@ -39,7 +39,8 @@ public class Ship : AttributesSync
     public AudioClip shipBellRingAudioClip;
     public int movementPoints;
     public int actionPoints;
-    [SynchronizableField]public int healthPoints;
+    public bool beingTargeted;
+    [SynchronizableField] public int healthPoints;
     //First digit for fleet position, Second for ship number position
     public List<int> offsetPosition;
     private IconBehaviour myIcon;
@@ -102,8 +103,11 @@ public class Ship : AttributesSync
     }
 
     private void OnMouseEnter(){
-        if(selectingShip){
+        if (selectingShip)
+        {
+            Debug.Log("Moused over ship: " + name);
             GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
+            DisplaySystem.SetDefDisplay(transform.parent.name,healthPoints.ToString(),shipGold.ToString(),damageBoost.ToString(),GetComponentInParent<FleetManager>().victoryPoints.ToString());
         }
         delay = LeanTween.delayedCall(0.2f, ()=>{
             TooltipSystem.SetAllignmentTopLeft();
@@ -453,7 +457,13 @@ public class Ship : AttributesSync
     }
 
     [SynchronizableMethod]
-    private void AskOwnerForAction(int attackerID, string attackerName){
+    private void AskOwnerForAction(int attackerID, string attackerName)
+    {
+        myFleet.MenuController.GetComponent<MenuBehaviour>().DisplayInfoTab();
+        Ship attackingShip = GameObject.Find(attackerName).GetComponent<Ship>();
+        DisplaySystem.SetAttDisplay(attackingShip.transform.parent.name, attackingShip.healthPoints.ToString(), attackingShip.shipGold.ToString(), attackingShip.damageBoost.ToString(), attackingShip.GetComponentInParent<FleetManager>().victoryPoints.ToString());
+        DisplaySystem.SetDefDisplay(transform.parent.name, healthPoints.ToString(), shipGold.ToString(), damageBoost.ToString(), GetComponentInParent<FleetManager>().victoryPoints.ToString());
+
         GameObject tempPanel;
         tempPanel = myFleet.MenuController.GetComponent<MenuBehaviour>().defendingShipOptionsPanel;
         tempPanel.SetActive(true);
@@ -465,33 +475,42 @@ public class Ship : AttributesSync
 
         tempButton = tempPanel.transform.GetChild(1).GetComponent<UnityEngine.UI.Button>();
         tempButton.onClick.RemoveAllListeners();
-        foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
-            if(consumable.consumableIndex == 2 && isFlagship){
-                tempButton.onClick.AddListener(() => UsePassageInDefence(tempButton, consumable,(ushort)attackerID));
+        foreach (Consumable consumable in GetComponentInParent<Inventory>().myConsumables)
+        {
+            if (consumable.consumableIndex == 2 && isFlagship)
+            {
+                tempButton.onClick.AddListener(() => UsePassageInDefence(tempButton, consumable, (ushort)attackerID));
                 tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
-                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
+                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f);
                 a = true;
             }
         }
-        if(!a){
-            tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f/255,79f/255,58f/255);
+        if (!a)
+        {
+            tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f / 255, 79f / 255, 58f / 255);
 
-        }else{
+        }
+        else
+        {
             a = false;
         }
 
         tempButton = tempPanel.transform.GetChild(2).GetComponent<UnityEngine.UI.Button>();
         tempButton.onClick.RemoveAllListeners();
-        foreach(Consumable consumable in GetComponentInParent<Inventory>().myConsumables){
-            if(consumable.consumableIndex == 4){
+        foreach (Consumable consumable in GetComponentInParent<Inventory>().myConsumables)
+        {
+            if (consumable.consumableIndex == 4)
+            {
                 tempButton.onClick.AddListener(() => UseGreekFireInDefence(tempButton, consumable, (ushort)attackerID));
                 tempButton.onClick.AddListener(() => CloseDecisionPanel(tempButton));
-                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f,1f,1f);
+                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(1f, 1f, 1f);
                 a = true;
 
-            }if(!a){
-                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f/255,79f/255,58f/255);
-            }           
+            }
+        }
+        if (!a)
+        {
+                tempButton.gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(96f / 255, 79f / 255, 58f / 255);
         }       
     }
     [SynchronizableMethod]

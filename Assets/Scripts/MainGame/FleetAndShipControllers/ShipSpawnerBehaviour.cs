@@ -81,16 +81,18 @@ public class ShipSpawnerBehaviour : AttributesSync
             GameObject _ownerPlayer = GameObject.Find(_player);   
             Alteruna.Avatar _avatar = _ownerPlayer.GetComponent<Alteruna.Avatar>();
             GameObject _ship = GameObject.Find("Ship 1(Clone)");
-            if(_ship != null){  
-                _ship.name = "Ship" + _avatar.name + _spawnIndex;          
-                _ship.transform.SetParent(_avatar.transform);
-                _ship.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
-                _ship.GetComponent<Ship>().enabled = true;
-                _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
-                _ship.GetComponent<Ship>().offsetPosition[0] =  _ship.GetComponentInParent<FleetManager>().fleetPositionIndex;
-                
-                string shipColour = _avatar.GetComponent<FleetManager>().fleetColour;
-                _ship.GetComponent<Ship>().enabled = false;
+        if (_ship != null)
+        {
+            _ship.name = "Ship" + _avatar.name + _spawnIndex;
+            _ship.transform.SetParent(_avatar.transform);
+            _ship.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            _ship.GetComponent<Ship>().enabled = true;
+            _ship.GetComponent<Ship>().ChangeShipColour(_avatar.GetComponent<FleetManager>().fleetColour);
+            _ship.GetComponent<Ship>().offsetPosition[0] = _ship.GetComponentInParent<FleetManager>().fleetPositionIndex;
+
+            string shipColour = _avatar.GetComponent<FleetManager>().fleetColour;
+            _ship.GetComponent<Ship>().enabled = false;
+            _ship.GetComponentInChildren<ParticleSystem>().Stop();
             }             
     }
     

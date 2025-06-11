@@ -20,6 +20,7 @@ public class MenuBehaviour : AttributesSync
     public GameObject Map;
     public GameObject FlagShipDisplayPrefab;
     public GameObject PreGameMenu;
+    public GameObject InfoTab;
     public Spawner mySpawner;
     public GameObject MultiplayerPanel;
     public GameObject MenuPanel;
@@ -156,21 +157,38 @@ public class MenuBehaviour : AttributesSync
             CrewDisplayPanel.SetActive(false);
         }
     }
-    public void DisplayCrewForPVE(List<CrewMember> myFleetCrew){
 
-        if(CrewDisplayForPVE.activeSelf == false){
+    [SynchronizableMethod]
+    public void DisplayInfoTab()
+    {
+        if (InfoTab.activeSelf)
+        {
+            InfoTab.SetActive(false);
+        }
+        else
+        {
+            InfoTab.SetActive(true);
+        }
+    }
+    public void DisplayCrewForPVE(List<CrewMember> myFleetCrew)
+    {
+
+        if (CrewDisplayForPVE.activeSelf == false)
+        {
             CrewDisplayForPVE.SetActive(true);
             int i = 0;
             foreach (CrewMember ownedCrewMember in myFleetCrew)
             {
-            GameObject _crewMember = Instantiate(crewMemberPrefabPvE);
-            CMBehaviour _cMBehaviour = _crewMember.GetComponent<CMBehaviour>();
-            _cMBehaviour.crewMember = myFleetCrew[i];
-            _cMBehaviour.LoadCardDisplay();
-            _crewMember.transform.SetParent(CrewDisplayForPVE.transform.GetChild(0));         
-            i ++;
+                GameObject _crewMember = Instantiate(crewMemberPrefabPvE);
+                CMBehaviour _cMBehaviour = _crewMember.GetComponent<CMBehaviour>();
+                _cMBehaviour.crewMember = myFleetCrew[i];
+                _cMBehaviour.LoadCardDisplay();
+                _crewMember.transform.SetParent(CrewDisplayForPVE.transform.GetChild(0));
+                i++;
             }
-        }else{
+        }
+        else
+        {
             foreach (Transform _card in CrewDisplayForPVE.transform.GetChild(0))
             {
                 Destroy(_card.gameObject);

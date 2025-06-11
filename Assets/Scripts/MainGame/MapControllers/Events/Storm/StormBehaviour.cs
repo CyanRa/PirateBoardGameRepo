@@ -16,6 +16,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
     [SerializeField]private MapPieceBehaviour occupyingMapPiece;
     [SerializeField]private List<MapPieceBehaviour> StormingMapPieces;
     private RTS_Camera myCamera;
+    private float speed = 20.0f;
     bool isMoving;
     public LayerMask MovementLayer;
 
@@ -78,7 +79,7 @@ public class StormBehaviour : AttributesSync, IBoardEvent
         //myCamera.targetFollow = transform;
 
         while(GetComponent<Transform>().position.x != tempAnchor.position.x && GetComponent<Transform>().position.z != tempAnchor.position.z){
-            GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, tempAnchor.position, 5f*Time.deltaTime);
+            GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, tempAnchor.position, speed*Time.deltaTime);
             GetComponent<Transform>().forward = tempAnchor.position - GetComponent<Transform>().position;
             GetComponent<Transform>().rotation = tempAnchor.rotation;
             yield return null;                       

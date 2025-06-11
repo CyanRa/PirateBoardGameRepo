@@ -91,6 +91,7 @@ public class MapPieceBehaviour : AttributesSync
             myInteractables.Add(MapInteractables.Empty);
         }
         myMapStatus = MapStatus.Empty;
+        tempMaterial = GetComponent<MeshRenderer>().material;
         Invoke("FindPointer", 1);
     }
 
@@ -153,7 +154,6 @@ public class MapPieceBehaviour : AttributesSync
     {
         TooltipSystem.Hide();
         if (movingStorm) { GetComponent<MeshRenderer>().material = allyNeighbouringTerrainMaterial; return; }
-        ;
         if (!isHighlighted)
         {
             ResetMaterial();
