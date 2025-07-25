@@ -129,6 +129,7 @@ public class BattleManager : AttributesSync
         //BREAKS
         
         Button _endCardTurnButton = GameObject.Find("EndCardTurnButton")?.GetComponent<Button>();
+        //No idea why this gives an error
         _endCardTurnButton.onClick.RemoveAllListeners();
         myHand.PurgeUI();
         PurgeDataOfFinishedBattle();

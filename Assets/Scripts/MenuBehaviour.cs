@@ -167,6 +167,7 @@ public class MenuBehaviour : AttributesSync
         }
         else
         {
+
             InfoTab.SetActive(true);
         }
     }
@@ -375,6 +376,7 @@ public class MenuBehaviour : AttributesSync
             DisplayCrewForPVE(Multiplayer.GetAvatar().GetComponent<Hand>().myFleetCrew);
             CrewDisplayForPVE.GetComponent<PvEHandler>().myFleet = _ship.myFleet;
             CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Pirates", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());
+            Destroy(_buttonPrefab.gameObject);
             _ship.SpendActionPoints(1);
         }
 
@@ -389,6 +391,7 @@ public class MenuBehaviour : AttributesSync
             DisplayCrewForPVE(Multiplayer.GetAvatar().GetComponent<Hand>().myFleetCrew);
             CrewDisplayForPVE.GetComponent<PvEHandler>().myFleet = _ship.myFleet;
             CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Sirens", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());
+            Destroy(_buttonPrefab.gameObject);
             _ship.SpendActionPoints(1);
         }
 
@@ -457,6 +460,7 @@ public class MenuBehaviour : AttributesSync
     }
     private void PirateCoveMethod(Ship _ship, GameObject _buttonPrefab){
         if(_ship.shipGold >=1 && _ship.actionPoints > 0){
+            _ship.SpendActionPoints(1);
             _ship.SpendGold(1);
             _ship.myFleet.myInventory.AddConsumable();       
             Destroy(_buttonPrefab);
@@ -472,7 +476,8 @@ public class MenuBehaviour : AttributesSync
         }
     }
     private void RepairAtHarborButtonMethod(Ship _ship, GameObject _buttonPrefab){
-        if(_ship.healthPoints == 1){
+        if(_ship.healthPoints == 1 && _ship.actionPoints > 0){
+            _ship.SpendActionPoints(1);
             _ship.ChangeShipHealth(-1);
         }     
         Destroy(_buttonPrefab);

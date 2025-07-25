@@ -358,7 +358,7 @@ public class FleetManager : AttributesSync
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
         
         if(_BattleManager.shipInCombat.isFlagship){
-            _BattleManager.attackerPower += 1;
+            //sets initial display of your power to 1 to reming the player that they have the bonus. Probably should move this to another class just like the whole method..
             _BattleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = 1.ToString();
         }
         _BattleManager.Commit();
@@ -380,7 +380,7 @@ public class FleetManager : AttributesSync
         _BattleManager.InvokeOpponentHandDisplay(GetComponent<Hand>().myFleetCrew.Count);
         _BattleManager.RequestInvokeOppHandDisplay();
         if(_BattleManager.shipInCombat.isFlagship){
-            _BattleManager.defenderPower += 1;
+            //sets initial display of your power to 1 to reming the player that they have the bonus. Probably should move this to another class just like the whole method..
             _BattleManager.myPowerDisplay.GetComponentInChildren<TextMeshProUGUI>().text = 1.ToString();
         }
         _BattleManager.defendingShip = defender;

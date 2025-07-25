@@ -513,6 +513,17 @@ public class MapPieceBehaviour : AttributesSync
 
     public void BroadCastBeginBattle(string attacker, string defender)
     {
+        List<FleetManager> occupyingFleets = new List<FleetManager>();
+
+        foreach (Ship _ship in occupyingShips)
+        {
+            if (!occupyingFleets.Contains(_ship.GetComponentInParent<FleetManager>()))
+            {
+                occupyingFleets.Add(_ship.GetComponentInParent<FleetManager>());
+            }
+        }
+        if (occupyingFleets.Count == 1) return;
+
         int attackerID = Multiplayer.GetUser().Index;
         InvokeRemoteMethod("BeginBattle", (ushort)attackerID, attacker, defender);
     }
@@ -528,9 +539,13 @@ public class MapPieceBehaviour : AttributesSync
                 occupyingFleets.Add(_ship.GetComponentInParent<FleetManager>());
             }
         }
-        if (occupyingFleet.Count() > 1)
+        if (occupyingFleets.Count() > 1)
         {
             attacker.actionPoints -= 1;
+        }
+        else
+        {
+            return;
         }
         myCamera.transform.LookAt(occupyingShips[0].transform);
         myCamera.targetFollow = occupyingShips[0].transform;

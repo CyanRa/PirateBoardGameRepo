@@ -31,7 +31,8 @@ public class ShipSpawnerBehaviour : AttributesSync
             spawnedShip.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
             string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour; 
             spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;          
-            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);           
+            myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);   
+            spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();        
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);        
             spawnIndex++;    
        }      
@@ -51,7 +52,8 @@ public class ShipSpawnerBehaviour : AttributesSync
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
             spawnedShip.GetComponent<Ship>().enabled = true;
             spawnedShip.GetComponent<Ship>().offsetPosition[0] =  spawnedShip.GetComponentInParent<FleetManager>().fleetPositionIndex;
-            spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);                 
+            spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);   
+            spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();              
             spawnIndex++;    
        }      
     }
@@ -68,6 +70,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, false);                      
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
             spawnedShip.GetComponent<Ship>().enabled = true;
+            
             spawnedShip.GetComponent<Ship>().ChangeShipHealth(1);
             spawnedShip.GetComponent<Ship>().offsetPosition[0] =  spawnedShip.GetComponentInParent<FleetManager>().fleetPositionIndex;
             spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);                 
@@ -83,6 +86,7 @@ public class ShipSpawnerBehaviour : AttributesSync
             GameObject _ship = GameObject.Find("Ship 1(Clone)");
         if (_ship != null)
         {
+            _ship.GetComponentInChildren<ParticleSystem>().Stop();
             _ship.name = "Ship" + _avatar.name + _spawnIndex;
             _ship.transform.SetParent(_avatar.transform);
             _ship.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
@@ -92,7 +96,7 @@ public class ShipSpawnerBehaviour : AttributesSync
 
             string shipColour = _avatar.GetComponent<FleetManager>().fleetColour;
             _ship.GetComponent<Ship>().enabled = false;
-            _ship.GetComponentInChildren<ParticleSystem>().Stop();
+            
             }             
     }
     
