@@ -26,7 +26,7 @@ public class FleetManager : AttributesSync
     public GameObject MenuController;
     public GameObject MultiplayerSystem;
     public bool isMyTurn = false;    
-    private bool isHost;
+    public bool isHost;
     public bool gameStarted = false;
     [SerializeField] TextMeshPro EndTurnText;
     [SerializeField]public string fleetColour;

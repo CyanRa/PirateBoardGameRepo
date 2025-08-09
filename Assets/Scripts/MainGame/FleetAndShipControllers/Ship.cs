@@ -1,4 +1,5 @@
 using UnityEngine;
+
 using Alteruna;
 using Unity.VisualScripting;
 using System.Data;
@@ -31,7 +32,7 @@ public class Ship : AttributesSync
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
-    public float Speed = 20.0f;
+    public float Speed = 35.0f;
     public LayerMask MovementLayer;
     public Alteruna.Avatar fleetsAvatar;
     public AudioSource myAudioSource;
@@ -43,7 +44,8 @@ public class Ship : AttributesSync
     [SynchronizableField] public int healthPoints;
     //First digit for fleet position, Second for ship number position
     public List<int> offsetPosition;
-    private IconBehaviour myIcon;
+    private GameObject myMovementIcon;
+    private GameObject myActionIcon;
     public bool isInsideStorm = false;
     public bool selectingShip;
     public Button button1;
@@ -91,15 +93,32 @@ public class Ship : AttributesSync
         UpdateShipDisplayIcon();
     }
 
-    public void SetIcon(IconBehaviour _icon){
-        myIcon = _icon;
+    public void SetMovementIcon(GameObject _icon){
+        myMovementIcon = _icon;
     }
-    public void UpdateShipDisplayIcon(){
-        if(actionPoints > 0 || movementPoints > 0){
-            myIcon.DisplayColor(true);
-        }else{
-            myIcon.DisplayColor(false);
+    public void SetActionIcon(GameObject _icon){
+        myActionIcon = _icon;
+    }
+    public void UpdateShipDisplayIcon()
+    {
+        if (movementPoints > 0)
+        {
+            myMovementIcon.GetComponent<UnityEngine.UI.Image>().color = new Color32(0, 255, 0, 255);
         }
+        else
+        {
+            myMovementIcon.GetComponent<UnityEngine.UI.Image>().color = new Color32(0, 0, 0, 255);
+        }
+
+        if (actionPoints > 0)
+        {
+            myActionIcon.GetComponent<UnityEngine.UI.Image>().color = new Color32(255, 255, 0, 255);
+        }
+        else
+        {
+            myActionIcon.GetComponent<UnityEngine.UI.Image>().color = new Color32(0, 0, 0, 255);
+        }
+        
     }
 
     private void OnMouseEnter(){

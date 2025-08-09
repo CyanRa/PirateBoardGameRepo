@@ -270,8 +270,9 @@ public class MenuBehaviour : AttributesSync
         shipIconTemp.transform.localScale = new Vector3(1,1,1);
         Button tempButton = shipIconTemp.GetComponentInChildren<Button>();
         Ship _ship = spawnedShip.GetComponent<Ship>();
-        _ship.SetIcon(shipIconTemp.GetComponentInChildren<IconBehaviour>());
-        _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
+        _ship.SetMovementIcon(shipIconTemp.transform.GetChild(0).gameObject);
+        _ship.SetActionIcon(shipIconTemp.transform.GetChild(1).gameObject);
+        _ship.goldDisplay = shipIconTemp.transform.GetChild(4).GetComponentInChildren<TextMeshProUGUI>();
         _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));       
     }
@@ -285,8 +286,9 @@ public class MenuBehaviour : AttributesSync
         shipIconTemp.transform.localScale = new Vector3(1,1,1);
         Button tempButton = shipIconTemp.GetComponentInChildren<Button>();
         Ship _ship = spawnedShip.GetComponent<Ship>();
-        _ship.SetIcon(shipIconTemp.GetComponentInChildren<IconBehaviour>());
-        _ship.goldDisplay = shipIconTemp.transform.GetChild(3).GetComponentInChildren<TextMeshProUGUI>();
+        _ship.SetMovementIcon(shipIconTemp.transform.GetChild(0).gameObject);
+        _ship.SetActionIcon(shipIconTemp.transform.GetChild(1).gameObject);
+        _ship.goldDisplay = shipIconTemp.transform.GetChild(4).GetComponentInChildren<TextMeshProUGUI>();
         _ship.UpdateGoldDisplay();
         tempButton.onClick.AddListener(() => spawnedShip.GetComponent<Ship>().SelectShipFromItsIcon(spawnedShip));      
     }
