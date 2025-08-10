@@ -150,6 +150,7 @@ public class FleetManager : AttributesSync
         {
             SelectedShip.GetComponent<Ship>().ChangeShipColour(fleetColour);
             SelectedShip.GetComponent<Ship>().occupyingMapPiece?.DeHighlightNeighbours();
+            SelectedShip.GetComponent<Ship>().gameObject.transform.GetChild(1).gameObject.SetActive(false);
             SelectedShip = null;
             _fleetState = FleetControlState.SelectingShip;
             

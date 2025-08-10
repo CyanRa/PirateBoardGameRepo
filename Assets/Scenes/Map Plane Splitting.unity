@@ -3722,7 +3722,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   isHighlighted: 0
-  myInteractables: 
+  myInteractables: 03000000
   previewing: 1
   myMapStatus: 0
   isStorming: 0
@@ -4779,6 +4779,7 @@ GameObject:
   - component: {fileID: 182436636}
   - component: {fileID: 182436638}
   - component: {fileID: 182436637}
+  - component: {fileID: 182436639}
   m_Layer: 5
   m_Name: Player's Name
   m_TagString: Untagged
@@ -4802,7 +4803,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &182436637
@@ -4825,7 +4826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Artemona
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4904,6 +4905,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182436635}
   m_CullTransparentMesh: 1
+--- !u!114 &182436639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182436635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86847e5f0eacf204a9a23c9f5a09e1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: c2beb64a-db7a-4d9d-97e3-6b3dd70389ca
+  Reliability: 1
+  LocalMethodBehavior: 1
 --- !u!1 &183636214
 GameObject:
   m_ObjectHideFlags: 0
@@ -22163,7 +22180,7 @@ MonoBehaviour:
   allowTerrainHighlight: 1
   isAttacker: 0
   isHighlighted: 0
-  myInteractables: 0200000003000000
+  myInteractables: 02000000
   previewing: 1
   myMapStatus: 0
   isStorming: 0
@@ -22455,6 +22472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 830934339}
   - component: {fileID: 830934341}
+  - component: {fileID: 830934342}
   - component: {fileID: 830934340}
   m_Layer: 5
   m_Name: Player's Name
@@ -22479,7 +22497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &830934340
@@ -22502,7 +22520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Artemona
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -22581,6 +22599,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830934338}
   m_CullTransparentMesh: 1
+--- !u!114 &830934342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830934338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86847e5f0eacf204a9a23c9f5a09e1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: 6a6553ff-369b-4e38-aa14-378b6417fa2c
+  Reliability: 1
+  LocalMethodBehavior: 1
 --- !u!1001 &837026628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27961,6 +27995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091835202}
   - component: {fileID: 1091835204}
+  - component: {fileID: 1091835205}
   - component: {fileID: 1091835203}
   m_Layer: 5
   m_Name: Player's Name
@@ -27985,7 +28020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091835203
@@ -28008,7 +28043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Artemona
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28087,6 +28122,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091835201}
   m_CullTransparentMesh: 1
+--- !u!114 &1091835205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091835201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86847e5f0eacf204a9a23c9f5a09e1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: e41881c7-055a-4916-866e-291cb50e2372
+  Reliability: 1
+  LocalMethodBehavior: 1
 --- !u!1 &1092489820
 GameObject:
   m_ObjectHideFlags: 0
@@ -30225,6 +30276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204694963}
   - component: {fileID: 1204694965}
+  - component: {fileID: 1204694966}
   - component: {fileID: 1204694964}
   m_Layer: 5
   m_Name: Player's Name
@@ -30249,7 +30301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204694964
@@ -30272,7 +30324,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Artemona
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -30351,6 +30403,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204694962}
   m_CullTransparentMesh: 1
+--- !u!114 &1204694966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204694962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86847e5f0eacf204a9a23c9f5a09e1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Multiplayer: {fileID: 0}
+  _uidString: e60a5427-b770-4005-b5ac-79829500f5a0
+  Reliability: 1
+  LocalMethodBehavior: 1
 --- !u!1 &1205153111
 GameObject:
   m_ObjectHideFlags: 0
@@ -31393,7 +31461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.037436, y: 441.07724}
+  m_AnchoredPosition: {x: -9.912558, y: 453.2046}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -44054,7 +44122,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -50944,6 +51012,18 @@ MonoBehaviour:
           m_StringArgument: Green
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1091835205}
+        m_TargetAssemblyTypeName: PreGameNameDisplay, Assembly-CSharp
+        m_MethodName: BroadcastDisplayName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!33 &524740243671025118
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -54166,6 +54246,18 @@ MonoBehaviour:
           m_StringArgument: Yellow
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 830934342}
+        m_TargetAssemblyTypeName: PreGameNameDisplay, Assembly-CSharp
+        m_MethodName: BroadcastDisplayName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2604933695244125644
 GameObject:
   m_ObjectHideFlags: 0
@@ -56967,6 +57059,18 @@ MonoBehaviour:
           m_StringArgument: Blue
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1204694966}
+        m_TargetAssemblyTypeName: PreGameNameDisplay, Assembly-CSharp
+        m_MethodName: BroadcastDisplayName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &4642707081430517245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59521,6 +59625,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Red
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 182436639}
+        m_TargetAssemblyTypeName: PreGameNameDisplay, Assembly-CSharp
+        m_MethodName: BroadcastDisplayName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6379204560544611931
@@ -62973,7 +63089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8479933969283805202
 MonoBehaviour:
   m_ObjectHideFlags: 0

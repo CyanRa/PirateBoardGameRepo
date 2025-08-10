@@ -32,7 +32,7 @@ public class Ship : AttributesSync
     public FleetManager myFleet;
     public RTS_Camera myCamera;
     private Transform mapPieceAnchor;
-    public float Speed = 35.0f;
+    public float Speed = 100.0f;
     public LayerMask MovementLayer;
     public Alteruna.Avatar fleetsAvatar;
     public AudioSource myAudioSource;
@@ -52,6 +52,10 @@ public class Ship : AttributesSync
     public bool usingGreekFire;
     [SynchronizableField]public int damageBoost = 0;
     public bool hasRetal = false;
+
+    private bool myBool;
+
+    
     
     private bool playingShipSelectSound = false;
 
@@ -121,25 +125,49 @@ public class Ship : AttributesSync
         
     }
 
-    private void OnMouseEnter(){
+    private void OnMouseEnter()
+    {
         if (selectingShip)
         {
             Debug.Log("Moused over ship: " + name);
             GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
-            DisplaySystem.SetDefDisplay(transform.parent.name,healthPoints.ToString(),shipGold.ToString(),damageBoost.ToString(),GetComponentInParent<FleetManager>().victoryPoints.ToString());
+            DisplaySystem.SetDefDisplay(transform.parent.name, healthPoints.ToString(), shipGold.ToString(), damageBoost.ToString(), GetComponentInParent<FleetManager>().victoryPoints.ToString());
         }
-        delay = LeanTween.delayedCall(0.2f, ()=>{
+        delay = LeanTween.delayedCall(0.2f, () =>
+        {
             TooltipSystem.SetAllignmentTopLeft();
-            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP\n" + damageBoost + " Att\n" + GetComponentInParent<Hand>().myFleetCrewCount + " Crew Cards", myFleetName +" 's Fleet");
-        });             
+            TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP\n" + damageBoost + " Att\n" + GetComponentInParent<Hand>().myFleetCrewCount + " Crew Cards", myFleetName + " 's Fleet");
+        });
+        if (myFleet.SelectedShip == null)
+        { 
+            ActivateSelectedAnimation(true);
+        }
+        
+                    
     }
-    private void OnMouseExit(){
-        if(selectingShip){
-            GetComponent<Ship>().ChangeShipColour(transform.GetComponentInParent<FleetManager>().fleetColour); 
+    private void OnMouseExit()
+    {
+        if (selectingShip)
+        {
+            GetComponent<Ship>().ChangeShipColour(transform.GetComponentInParent<FleetManager>().fleetColour);
         }
         LeanTween.cancel(delay.uniqueId);
-        TooltipSystem.Hide();    
+        TooltipSystem.Hide();
+        if (!myFleet.SelectedShip == gameObject) { 
+            ActivateSelectedAnimation(false);
+        }
         
+                
+    }
+    public void ActivateSelectedAnimation(bool a)
+    { if (a)
+        {
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else
+        { 
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        }      
     }
  
     void Update(){
@@ -205,19 +233,18 @@ public class Ship : AttributesSync
                     myFleet.DeselectAll();
                     EnableUnitMovement(this.gameObject, false);
                 }                
-            }            
-        
-    //Locks in movement until final position           
-            if(!isMoving) return;
-            MoveToAnchor(mapPieceAnchor);      
+            }               
     }
-    public void InitSpawnMove(Transform initTransform){	 		            
+    public void InitSpawnMove(Transform initTransform)
+    {
         mapPieceAnchor = initTransform;
+
         occupyingMapPiece = initTransform.GetComponentInParent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
         occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
-        isMoving = true;  
-                   
+        StartCoroutine(StartShipMovementCo(initTransform));
+        //isMoving = true;  
+
     }
 
     public void MoveFromAMapPieceToAMapPiece(RaycastHit _hit){
@@ -237,23 +264,28 @@ public class Ship : AttributesSync
         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
         movementPoints -= 1;
         UpdateShipDisplayIcon();
+        StartCoroutine(StartShipMovementCo(mapPieceAnchor));
         occupyingMapPiece.ResetMaterial();                       
     }
     //For spawning from being bought 
-    public void SpawnShipFromHarbour(Transform _hit){ 
-              
+    public void SpawnShipFromHarbour(Transform _hit)
+    {
         mapPieceAnchor = _hit.GetChild(0).transform;
         occupyingMapPiece = _hit.GetComponent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
         occupyingMapPiece.EnterMapPiece(GetComponent<Ship>(), true);
         occupyingMapPiece.defenderShip = GetComponent<Ship>();
         isMoving = true;
-        actionPoints -=1;
+        actionPoints -= 1;
         movementPoints -= 1;
         UpdateShipDisplayIcon();
         occupyingMapPiece.ResetMaterial();
         myFleet.MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
         ChangeShipColour(myFleet.fleetColour);
+        myFleet.SelectByClicking(gameObject);
+        myFleet.DeselectAll();
+        StartCoroutine(StartShipMovementCo(mapPieceAnchor));
+
                        
     }
     public void MoveToAMapPiece(Transform _mapPiece){       
@@ -263,24 +295,50 @@ public class Ship : AttributesSync
         occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
         occupyingMapPiece.defenderShip = GetComponent<Ship>();
         isMoving = true;
+        StartCoroutine(StartShipMovementCo(_mapPiece));
         gameObject.GetComponent<Ship>().PlayShipBellRingAudioClip();
 
     }
-
-    //TO BE REPLACED WITH SPLINE MOVEMENT
-    public void MoveToAnchor(Transform transform){
+    private IEnumerator StartShipMovementCo(Transform anchor)
+    {
+        Debug.Log("Starter movement coroutine");
         hasRetal = false;
-        if(GetComponent<Transform>().position.x != transform.position.x && GetComponent<Transform>().position.z != transform.position.z){
-            GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed*Time.deltaTime );
-            GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;           
-        }else{
+        while(GetComponent<Transform>().position.x != anchor.position.x && GetComponent<Transform>().position.z != anchor.position.z)
+        {
+            Debug.Log("CO MOVING");
+            GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed * Time.deltaTime);
+            GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;
+            yield return null;
+        }
+               
             isMoving = false;
             OffsetThisShip();
             myFleet.DeselectAll();
             occupyingMapPiece.GetComponentInParent<GameEventManager>().shipMoving = false;
             EnableUnitMovement(this.gameObject, false);
             myCamera.ResetTarget();
-        }        
+            
+        
+    }
+
+    //TO BE REPLACED WITH SPLINE MOVEMENT
+    public void MoveToAnchor(Transform transform)
+    {
+        hasRetal = false;
+        if (GetComponent<Transform>().position.x != transform.position.x && GetComponent<Transform>().position.z != transform.position.z)
+        {
+            GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed * Time.deltaTime);
+            GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;
+        }
+        else
+        {
+            isMoving = false;
+            OffsetThisShip();
+            myFleet.DeselectAll();
+            occupyingMapPiece.GetComponentInParent<GameEventManager>().shipMoving = false;
+            EnableUnitMovement(this.gameObject, false);
+            myCamera.ResetTarget();
+        }
     }
 
     

@@ -52,7 +52,9 @@ public class ShipSpawnerBehaviour : AttributesSync
             BroadcastRemoteMethod("SynchSpawnedShip", spawnedShip.GetComponent<Ship>().myFleet.name,spawnIndex);
             spawnedShip.GetComponent<Ship>().enabled = true;
             spawnedShip.GetComponent<Ship>().offsetPosition[0] =  spawnedShip.GetComponentInParent<FleetManager>().fleetPositionIndex;
-            spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);   
+            spawnedShip.GetComponent<Ship>().SpawnShipFromHarbour(_spawnPoint.parent);
+            myAvatar.GetComponent<FleetManager>().SelectByClicking(spawnedShip);
+            myAvatar.GetComponent<FleetManager>().DeselectAll();
             spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();              
             spawnIndex++;    
        }      

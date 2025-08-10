@@ -54,6 +54,7 @@ public class MenuBehaviour : AttributesSync
     List<int> spawnPoints = new List<int>();
     
     
+    
 #endregion
     public Button StartGameButton;
     public string turnOwner;
@@ -91,8 +92,10 @@ public class MenuBehaviour : AttributesSync
 
     public void ChooseColour(Button _button){
         FleetManager _fleet = Multiplayer.GetAvatar().GetComponent<FleetManager>();
-        if (_fleet.fleetColour==""){
-            BroadcastRemoteMethod("LockInFleetColour", _button.gameObject.name, _fleet.name);           
+        
+        if (_fleet.fleetColour == "")
+        {
+            BroadcastRemoteMethod("LockInFleetColour", _button.gameObject.name, _fleet.name);
         }       
     }
 
@@ -101,6 +104,10 @@ public class MenuBehaviour : AttributesSync
         
         FleetManager _fleet = GameObject.Find(_avatarName).GetComponent<FleetManager>();
         _fleet.fleetColour = _colour;
+        if (_fleet.isHost)
+            { 
+                
+            } 
         Destroy(GameObject.Find(_colour));
     }
     
