@@ -18,7 +18,7 @@ public class DragonBehaviour : AttributesSync, IBoardEvent
         {
             transform.GetChild(0).position = Vector3.MoveTowards(transform.GetChild(0).position, anchor.position, 5f * Time.deltaTime);
             transform.GetChild(0).forward = anchor.position - transform.GetChild(0).position;
-            Debug.Log("Dragon moving");
+            
             yield return null;
         }
         animator.enabled = true;

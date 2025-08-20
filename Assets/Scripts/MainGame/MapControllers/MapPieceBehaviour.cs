@@ -33,7 +33,8 @@ public class MapPieceBehaviour : AttributesSync
     private GameObject PiratePrefab;
     public List<MapInteractables> myInteractables;
     private GameObject pointerObject;
-    public bool previewing = true;
+    private GameEventManager gameEventManager;
+    
 
     public enum MapInteractables
     {
@@ -93,6 +94,7 @@ public class MapPieceBehaviour : AttributesSync
         myMapStatus = MapStatus.Empty;
         tempMaterial = GetComponent<MeshRenderer>().material;
         Invoke("FindPointer", 1);
+        gameEventManager = GetComponentInParent<GameEventManager>();
     }
 
     void FindPointer()
@@ -139,6 +141,7 @@ public class MapPieceBehaviour : AttributesSync
 
     private void OnMouseEnter()
     {
+        if (!gameEventManager.mapPieceSelectable) return;
         if (allowTerrainHighlight)
         {
             tempMaterial = GetComponent<MeshRenderer>().material;
@@ -318,7 +321,10 @@ public class MapPieceBehaviour : AttributesSync
                 break;
             default: break;
         }
+        if (myInteractables[0] == MapInteractables.Empty && myInteractables.Count == 1) return;
+        gameEventManager.mapPieceSelectable = false;
         GenerateInteractable(enteringShip);
+        MenuSystem.DisplayInteractableChoicePanel();
     }
 
     public void EnterMapPiece(Ship enteringShip, bool passiveEntry)
@@ -598,6 +604,8 @@ public class MapPieceBehaviour : AttributesSync
                     
                 default: break;
             }
+        }if (myInteractables.Count == 1 && myInteractables[0] != MapInteractables.Harbor) {
+            _menuBehaviour.InstantiateInteractableButton("Leave" ,_enteringShip, null);
         }
 
     }

@@ -153,9 +153,14 @@ public class Ship : AttributesSync
         }
         LeanTween.cancel(delay.uniqueId);
         TooltipSystem.Hide();
-        if (!myFleet.SelectedShip == gameObject) { 
-            ActivateSelectedAnimation(false);
-        }
+        delay = LeanTween.delayedCall(0.2f, () =>
+        {
+            if (!myFleet.SelectedShip == gameObject)
+            {
+                ActivateSelectedAnimation(false);
+            }
+        });
+        
         
                 
     }
@@ -301,11 +306,11 @@ public class Ship : AttributesSync
     }
     private IEnumerator StartShipMovementCo(Transform anchor)
     {
-        Debug.Log("Starter movement coroutine");
+
         hasRetal = false;
         while(GetComponent<Transform>().position.x != anchor.position.x && GetComponent<Transform>().position.z != anchor.position.z)
         {
-            Debug.Log("CO MOVING");
+
             GetComponent<Transform>().position = Vector3.MoveTowards(GetComponent<Transform>().position, mapPieceAnchor.position, Speed * Time.deltaTime);
             GetComponent<Transform>().forward = mapPieceAnchor.position - GetComponent<Transform>().position;
             yield return null;

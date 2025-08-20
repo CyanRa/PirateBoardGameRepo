@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -22,6 +23,7 @@ public class MenuBehaviour : AttributesSync
     public GameObject PreGameMenu;
     public GameObject InfoTab;
     public Spawner mySpawner;
+    public GameObject InteractablesChoicePanel;
     public GameObject MultiplayerPanel;
     public GameObject MenuPanel;
     public GameObject FleetPanel;
@@ -46,12 +48,15 @@ public class MenuBehaviour : AttributesSync
     public Sprite SirensButtonImage;
     public Sprite DragonButtonImage;
     public Sprite RetalButtonImage;
+    public Sprite LeaveButtonImage;
     public Sprite PiratesButtonImage;
+    public Sprite TavernButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
     public GameObject victoryPanel;
     public List<Transform> SpawnPoints = new List<Transform>();
     List<int> spawnPoints = new List<int>();
+    private GameEventManager gameEventManager;
     
     
     
@@ -68,7 +73,7 @@ public class MenuBehaviour : AttributesSync
     {
         StartGameButton = GameObject.Find("StartGameButton").GetComponent<Button>();
         StartGameButton.onClick.AddListener(BroadCastTriggerStartGame);
-        
+        gameEventManager = GameObject.Find("Map Holder").GetComponent<GameEventManager>();
  
         
     }
@@ -205,6 +210,18 @@ public class MenuBehaviour : AttributesSync
         }
     }
 
+    public void DisplayInteractableChoicePanel()
+    {
+        if (InteractablesChoicePanel.activeSelf)
+        {
+            InteractablesChoicePanel.SetActive(false);
+        }
+        else
+        {
+            InteractablesChoicePanel.SetActive(true);
+        }
+    }
+
 
 
     [SynchronizableMethod]
@@ -316,8 +333,7 @@ public class MenuBehaviour : AttributesSync
         Alteruna.Avatar myAvatar = Multiplayer.GetAvatar();
         myAvatar.GetComponent<FleetManager>().StartGame();
         PreGameMenu.SetActive(false);       
-        Destroy(StartGameButton.gameObject);
-        
+        Destroy(StartGameButton.gameObject);        
     }
     #endregion
 
@@ -327,36 +343,72 @@ public class MenuBehaviour : AttributesSync
     public void InstantiateInteractableButton(string interactable, Ship _ship, Transform _mapPiece)
     {
         FleetManager _fleet = _ship.GetComponentInParent<FleetManager>();
-        GameObject _interactable = Instantiate(InteractableButtonPrefab);
-        _interactable.transform.SetParent(InteractablePanelPrefab.transform);
+        GameObject _interactable = Instantiate(InteractableButtonPrefab, InteractablePanelPrefab.transform);
         Button _button = _interactable.GetComponent<Button>();
+
         switch (interactable)
         {
             case "Tavern":
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = TavernButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Busy Tavern";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "You get a chance to make a name for yourself by buying everyone a round of drinks! Gain one victory point";
                 _button.onClick.AddListener(() => TavernButtonMethod(_ship, _interactable));
                 break;
             case "PirateCove":
-                _interactable.GetComponent<Image>().sprite = PirateCoveButtonSprite;
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = PirateCoveButtonSprite;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Pirate Cove";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Spend 1 gold to get a random power";
                 _button.onClick.AddListener(() => PirateCoveMethod(_ship, _interactable));
                 break;
             case "Harbor":
-                _interactable.GetComponent<Image>().sprite = HarbourButtonSprite;
-                _button.onClick.AddListener(() => HarborButtonMethod(_ship, _interactable, _mapPiece));
+                if (_ship.shipGold >= _ship.myFleet.myShips.Count)
+                {
+                    _interactable.transform.GetChild(0).GetComponent<Image>().sprite = HarbourButtonSprite;
+                    _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Harbor";
+                    _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "You meet a shipmaster open to comission. He offers to construct a fleetship to add to your escadra for " + _ship.myFleet.myShips.Count + " gold";
+                    _button.onClick.AddListener(() => HarborButtonMethod(_ship, _interactable, _mapPiece));
+                }
+                else
+                {
+                    _interactable.transform.GetChild(0).GetComponent<Image>().sprite = HarbourButtonSprite;
+                    _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Harbor";
+                    _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "You can't afford to comission a ship, Dyaaaarrrn it! :(";
+                    Debug.Log("btn destroyed");
+                    Destroy(_button);
+                    _interactable.transform.GetChild(0).GetComponent<Image>().color = Color.grey;
+                }
+                
                 break;
             case "Repair":
-                _interactable.GetComponent<Image>().sprite = RepairButtonSprite;
-                _button.onClick.AddListener(() => RepairAtHarborButtonMethod(_ship, _interactable));
+                if (_ship.healthPoints < 2)
+                {
+                    _interactable.transform.GetChild(0).GetComponent<Image>().sprite = RepairButtonSprite;
+                    _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Repairs";
+                    _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Take some time repairing any damage the ship has suffered";
+                    _button.onClick.AddListener(() => RepairAtHarborButtonMethod(_ship, _interactable));
+                }
+                else
+                {
+                    InstantiateALeaveInteractable(_interactable);
+                }
+                
                 break;
             case "Rumor":
-                _interactable.GetComponent<Image>().sprite = RumorButtonSprite;
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = RumorButtonSprite;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Rumors at Sea";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "A word reaches you about hidden treasure somewhere in the contested sea. Find it and claim it";
                 _button.onClick.AddListener(() => RumorButtonMethod(_interactable, _mapPiece, _ship));
                 break;
             case "Treasure":
-                _interactable.GetComponent<Image>().sprite = TreasureButtonImage;
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = TreasureButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Hidden Treasure";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "The rumours were true! Dublons'o'plenty lie beneath these sands\n Gain 2-4 gold";
                 _button.onClick.AddListener(() => TreasureButtonMethod(_interactable, _ship, _mapPiece));
                 break;
             case "Sirens":
-                _interactable.GetComponent<Image>().sprite = SirensButtonImage;
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = SirensButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Siren's Call";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "You find a ship entranced by prayin sirens' song. Drive them back, and rescue the ship\n 1d6";
                 _button.onClick.AddListener(() => SirensButtonMethod(_interactable, _ship, _mapPiece));
                 break;
             case "Dragon":
@@ -364,18 +416,43 @@ public class MenuBehaviour : AttributesSync
                 _button.onClick.AddListener(() => DragonButtonMethod(_interactable, _ship, _mapPiece));
                 break;
             case "Pirates":
-                _interactable.GetComponent<Image>().sprite = PiratesButtonImage;
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = PiratesButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Rogue Pirate Ship";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "These fools are beyond recruitment. Give them steel and fire, and free their loot!\n 1d4";
                 _button.onClick.AddListener(() => PiratesButtonMethod(_interactable, _ship, _mapPiece));
                 break;
             case "Retal":
-                _interactable.GetComponent<Image>().sprite = RetalButtonImage;
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = PiratesButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Opportunit Attack!";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Use the momentum from combat to re-engage the enemy!\n You will be able to move after this action";
                 _button.onClick.AddListener(() => RetalButtonMethod(_interactable, _ship, _mapPiece));
+                break;
+            case "Leave":
+                InstantiateALeaveInteractable(_interactable);
                 break;
             default:
                 break;
         }
+        _button.onClick.AddListener(() => DisplayInteractableChoicePanel());
+        _button.onClick.AddListener(() => SetMapPieceSelectable(_mapPiece));
         
-        
+    }
+    private void SetMapPieceSelectable(Transform map)
+    {
+        gameEventManager.mapPieceSelectable = true;
+    }
+
+    private void InstantiateALeaveInteractable(GameObject leaveInteractable)
+    { 
+        leaveInteractable.transform.GetChild(0).GetComponent<Image>().sprite = LeaveButtonImage;
+        leaveInteractable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Leave";
+        leaveInteractable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "None of that nonsense thank you very much";
+        Button _button = leaveInteractable.GetComponent<Button>();
+        _button.onClick.AddListener(() => LeaveMethod(_button.gameObject));
+    }
+    private void LeaveMethod(GameObject _buttonPrefab)
+    {
+        Destroy(_buttonPrefab.gameObject);
     }
 
     private void PiratesButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
@@ -391,7 +468,6 @@ public class MenuBehaviour : AttributesSync
 
     }
     
-    
 
     private void SirensButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
@@ -403,7 +479,6 @@ public class MenuBehaviour : AttributesSync
             Destroy(_buttonPrefab.gameObject);
             _ship.SpendActionPoints(1);
         }
-
     }
 
     private void DragonButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
@@ -415,8 +490,7 @@ public class MenuBehaviour : AttributesSync
             CrewDisplayForPVE.GetComponent<PvEHandler>().InitiateEncounter("Dragon", _ship, _mapPiece.gameObject.GetComponent<MapPieceBehaviour>());
             Destroy(_buttonPrefab.gameObject);
             _ship.SpendActionPoints(1);
-        }    
-        
+        }         
     }
     
     private void TreasureButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
@@ -440,9 +514,7 @@ public class MenuBehaviour : AttributesSync
             tempMapPiece.WaitForShipToAttackSelect(_ship);
             Destroy(_buttonPrefab);
         }
-
     }
-
     private void RumorButtonMethod(GameObject _buttonPrefab, Transform _scroll, Ship _ship)
     {
         if (_ship.actionPoints > 0)
@@ -456,7 +528,6 @@ public class MenuBehaviour : AttributesSync
             _mapPiece.GenerateTreasure();
             Destroy(_buttonPrefab);
         }
-
     }
 
     private void TavernButtonMethod(Ship _ship, GameObject _buttonPrefab){
@@ -475,7 +546,6 @@ public class MenuBehaviour : AttributesSync
             Destroy(_buttonPrefab);
         }     
     }
-
     private void HarborButtonMethod(Ship _ship, GameObject _buttonPrefab, Transform _mapPiece){        
         if(_ship.shipGold >= _ship.GetComponentInParent<FleetManager>().myShips.Count && _ship.actionPoints > 0){
             _ship.SpendActionPoints(1);
@@ -503,7 +573,7 @@ public class MenuBehaviour : AttributesSync
             return;
         }       
     }
-     public void ResetInteractablePanel(){
+    public void ResetInteractablePanel(){
         foreach(Transform child in InteractablePanelPrefab.transform){
             Destroy(child.gameObject);
         }

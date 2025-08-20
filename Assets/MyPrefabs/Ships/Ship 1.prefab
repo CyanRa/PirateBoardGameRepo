@@ -150,15 +150,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ef553ab71900d6b459d74230b8299532, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef553ab71900d6b459d74230b8299532, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef553ab71900d6b459d74230b8299532, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef553ab71900d6b459d74230b8299532, type: 3}
       propertyPath: m_LocalPosition.x
@@ -348,8 +348,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.188843, y: 2.4251041, z: 9.268494}
-  m_Center: {x: -0.028686523, y: 1.2125435, z: -0.39627075}
+  m_Size: {x: 8.35791, y: 2.4251041, z: 9.673584}
+  m_Center: {x: 0.18920898, y: 1.2125435, z: -0.19372559}
 --- !u!82 &8912244757005408298
 AudioSource:
   m_ObjectHideFlags: 0

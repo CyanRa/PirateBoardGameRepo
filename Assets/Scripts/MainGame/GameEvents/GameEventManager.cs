@@ -13,6 +13,7 @@ public class GameEventManager : AttributesSync
     [SynchronizableField]public bool mapPreviewing = true;
     [SynchronizableField]public bool shipMoving = false;
     public List<int> boardEvents = new List<int>();
+    public bool mapPieceSelectable = true;
 
     
     public bool GameTurn
