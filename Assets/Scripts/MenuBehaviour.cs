@@ -373,7 +373,6 @@ public class MenuBehaviour : AttributesSync
                     _interactable.transform.GetChild(0).GetComponent<Image>().sprite = HarbourButtonSprite;
                     _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Harbor";
                     _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "You can't afford to comission a ship, Dyaaaarrrn it! :(";
-                    Debug.Log("btn destroyed");
                     Destroy(_button);
                     _interactable.transform.GetChild(0).GetComponent<Image>().color = Color.grey;
                 }
