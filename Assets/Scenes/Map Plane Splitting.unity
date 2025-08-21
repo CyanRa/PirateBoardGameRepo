@@ -32033,9 +32033,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94.598145, y: 441.84448}
+  m_AnchoredPosition: {x: -886.9038, y: -376.39}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1252002802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60103,7 +60103,7 @@ MonoBehaviour:
   RepairButtonSprite: {fileID: 21300000, guid: 39783201d739d3247a623164daa0d357, type: 3}
   RumorButtonSprite: {fileID: 21300000, guid: f1196d1640a2d7c4e99a50d925dcbccf, type: 3}
   PirateCoveButtonSprite: {fileID: 21300000, guid: d8f09580f6871bd4fb4afc735f554d12, type: 3}
-  TreasureButtonImage: {fileID: 21300000, guid: 54aa528ab3a141f4094c598277cacbfc, type: 3}
+  TreasureButtonImage: {fileID: 21300000, guid: 4f39d8723670d3b4788a6217e92443e0, type: 3}
   SirensButtonImage: {fileID: 21300000, guid: dcdc4c0482a6b584794e995f4effe942, type: 3}
   DragonButtonImage: {fileID: 21300000, guid: 1c51a84c494fab44caaba42dbdcc3073, type: 3}
   RetalButtonImage: {fileID: 21300000, guid: 2bb294b0cfc289447a554f96345f71f6, type: 3}
