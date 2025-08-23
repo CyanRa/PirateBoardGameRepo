@@ -34,7 +34,7 @@ public class MapPieceBehaviour : AttributesSync
     public List<MapInteractables> myInteractables;
     private GameObject pointerObject;
     private GameEventManager gameEventManager;
-    
+
 
     public enum MapInteractables
     {
@@ -46,9 +46,11 @@ public class MapPieceBehaviour : AttributesSync
         Empty,
         Sirens,
         Dragon,
-        Pirates
+        Pirates,
+        AnotherPlayer
 
     }
+    List<MapInteractables> interactablesToGenerate;
     public MapStatus myMapStatus;
     public enum MapStatus
     {
@@ -309,15 +311,17 @@ public class MapPieceBehaviour : AttributesSync
                 break;
             case MapStatus.Contested:
                 enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
+                myInteractables.Add(MapInteractables.AnotherPlayer);
                 BroadCastAddOccupyingShip(enteringShip.name);
-                WaitForShipToAttackSelect(enteringShip);
+
+                //WaitForShipToAttackSelect(enteringShip);
 
                 break;
             case MapStatus.Hostile:
                 enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
-                SetMyShipsSelectable();
+                myInteractables.Add(MapInteractables.AnotherPlayer);
                 BroadCastAddOccupyingShip(enteringShip.name);
-                WaitForShipToAttackSelect(enteringShip);
+                //WaitForShipToAttackSelect(enteringShip);
                 break;
             default: break;
         }
@@ -535,7 +539,7 @@ public class MapPieceBehaviour : AttributesSync
     }
     public void WaitForShipToAttackSelect(Ship attacker)
     {
-
+        Debug.Log("SELECTING SHIPS TO ATTACK");
         List<FleetManager> occupyingFleets = new List<FleetManager>();
 
         foreach (Ship _ship in occupyingShips)
@@ -571,10 +575,52 @@ public class MapPieceBehaviour : AttributesSync
     {
         FleetManager _fleet = _enteringShip.myFleet;
         MenuBehaviour _menuBehaviour = _fleet.MenuController.GetComponent<MenuBehaviour>();
-        for (int i = 0; i < myInteractables.Count; i++)
+
+        if (myInteractables.Count > 2)
+        {
+            while (interactablesToGenerate.Count < 2)
+            {
+                if (myInteractables.Contains(MapInteractables.Pirates))
+                {
+                    interactablesToGenerate.Add(MapInteractables.Pirates);
+                }
+                else if (myInteractables.Contains(MapInteractables.Sirens))
+                {
+                    interactablesToGenerate.Add(MapInteractables.Sirens);
+                }
+                else if (myInteractables.Contains(MapInteractables.Dragon))
+                {
+                    interactablesToGenerate.Add(MapInteractables.Dragon);
+                }
+                else if (myInteractables.Contains(MapInteractables.Rumor))
+                {
+                    interactablesToGenerate.Add(MapInteractables.Rumor);
+                }
+                else if (myInteractables.Contains(MapInteractables.Treasure))
+                {
+                    interactablesToGenerate.Add(MapInteractables.Treasure);
+                }
+                else if (myInteractables.Contains(MapInteractables.Dragon))
+                {
+                    interactablesToGenerate.Add(MapInteractables.Dragon);
+                }else if (myInteractables.Contains(MapInteractables.AnotherPlayer))
+                {
+                    interactablesToGenerate.Add(MapInteractables.AnotherPlayer);
+                }
+            }
+        }
+        else
+        {
+            interactablesToGenerate = myInteractables;
+        }
+
+        for (int i = 0; i < interactablesToGenerate.Count; i++)
         {
             switch (myInteractables[i])
             {
+                case MapInteractables.AnotherPlayer:
+                    _menuBehaviour.InstantiateInteractableButton("AnotherPlayer", _enteringShip, gameObject.transform);
+                break;
                 case MapInteractables.Empty: break;
                 case MapInteractables.Harbor:
                     _menuBehaviour.InstantiateInteractableButton("Harbor", _enteringShip, gameObject.transform);
@@ -601,14 +647,19 @@ public class MapPieceBehaviour : AttributesSync
                 case MapInteractables.Pirates:
                     _menuBehaviour.InstantiateInteractableButton("Pirates", _enteringShip, gameObject.transform);
                     break;
-                    
+
                 default: break;
             }
-        }if (myInteractables.Count == 1 && myInteractables[0] != MapInteractables.Harbor) {
-            _menuBehaviour.InstantiateInteractableButton("Leave" ,_enteringShip, null);
         }
+        if (myInteractables.Count == 1 && myInteractables[0] != MapInteractables.Harbor)
+        {
+            _menuBehaviour.InstantiateInteractableButton("Leave", _enteringShip, null);
+        }
+        interactablesToGenerate.Clear();
 
     }
+
+   
 
     public void GeneratePirates()
     {

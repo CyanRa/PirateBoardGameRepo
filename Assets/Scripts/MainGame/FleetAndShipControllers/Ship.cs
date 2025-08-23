@@ -138,10 +138,13 @@ public class Ship : AttributesSync
             TooltipSystem.SetAllignmentTopLeft();
             TooltipSystem.Show(shipGold + " Gold\n" + healthPoints + " HP\n" + damageBoost + " Att\n" + GetComponentInParent<Hand>().myFleetCrewCount + " Crew Cards", myFleetName + " 's Fleet");
         });
-        if (myFleet.SelectedShip == null)
-        { 
-            ActivateSelectedAnimation(true);
+        if (myFleet != null) { 
+            if (myFleet?.SelectedShip == null && myFleet.myShips.Contains(gameObject))
+            {
+                ActivateSelectedAnimation(true);
+            }
         }
+        
         
                     
     }
@@ -155,10 +158,13 @@ public class Ship : AttributesSync
         TooltipSystem.Hide();
         delay = LeanTween.delayedCall(0.2f, () =>
         {
-            if (!myFleet.SelectedShip == gameObject)
-            {
-                ActivateSelectedAnimation(false);
+            if (myFleet != null) { 
+                 if (!myFleet?.SelectedShip == gameObject && myFleet.myShips.Contains(gameObject))
+                {
+                    ActivateSelectedAnimation(false);
+                }
             }
+           
         });
         
         

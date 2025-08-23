@@ -32033,9 +32033,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -886.9038, y: -376.39}
+  m_AnchoredPosition: {x: 93.21859, y: 476.8437}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60110,6 +60110,7 @@ MonoBehaviour:
   LeaveButtonImage: {fileID: 21300000, guid: 53b6f035db5c6b34f956a815dfa9df17, type: 3}
   PiratesButtonImage: {fileID: 21300000, guid: c2d2e9e5dccee2a4d9b5d94dc9e8e854, type: 3}
   TavernButtonImage: {fileID: 21300000, guid: a365f39f4fe7241488e9d97557261942, type: 3}
+  PvPButtonImage: {fileID: 21300000, guid: 2bb294b0cfc289447a554f96345f71f6, type: 3}
   consumablePanel: {fileID: 120128271}
   defendingShipOptionsPanel: {fileID: 1513536470}
   victoryPanel: {fileID: 644333165}

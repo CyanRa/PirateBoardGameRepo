@@ -300,6 +300,7 @@ public class FleetManager : AttributesSync
     }
     
     public IEnumerator SelectShipToAttack(Ship attacker){
+        Debug.Log("ALLOWED FOR SHIP SELECTION");
         attacker.occupyingMapPiece.SetMyShipsSelectable();
         attacker.selectingShip = false;
         bool done = false;

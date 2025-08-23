@@ -51,6 +51,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite LeaveButtonImage;
     public Sprite PiratesButtonImage;
     public Sprite TavernButtonImage;
+    public Sprite PvPButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
     public GameObject victoryPanel;
@@ -348,6 +349,12 @@ public class MenuBehaviour : AttributesSync
 
         switch (interactable)
         {
+            case "AnotherPlayer":
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = PvPButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Hostile Fleet!";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Another great pirate's fleet contests our pressence! We must deal with them immediately";
+                _button.onClick.AddListener(() => _mapPiece.GetComponent<MapPieceBehaviour>().WaitForShipToAttackSelect(_ship));
+                break;
             case "Tavern":
                 _interactable.transform.GetChild(0).GetComponent<Image>().sprite = TavernButtonImage;
                 _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Busy Tavern";
