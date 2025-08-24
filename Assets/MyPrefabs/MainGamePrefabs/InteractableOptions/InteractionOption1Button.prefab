@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f39d8723670d3b4788a6217e92443e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b47edb1c3ec449b4bb6e830e6a2dd91b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -382,8 +382,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 0, y: 68.960205}
+  m_SizeDelta: {x: 150, y: 87.9204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2500127570004725542
 CanvasRenderer:
@@ -413,8 +413,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You find a ship entranced by prayin sirens' song. Drive them back, and
-    rescue the ship
+  m_text: You find a ship entasfsa sfas f sdfg sdg sdg sdg fdh dfh dzh sdfh sdfh
+    sdfh dsfh dfsh sdfh dfsh ad hdaf hfda hdfa hadf hadfh adsf hdaf hah fdah adfh
+    af h
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8937c086951ccdb4f82585a5c101fa33, type: 2}
   m_sharedMaterial: {fileID: -7432920135426044838, guid: 8937c086951ccdb4f82585a5c101fa33, type: 2}

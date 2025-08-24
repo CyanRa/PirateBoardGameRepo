@@ -51,6 +51,7 @@ public class MenuBehaviour : AttributesSync
     public Sprite LeaveButtonImage;
     public Sprite PiratesButtonImage;
     public Sprite TavernButtonImage;
+    public Sprite AltTavernButtonImage;
     public Sprite PvPButtonImage;
     public GameObject consumablePanel;
     public GameObject defendingShipOptionsPanel;
@@ -356,11 +357,22 @@ public class MenuBehaviour : AttributesSync
                 _button.onClick.AddListener(() => _mapPiece.GetComponent<MapPieceBehaviour>().WaitForShipToAttackSelect(_ship));
                 break;
             case "Tavern":
+                if (_ship.shipGold < 1)
+                {
                 _interactable.transform.GetChild(0).GetComponent<Image>().sprite = TavernButtonImage;
-                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "A Busy Tavern";
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Broke Scallywag";
+                _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "Treasureless! You are forced to scuttle on the outskirts of tavern trying to overhear some rumour...\n 50%/50%";
+                _button.onClick.AddListener(() => TryTavernRumorGeneration(_mapPiece, _ship, _interactable));               
+                }
+                else
+                { 
+                _interactable.transform.GetChild(0).GetComponent<Image>().sprite = AltTavernButtonImage;
+                _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Toast and Boast!";
                 _interactable.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = "You get a chance to make a name for yourself by buying everyone a round of drinks! Gain one victory point";
-                _button.onClick.AddListener(() => TavernButtonMethod(_ship, _interactable));
+                _button.onClick.AddListener(() => TavernButtonMethod(_ship,_interactable));
+                }
                 break;
+                
             case "PirateCove":
                 _interactable.transform.GetChild(0).GetComponent<Image>().sprite = PirateCoveButtonSprite;
                 _interactable.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Pirate Cove";
@@ -473,8 +485,27 @@ public class MenuBehaviour : AttributesSync
         }
 
     }
-    
 
+    private void TryTavernRumorGeneration(Transform _mapPieceTransform, Ship _ship, GameObject _buttonPrefab)
+    {
+        
+        int coinFlip = UnityEngine.Random.Range(0, 2);
+        Debug.Log("FLIPPING COIN...... : "+coinFlip);
+        if (coinFlip == 1)
+        {
+            Debug.Log("SUCCESS");
+            if (_ship.actionPoints > 0)
+            {
+                Debug.Log("SPAWNING CHEST");
+                _ship.SpendActionPoints(1);
+                MapPieceBehaviour shipOccupiedMapPiece = _mapPieceTransform.gameObject.GetComponent<MapPieceBehaviour>();
+                int mapNumber = UnityEngine.Random.Range(0, 52);
+                MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
+                _mapPiece.GenerateTreasure();
+                Destroy(_buttonPrefab);
+            }
+        }
+    }
     private void SirensButtonMethod(GameObject _buttonPrefab, Ship _ship, Transform _mapPiece)
     {
         if (_ship.actionPoints > 0)
