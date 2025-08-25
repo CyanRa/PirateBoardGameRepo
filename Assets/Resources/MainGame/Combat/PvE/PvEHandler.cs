@@ -140,7 +140,7 @@ public class PvEHandler : MonoBehaviour
         {
             GameObject rollingDie = transform.GetChild(2).GetChild(1).GetChild(index).gameObject;
             rollingDie.GetComponent<Image>().sprite = diceSides[UnityEngine.Random.Range(0, 5)];
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         transform.GetChild(2).GetChild(1).GetChild(index).gameObject.GetComponent<Image>().sprite = diceSides[roll-1];

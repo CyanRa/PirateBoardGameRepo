@@ -157,19 +157,21 @@ public class FleetManager : AttributesSync
         }       
     }
     
-    public void SelectByClicking(GameObject unit){
+    public void SelectByClicking(GameObject unit)
+    {
         MenuController.GetComponent<MenuBehaviour>().ResetInteractablePanel();
         if (!myShips.Contains(unit)) return;
-        if(_fleetState != FleetControlState.SelectingShip)return;
-        if(SelectedShip != null){
+        if (_fleetState != FleetControlState.SelectingShip) return;
+        if (SelectedShip != null)
+        {
             DeselectAll();
         }
         SelectedShip = unit;
-        if(unit.GetComponent<Ship>().hasRetal){
+        if (unit.GetComponent<Ship>().hasRetal)
+        {
             MenuController.GetComponent<MenuBehaviour>().InstantiateInteractableButton("Retal", unit.GetComponent<Ship>(), unit.GetComponent<Ship>().occupyingMapPiece.transform);
         }
         SetNewShipForPath(unit.name);
-        //BroadcastRemoteMethod("SetNewShipForPath", unit.name);
         shipMaterialColour = SelectedShip.GetComponent<Renderer>().material;
         SelectedShip.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.white);
         unit.GetComponent<Ship>().EnableUnitMovement(unit, true);
@@ -281,26 +283,40 @@ public class FleetManager : AttributesSync
         MainSpawner.SpawnFlagShip();
         myShips[0].GetComponent<Ship>().enabled = true;
     }
+    public void UpgradeThisShipToFlagShip(Ship shipToUpgrade)
+    {
+        Transform Spawn = GameObject.Find(InitSpawnPoint).transform.GetChild(0);
+        MainSpawner.spawnPoint = Spawn;
+        MainSpawner.SpawnFlagshipAsUpgrade(shipToUpgrade.shipGold, shipToUpgrade.occupyingMapPiece.transform.GetChild(0));
+        myShips[0].GetComponent<Ship>().enabled = true;
+        shipToUpgrade.ChangeShipHealth(2);
+    }
 
     #endregion
 
-    public void EnterCombat(string attacker, string defender){
-        foreach(GameObject ship in myShips){
-            if(ship.name == attacker){
+    public void EnterCombat(string attacker, string defender)
+    {
+        foreach (GameObject ship in myShips)
+        {
+            if (ship.name == attacker)
+            {
                 Hand _myHand = GetComponent<Hand>();
                 BattleManager _BattleManager = _myHand.BattleCanvas.transform.GetComponentInParent<BattleManager>();
                 _BattleManager.attackingShip = attacker;
                 EnterCombatAsAttacker(attacker, defender);
-                
-            }else if(ship.name == defender){
+
+            }
+            else if (ship.name == defender)
+            {
                 EnterCombatAsDefender(defender);
-            }else{
+            }
+            else
+            {
             }
         }
     }
     
     public IEnumerator SelectShipToAttack(Ship attacker){
-        Debug.Log("ALLOWED FOR SHIP SELECTION");
         attacker.occupyingMapPiece.SetMyShipsSelectable();
         attacker.selectingShip = false;
         bool done = false;

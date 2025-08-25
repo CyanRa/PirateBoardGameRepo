@@ -892,6 +892,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -2085,6 +2086,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -2648,6 +2650,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -3442,6 +3445,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -3884,6 +3888,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 03000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -5493,6 +5498,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 01000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -6069,6 +6075,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -7049,6 +7056,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -8014,6 +8022,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -9593,6 +9602,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 00000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -10202,6 +10212,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -10630,6 +10641,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -14459,6 +14471,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -16668,6 +16681,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -19360,6 +19374,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 03000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -19609,6 +19624,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -20021,6 +20037,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -20727,6 +20744,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 02000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -21404,6 +21422,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 00000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -21787,6 +21806,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -22155,6 +22175,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -22626,6 +22647,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 02000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -23427,6 +23449,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -24218,6 +24241,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -25420,6 +25444,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -25900,6 +25925,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -27232,6 +27258,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 03000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -29919,6 +29946,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -30879,6 +30907,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -31778,6 +31807,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -32033,7 +32063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 93.21859, y: 476.8437}
+  m_AnchoredPosition: {x: 106.61394, y: 431.72592}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1252002802
@@ -32292,6 +32322,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 01000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -34515,6 +34546,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -36167,6 +36199,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -36648,6 +36681,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -37697,6 +37731,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -38104,6 +38139,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -39383,6 +39419,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -39614,6 +39651,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -39970,6 +40008,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -41398,6 +41437,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -42554,6 +42594,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -43137,6 +43178,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -44137,6 +44179,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -45845,6 +45888,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -46349,6 +46393,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -46670,6 +46715,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 01000000
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -46973,6 +47019,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -47376,6 +47423,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -48100,6 +48148,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -48343,6 +48392,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -48752,6 +48802,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -50754,6 +50805,7 @@ MonoBehaviour:
   isAttacker: 0
   isHighlighted: 0
   myInteractables: 
+  interactablesToGenerate: 
   myMapStatus: 0
   isStorming: 0
   movingStorm: 0
@@ -60101,15 +60153,19 @@ MonoBehaviour:
   treasureChestPrefab: {fileID: 2829670549198595766, guid: 854716df0cefbcb479cd6ccc602de9c7, type: 3}
   HarbourButtonSprite: {fileID: 21300000, guid: ccb7f4626b1b99b47a44a1b1c2cf7cb2, type: 3}
   RepairButtonSprite: {fileID: 21300000, guid: 39783201d739d3247a623164daa0d357, type: 3}
+  UpgradeButtonSprite: {fileID: 21300000, guid: ccb7f4626b1b99b47a44a1b1c2cf7cb2, type: 3}
   RumorButtonSprite: {fileID: 21300000, guid: f1196d1640a2d7c4e99a50d925dcbccf, type: 3}
   PirateCoveButtonSprite: {fileID: 21300000, guid: d8f09580f6871bd4fb4afc735f554d12, type: 3}
+  AltPirateCoveButtonSprite: {fileID: 21300000, guid: 1c8eb4a6923f9294abb04362e797db6a, type: 3}
   TreasureButtonImage: {fileID: 21300000, guid: 4f39d8723670d3b4788a6217e92443e0, type: 3}
   SirensButtonImage: {fileID: 21300000, guid: dcdc4c0482a6b584794e995f4effe942, type: 3}
-  DragonButtonImage: {fileID: 21300000, guid: 1c51a84c494fab44caaba42dbdcc3073, type: 3}
+  DragonButtonImage: {fileID: 21300000, guid: d61756b9994b41849bfeee83458c7eae, type: 3}
   RetalButtonImage: {fileID: 21300000, guid: 2bb294b0cfc289447a554f96345f71f6, type: 3}
   LeaveButtonImage: {fileID: 21300000, guid: 53b6f035db5c6b34f956a815dfa9df17, type: 3}
+  CantLeaveButtonImage: {fileID: 21300000, guid: 69a7bc64fdeec054faf0f2913846f122, type: 3}
   PiratesButtonImage: {fileID: 21300000, guid: c2d2e9e5dccee2a4d9b5d94dc9e8e854, type: 3}
   TavernButtonImage: {fileID: 21300000, guid: a365f39f4fe7241488e9d97557261942, type: 3}
+  AltTavernButtonImage: {fileID: 21300000, guid: db71477a52ebea44e8a898fc6538ddb9, type: 3}
   PvPButtonImage: {fileID: 21300000, guid: 2bb294b0cfc289447a554f96345f71f6, type: 3}
   consumablePanel: {fileID: 120128271}
   defendingShipOptionsPanel: {fileID: 1513536470}

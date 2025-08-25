@@ -51,7 +51,7 @@ public class MapPieceBehaviour : AttributesSync
         Leave
 
     }
-    List<MapInteractables> interactablesToGenerate;
+    [SerializeField]List<MapInteractables> interactablesToGenerate;
     public MapStatus myMapStatus;
     public enum MapStatus
     {
@@ -312,17 +312,17 @@ public class MapPieceBehaviour : AttributesSync
                 break;
             case MapStatus.Contested:
                 enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
-                myInteractables.Add(MapInteractables.AnotherPlayer);
+                if (GetAmountOfOccupyingFleets().Count > 1) { 
+                    myInteractables.Add(MapInteractables.AnotherPlayer);
+                }
                 BroadCastAddOccupyingShip(enteringShip.name);
-
-                //WaitForShipToAttackSelect(enteringShip);
-
                 break;
             case MapStatus.Hostile:
                 enteringShip.offsetPosition[1] = FriendlyShipCount(enteringShip);
-                myInteractables.Add(MapInteractables.AnotherPlayer);
+                if (GetAmountOfOccupyingFleets().Count > 1) { 
+                    myInteractables.Add(MapInteractables.AnotherPlayer);
+                }             
                 BroadCastAddOccupyingShip(enteringShip.name);
-                //WaitForShipToAttackSelect(enteringShip);
                 break;
             default: break;
         }
@@ -449,15 +449,9 @@ public class MapPieceBehaviour : AttributesSync
     [SynchronizableMethod]
     private void SynchMapStatus()
     {
-        List<FleetManager> occupyingFleets = new List<FleetManager>();
+        
 
-        foreach (Ship _ship in occupyingShips)
-        {
-            if (!occupyingFleets.Contains(_ship.GetComponentInParent<FleetManager>()))
-            {
-                occupyingFleets.Add(_ship.GetComponentInParent<FleetManager>());
-            }
-        }
+        List<FleetManager> occupyingFleets = GetAmountOfOccupyingFleets();
 
         if (occupyingFleets.Count > 1 && !occupyingFleets.Contains(Multiplayer.GetAvatar().GetComponent<FleetManager>()) || myInteractables.Contains(MapInteractables.Sirens) || myInteractables.Contains(MapInteractables.Dragon) || myInteractables.Contains(MapInteractables.Pirates))
         {
@@ -482,6 +476,19 @@ public class MapPieceBehaviour : AttributesSync
         {
             SetMapPieceEmpty();
         }
+    }
+
+    private List<FleetManager> GetAmountOfOccupyingFleets() {
+        List<FleetManager> occupyingFleets = new List<FleetManager>();
+
+        foreach (Ship _ship in occupyingShips)
+        {
+            if (!occupyingFleets.Contains(_ship.GetComponentInParent<FleetManager>()))
+            {
+                occupyingFleets.Add(_ship.GetComponentInParent<FleetManager>());
+            }
+        }
+        return occupyingFleets;
     }
     [SynchronizableMethod]
     private void SetMapPieceAllied()
@@ -575,6 +582,7 @@ public class MapPieceBehaviour : AttributesSync
     {
         FleetManager _fleet = _enteringShip.myFleet;
         MenuBehaviour _menuBehaviour = _fleet.MenuController.GetComponent<MenuBehaviour>();
+        bool canLeave = true;
 
         if (myInteractables.Count > 2)
         {
@@ -612,12 +620,17 @@ public class MapPieceBehaviour : AttributesSync
         }
         else if (myInteractables[0] != MapInteractables.Harbor)
         {
+
             interactablesToGenerate = myInteractables.ToList();
             interactablesToGenerate.Add(MapInteractables.Leave);
         }
         else
         {
             interactablesToGenerate = myInteractables.ToList();
+        }
+        if (interactablesToGenerate.Contains(MapInteractables.AnotherPlayer) || interactablesToGenerate.Contains(MapInteractables.Pirates) || interactablesToGenerate.Contains(MapInteractables.Sirens) || interactablesToGenerate.Contains(MapInteractables.Dragon))
+        {
+            canLeave = false;
         }
 
         for (int i = 0; i < interactablesToGenerate.Count; i++)
@@ -626,7 +639,7 @@ public class MapPieceBehaviour : AttributesSync
             {
                 case MapInteractables.AnotherPlayer:
                     _menuBehaviour.InstantiateInteractableButton("AnotherPlayer", _enteringShip, gameObject.transform);
-                break;
+                    break;
                 case MapInteractables.Empty: break;
                 case MapInteractables.Harbor:
                     _menuBehaviour.InstantiateInteractableButton("Harbor", _enteringShip, gameObject.transform);
@@ -654,8 +667,17 @@ public class MapPieceBehaviour : AttributesSync
                     _menuBehaviour.InstantiateInteractableButton("Pirates", _enteringShip, gameObject.transform);
                     break;
                 case MapInteractables.Leave:
-                    _menuBehaviour.InstantiateInteractableButton("Leave", _enteringShip, gameObject.transform);
+                    if (canLeave)
+                    {
+                        _menuBehaviour.InstantiateInteractableButton("Leave", _enteringShip, gameObject.transform);
+                    }
+                    else
+                    { 
+                        _menuBehaviour.InstantiateInteractableButton("CantLeave", _enteringShip, gameObject.transform);
+                    }
+                    
                     break;
+
 
                 default: break;
             }

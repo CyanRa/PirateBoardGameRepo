@@ -39,13 +39,30 @@ public class CMSaveLoadHandler : AttributesSync
             CrewMember _crewMember = DrawPileCrewMember[0];
             BroadcastRemoteMethod("RemoveTopCardFromCrewMemberDeck");
             return _crewMember; 
+        }       
+    }
+    public CrewMember ReturnDrawOnePowerCard()
+    {
+        if (DrawPileCrewMember.Any(f => f.crewMemberName == "Swinging Swashbuckler"))
+        {
+            int index = DrawPileCrewMember.FindIndex(a => a.crewMemberName == "Swinging Swashbuckler");
+            CrewMember _crewMember = DrawPileCrewMember[index];
+            BroadcastRemoteMethod("RemoveIndexCardFromCrewMemberDeck", index);
+            return _crewMember;
         }
-            
+        else
+        {
+            return null;
+        }
     }
 
     [SynchronizableMethod]
     public void RemoveTopCardFromCrewMemberDeck(){
         DrawPileCrewMember.RemoveAt(0);
+    }
+    [SynchronizableMethod]
+    public void RemoveIndexCardFromCrewMemberDeck(int index){
+        DrawPileCrewMember.RemoveAt(index);
     }
 
 

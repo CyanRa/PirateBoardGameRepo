@@ -50,10 +50,12 @@ public class Hand : AttributesSync
         battleManager = BattleCanvas.GetComponentInParent<BattleManager>();
         BattleCanvas.SetActive(false);
     }
+  
+
 
     public void InstantiateHand()
     {
-        
+
         int i = 0;
         foreach (CrewMember ownedCrewMember in myFleetCrew)
         {
@@ -64,7 +66,7 @@ public class Hand : AttributesSync
             _cMBehaviour.LoadCardDisplay();
             _crewMember.transform.SetParent(handZone);
             _cMBehaviour.committedZone = committedZone;
-            i ++;
+            i++;
         }
         SortHand();
     }
@@ -148,8 +150,18 @@ public class Hand : AttributesSync
         }
         
     }
-    public void DrawNCards(int amountOfCardsToDraw){
-        for(int i = 0; i < amountOfCardsToDraw; i++){
+      public void DrawAOnePowerCard()
+    { 
+        if(avatar.IsMe){
+            myFleetCrew.Add(_cMSaveLoadHandler.ReturnDrawOnePowerCard());
+            SortHand();
+            myFleetCrewCount += 1;
+        }
+    }
+    public void DrawNCards(int amountOfCardsToDraw)
+    {
+        for (int i = 0; i < amountOfCardsToDraw; i++)
+        {
             DrawCard();
         }
     }

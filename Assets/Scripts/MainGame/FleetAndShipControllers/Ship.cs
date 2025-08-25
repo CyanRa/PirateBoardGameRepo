@@ -195,7 +195,6 @@ public class Ship : AttributesSync
                     mapPieceAnchor = hit.transform.GetChild(0).transform;
                     occupyingMapPiece = hit.transform.GetComponent<MapPieceBehaviour>();
                     occupyingMapPieceName = occupyingMapPiece.name;
-                    //OccupyMapPiece(true);
                     occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
                     isMoving = true;
                 }    
@@ -252,7 +251,7 @@ public class Ship : AttributesSync
 
         occupyingMapPiece = initTransform.GetComponentInParent<MapPieceBehaviour>();
         occupyingMapPieceName = occupyingMapPiece.name;
-        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>());
+        occupyingMapPiece.EnterMapPiece(GetComponent<Ship>(), true);
         StartCoroutine(StartShipMovementCo(initTransform));
         //isMoving = true;  
 
@@ -367,6 +366,9 @@ public class Ship : AttributesSync
     public void ChangeShipHealth(int damage){
         myFleet = GetComponentInParent<FleetManager>();
         healthPoints -= damage;
+        if (healthPoints < 1) {
+            myFleet._fleetState = FleetManager.FleetControlState.SelectingShip;
+        }
         BroadcastRemoteMethod("CheckShipStatus");
 
     }

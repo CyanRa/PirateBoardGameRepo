@@ -101,28 +101,53 @@ public class ShipSpawnerBehaviour : AttributesSync
             
             }             
     }
+
+    public void SpawnFlagshipAsUpgrade(int goldToTransfer, Transform position)
+    { 
+        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
+        spawnedShip.name = "FlagShip" + myAvatar.name;
+        spawnedShip.transform.SetParent(myAvatar.transform);
+        spawnedShip.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;
+        string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;
+
+        Ship _spawnedShipBehaviour = spawnedShip.GetComponent<Ship>();
+        _spawnedShipBehaviour.ChangeShipColour(shipColour);
+        _spawnedShipBehaviour.shipGold = 1;
+        _spawnedShipBehaviour.isFlagship = true;
+        _spawnedShipBehaviour.damageBoost = 1;
+        spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();
+        myAvatar.GetComponent<FleetManager>().myPointer.SetupSpline();
+
+        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
+        BroadcastRemoteMethod("SynchSpawnedFlagShip", spawnedShip.GetComponent<Ship>().myFleet.name);
+        spawnedShip.GetComponent<Ship>().InitSpawnMove(position);
+
+        spawnIndex++;
+    }
     
-    public void SpawnFlagShip(){
-       GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
-       spawnedShip.name = "FlagShip" + myAvatar.name;
-       spawnedShip.transform.SetParent(myAvatar.transform);
-       spawnedShip.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
-       spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;
-       string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;
+    public void SpawnFlagShip()
+    {
+        GameObject spawnedShip = mySpawner.Spawn(1, spawnPoint.position);
+        spawnedShip.name = "FlagShip" + myAvatar.name;
+        spawnedShip.transform.SetParent(myAvatar.transform);
+        spawnedShip.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        spawnedShip.GetComponent<Ship>().fleetsAvatar = myAvatar;
+        string shipColour = myAvatar.GetComponent<FleetManager>().fleetColour;
 
-       Ship _spawnedShipBehaviour = spawnedShip.GetComponent<Ship>();  
-       _spawnedShipBehaviour.ChangeShipColour(shipColour);
-       _spawnedShipBehaviour.shipGold = 1;
-       _spawnedShipBehaviour.isFlagship = true;
-       _spawnedShipBehaviour.damageBoost = 1;
-       spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();
-       myAvatar.GetComponent<FleetManager>().myPointer.SetupSpline();
+        Ship _spawnedShipBehaviour = spawnedShip.GetComponent<Ship>();
+        _spawnedShipBehaviour.ChangeShipColour(shipColour);
+        _spawnedShipBehaviour.shipGold = 1;
+        _spawnedShipBehaviour.isFlagship = true;
+        _spawnedShipBehaviour.damageBoost = 1;
+        spawnedShip.GetComponentInChildren<ParticleSystem>().Stop();
+        myAvatar.GetComponent<FleetManager>().myPointer.SetupSpline();
 
-       myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
-       BroadcastRemoteMethod("SynchSpawnedFlagShip", spawnedShip.GetComponent<Ship>().myFleet.name);      
-       spawnedShip.GetComponent<Ship>().InitSpawnMove(spawnPoint);
-       
-       spawnIndex++;      
+        myAvatar.GetComponent<FleetManager>().AddShipToFleet(spawnedShip, true);
+        BroadcastRemoteMethod("SynchSpawnedFlagShip", spawnedShip.GetComponent<Ship>().myFleet.name);
+        spawnedShip.GetComponent<Ship>().InitSpawnMove(spawnPoint);
+
+        spawnIndex++;
     }
 
     [SynchronizableMethod]
