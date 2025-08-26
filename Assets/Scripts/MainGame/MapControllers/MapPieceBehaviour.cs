@@ -90,10 +90,7 @@ public class MapPieceBehaviour : AttributesSync
                 SpawnRumorScroll();
             }
         }
-        if (myInteractables.Count == 0)
-        {
-            myInteractables.Add(MapInteractables.Empty);
-        }
+        
         myMapStatus = MapStatus.Empty;
         tempMaterial = GetComponent<MeshRenderer>().material;
         Invoke("FindPointer", 1);
@@ -130,7 +127,11 @@ public class MapPieceBehaviour : AttributesSync
     private void OnMouseDown()
     {
         TooltipSystem.SetAllignmentMiddle();
-        TooltipSystem.Show(myInteractables[0].ToString());
+        if (myInteractables.Count != 0)
+        { 
+            TooltipSystem.Show(myInteractables[0].ToString());
+        }
+        
         if (selectableMode)
         {
             ReturnThisMapPiece();
@@ -600,6 +601,10 @@ public class MapPieceBehaviour : AttributesSync
                 {
                     interactablesToGenerate.Add(MapInteractables.Dragon);
                 }
+                else if (myInteractables.Contains(MapInteractables.AnotherPlayer))
+                {
+                    interactablesToGenerate.Add(MapInteractables.AnotherPlayer);
+                }
                 else if (myInteractables.Contains(MapInteractables.Rumor))
                 {
                     interactablesToGenerate.Add(MapInteractables.Rumor);
@@ -612,13 +617,10 @@ public class MapPieceBehaviour : AttributesSync
                 {
                     interactablesToGenerate.Add(MapInteractables.Dragon);
                 }
-                else if (myInteractables.Contains(MapInteractables.AnotherPlayer))
-                {
-                    interactablesToGenerate.Add(MapInteractables.AnotherPlayer);
-                }
+                
             }
         }
-        else if (myInteractables[0] != MapInteractables.Harbor)
+        else if (myInteractables[0] != MapInteractables.Harbor && myInteractables.Count < 2)
         {
 
             interactablesToGenerate = myInteractables.ToList();
@@ -689,6 +691,7 @@ public class MapPieceBehaviour : AttributesSync
         if (myInteractables.Contains(MapInteractables.AnotherPlayer)) {
             myInteractables.Remove(MapInteractables.AnotherPlayer);
         }
+        
         interactablesToGenerate.Clear();
 
     }
