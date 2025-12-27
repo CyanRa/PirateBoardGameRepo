@@ -327,7 +327,7 @@ public class MapPieceBehaviour : AttributesSync
                 break;
             default: break;
         }
-        if (myInteractables[0] == MapInteractables.Empty && myInteractables.Count == 1) return;
+        if (myInteractables.Count == 0) return;
         gameEventManager.mapPieceSelectable = false;
         GenerateInteractable(enteringShip);
         MenuSystem.DisplayInteractableChoicePanel();
@@ -587,6 +587,7 @@ public class MapPieceBehaviour : AttributesSync
 
         if (myInteractables.Count > 2)
         {
+            
             while (interactablesToGenerate.Count < 2)
             {
                 if (myInteractables.Contains(MapInteractables.Pirates))

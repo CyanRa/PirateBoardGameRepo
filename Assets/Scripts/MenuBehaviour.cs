@@ -253,7 +253,6 @@ public class MenuBehaviour : AttributesSync
         BroadcastRemoteMethod("DisplayListOfPlayers", listOfUsers);
     }
 
-
     private void GenerateInitSpawnPointsAndSendToUsers(List<String> players)
     {       
         spawnPoints.Add(0);
@@ -273,8 +272,6 @@ public class MenuBehaviour : AttributesSync
     private void SpawnFlagShips(List<int> spawnPoints){
         Multiplayer.GetAvatar().GetComponent<FleetManager>().SpawnFlagShipsAtRandomSpawns(spawnPoints);
     }
-    
-    
 
     [SynchronizableMethod]
     public void DisplayListOfPlayers(List<string> listOfUsers){
@@ -291,7 +288,6 @@ public class MenuBehaviour : AttributesSync
     }
 
     
-
     public void AddShipToUI(GameObject spawnedShip, int index){
         GameObject shipIconTemp = Instantiate(ShipDisplayPrefab);       
         shipIconTemp.GetComponentInChildren<TextMeshProUGUI>().text = index.ToString();
@@ -585,7 +581,21 @@ public class MenuBehaviour : AttributesSync
             MapPieceBehaviour shipOccupiedMapPiece = GameObject.Find(_ship.occupyingMapPieceName).GetComponent<MapPieceBehaviour>();
             shipOccupiedMapPiece.BroadcastRemoveRumor();
             SpawnRumor();
+
+            bool foundNonHarbour = false;
             int mapNumber = UnityEngine.Random.Range(0, 52);
+            while (!foundNonHarbour)
+            {                
+                if (Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>().myInteractables.Contains(MapPieceBehaviour.MapInteractables.Harbor))
+                {
+                    mapNumber = UnityEngine.Random.Range(0, 52);
+                }
+                else
+                {
+                    foundNonHarbour = true;                   
+                }
+            }
+            
             MapPieceBehaviour _mapPiece = Map.transform.GetChild(mapNumber).GetComponent<MapPieceBehaviour>();
             _mapPiece.GenerateTreasure();
             Destroy(_buttonPrefab);
